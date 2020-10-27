@@ -10,7 +10,8 @@ type AppCatalogsRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AppCatalogsRequest
 func (b *AppCatalogsRequestBuilder) Request() *AppCatalogsRequest {
 	return &AppCatalogsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type AppLogCollectionRequestObjectRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AppLogCollectionRequestObjectRequest
 func (b *AppLogCollectionRequestObjectRequestBuilder) Request() *AppLogCollectionRequestObjectRequest {
 	return &AppLogCollectionRequestObjectRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type AppRoleAssignmentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AppRoleAssignmentRequest
 func (b *AppRoleAssignmentRequestBuilder) Request() *AppRoleAssignmentRequest {
 	return &AppRoleAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -109,7 +112,8 @@ type AppVulnerabilityManagedDeviceRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AppVulnerabilityManagedDeviceRequest
 func (b *AppVulnerabilityManagedDeviceRequestBuilder) Request() *AppVulnerabilityManagedDeviceRequest {
 	return &AppVulnerabilityManagedDeviceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -142,7 +146,8 @@ type AppVulnerabilityMobileAppRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AppVulnerabilityMobileAppRequest
 func (b *AppVulnerabilityMobileAppRequestBuilder) Request() *AppVulnerabilityMobileAppRequest {
 	return &AppVulnerabilityMobileAppRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -175,7 +180,8 @@ type AppVulnerabilityTaskRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AppVulnerabilityTaskRequest
 func (b *AppVulnerabilityTaskRequestBuilder) Request() *AppVulnerabilityTaskRequest {
 	return &AppVulnerabilityTaskRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -219,7 +225,8 @@ type AppLogCollectionRequestObjectCreateDownloadURLRequest struct{ BaseRequest }
 //
 func (b *AppLogCollectionRequestObjectCreateDownloadURLRequestBuilder) Request() *AppLogCollectionRequestObjectCreateDownloadURLRequest {
 	return &AppLogCollectionRequestObjectCreateDownloadURLRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

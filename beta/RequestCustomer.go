@@ -10,7 +10,8 @@ type CustomerRequestBuilder struct{ BaseRequestBuilder }
 // Request returns CustomerRequest
 func (b *CustomerRequestBuilder) Request() *CustomerRequest {
 	return &CustomerRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type CustomerPaymentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns CustomerPaymentRequest
 func (b *CustomerPaymentRequestBuilder) Request() *CustomerPaymentRequest {
 	return &CustomerPaymentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type CustomerPaymentJournalRequestBuilder struct{ BaseRequestBuilder }
 // Request returns CustomerPaymentJournalRequest
 func (b *CustomerPaymentJournalRequestBuilder) Request() *CustomerPaymentJournalRequest {
 	return &CustomerPaymentJournalRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -10,7 +10,8 @@ type SettingStateDeviceSummaryRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SettingStateDeviceSummaryRequest
 func (b *SettingStateDeviceSummaryRequestBuilder) Request() *SettingStateDeviceSummaryRequest {
 	return &SettingStateDeviceSummaryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

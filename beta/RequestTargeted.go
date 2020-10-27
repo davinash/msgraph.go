@@ -17,7 +17,8 @@ type TargetedManagedAppConfigurationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns TargetedManagedAppConfigurationRequest
 func (b *TargetedManagedAppConfigurationRequestBuilder) Request() *TargetedManagedAppConfigurationRequest {
 	return &TargetedManagedAppConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -50,7 +51,8 @@ type TargetedManagedAppPolicyAssignmentRequestBuilder struct{ BaseRequestBuilder
 // Request returns TargetedManagedAppPolicyAssignmentRequest
 func (b *TargetedManagedAppPolicyAssignmentRequestBuilder) Request() *TargetedManagedAppPolicyAssignmentRequest {
 	return &TargetedManagedAppPolicyAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -83,7 +85,8 @@ type TargetedManagedAppProtectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns TargetedManagedAppProtectionRequest
 func (b *TargetedManagedAppProtectionRequestBuilder) Request() *TargetedManagedAppProtectionRequest {
 	return &TargetedManagedAppProtectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -127,7 +130,8 @@ type TargetedManagedAppConfigurationCollectionHasPayloadLinksRequest struct{ Bas
 //
 func (b *TargetedManagedAppConfigurationCollectionHasPayloadLinksRequestBuilder) Request() *TargetedManagedAppConfigurationCollectionHasPayloadLinksRequest {
 	return &TargetedManagedAppConfigurationCollectionHasPayloadLinksRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -214,7 +218,8 @@ type TargetedManagedAppConfigurationAssignRequest struct{ BaseRequest }
 //
 func (b *TargetedManagedAppConfigurationAssignRequestBuilder) Request() *TargetedManagedAppConfigurationAssignRequest {
 	return &TargetedManagedAppConfigurationAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -240,7 +245,8 @@ type TargetedManagedAppConfigurationTargetAppsRequest struct{ BaseRequest }
 //
 func (b *TargetedManagedAppConfigurationTargetAppsRequestBuilder) Request() *TargetedManagedAppConfigurationTargetAppsRequest {
 	return &TargetedManagedAppConfigurationTargetAppsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -266,7 +272,8 @@ type TargetedManagedAppProtectionAssignRequest struct{ BaseRequest }
 //
 func (b *TargetedManagedAppProtectionAssignRequestBuilder) Request() *TargetedManagedAppProtectionAssignRequest {
 	return &TargetedManagedAppProtectionAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

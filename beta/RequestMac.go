@@ -10,7 +10,8 @@ type MacManagedAppProtectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns MacManagedAppProtectionRequest
 func (b *MacManagedAppProtectionRequestBuilder) Request() *MacManagedAppProtectionRequest {
 	return &MacManagedAppProtectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type MacOSCertificateProfileBaseRequestBuilder struct{ BaseRequestBuilder }
 // Request returns MacOSCertificateProfileBaseRequest
 func (b *MacOSCertificateProfileBaseRequestBuilder) Request() *MacOSCertificateProfileBaseRequest {
 	return &MacOSCertificateProfileBaseRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type MacOSDeviceFeaturesConfigurationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns MacOSDeviceFeaturesConfigurationRequest
 func (b *MacOSDeviceFeaturesConfigurationRequestBuilder) Request() *MacOSDeviceFeaturesConfigurationRequest {
 	return &MacOSDeviceFeaturesConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -109,7 +112,8 @@ type MacOSEnterpriseWiFiConfigurationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns MacOSEnterpriseWiFiConfigurationRequest
 func (b *MacOSEnterpriseWiFiConfigurationRequestBuilder) Request() *MacOSEnterpriseWiFiConfigurationRequest {
 	return &MacOSEnterpriseWiFiConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -142,7 +146,8 @@ type MacOSImportedPFXCertificateProfileRequestBuilder struct{ BaseRequestBuilder
 // Request returns MacOSImportedPFXCertificateProfileRequest
 func (b *MacOSImportedPFXCertificateProfileRequestBuilder) Request() *MacOSImportedPFXCertificateProfileRequest {
 	return &MacOSImportedPFXCertificateProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -175,7 +180,8 @@ type MacOSPkcsCertificateProfileRequestBuilder struct{ BaseRequestBuilder }
 // Request returns MacOSPkcsCertificateProfileRequest
 func (b *MacOSPkcsCertificateProfileRequestBuilder) Request() *MacOSPkcsCertificateProfileRequest {
 	return &MacOSPkcsCertificateProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -208,7 +214,8 @@ type MacOSScepCertificateProfileRequestBuilder struct{ BaseRequestBuilder }
 // Request returns MacOSScepCertificateProfileRequest
 func (b *MacOSScepCertificateProfileRequestBuilder) Request() *MacOSScepCertificateProfileRequest {
 	return &MacOSScepCertificateProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -241,7 +248,8 @@ type MacOSTrustedRootCertificateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns MacOSTrustedRootCertificateRequest
 func (b *MacOSTrustedRootCertificateRequestBuilder) Request() *MacOSTrustedRootCertificateRequest {
 	return &MacOSTrustedRootCertificateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -274,7 +282,8 @@ type MacOSVpnConfigurationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns MacOSVpnConfigurationRequest
 func (b *MacOSVpnConfigurationRequestBuilder) Request() *MacOSVpnConfigurationRequest {
 	return &MacOSVpnConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -307,7 +316,8 @@ type MacOSWiredNetworkConfigurationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns MacOSWiredNetworkConfigurationRequest
 func (b *MacOSWiredNetworkConfigurationRequestBuilder) Request() *MacOSWiredNetworkConfigurationRequest {
 	return &MacOSWiredNetworkConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -340,7 +350,8 @@ type MacOsVPPAppRequestBuilder struct{ BaseRequestBuilder }
 // Request returns MacOsVPPAppRequest
 func (b *MacOsVPPAppRequestBuilder) Request() *MacOsVPPAppRequest {
 	return &MacOsVPPAppRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -373,7 +384,8 @@ type MacOsVPPAppAssignedLicenseRequestBuilder struct{ BaseRequestBuilder }
 // Request returns MacOsVPPAppAssignedLicenseRequest
 func (b *MacOsVPPAppAssignedLicenseRequestBuilder) Request() *MacOsVPPAppAssignedLicenseRequest {
 	return &MacOsVPPAppAssignedLicenseRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

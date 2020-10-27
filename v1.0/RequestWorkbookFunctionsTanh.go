@@ -21,7 +21,8 @@ type WorkbookFunctionsTanhRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsTanhRequestBuilder) Request() *WorkbookFunctionsTanhRequest {
 	return &WorkbookFunctionsTanhRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

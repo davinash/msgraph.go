@@ -21,7 +21,8 @@ type WorkbookFunctionsDatevalueRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsDatevalueRequestBuilder) Request() *WorkbookFunctionsDatevalueRequest {
 	return &WorkbookFunctionsDatevalueRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

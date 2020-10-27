@@ -21,7 +21,8 @@ type WorkbookFunctionsGammaRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsGammaRequestBuilder) Request() *WorkbookFunctionsGammaRequest {
 	return &WorkbookFunctionsGammaRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsGammaLnRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsGammaLnRequestBuilder) Request() *WorkbookFunctionsGammaLnRequest {
 	return &WorkbookFunctionsGammaLnRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -75,7 +77,8 @@ type WorkbookFunctionsGammaLn_PreciseRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsGammaLn_PreciseRequestBuilder) Request() *WorkbookFunctionsGammaLn_PreciseRequest {
 	return &WorkbookFunctionsGammaLn_PreciseRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

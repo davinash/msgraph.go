@@ -10,7 +10,8 @@ type DimensionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DimensionRequest
 func (b *DimensionRequestBuilder) Request() *DimensionRequest {
 	return &DimensionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type DimensionValueRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DimensionValueRequest
 func (b *DimensionValueRequestBuilder) Request() *DimensionValueRequest {
 	return &DimensionValueRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

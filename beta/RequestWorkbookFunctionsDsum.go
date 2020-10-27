@@ -21,7 +21,8 @@ type WorkbookFunctionsDsumRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsDsumRequestBuilder) Request() *WorkbookFunctionsDsumRequest {
 	return &WorkbookFunctionsDsumRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

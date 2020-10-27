@@ -10,7 +10,8 @@ type LeakedCredentialsRiskEventRequestBuilder struct{ BaseRequestBuilder }
 // Request returns LeakedCredentialsRiskEventRequest
 func (b *LeakedCredentialsRiskEventRequestBuilder) Request() *LeakedCredentialsRiskEventRequest {
 	return &LeakedCredentialsRiskEventRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

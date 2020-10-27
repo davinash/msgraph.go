@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 
@@ -30,7 +31,8 @@ type CloudCommunicationsCallsCollectionRequestBuilder struct{ BaseRequestBuilder
 // Request returns request for Call collection
 func (b *CloudCommunicationsCallsCollectionRequestBuilder) Request() *CloudCommunicationsCallsCollectionRequest {
 	return &CloudCommunicationsCallsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -89,7 +91,7 @@ func (r *CloudCommunicationsCallsCollectionRequest) Paging(ctx context.Context, 
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -98,6 +100,20 @@ func (r *CloudCommunicationsCallsCollectionRequest) Paging(ctx context.Context, 
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *CloudCommunicationsCallsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for Call collection, max N pages
@@ -133,7 +149,8 @@ type CloudCommunicationsOnlineMeetingsCollectionRequestBuilder struct{ BaseReque
 // Request returns request for OnlineMeeting collection
 func (b *CloudCommunicationsOnlineMeetingsCollectionRequestBuilder) Request() *CloudCommunicationsOnlineMeetingsCollectionRequest {
 	return &CloudCommunicationsOnlineMeetingsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -192,7 +209,7 @@ func (r *CloudCommunicationsOnlineMeetingsCollectionRequest) Paging(ctx context.
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -201,6 +218,20 @@ func (r *CloudCommunicationsOnlineMeetingsCollectionRequest) Paging(ctx context.
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *CloudCommunicationsOnlineMeetingsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for OnlineMeeting collection, max N pages

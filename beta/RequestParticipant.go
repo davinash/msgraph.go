@@ -10,7 +10,8 @@ type ParticipantRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ParticipantRequest
 func (b *ParticipantRequestBuilder) Request() *ParticipantRequest {
 	return &ParticipantRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -54,7 +55,8 @@ type ParticipantCollectionInviteRequest struct{ BaseRequest }
 //
 func (b *ParticipantCollectionInviteRequestBuilder) Request() *ParticipantCollectionInviteRequest {
 	return &ParticipantCollectionInviteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -81,7 +83,8 @@ type ParticipantCollectionMuteAllRequest struct{ BaseRequest }
 //
 func (b *ParticipantCollectionMuteAllRequestBuilder) Request() *ParticipantCollectionMuteAllRequest {
 	return &ParticipantCollectionMuteAllRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -108,7 +111,8 @@ type ParticipantMuteRequest struct{ BaseRequest }
 //
 func (b *ParticipantMuteRequestBuilder) Request() *ParticipantMuteRequest {
 	return &ParticipantMuteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

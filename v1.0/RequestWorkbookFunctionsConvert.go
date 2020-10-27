@@ -21,7 +21,8 @@ type WorkbookFunctionsConvertRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsConvertRequestBuilder) Request() *WorkbookFunctionsConvertRequest {
 	return &WorkbookFunctionsConvertRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

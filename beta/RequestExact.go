@@ -17,7 +17,8 @@ type ExactMatchDataStoreRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ExactMatchDataStoreRequest
 func (b *ExactMatchDataStoreRequestBuilder) Request() *ExactMatchDataStoreRequest {
 	return &ExactMatchDataStoreRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -50,7 +51,8 @@ type ExactMatchLookupJobRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ExactMatchLookupJobRequest
 func (b *ExactMatchLookupJobRequestBuilder) Request() *ExactMatchLookupJobRequest {
 	return &ExactMatchLookupJobRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -83,7 +85,8 @@ type ExactMatchSessionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ExactMatchSessionRequest
 func (b *ExactMatchSessionRequestBuilder) Request() *ExactMatchSessionRequest {
 	return &ExactMatchSessionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -116,7 +119,8 @@ type ExactMatchUploadAgentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ExactMatchUploadAgentRequest
 func (b *ExactMatchUploadAgentRequestBuilder) Request() *ExactMatchUploadAgentRequest {
 	return &ExactMatchUploadAgentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -160,7 +164,8 @@ type ExactMatchDataStoreLookupRequest struct{ BaseRequest }
 //
 func (b *ExactMatchDataStoreLookupRequestBuilder) Request() *ExactMatchDataStoreLookupRequest {
 	return &ExactMatchDataStoreLookupRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -247,7 +252,8 @@ type ExactMatchSessionCancelRequest struct{ BaseRequest }
 //
 func (b *ExactMatchSessionCancelRequestBuilder) Request() *ExactMatchSessionCancelRequest {
 	return &ExactMatchSessionCancelRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -273,7 +279,8 @@ type ExactMatchSessionCommitRequest struct{ BaseRequest }
 //
 func (b *ExactMatchSessionCommitRequestBuilder) Request() *ExactMatchSessionCommitRequest {
 	return &ExactMatchSessionCommitRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -299,7 +306,8 @@ type ExactMatchSessionRenewRequest struct{ BaseRequest }
 //
 func (b *ExactMatchSessionRenewRequestBuilder) Request() *ExactMatchSessionRenewRequest {
 	return &ExactMatchSessionRenewRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

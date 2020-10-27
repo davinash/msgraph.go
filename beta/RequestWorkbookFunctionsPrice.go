@@ -21,7 +21,8 @@ type WorkbookFunctionsPriceRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsPriceRequestBuilder) Request() *WorkbookFunctionsPriceRequest {
 	return &WorkbookFunctionsPriceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsPriceDiscRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsPriceDiscRequestBuilder) Request() *WorkbookFunctionsPriceDiscRequest {
 	return &WorkbookFunctionsPriceDiscRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -75,7 +77,8 @@ type WorkbookFunctionsPriceMatRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsPriceMatRequestBuilder) Request() *WorkbookFunctionsPriceMatRequest {
 	return &WorkbookFunctionsPriceMatRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -21,7 +21,8 @@ type WorkbookFunctionsAmorDegrcRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsAmorDegrcRequestBuilder) Request() *WorkbookFunctionsAmorDegrcRequest {
 	return &WorkbookFunctionsAmorDegrcRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsAmorLincRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsAmorLincRequestBuilder) Request() *WorkbookFunctionsAmorLincRequest {
 	return &WorkbookFunctionsAmorLincRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

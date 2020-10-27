@@ -10,7 +10,8 @@ type GroupRequestBuilder struct{ BaseRequestBuilder }
 // Request returns GroupRequest
 func (b *GroupRequestBuilder) Request() *GroupRequest {
 	return &GroupRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type GroupLifecyclePolicyRequestBuilder struct{ BaseRequestBuilder }
 // Request returns GroupLifecyclePolicyRequest
 func (b *GroupLifecyclePolicyRequestBuilder) Request() *GroupLifecyclePolicyRequest {
 	return &GroupLifecyclePolicyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type GroupSettingRequestBuilder struct{ BaseRequestBuilder }
 // Request returns GroupSettingRequest
 func (b *GroupSettingRequestBuilder) Request() *GroupSettingRequest {
 	return &GroupSettingRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -109,7 +112,8 @@ type GroupSettingTemplateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns GroupSettingTemplateRequest
 func (b *GroupSettingTemplateRequestBuilder) Request() *GroupSettingTemplateRequest {
 	return &GroupSettingTemplateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -153,7 +157,8 @@ type GroupValidatePropertiesRequest struct{ BaseRequest }
 //
 func (b *GroupValidatePropertiesRequestBuilder) Request() *GroupValidatePropertiesRequest {
 	return &GroupValidatePropertiesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -179,7 +184,8 @@ type GroupSubscribeByMailRequest struct{ BaseRequest }
 //
 func (b *GroupSubscribeByMailRequestBuilder) Request() *GroupSubscribeByMailRequest {
 	return &GroupSubscribeByMailRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -205,7 +211,8 @@ type GroupUnsubscribeByMailRequest struct{ BaseRequest }
 //
 func (b *GroupUnsubscribeByMailRequestBuilder) Request() *GroupUnsubscribeByMailRequest {
 	return &GroupUnsubscribeByMailRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -231,7 +238,8 @@ type GroupAddFavoriteRequest struct{ BaseRequest }
 //
 func (b *GroupAddFavoriteRequestBuilder) Request() *GroupAddFavoriteRequest {
 	return &GroupAddFavoriteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -257,7 +265,8 @@ type GroupRemoveFavoriteRequest struct{ BaseRequest }
 //
 func (b *GroupRemoveFavoriteRequestBuilder) Request() *GroupRemoveFavoriteRequest {
 	return &GroupRemoveFavoriteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -283,7 +292,8 @@ type GroupResetUnseenCountRequest struct{ BaseRequest }
 //
 func (b *GroupResetUnseenCountRequestBuilder) Request() *GroupResetUnseenCountRequest {
 	return &GroupResetUnseenCountRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -309,7 +319,8 @@ type GroupRenewRequest struct{ BaseRequest }
 //
 func (b *GroupRenewRequestBuilder) Request() *GroupRenewRequest {
 	return &GroupRenewRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -335,7 +346,8 @@ type GroupLifecyclePolicyAddGroupRequest struct{ BaseRequest }
 //
 func (b *GroupLifecyclePolicyAddGroupRequestBuilder) Request() *GroupLifecyclePolicyAddGroupRequest {
 	return &GroupLifecyclePolicyAddGroupRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -362,7 +374,8 @@ type GroupLifecyclePolicyRemoveGroupRequest struct{ BaseRequest }
 //
 func (b *GroupLifecyclePolicyRemoveGroupRequestBuilder) Request() *GroupLifecyclePolicyRemoveGroupRequest {
 	return &GroupLifecyclePolicyRemoveGroupRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

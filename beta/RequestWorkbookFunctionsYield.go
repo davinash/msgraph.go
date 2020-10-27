@@ -21,7 +21,8 @@ type WorkbookFunctionsYieldRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsYieldRequestBuilder) Request() *WorkbookFunctionsYieldRequest {
 	return &WorkbookFunctionsYieldRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsYieldDiscRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsYieldDiscRequestBuilder) Request() *WorkbookFunctionsYieldDiscRequest {
 	return &WorkbookFunctionsYieldDiscRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -75,7 +77,8 @@ type WorkbookFunctionsYieldMatRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsYieldMatRequestBuilder) Request() *WorkbookFunctionsYieldMatRequest {
 	return &WorkbookFunctionsYieldMatRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

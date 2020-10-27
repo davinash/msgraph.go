@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 
@@ -62,7 +63,8 @@ type TrustFrameworkKeySetsCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for TrustFrameworkKeySet collection
 func (b *TrustFrameworkKeySetsCollectionRequestBuilder) Request() *TrustFrameworkKeySetsCollectionRequest {
 	return &TrustFrameworkKeySetsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -121,7 +123,7 @@ func (r *TrustFrameworkKeySetsCollectionRequest) Paging(ctx context.Context, met
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -130,6 +132,20 @@ func (r *TrustFrameworkKeySetsCollectionRequest) Paging(ctx context.Context, met
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *TrustFrameworkKeySetsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for TrustFrameworkKeySet collection, max N pages
@@ -165,7 +181,8 @@ type TrustFrameworkPoliciesCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for TrustFrameworkPolicy collection
 func (b *TrustFrameworkPoliciesCollectionRequestBuilder) Request() *TrustFrameworkPoliciesCollectionRequest {
 	return &TrustFrameworkPoliciesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -224,7 +241,7 @@ func (r *TrustFrameworkPoliciesCollectionRequest) Paging(ctx context.Context, me
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -233,6 +250,20 @@ func (r *TrustFrameworkPoliciesCollectionRequest) Paging(ctx context.Context, me
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *TrustFrameworkPoliciesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for TrustFrameworkPolicy collection, max N pages

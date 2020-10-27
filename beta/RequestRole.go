@@ -17,7 +17,8 @@ type RoleAssignmentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns RoleAssignmentRequest
 func (b *RoleAssignmentRequestBuilder) Request() *RoleAssignmentRequest {
 	return &RoleAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -50,7 +51,8 @@ type RoleDefinitionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns RoleDefinitionRequest
 func (b *RoleDefinitionRequestBuilder) Request() *RoleDefinitionRequest {
 	return &RoleDefinitionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -83,7 +85,8 @@ type RoleManagementRequestBuilder struct{ BaseRequestBuilder }
 // Request returns RoleManagementRequest
 func (b *RoleManagementRequestBuilder) Request() *RoleManagementRequest {
 	return &RoleManagementRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -116,7 +119,8 @@ type RoleScopeTagRequestBuilder struct{ BaseRequestBuilder }
 // Request returns RoleScopeTagRequest
 func (b *RoleScopeTagRequestBuilder) Request() *RoleScopeTagRequest {
 	return &RoleScopeTagRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -149,7 +153,8 @@ type RoleScopeTagAutoAssignmentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns RoleScopeTagAutoAssignmentRequest
 func (b *RoleScopeTagAutoAssignmentRequestBuilder) Request() *RoleScopeTagAutoAssignmentRequest {
 	return &RoleScopeTagAutoAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -201,7 +206,8 @@ type RoleScopeTagCollectionGetRoleScopeTagsByIDRequest struct{ BaseRequest }
 //
 func (b *RoleScopeTagCollectionGetRoleScopeTagsByIDRequestBuilder) Request() *RoleScopeTagCollectionGetRoleScopeTagsByIDRequest {
 	return &RoleScopeTagCollectionGetRoleScopeTagsByIDRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -288,7 +294,8 @@ type RoleScopeTagAssignRequest struct{ BaseRequest }
 //
 func (b *RoleScopeTagAssignRequestBuilder) Request() *RoleScopeTagAssignRequest {
 	return &RoleScopeTagAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

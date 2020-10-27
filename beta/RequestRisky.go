@@ -10,7 +10,8 @@ type RiskyUserRequestBuilder struct{ BaseRequestBuilder }
 // Request returns RiskyUserRequest
 func (b *RiskyUserRequestBuilder) Request() *RiskyUserRequest {
 	return &RiskyUserRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type RiskyUserHistoryItemRequestBuilder struct{ BaseRequestBuilder }
 // Request returns RiskyUserHistoryItemRequest
 func (b *RiskyUserHistoryItemRequestBuilder) Request() *RiskyUserHistoryItemRequest {
 	return &RiskyUserHistoryItemRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

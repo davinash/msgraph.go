@@ -10,7 +10,8 @@ type ItemActivityRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ItemActivityRequest
 func (b *ItemActivityRequestBuilder) Request() *ItemActivityRequest {
 	return &ItemActivityRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type ItemActivityStatRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ItemActivityStatRequest
 func (b *ItemActivityStatRequestBuilder) Request() *ItemActivityStatRequest {
 	return &ItemActivityStatRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type ItemAnalyticsRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ItemAnalyticsRequest
 func (b *ItemAnalyticsRequestBuilder) Request() *ItemAnalyticsRequest {
 	return &ItemAnalyticsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -109,7 +112,8 @@ type ItemAttachmentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ItemAttachmentRequest
 func (b *ItemAttachmentRequestBuilder) Request() *ItemAttachmentRequest {
 	return &ItemAttachmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

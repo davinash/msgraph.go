@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 
@@ -72,7 +73,8 @@ type DirectoryDeletedItemsCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for DirectoryObject collection
 func (b *DirectoryDeletedItemsCollectionRequestBuilder) Request() *DirectoryDeletedItemsCollectionRequest {
 	return &DirectoryDeletedItemsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -131,7 +133,7 @@ func (r *DirectoryDeletedItemsCollectionRequest) Paging(ctx context.Context, met
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -140,6 +142,20 @@ func (r *DirectoryDeletedItemsCollectionRequest) Paging(ctx context.Context, met
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DirectoryDeletedItemsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DirectoryObject collection, max N pages
@@ -175,7 +191,8 @@ type DirectoryRoleMembersCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for DirectoryObject collection
 func (b *DirectoryRoleMembersCollectionRequestBuilder) Request() *DirectoryRoleMembersCollectionRequest {
 	return &DirectoryRoleMembersCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -234,7 +251,7 @@ func (r *DirectoryRoleMembersCollectionRequest) Paging(ctx context.Context, meth
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -243,6 +260,20 @@ func (r *DirectoryRoleMembersCollectionRequest) Paging(ctx context.Context, meth
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DirectoryRoleMembersCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DirectoryObject collection, max N pages

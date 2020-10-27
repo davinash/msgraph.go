@@ -21,7 +21,8 @@ type WorkbookFunctionsAtanRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsAtanRequestBuilder) Request() *WorkbookFunctionsAtanRequest {
 	return &WorkbookFunctionsAtanRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -15,6 +15,7 @@ import (
 	"net/http"
 	"net/url"
 	"strconv"
+	"sync"
 	"time"
 
 	"github.com/davinash/msgraph.go/jsonx"
@@ -140,17 +141,22 @@ func (r *ErrorResponse) StatusCode() int {
 	return r.Response.StatusCode
 }
 
-// Paging is sturct returned to paging requests
+// Paging is struct returned to paging requests
 type Paging struct {
 	NextLink string          `json:"@odata.nextLink"`
 	Value    json.RawMessage `json:"value"`
 }
 
-// BaseRequestBuilder is base reuqest builder
+// BaseRequestBuilder is base request builder
 type BaseRequestBuilder struct {
-	baseURL       string
-	client        *http.Client
-	requestObject interface{}
+	baseURL           string
+	client            *http.Client
+	requestObject     interface{}
+	tenantID          string
+	applicationID     string
+	clientSecurityKey string
+	apiCall           sync.Mutex
+	token             Token
 }
 
 // URL returns URL
@@ -165,11 +171,16 @@ func (r *BaseRequestBuilder) SetURL(baseURL string) {
 
 // BaseRequest is base request
 type BaseRequest struct {
-	baseURL       string
-	client        *http.Client
-	requestObject interface{}
-	header        http.Header
-	query         url.Values
+	baseURL           string
+	client            *http.Client
+	requestObject     interface{}
+	header            http.Header
+	query             url.Values
+	tenantID          string
+	applicationID     string
+	clientSecurityKey string
+	token             Token
+	apiCall           sync.Mutex
 }
 
 // URL returns URL with queries
@@ -263,7 +274,91 @@ func (r *BaseRequest) NewRequest(method, path string, body io.Reader) (*http.Req
 			}
 		}
 	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
 	return req, nil
+}
+
+func (r *BaseRequest) getAuthToken() error {
+	r.apiCall.Lock()
+	defer r.apiCall.Unlock() // unlock when the func returns
+	// Check token
+	if r.token.WantsToBeRefreshed() { // Token not valid anymore?
+		err := r.refreshToken()
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+func (r *BaseRequest) refreshToken() error {
+	if r.tenantID == "" {
+		return fmt.Errorf("tenant ID is empty")
+	}
+	resource := fmt.Sprintf("/%v/oauth2/token", r.tenantID)
+	data := url.Values{}
+	data.Add("grant_type", "client_credentials")
+	data.Add("client_id", r.applicationID)
+	data.Add("client_secret", r.clientSecurityKey)
+	data.Add("resource", "https://graph.microsoft.com")
+
+	u, err := url.ParseRequestURI("https://login.microsoftonline.com")
+	if err != nil {
+		return fmt.Errorf("unable to parse URI: %v", err)
+	}
+
+	u.Path = resource
+	req, err := http.NewRequest("POST", u.String(), bytes.NewBufferString(data.Encode()))
+
+	if err != nil {
+		return fmt.Errorf("HTTP Request Error: %v", err)
+	}
+
+	req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
+	req.Header.Add("Content-Length", strconv.Itoa(len(data.Encode())))
+
+	var newToken Token
+	_, err = r.performRequest(req, &newToken) // perform the prepared request
+	if err != nil {
+		return fmt.Errorf("error on getting msgraph Token: %v", err)
+	}
+	r.token = newToken
+	return err
+}
+
+func (r *BaseRequest) performRequest(req *http.Request, v interface{}) (int, error) {
+	httpClient := &http.Client{
+		Transport: &http.Transport{
+			TLSHandshakeTimeout:   100 * time.Second,
+			ResponseHeaderTimeout: 100 * time.Second,
+			ExpectContinueTimeout: 10 * time.Second,
+			IdleConnTimeout:       1000 * time.Second,
+		},
+		Timeout: time.Second * 500,
+	}
+
+	resp, err := httpClient.Do(req)
+	if err != nil {
+		if resp == nil {
+			return 400, fmt.Errorf("HTTP response error: %v ", err)
+		}
+		return resp.StatusCode, fmt.Errorf("HTTP response error: %v ", err)
+	}
+	defer resp.Body.Close()
+	body, err := ioutil.ReadAll(resp.Body)
+	if resp.StatusCode < 200 || resp.StatusCode > 299 {
+		return resp.StatusCode, fmt.Errorf("StatusCode is not OK: %v. Body: %v ", resp.StatusCode, string(body))
+	} else if resp.StatusCode == 204 {
+		return resp.StatusCode, err
+	}
+	if err != nil {
+		return resp.StatusCode, fmt.Errorf("HTTP response read error: %v of http.Request: %v", err, req.URL)
+	}
+	return resp.StatusCode, json.Unmarshal(body, &v) // return the error of the json unmarshal
 }
 
 // NewJSONRequest returns new HTTP request with JSON payload
@@ -332,8 +427,9 @@ type GraphServiceRequestBuilder struct {
 }
 
 // NewClient returns GraphService request builder with default base URL
-func NewClient(cli *http.Client) *GraphServiceRequestBuilder {
+func NewClient(cli *http.Client, tenantId string, applicationId string, clientSecurityKey string) *GraphServiceRequestBuilder {
 	return &GraphServiceRequestBuilder{
-		BaseRequestBuilder: BaseRequestBuilder{baseURL: defaultBaseURL, client: cli},
+		BaseRequestBuilder: BaseRequestBuilder{baseURL: defaultBaseURL, client: cli,
+			tenantID: tenantId, applicationID: applicationId, clientSecurityKey: clientSecurityKey},
 	}
 }

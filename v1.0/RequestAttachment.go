@@ -10,7 +10,8 @@ type AttachmentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AttachmentRequest
 func (b *AttachmentRequestBuilder) Request() *AttachmentRequest {
 	return &AttachmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

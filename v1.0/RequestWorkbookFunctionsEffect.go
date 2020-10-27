@@ -21,7 +21,8 @@ type WorkbookFunctionsEffectRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsEffectRequestBuilder) Request() *WorkbookFunctionsEffectRequest {
 	return &WorkbookFunctionsEffectRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -10,7 +10,8 @@ type EmployeeRequestBuilder struct{ BaseRequestBuilder }
 // Request returns EmployeeRequest
 func (b *EmployeeRequestBuilder) Request() *EmployeeRequest {
 	return &EmployeeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

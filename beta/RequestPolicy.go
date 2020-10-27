@@ -17,7 +17,8 @@ type PolicyRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PolicyRequest
 func (b *PolicyRequestBuilder) Request() *PolicyRequest {
 	return &PolicyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -50,7 +51,8 @@ type PolicySetRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PolicySetRequest
 func (b *PolicySetRequestBuilder) Request() *PolicySetRequest {
 	return &PolicySetRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -83,7 +85,8 @@ type PolicySetAssignmentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PolicySetAssignmentRequest
 func (b *PolicySetAssignmentRequestBuilder) Request() *PolicySetAssignmentRequest {
 	return &PolicySetAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -116,7 +119,8 @@ type PolicySetItemRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PolicySetItemRequest
 func (b *PolicySetItemRequestBuilder) Request() *PolicySetItemRequest {
 	return &PolicySetItemRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -160,7 +164,8 @@ type PolicySetCollectionGetPolicySetsRequest struct{ BaseRequest }
 //
 func (b *PolicySetCollectionGetPolicySetsRequestBuilder) Request() *PolicySetCollectionGetPolicySetsRequest {
 	return &PolicySetCollectionGetPolicySetsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -247,7 +252,8 @@ type PolicySetUpdateRequest struct{ BaseRequest }
 //
 func (b *PolicySetUpdateRequestBuilder) Request() *PolicySetUpdateRequest {
 	return &PolicySetUpdateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

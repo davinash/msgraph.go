@@ -21,7 +21,8 @@ type WorkbookFunctionsConfidence_NormRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsConfidence_NormRequestBuilder) Request() *WorkbookFunctionsConfidence_NormRequest {
 	return &WorkbookFunctionsConfidence_NormRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsConfidence_TRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsConfidence_TRequestBuilder) Request() *WorkbookFunctionsConfidence_TRequest {
 	return &WorkbookFunctionsConfidence_TRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

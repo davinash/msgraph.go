@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 
@@ -44,7 +45,8 @@ type NotebookSectionGroupsCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for SectionGroup collection
 func (b *NotebookSectionGroupsCollectionRequestBuilder) Request() *NotebookSectionGroupsCollectionRequest {
 	return &NotebookSectionGroupsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -103,7 +105,7 @@ func (r *NotebookSectionGroupsCollectionRequest) Paging(ctx context.Context, met
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -112,6 +114,20 @@ func (r *NotebookSectionGroupsCollectionRequest) Paging(ctx context.Context, met
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *NotebookSectionGroupsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for SectionGroup collection, max N pages
@@ -147,7 +163,8 @@ type NotebookSectionsCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for OnenoteSection collection
 func (b *NotebookSectionsCollectionRequestBuilder) Request() *NotebookSectionsCollectionRequest {
 	return &NotebookSectionsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -206,7 +223,7 @@ func (r *NotebookSectionsCollectionRequest) Paging(ctx context.Context, method, 
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -215,6 +232,20 @@ func (r *NotebookSectionsCollectionRequest) Paging(ctx context.Context, method, 
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *NotebookSectionsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for OnenoteSection collection, max N pages

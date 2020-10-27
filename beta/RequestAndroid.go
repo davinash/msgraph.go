@@ -17,7 +17,8 @@ type AndroidCertificateProfileBaseRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AndroidCertificateProfileBaseRequest
 func (b *AndroidCertificateProfileBaseRequestBuilder) Request() *AndroidCertificateProfileBaseRequest {
 	return &AndroidCertificateProfileBaseRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -50,7 +51,8 @@ type AndroidDeviceOwnerCertificateProfileBaseRequestBuilder struct{ BaseRequestB
 // Request returns AndroidDeviceOwnerCertificateProfileBaseRequest
 func (b *AndroidDeviceOwnerCertificateProfileBaseRequestBuilder) Request() *AndroidDeviceOwnerCertificateProfileBaseRequest {
 	return &AndroidDeviceOwnerCertificateProfileBaseRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -83,7 +85,8 @@ type AndroidDeviceOwnerEnrollmentProfileRequestBuilder struct{ BaseRequestBuilde
 // Request returns AndroidDeviceOwnerEnrollmentProfileRequest
 func (b *AndroidDeviceOwnerEnrollmentProfileRequestBuilder) Request() *AndroidDeviceOwnerEnrollmentProfileRequest {
 	return &AndroidDeviceOwnerEnrollmentProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -116,7 +119,8 @@ type AndroidDeviceOwnerEnterpriseWiFiConfigurationRequestBuilder struct{ BaseReq
 // Request returns AndroidDeviceOwnerEnterpriseWiFiConfigurationRequest
 func (b *AndroidDeviceOwnerEnterpriseWiFiConfigurationRequestBuilder) Request() *AndroidDeviceOwnerEnterpriseWiFiConfigurationRequest {
 	return &AndroidDeviceOwnerEnterpriseWiFiConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -149,7 +153,8 @@ type AndroidDeviceOwnerScepCertificateProfileRequestBuilder struct{ BaseRequestB
 // Request returns AndroidDeviceOwnerScepCertificateProfileRequest
 func (b *AndroidDeviceOwnerScepCertificateProfileRequestBuilder) Request() *AndroidDeviceOwnerScepCertificateProfileRequest {
 	return &AndroidDeviceOwnerScepCertificateProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -182,7 +187,8 @@ type AndroidDeviceOwnerTrustedRootCertificateRequestBuilder struct{ BaseRequestB
 // Request returns AndroidDeviceOwnerTrustedRootCertificateRequest
 func (b *AndroidDeviceOwnerTrustedRootCertificateRequestBuilder) Request() *AndroidDeviceOwnerTrustedRootCertificateRequest {
 	return &AndroidDeviceOwnerTrustedRootCertificateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -215,7 +221,8 @@ type AndroidDeviceOwnerVPNConfigurationRequestBuilder struct{ BaseRequestBuilder
 // Request returns AndroidDeviceOwnerVPNConfigurationRequest
 func (b *AndroidDeviceOwnerVPNConfigurationRequestBuilder) Request() *AndroidDeviceOwnerVPNConfigurationRequest {
 	return &AndroidDeviceOwnerVPNConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -248,7 +255,8 @@ type AndroidEasEmailProfileConfigurationRequestBuilder struct{ BaseRequestBuilde
 // Request returns AndroidEasEmailProfileConfigurationRequest
 func (b *AndroidEasEmailProfileConfigurationRequestBuilder) Request() *AndroidEasEmailProfileConfigurationRequest {
 	return &AndroidEasEmailProfileConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -281,7 +289,8 @@ type AndroidEnterpriseWiFiConfigurationRequestBuilder struct{ BaseRequestBuilder
 // Request returns AndroidEnterpriseWiFiConfigurationRequest
 func (b *AndroidEnterpriseWiFiConfigurationRequestBuilder) Request() *AndroidEnterpriseWiFiConfigurationRequest {
 	return &AndroidEnterpriseWiFiConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -314,7 +323,8 @@ type AndroidForWorkAppConfigurationSchemaRequestBuilder struct{ BaseRequestBuild
 // Request returns AndroidForWorkAppConfigurationSchemaRequest
 func (b *AndroidForWorkAppConfigurationSchemaRequestBuilder) Request() *AndroidForWorkAppConfigurationSchemaRequest {
 	return &AndroidForWorkAppConfigurationSchemaRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -347,7 +357,8 @@ type AndroidForWorkCertificateProfileBaseRequestBuilder struct{ BaseRequestBuild
 // Request returns AndroidForWorkCertificateProfileBaseRequest
 func (b *AndroidForWorkCertificateProfileBaseRequestBuilder) Request() *AndroidForWorkCertificateProfileBaseRequest {
 	return &AndroidForWorkCertificateProfileBaseRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -380,7 +391,8 @@ type AndroidForWorkEasEmailProfileBaseRequestBuilder struct{ BaseRequestBuilder 
 // Request returns AndroidForWorkEasEmailProfileBaseRequest
 func (b *AndroidForWorkEasEmailProfileBaseRequestBuilder) Request() *AndroidForWorkEasEmailProfileBaseRequest {
 	return &AndroidForWorkEasEmailProfileBaseRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -413,7 +425,8 @@ type AndroidForWorkEnrollmentProfileRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AndroidForWorkEnrollmentProfileRequest
 func (b *AndroidForWorkEnrollmentProfileRequestBuilder) Request() *AndroidForWorkEnrollmentProfileRequest {
 	return &AndroidForWorkEnrollmentProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -446,7 +459,8 @@ type AndroidForWorkEnterpriseWiFiConfigurationRequestBuilder struct{ BaseRequest
 // Request returns AndroidForWorkEnterpriseWiFiConfigurationRequest
 func (b *AndroidForWorkEnterpriseWiFiConfigurationRequestBuilder) Request() *AndroidForWorkEnterpriseWiFiConfigurationRequest {
 	return &AndroidForWorkEnterpriseWiFiConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -479,7 +493,8 @@ type AndroidForWorkImportedPFXCertificateProfileRequestBuilder struct{ BaseReque
 // Request returns AndroidForWorkImportedPFXCertificateProfileRequest
 func (b *AndroidForWorkImportedPFXCertificateProfileRequestBuilder) Request() *AndroidForWorkImportedPFXCertificateProfileRequest {
 	return &AndroidForWorkImportedPFXCertificateProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -512,7 +527,8 @@ type AndroidForWorkPkcsCertificateProfileRequestBuilder struct{ BaseRequestBuild
 // Request returns AndroidForWorkPkcsCertificateProfileRequest
 func (b *AndroidForWorkPkcsCertificateProfileRequestBuilder) Request() *AndroidForWorkPkcsCertificateProfileRequest {
 	return &AndroidForWorkPkcsCertificateProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -545,7 +561,8 @@ type AndroidForWorkScepCertificateProfileRequestBuilder struct{ BaseRequestBuild
 // Request returns AndroidForWorkScepCertificateProfileRequest
 func (b *AndroidForWorkScepCertificateProfileRequestBuilder) Request() *AndroidForWorkScepCertificateProfileRequest {
 	return &AndroidForWorkScepCertificateProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -578,7 +595,8 @@ type AndroidForWorkSettingsRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AndroidForWorkSettingsRequest
 func (b *AndroidForWorkSettingsRequestBuilder) Request() *AndroidForWorkSettingsRequest {
 	return &AndroidForWorkSettingsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -611,7 +629,8 @@ type AndroidForWorkTrustedRootCertificateRequestBuilder struct{ BaseRequestBuild
 // Request returns AndroidForWorkTrustedRootCertificateRequest
 func (b *AndroidForWorkTrustedRootCertificateRequestBuilder) Request() *AndroidForWorkTrustedRootCertificateRequest {
 	return &AndroidForWorkTrustedRootCertificateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -644,7 +663,8 @@ type AndroidForWorkVPNConfigurationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AndroidForWorkVPNConfigurationRequest
 func (b *AndroidForWorkVPNConfigurationRequestBuilder) Request() *AndroidForWorkVPNConfigurationRequest {
 	return &AndroidForWorkVPNConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -677,7 +697,8 @@ type AndroidImportedPFXCertificateProfileRequestBuilder struct{ BaseRequestBuild
 // Request returns AndroidImportedPFXCertificateProfileRequest
 func (b *AndroidImportedPFXCertificateProfileRequestBuilder) Request() *AndroidImportedPFXCertificateProfileRequest {
 	return &AndroidImportedPFXCertificateProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -710,7 +731,8 @@ type AndroidManagedAppProtectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AndroidManagedAppProtectionRequest
 func (b *AndroidManagedAppProtectionRequestBuilder) Request() *AndroidManagedAppProtectionRequest {
 	return &AndroidManagedAppProtectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -743,7 +765,8 @@ type AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder struct{ BaseRequ
 // Request returns AndroidManagedStoreAccountEnterpriseSettingsRequest
 func (b *AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder) Request() *AndroidManagedStoreAccountEnterpriseSettingsRequest {
 	return &AndroidManagedStoreAccountEnterpriseSettingsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -776,7 +799,8 @@ type AndroidManagedStoreAppConfigurationSchemaRequestBuilder struct{ BaseRequest
 // Request returns AndroidManagedStoreAppConfigurationSchemaRequest
 func (b *AndroidManagedStoreAppConfigurationSchemaRequestBuilder) Request() *AndroidManagedStoreAppConfigurationSchemaRequest {
 	return &AndroidManagedStoreAppConfigurationSchemaRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -809,7 +833,8 @@ type AndroidPkcsCertificateProfileRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AndroidPkcsCertificateProfileRequest
 func (b *AndroidPkcsCertificateProfileRequestBuilder) Request() *AndroidPkcsCertificateProfileRequest {
 	return &AndroidPkcsCertificateProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -842,7 +867,8 @@ type AndroidScepCertificateProfileRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AndroidScepCertificateProfileRequest
 func (b *AndroidScepCertificateProfileRequestBuilder) Request() *AndroidScepCertificateProfileRequest {
 	return &AndroidScepCertificateProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -875,7 +901,8 @@ type AndroidTrustedRootCertificateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AndroidTrustedRootCertificateRequest
 func (b *AndroidTrustedRootCertificateRequestBuilder) Request() *AndroidTrustedRootCertificateRequest {
 	return &AndroidTrustedRootCertificateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -908,7 +935,8 @@ type AndroidVPNConfigurationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AndroidVPNConfigurationRequest
 func (b *AndroidVPNConfigurationRequestBuilder) Request() *AndroidVPNConfigurationRequest {
 	return &AndroidVPNConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -941,7 +969,8 @@ type AndroidWorkProfileCertificateProfileBaseRequestBuilder struct{ BaseRequestB
 // Request returns AndroidWorkProfileCertificateProfileBaseRequest
 func (b *AndroidWorkProfileCertificateProfileBaseRequestBuilder) Request() *AndroidWorkProfileCertificateProfileBaseRequest {
 	return &AndroidWorkProfileCertificateProfileBaseRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -974,7 +1003,8 @@ type AndroidWorkProfileEasEmailProfileBaseRequestBuilder struct{ BaseRequestBuil
 // Request returns AndroidWorkProfileEasEmailProfileBaseRequest
 func (b *AndroidWorkProfileEasEmailProfileBaseRequestBuilder) Request() *AndroidWorkProfileEasEmailProfileBaseRequest {
 	return &AndroidWorkProfileEasEmailProfileBaseRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1007,7 +1037,8 @@ type AndroidWorkProfileEnterpriseWiFiConfigurationRequestBuilder struct{ BaseReq
 // Request returns AndroidWorkProfileEnterpriseWiFiConfigurationRequest
 func (b *AndroidWorkProfileEnterpriseWiFiConfigurationRequestBuilder) Request() *AndroidWorkProfileEnterpriseWiFiConfigurationRequest {
 	return &AndroidWorkProfileEnterpriseWiFiConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1040,7 +1071,8 @@ type AndroidWorkProfilePkcsCertificateProfileRequestBuilder struct{ BaseRequestB
 // Request returns AndroidWorkProfilePkcsCertificateProfileRequest
 func (b *AndroidWorkProfilePkcsCertificateProfileRequestBuilder) Request() *AndroidWorkProfilePkcsCertificateProfileRequest {
 	return &AndroidWorkProfilePkcsCertificateProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1073,7 +1105,8 @@ type AndroidWorkProfileScepCertificateProfileRequestBuilder struct{ BaseRequestB
 // Request returns AndroidWorkProfileScepCertificateProfileRequest
 func (b *AndroidWorkProfileScepCertificateProfileRequestBuilder) Request() *AndroidWorkProfileScepCertificateProfileRequest {
 	return &AndroidWorkProfileScepCertificateProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1106,7 +1139,8 @@ type AndroidWorkProfileTrustedRootCertificateRequestBuilder struct{ BaseRequestB
 // Request returns AndroidWorkProfileTrustedRootCertificateRequest
 func (b *AndroidWorkProfileTrustedRootCertificateRequestBuilder) Request() *AndroidWorkProfileTrustedRootCertificateRequest {
 	return &AndroidWorkProfileTrustedRootCertificateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1139,7 +1173,8 @@ type AndroidWorkProfileVPNConfigurationRequestBuilder struct{ BaseRequestBuilder
 // Request returns AndroidWorkProfileVPNConfigurationRequest
 func (b *AndroidWorkProfileVPNConfigurationRequestBuilder) Request() *AndroidWorkProfileVPNConfigurationRequest {
 	return &AndroidWorkProfileVPNConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1183,7 +1218,8 @@ type AndroidManagedAppProtectionCollectionHasPayloadLinksRequest struct{ BaseReq
 //
 func (b *AndroidManagedAppProtectionCollectionHasPayloadLinksRequestBuilder) Request() *AndroidManagedAppProtectionCollectionHasPayloadLinksRequest {
 	return &AndroidManagedAppProtectionCollectionHasPayloadLinksRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1270,7 +1306,8 @@ type AndroidDeviceOwnerEnrollmentProfileRevokeTokenRequest struct{ BaseRequest }
 //
 func (b *AndroidDeviceOwnerEnrollmentProfileRevokeTokenRequestBuilder) Request() *AndroidDeviceOwnerEnrollmentProfileRevokeTokenRequest {
 	return &AndroidDeviceOwnerEnrollmentProfileRevokeTokenRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1296,7 +1333,8 @@ type AndroidDeviceOwnerEnrollmentProfileCreateTokenRequest struct{ BaseRequest }
 //
 func (b *AndroidDeviceOwnerEnrollmentProfileCreateTokenRequestBuilder) Request() *AndroidDeviceOwnerEnrollmentProfileCreateTokenRequest {
 	return &AndroidDeviceOwnerEnrollmentProfileCreateTokenRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1322,7 +1360,8 @@ type AndroidForWorkEnrollmentProfileRevokeTokenRequest struct{ BaseRequest }
 //
 func (b *AndroidForWorkEnrollmentProfileRevokeTokenRequestBuilder) Request() *AndroidForWorkEnrollmentProfileRevokeTokenRequest {
 	return &AndroidForWorkEnrollmentProfileRevokeTokenRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1348,7 +1387,8 @@ type AndroidForWorkEnrollmentProfileCreateTokenRequest struct{ BaseRequest }
 //
 func (b *AndroidForWorkEnrollmentProfileCreateTokenRequestBuilder) Request() *AndroidForWorkEnrollmentProfileCreateTokenRequest {
 	return &AndroidForWorkEnrollmentProfileCreateTokenRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1374,7 +1414,8 @@ type AndroidForWorkSettingsRequestSignupURLRequest struct{ BaseRequest }
 //
 func (b *AndroidForWorkSettingsRequestSignupURLRequestBuilder) Request() *AndroidForWorkSettingsRequestSignupURLRequest {
 	return &AndroidForWorkSettingsRequestSignupURLRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1401,7 +1442,8 @@ type AndroidForWorkSettingsCompleteSignupRequest struct{ BaseRequest }
 //
 func (b *AndroidForWorkSettingsCompleteSignupRequestBuilder) Request() *AndroidForWorkSettingsCompleteSignupRequest {
 	return &AndroidForWorkSettingsCompleteSignupRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1427,7 +1469,8 @@ type AndroidForWorkSettingsSyncAppsRequest struct{ BaseRequest }
 //
 func (b *AndroidForWorkSettingsSyncAppsRequestBuilder) Request() *AndroidForWorkSettingsSyncAppsRequest {
 	return &AndroidForWorkSettingsSyncAppsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1453,7 +1496,8 @@ type AndroidForWorkSettingsUnbindRequest struct{ BaseRequest }
 //
 func (b *AndroidForWorkSettingsUnbindRequestBuilder) Request() *AndroidForWorkSettingsUnbindRequest {
 	return &AndroidForWorkSettingsUnbindRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1479,7 +1523,8 @@ type AndroidManagedStoreAccountEnterpriseSettingsApproveAppsRequest struct{ Base
 //
 func (b *AndroidManagedStoreAccountEnterpriseSettingsApproveAppsRequestBuilder) Request() *AndroidManagedStoreAccountEnterpriseSettingsApproveAppsRequest {
 	return &AndroidManagedStoreAccountEnterpriseSettingsApproveAppsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1505,7 +1550,8 @@ type AndroidManagedStoreAccountEnterpriseSettingsRequestSignupURLRequest struct{
 //
 func (b *AndroidManagedStoreAccountEnterpriseSettingsRequestSignupURLRequestBuilder) Request() *AndroidManagedStoreAccountEnterpriseSettingsRequestSignupURLRequest {
 	return &AndroidManagedStoreAccountEnterpriseSettingsRequestSignupURLRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1532,7 +1578,8 @@ type AndroidManagedStoreAccountEnterpriseSettingsCompleteSignupRequest struct{ B
 //
 func (b *AndroidManagedStoreAccountEnterpriseSettingsCompleteSignupRequestBuilder) Request() *AndroidManagedStoreAccountEnterpriseSettingsCompleteSignupRequest {
 	return &AndroidManagedStoreAccountEnterpriseSettingsCompleteSignupRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1558,7 +1605,8 @@ type AndroidManagedStoreAccountEnterpriseSettingsSyncAppsRequest struct{ BaseReq
 //
 func (b *AndroidManagedStoreAccountEnterpriseSettingsSyncAppsRequestBuilder) Request() *AndroidManagedStoreAccountEnterpriseSettingsSyncAppsRequest {
 	return &AndroidManagedStoreAccountEnterpriseSettingsSyncAppsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1584,7 +1632,8 @@ type AndroidManagedStoreAccountEnterpriseSettingsUnbindRequest struct{ BaseReque
 //
 func (b *AndroidManagedStoreAccountEnterpriseSettingsUnbindRequestBuilder) Request() *AndroidManagedStoreAccountEnterpriseSettingsUnbindRequest {
 	return &AndroidManagedStoreAccountEnterpriseSettingsUnbindRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1610,7 +1659,8 @@ type AndroidManagedStoreAccountEnterpriseSettingsCreateGooglePlayWebTokenRequest
 //
 func (b *AndroidManagedStoreAccountEnterpriseSettingsCreateGooglePlayWebTokenRequestBuilder) Request() *AndroidManagedStoreAccountEnterpriseSettingsCreateGooglePlayWebTokenRequest {
 	return &AndroidManagedStoreAccountEnterpriseSettingsCreateGooglePlayWebTokenRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1637,7 +1687,8 @@ type AndroidManagedStoreAccountEnterpriseSettingsSetAndroidDeviceOwnerFullyManag
 //
 func (b *AndroidManagedStoreAccountEnterpriseSettingsSetAndroidDeviceOwnerFullyManagedEnrollmentStateRequestBuilder) Request() *AndroidManagedStoreAccountEnterpriseSettingsSetAndroidDeviceOwnerFullyManagedEnrollmentStateRequest {
 	return &AndroidManagedStoreAccountEnterpriseSettingsSetAndroidDeviceOwnerFullyManagedEnrollmentStateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

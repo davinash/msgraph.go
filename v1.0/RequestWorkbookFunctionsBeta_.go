@@ -21,7 +21,8 @@ type WorkbookFunctionsBeta_DistRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsBeta_DistRequestBuilder) Request() *WorkbookFunctionsBeta_DistRequest {
 	return &WorkbookFunctionsBeta_DistRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsBeta_InvRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsBeta_InvRequestBuilder) Request() *WorkbookFunctionsBeta_InvRequest {
 	return &WorkbookFunctionsBeta_InvRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

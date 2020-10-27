@@ -10,7 +10,8 @@ type DataClassificationServiceRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DataClassificationServiceRequest
 func (b *DataClassificationServiceRequestBuilder) Request() *DataClassificationServiceRequest {
 	return &DataClassificationServiceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type DataLossPreventionPolicyRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DataLossPreventionPolicyRequest
 func (b *DataLossPreventionPolicyRequestBuilder) Request() *DataLossPreventionPolicyRequest {
 	return &DataLossPreventionPolicyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type DataPolicyOperationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DataPolicyOperationRequest
 func (b *DataPolicyOperationRequestBuilder) Request() *DataPolicyOperationRequest {
 	return &DataPolicyOperationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -109,7 +112,8 @@ type DataSharingConsentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DataSharingConsentRequest
 func (b *DataSharingConsentRequestBuilder) Request() *DataSharingConsentRequest {
 	return &DataSharingConsentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -153,7 +157,8 @@ type DataLossPreventionPolicyCollectionEvaluateRequest struct{ BaseRequest }
 //
 func (b *DataLossPreventionPolicyCollectionEvaluateRequestBuilder) Request() *DataLossPreventionPolicyCollectionEvaluateRequest {
 	return &DataLossPreventionPolicyCollectionEvaluateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -180,7 +185,8 @@ type DataSharingConsentConsentToDataSharingRequest struct{ BaseRequest }
 //
 func (b *DataSharingConsentConsentToDataSharingRequestBuilder) Request() *DataSharingConsentConsentToDataSharingRequest {
 	return &DataSharingConsentConsentToDataSharingRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

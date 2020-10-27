@@ -21,7 +21,8 @@ type WorkbookFunctionsFisherRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsFisherRequestBuilder) Request() *WorkbookFunctionsFisherRequest {
 	return &WorkbookFunctionsFisherRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsFisherInvRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsFisherInvRequestBuilder) Request() *WorkbookFunctionsFisherInvRequest {
 	return &WorkbookFunctionsFisherInvRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

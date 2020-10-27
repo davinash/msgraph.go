@@ -10,7 +10,8 @@ type ShiftRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ShiftRequest
 func (b *ShiftRequestBuilder) Request() *ShiftRequest {
 	return &ShiftRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

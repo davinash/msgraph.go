@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 
@@ -24,7 +25,8 @@ type AppCatalogsTeamsAppsCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for TeamsApp collection
 func (b *AppCatalogsTeamsAppsCollectionRequestBuilder) Request() *AppCatalogsTeamsAppsCollectionRequest {
 	return &AppCatalogsTeamsAppsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -83,7 +85,7 @@ func (r *AppCatalogsTeamsAppsCollectionRequest) Paging(ctx context.Context, meth
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -92,6 +94,20 @@ func (r *AppCatalogsTeamsAppsCollectionRequest) Paging(ctx context.Context, meth
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *AppCatalogsTeamsAppsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for TeamsApp collection, max N pages

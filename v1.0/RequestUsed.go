@@ -10,7 +10,8 @@ type UsedInsightRequestBuilder struct{ BaseRequestBuilder }
 // Request returns UsedInsightRequest
 func (b *UsedInsightRequestBuilder) Request() *UsedInsightRequest {
 	return &UsedInsightRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

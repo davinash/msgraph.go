@@ -10,7 +10,8 @@ type FinancialsRequestBuilder struct{ BaseRequestBuilder }
 // Request returns FinancialsRequest
 func (b *FinancialsRequestBuilder) Request() *FinancialsRequest {
 	return &FinancialsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

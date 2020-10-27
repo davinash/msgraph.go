@@ -21,7 +21,8 @@ type WorkbookFunctionsMirrRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsMirrRequestBuilder) Request() *WorkbookFunctionsMirrRequest {
 	return &WorkbookFunctionsMirrRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

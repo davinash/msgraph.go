@@ -21,7 +21,8 @@ type WorkbookFunctionsMinRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsMinRequestBuilder) Request() *WorkbookFunctionsMinRequest {
 	return &WorkbookFunctionsMinRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsMinARequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsMinARequestBuilder) Request() *WorkbookFunctionsMinARequest {
 	return &WorkbookFunctionsMinARequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -21,7 +21,8 @@ type WorkbookFunctionsPoisson_DistRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsPoisson_DistRequestBuilder) Request() *WorkbookFunctionsPoisson_DistRequest {
 	return &WorkbookFunctionsPoisson_DistRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

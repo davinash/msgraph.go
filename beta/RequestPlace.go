@@ -10,7 +10,8 @@ type PlaceRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PlaceRequest
 func (b *PlaceRequestBuilder) Request() *PlaceRequest {
 	return &PlaceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

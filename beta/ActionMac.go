@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 
@@ -51,7 +52,8 @@ type MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionR
 // Request returns request for ManagedDeviceCertificateState collection
 func (b *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder) Request() *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest {
 	return &MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -110,7 +112,7 @@ func (r *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollect
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -119,6 +121,20 @@ func (r *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollect
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ManagedDeviceCertificateState collection, max N pages
@@ -154,7 +170,8 @@ type MacOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequestB
 // Request returns request for ManagedDeviceCertificateState collection
 func (b *MacOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder) Request() *MacOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest {
 	return &MacOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -213,7 +230,7 @@ func (r *MacOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequ
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -222,6 +239,20 @@ func (r *MacOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequ
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *MacOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ManagedDeviceCertificateState collection, max N pages
@@ -257,7 +288,8 @@ type MacOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequestB
 // Request returns request for ManagedDeviceCertificateState collection
 func (b *MacOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder) Request() *MacOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest {
 	return &MacOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -316,7 +348,7 @@ func (r *MacOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequ
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -325,6 +357,20 @@ func (r *MacOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequ
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *MacOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ManagedDeviceCertificateState collection, max N pages
@@ -388,7 +434,8 @@ type MacOsVPPAppAssignedLicensesCollectionRequestBuilder struct{ BaseRequestBuil
 // Request returns request for MacOsVPPAppAssignedLicense collection
 func (b *MacOsVPPAppAssignedLicensesCollectionRequestBuilder) Request() *MacOsVPPAppAssignedLicensesCollectionRequest {
 	return &MacOsVPPAppAssignedLicensesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -447,7 +494,7 @@ func (r *MacOsVPPAppAssignedLicensesCollectionRequest) Paging(ctx context.Contex
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -456,6 +503,20 @@ func (r *MacOsVPPAppAssignedLicensesCollectionRequest) Paging(ctx context.Contex
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *MacOsVPPAppAssignedLicensesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for MacOsVPPAppAssignedLicense collection, max N pages

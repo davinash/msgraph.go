@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 
@@ -106,7 +107,8 @@ type UserActivitiesCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for UserActivity collection
 func (b *UserActivitiesCollectionRequestBuilder) Request() *UserActivitiesCollectionRequest {
 	return &UserActivitiesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -165,7 +167,7 @@ func (r *UserActivitiesCollectionRequest) Paging(ctx context.Context, method, pa
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -174,6 +176,20 @@ func (r *UserActivitiesCollectionRequest) Paging(ctx context.Context, method, pa
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *UserActivitiesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for UserActivity collection, max N pages
@@ -216,7 +232,8 @@ type UserCalendarGroupsCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for CalendarGroup collection
 func (b *UserCalendarGroupsCollectionRequestBuilder) Request() *UserCalendarGroupsCollectionRequest {
 	return &UserCalendarGroupsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -275,7 +292,7 @@ func (r *UserCalendarGroupsCollectionRequest) Paging(ctx context.Context, method
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -284,6 +301,20 @@ func (r *UserCalendarGroupsCollectionRequest) Paging(ctx context.Context, method
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *UserCalendarGroupsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for CalendarGroup collection, max N pages
@@ -319,7 +350,8 @@ type UserCalendarViewCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for Event collection
 func (b *UserCalendarViewCollectionRequestBuilder) Request() *UserCalendarViewCollectionRequest {
 	return &UserCalendarViewCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -378,7 +410,7 @@ func (r *UserCalendarViewCollectionRequest) Paging(ctx context.Context, method, 
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -387,6 +419,20 @@ func (r *UserCalendarViewCollectionRequest) Paging(ctx context.Context, method, 
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *UserCalendarViewCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for Event collection, max N pages
@@ -422,7 +468,8 @@ type UserCalendarsCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for Calendar collection
 func (b *UserCalendarsCollectionRequestBuilder) Request() *UserCalendarsCollectionRequest {
 	return &UserCalendarsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -481,7 +528,7 @@ func (r *UserCalendarsCollectionRequest) Paging(ctx context.Context, method, pat
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -490,6 +537,20 @@ func (r *UserCalendarsCollectionRequest) Paging(ctx context.Context, method, pat
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *UserCalendarsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for Calendar collection, max N pages
@@ -525,7 +586,8 @@ type UserContactFoldersCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for ContactFolder collection
 func (b *UserContactFoldersCollectionRequestBuilder) Request() *UserContactFoldersCollectionRequest {
 	return &UserContactFoldersCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -584,7 +646,7 @@ func (r *UserContactFoldersCollectionRequest) Paging(ctx context.Context, method
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -593,6 +655,20 @@ func (r *UserContactFoldersCollectionRequest) Paging(ctx context.Context, method
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *UserContactFoldersCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ContactFolder collection, max N pages
@@ -628,7 +704,8 @@ type UserContactsCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for Contact collection
 func (b *UserContactsCollectionRequestBuilder) Request() *UserContactsCollectionRequest {
 	return &UserContactsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -687,7 +764,7 @@ func (r *UserContactsCollectionRequest) Paging(ctx context.Context, method, path
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -696,6 +773,20 @@ func (r *UserContactsCollectionRequest) Paging(ctx context.Context, method, path
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *UserContactsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for Contact collection, max N pages
@@ -731,7 +822,8 @@ type UserCreatedObjectsCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for DirectoryObject collection
 func (b *UserCreatedObjectsCollectionRequestBuilder) Request() *UserCreatedObjectsCollectionRequest {
 	return &UserCreatedObjectsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -790,7 +882,7 @@ func (r *UserCreatedObjectsCollectionRequest) Paging(ctx context.Context, method
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -799,6 +891,20 @@ func (r *UserCreatedObjectsCollectionRequest) Paging(ctx context.Context, method
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *UserCreatedObjectsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DirectoryObject collection, max N pages
@@ -834,7 +940,8 @@ type UserDeviceManagementTroubleshootingEventsCollectionRequestBuilder struct{ B
 // Request returns request for DeviceManagementTroubleshootingEvent collection
 func (b *UserDeviceManagementTroubleshootingEventsCollectionRequestBuilder) Request() *UserDeviceManagementTroubleshootingEventsCollectionRequest {
 	return &UserDeviceManagementTroubleshootingEventsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -893,7 +1000,7 @@ func (r *UserDeviceManagementTroubleshootingEventsCollectionRequest) Paging(ctx 
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -902,6 +1009,20 @@ func (r *UserDeviceManagementTroubleshootingEventsCollectionRequest) Paging(ctx 
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *UserDeviceManagementTroubleshootingEventsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DeviceManagementTroubleshootingEvent collection, max N pages
@@ -937,7 +1058,8 @@ type UserDirectReportsCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for DirectoryObject collection
 func (b *UserDirectReportsCollectionRequestBuilder) Request() *UserDirectReportsCollectionRequest {
 	return &UserDirectReportsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -996,7 +1118,7 @@ func (r *UserDirectReportsCollectionRequest) Paging(ctx context.Context, method,
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -1005,6 +1127,20 @@ func (r *UserDirectReportsCollectionRequest) Paging(ctx context.Context, method,
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *UserDirectReportsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DirectoryObject collection, max N pages
@@ -1047,7 +1183,8 @@ type UserDrivesCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for Drive collection
 func (b *UserDrivesCollectionRequestBuilder) Request() *UserDrivesCollectionRequest {
 	return &UserDrivesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1106,7 +1243,7 @@ func (r *UserDrivesCollectionRequest) Paging(ctx context.Context, method, path s
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -1115,6 +1252,20 @@ func (r *UserDrivesCollectionRequest) Paging(ctx context.Context, method, path s
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *UserDrivesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for Drive collection, max N pages
@@ -1150,7 +1301,8 @@ type UserEventsCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for Event collection
 func (b *UserEventsCollectionRequestBuilder) Request() *UserEventsCollectionRequest {
 	return &UserEventsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1209,7 +1361,7 @@ func (r *UserEventsCollectionRequest) Paging(ctx context.Context, method, path s
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -1218,6 +1370,20 @@ func (r *UserEventsCollectionRequest) Paging(ctx context.Context, method, path s
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *UserEventsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for Event collection, max N pages
@@ -1253,7 +1419,8 @@ type UserExtensionsCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for Extension collection
 func (b *UserExtensionsCollectionRequestBuilder) Request() *UserExtensionsCollectionRequest {
 	return &UserExtensionsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1312,7 +1479,7 @@ func (r *UserExtensionsCollectionRequest) Paging(ctx context.Context, method, pa
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -1321,6 +1488,20 @@ func (r *UserExtensionsCollectionRequest) Paging(ctx context.Context, method, pa
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *UserExtensionsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for Extension collection, max N pages
@@ -1370,7 +1551,8 @@ type UserJoinedTeamsCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for Group collection
 func (b *UserJoinedTeamsCollectionRequestBuilder) Request() *UserJoinedTeamsCollectionRequest {
 	return &UserJoinedTeamsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1429,7 +1611,7 @@ func (r *UserJoinedTeamsCollectionRequest) Paging(ctx context.Context, method, p
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -1438,6 +1620,20 @@ func (r *UserJoinedTeamsCollectionRequest) Paging(ctx context.Context, method, p
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *UserJoinedTeamsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for Group collection, max N pages
@@ -1473,7 +1669,8 @@ type UserLicenseDetailsCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for LicenseDetails collection
 func (b *UserLicenseDetailsCollectionRequestBuilder) Request() *UserLicenseDetailsCollectionRequest {
 	return &UserLicenseDetailsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1532,7 +1729,7 @@ func (r *UserLicenseDetailsCollectionRequest) Paging(ctx context.Context, method
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -1541,6 +1738,20 @@ func (r *UserLicenseDetailsCollectionRequest) Paging(ctx context.Context, method
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *UserLicenseDetailsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for LicenseDetails collection, max N pages
@@ -1576,7 +1787,8 @@ type UserMailFoldersCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for MailFolder collection
 func (b *UserMailFoldersCollectionRequestBuilder) Request() *UserMailFoldersCollectionRequest {
 	return &UserMailFoldersCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1635,7 +1847,7 @@ func (r *UserMailFoldersCollectionRequest) Paging(ctx context.Context, method, p
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -1644,6 +1856,20 @@ func (r *UserMailFoldersCollectionRequest) Paging(ctx context.Context, method, p
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *UserMailFoldersCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for MailFolder collection, max N pages
@@ -1679,7 +1905,8 @@ type UserManagedAppRegistrationsCollectionRequestBuilder struct{ BaseRequestBuil
 // Request returns request for ManagedAppRegistration collection
 func (b *UserManagedAppRegistrationsCollectionRequestBuilder) Request() *UserManagedAppRegistrationsCollectionRequest {
 	return &UserManagedAppRegistrationsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1738,7 +1965,7 @@ func (r *UserManagedAppRegistrationsCollectionRequest) Paging(ctx context.Contex
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -1747,6 +1974,20 @@ func (r *UserManagedAppRegistrationsCollectionRequest) Paging(ctx context.Contex
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *UserManagedAppRegistrationsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ManagedAppRegistration collection, max N pages
@@ -1782,7 +2023,8 @@ type UserManagedDevicesCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for ManagedDevice collection
 func (b *UserManagedDevicesCollectionRequestBuilder) Request() *UserManagedDevicesCollectionRequest {
 	return &UserManagedDevicesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1841,7 +2083,7 @@ func (r *UserManagedDevicesCollectionRequest) Paging(ctx context.Context, method
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -1850,6 +2092,20 @@ func (r *UserManagedDevicesCollectionRequest) Paging(ctx context.Context, method
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *UserManagedDevicesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ManagedDevice collection, max N pages
@@ -1892,7 +2148,8 @@ type UserMemberOfCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for DirectoryObject collection
 func (b *UserMemberOfCollectionRequestBuilder) Request() *UserMemberOfCollectionRequest {
 	return &UserMemberOfCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1951,7 +2208,7 @@ func (r *UserMemberOfCollectionRequest) Paging(ctx context.Context, method, path
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -1960,6 +2217,20 @@ func (r *UserMemberOfCollectionRequest) Paging(ctx context.Context, method, path
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *UserMemberOfCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DirectoryObject collection, max N pages
@@ -1995,7 +2266,8 @@ type UserMessagesCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for Message collection
 func (b *UserMessagesCollectionRequestBuilder) Request() *UserMessagesCollectionRequest {
 	return &UserMessagesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2054,7 +2326,7 @@ func (r *UserMessagesCollectionRequest) Paging(ctx context.Context, method, path
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -2063,6 +2335,20 @@ func (r *UserMessagesCollectionRequest) Paging(ctx context.Context, method, path
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *UserMessagesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for Message collection, max N pages
@@ -2105,7 +2391,8 @@ type UserOnlineMeetingsCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for OnlineMeeting collection
 func (b *UserOnlineMeetingsCollectionRequestBuilder) Request() *UserOnlineMeetingsCollectionRequest {
 	return &UserOnlineMeetingsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2164,7 +2451,7 @@ func (r *UserOnlineMeetingsCollectionRequest) Paging(ctx context.Context, method
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -2173,6 +2460,20 @@ func (r *UserOnlineMeetingsCollectionRequest) Paging(ctx context.Context, method
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *UserOnlineMeetingsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for OnlineMeeting collection, max N pages
@@ -2215,7 +2516,8 @@ type UserOwnedDevicesCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for DirectoryObject collection
 func (b *UserOwnedDevicesCollectionRequestBuilder) Request() *UserOwnedDevicesCollectionRequest {
 	return &UserOwnedDevicesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2274,7 +2576,7 @@ func (r *UserOwnedDevicesCollectionRequest) Paging(ctx context.Context, method, 
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -2283,6 +2585,20 @@ func (r *UserOwnedDevicesCollectionRequest) Paging(ctx context.Context, method, 
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *UserOwnedDevicesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DirectoryObject collection, max N pages
@@ -2318,7 +2634,8 @@ type UserOwnedObjectsCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for DirectoryObject collection
 func (b *UserOwnedObjectsCollectionRequestBuilder) Request() *UserOwnedObjectsCollectionRequest {
 	return &UserOwnedObjectsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2377,7 +2694,7 @@ func (r *UserOwnedObjectsCollectionRequest) Paging(ctx context.Context, method, 
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -2386,6 +2703,20 @@ func (r *UserOwnedObjectsCollectionRequest) Paging(ctx context.Context, method, 
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *UserOwnedObjectsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DirectoryObject collection, max N pages
@@ -2421,7 +2752,8 @@ type UserPeopleCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for Person collection
 func (b *UserPeopleCollectionRequestBuilder) Request() *UserPeopleCollectionRequest {
 	return &UserPeopleCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2480,7 +2812,7 @@ func (r *UserPeopleCollectionRequest) Paging(ctx context.Context, method, path s
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -2489,6 +2821,20 @@ func (r *UserPeopleCollectionRequest) Paging(ctx context.Context, method, path s
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *UserPeopleCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for Person collection, max N pages
@@ -2531,7 +2877,8 @@ type UserPhotosCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for ProfilePhoto collection
 func (b *UserPhotosCollectionRequestBuilder) Request() *UserPhotosCollectionRequest {
 	return &UserPhotosCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2590,7 +2937,7 @@ func (r *UserPhotosCollectionRequest) Paging(ctx context.Context, method, path s
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -2599,6 +2946,20 @@ func (r *UserPhotosCollectionRequest) Paging(ctx context.Context, method, path s
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *UserPhotosCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ProfilePhoto collection, max N pages
@@ -2641,7 +3002,8 @@ type UserRegisteredDevicesCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for DirectoryObject collection
 func (b *UserRegisteredDevicesCollectionRequestBuilder) Request() *UserRegisteredDevicesCollectionRequest {
 	return &UserRegisteredDevicesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2700,7 +3062,7 @@ func (r *UserRegisteredDevicesCollectionRequest) Paging(ctx context.Context, met
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -2709,6 +3071,20 @@ func (r *UserRegisteredDevicesCollectionRequest) Paging(ctx context.Context, met
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *UserRegisteredDevicesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DirectoryObject collection, max N pages
@@ -2751,7 +3127,8 @@ type UserTransitiveMemberOfCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for DirectoryObject collection
 func (b *UserTransitiveMemberOfCollectionRequestBuilder) Request() *UserTransitiveMemberOfCollectionRequest {
 	return &UserTransitiveMemberOfCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2810,7 +3187,7 @@ func (r *UserTransitiveMemberOfCollectionRequest) Paging(ctx context.Context, me
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -2819,6 +3196,20 @@ func (r *UserTransitiveMemberOfCollectionRequest) Paging(ctx context.Context, me
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *UserTransitiveMemberOfCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DirectoryObject collection, max N pages
@@ -2854,7 +3245,8 @@ type UserActivityHistoryItemsCollectionRequestBuilder struct{ BaseRequestBuilder
 // Request returns request for ActivityHistoryItem collection
 func (b *UserActivityHistoryItemsCollectionRequestBuilder) Request() *UserActivityHistoryItemsCollectionRequest {
 	return &UserActivityHistoryItemsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2913,7 +3305,7 @@ func (r *UserActivityHistoryItemsCollectionRequest) Paging(ctx context.Context, 
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -2922,6 +3314,20 @@ func (r *UserActivityHistoryItemsCollectionRequest) Paging(ctx context.Context, 
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *UserActivityHistoryItemsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ActivityHistoryItem collection, max N pages
@@ -2957,7 +3363,8 @@ type UserInstallStateSummaryDeviceStatesCollectionRequestBuilder struct{ BaseReq
 // Request returns request for DeviceInstallState collection
 func (b *UserInstallStateSummaryDeviceStatesCollectionRequestBuilder) Request() *UserInstallStateSummaryDeviceStatesCollectionRequest {
 	return &UserInstallStateSummaryDeviceStatesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -3016,7 +3423,7 @@ func (r *UserInstallStateSummaryDeviceStatesCollectionRequest) Paging(ctx contex
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -3025,6 +3432,20 @@ func (r *UserInstallStateSummaryDeviceStatesCollectionRequest) Paging(ctx contex
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *UserInstallStateSummaryDeviceStatesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DeviceInstallState collection, max N pages

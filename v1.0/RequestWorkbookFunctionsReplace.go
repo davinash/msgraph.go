@@ -21,7 +21,8 @@ type WorkbookFunctionsReplaceRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsReplaceRequestBuilder) Request() *WorkbookFunctionsReplaceRequest {
 	return &WorkbookFunctionsReplaceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsReplaceBRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsReplaceBRequestBuilder) Request() *WorkbookFunctionsReplaceBRequest {
 	return &WorkbookFunctionsReplaceBRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

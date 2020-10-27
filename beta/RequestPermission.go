@@ -17,7 +17,8 @@ type PermissionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PermissionRequest
 func (b *PermissionRequestBuilder) Request() *PermissionRequest {
 	return &PermissionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -61,7 +62,8 @@ type PermissionGrantRequest struct{ BaseRequest }
 //
 func (b *PermissionGrantRequestBuilder) Request() *PermissionGrantRequest {
 	return &PermissionGrantRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

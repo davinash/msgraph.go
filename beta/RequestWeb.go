@@ -10,7 +10,8 @@ type WebAccountRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WebAccountRequest
 func (b *WebAccountRequestBuilder) Request() *WebAccountRequest {
 	return &WebAccountRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

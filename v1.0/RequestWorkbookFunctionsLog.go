@@ -21,7 +21,8 @@ type WorkbookFunctionsLogRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsLogRequestBuilder) Request() *WorkbookFunctionsLogRequest {
 	return &WorkbookFunctionsLogRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsLogNorm_DistRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsLogNorm_DistRequestBuilder) Request() *WorkbookFunctionsLogNorm_DistRequest {
 	return &WorkbookFunctionsLogNorm_DistRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -75,7 +77,8 @@ type WorkbookFunctionsLogNorm_InvRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsLogNorm_InvRequestBuilder) Request() *WorkbookFunctionsLogNorm_InvRequest {
 	return &WorkbookFunctionsLogNorm_InvRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 
@@ -36,7 +37,8 @@ type RequestObjectDecisionsCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for AccessReviewDecision collection
 func (b *RequestObjectDecisionsCollectionRequestBuilder) Request() *RequestObjectDecisionsCollectionRequest {
 	return &RequestObjectDecisionsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -95,7 +97,7 @@ func (r *RequestObjectDecisionsCollectionRequest) Paging(ctx context.Context, me
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -104,6 +106,20 @@ func (r *RequestObjectDecisionsCollectionRequest) Paging(ctx context.Context, me
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *RequestObjectDecisionsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for AccessReviewDecision collection, max N pages
@@ -139,7 +155,8 @@ type RequestObjectMyDecisionsCollectionRequestBuilder struct{ BaseRequestBuilder
 // Request returns request for AccessReviewDecision collection
 func (b *RequestObjectMyDecisionsCollectionRequestBuilder) Request() *RequestObjectMyDecisionsCollectionRequest {
 	return &RequestObjectMyDecisionsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -198,7 +215,7 @@ func (r *RequestObjectMyDecisionsCollectionRequest) Paging(ctx context.Context, 
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -207,6 +224,20 @@ func (r *RequestObjectMyDecisionsCollectionRequest) Paging(ctx context.Context, 
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *RequestObjectMyDecisionsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for AccessReviewDecision collection, max N pages

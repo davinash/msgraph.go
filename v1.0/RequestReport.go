@@ -10,7 +10,8 @@ type ReportRootRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ReportRootRequest
 func (b *ReportRootRequestBuilder) Request() *ReportRootRequest {
 	return &ReportRootRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

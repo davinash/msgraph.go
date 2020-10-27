@@ -4,7 +4,8 @@ type {{.X}}RequestBuilder struct { BaseRequestBuilder }
 // Request returns {{.X}}Request
 func (b *{{.X}}RequestBuilder) Request() *{{.X}}Request {
     return &{{.X}}Request{
-        BaseRequest: BaseRequest{ baseURL: b.baseURL, client:  b.client },
+        BaseRequest: BaseRequest{ baseURL: b.baseURL, client:  b.client,
+        tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
     }
 }
 

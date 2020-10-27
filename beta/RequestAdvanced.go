@@ -10,7 +10,8 @@ type AdvancedThreatProtectionOnboardingDeviceSettingStateRequestBuilder struct{ 
 // Request returns AdvancedThreatProtectionOnboardingDeviceSettingStateRequest
 func (b *AdvancedThreatProtectionOnboardingDeviceSettingStateRequestBuilder) Request() *AdvancedThreatProtectionOnboardingDeviceSettingStateRequest {
 	return &AdvancedThreatProtectionOnboardingDeviceSettingStateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type AdvancedThreatProtectionOnboardingStateSummaryRequestBuilder struct{ BaseRe
 // Request returns AdvancedThreatProtectionOnboardingStateSummaryRequest
 func (b *AdvancedThreatProtectionOnboardingStateSummaryRequestBuilder) Request() *AdvancedThreatProtectionOnboardingStateSummaryRequest {
 	return &AdvancedThreatProtectionOnboardingStateSummaryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

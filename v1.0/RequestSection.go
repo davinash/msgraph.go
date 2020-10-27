@@ -10,7 +10,8 @@ type SectionGroupRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SectionGroupRequest
 func (b *SectionGroupRequestBuilder) Request() *SectionGroupRequest {
 	return &SectionGroupRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

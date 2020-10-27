@@ -10,7 +10,8 @@ type MessageRequestBuilder struct{ BaseRequestBuilder }
 // Request returns MessageRequest
 func (b *MessageRequestBuilder) Request() *MessageRequest {
 	return &MessageRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type MessageRuleRequestBuilder struct{ BaseRequestBuilder }
 // Request returns MessageRuleRequest
 func (b *MessageRuleRequestBuilder) Request() *MessageRuleRequest {
 	return &MessageRuleRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -87,7 +89,8 @@ type MessageCreateReplyRequest struct{ BaseRequest }
 //
 func (b *MessageCreateReplyRequestBuilder) Request() *MessageCreateReplyRequest {
 	return &MessageCreateReplyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -114,7 +117,8 @@ type MessageCreateReplyAllRequest struct{ BaseRequest }
 //
 func (b *MessageCreateReplyAllRequestBuilder) Request() *MessageCreateReplyAllRequest {
 	return &MessageCreateReplyAllRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -141,7 +145,8 @@ type MessageCreateForwardRequest struct{ BaseRequest }
 //
 func (b *MessageCreateForwardRequestBuilder) Request() *MessageCreateForwardRequest {
 	return &MessageCreateForwardRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -168,7 +173,8 @@ type MessageSendRequest struct{ BaseRequest }
 //
 func (b *MessageSendRequestBuilder) Request() *MessageSendRequest {
 	return &MessageSendRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -194,7 +200,8 @@ type MessageCopyRequest struct{ BaseRequest }
 //
 func (b *MessageCopyRequestBuilder) Request() *MessageCopyRequest {
 	return &MessageCopyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -221,7 +228,8 @@ type MessageMoveRequest struct{ BaseRequest }
 //
 func (b *MessageMoveRequestBuilder) Request() *MessageMoveRequest {
 	return &MessageMoveRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -248,7 +256,8 @@ type MessageReplyRequest struct{ BaseRequest }
 //
 func (b *MessageReplyRequestBuilder) Request() *MessageReplyRequest {
 	return &MessageReplyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -274,7 +283,8 @@ type MessageReplyAllRequest struct{ BaseRequest }
 //
 func (b *MessageReplyAllRequestBuilder) Request() *MessageReplyAllRequest {
 	return &MessageReplyAllRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -300,7 +310,8 @@ type MessageForwardRequest struct{ BaseRequest }
 //
 func (b *MessageForwardRequestBuilder) Request() *MessageForwardRequest {
 	return &MessageForwardRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -326,7 +337,8 @@ type MessageUnsubscribeRequest struct{ BaseRequest }
 //
 func (b *MessageUnsubscribeRequestBuilder) Request() *MessageUnsubscribeRequest {
 	return &MessageUnsubscribeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -17,7 +17,8 @@ type TiIndicatorRequestBuilder struct{ BaseRequestBuilder }
 // Request returns TiIndicatorRequest
 func (b *TiIndicatorRequestBuilder) Request() *TiIndicatorRequest {
 	return &TiIndicatorRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -61,7 +62,8 @@ type TiIndicatorCollectionSubmitTiIndicatorsRequest struct{ BaseRequest }
 //
 func (b *TiIndicatorCollectionSubmitTiIndicatorsRequestBuilder) Request() *TiIndicatorCollectionSubmitTiIndicatorsRequest {
 	return &TiIndicatorCollectionSubmitTiIndicatorsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -148,7 +150,8 @@ type TiIndicatorCollectionUpdateTiIndicatorsRequest struct{ BaseRequest }
 //
 func (b *TiIndicatorCollectionUpdateTiIndicatorsRequestBuilder) Request() *TiIndicatorCollectionUpdateTiIndicatorsRequest {
 	return &TiIndicatorCollectionUpdateTiIndicatorsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -235,7 +238,8 @@ type TiIndicatorCollectionDeleteTiIndicatorsRequest struct{ BaseRequest }
 //
 func (b *TiIndicatorCollectionDeleteTiIndicatorsRequestBuilder) Request() *TiIndicatorCollectionDeleteTiIndicatorsRequest {
 	return &TiIndicatorCollectionDeleteTiIndicatorsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -322,7 +326,8 @@ type TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequest struct{ BaseRequ
 //
 func (b *TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequestBuilder) Request() *TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequest {
 	return &TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

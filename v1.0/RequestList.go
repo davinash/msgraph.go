@@ -10,7 +10,8 @@ type ListRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ListRequest
 func (b *ListRequestBuilder) Request() *ListRequest {
 	return &ListRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type ListItemRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ListItemRequest
 func (b *ListItemRequestBuilder) Request() *ListItemRequest {
 	return &ListItemRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type ListItemVersionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ListItemVersionRequest
 func (b *ListItemVersionRequestBuilder) Request() *ListItemVersionRequest {
 	return &ListItemVersionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -120,7 +123,8 @@ type ListItemVersionRestoreVersionRequest struct{ BaseRequest }
 //
 func (b *ListItemVersionRestoreVersionRequestBuilder) Request() *ListItemVersionRestoreVersionRequest {
 	return &ListItemVersionRestoreVersionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

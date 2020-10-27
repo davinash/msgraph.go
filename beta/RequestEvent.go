@@ -10,7 +10,8 @@ type EventRequestBuilder struct{ BaseRequestBuilder }
 // Request returns EventRequest
 func (b *EventRequestBuilder) Request() *EventRequest {
 	return &EventRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type EventMessageRequestBuilder struct{ BaseRequestBuilder }
 // Request returns EventMessageRequest
 func (b *EventMessageRequestBuilder) Request() *EventMessageRequest {
 	return &EventMessageRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type EventMessageRequestObjectRequestBuilder struct{ BaseRequestBuilder }
 // Request returns EventMessageRequestObjectRequest
 func (b *EventMessageRequestObjectRequestBuilder) Request() *EventMessageRequestObjectRequest {
 	return &EventMessageRequestObjectRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -120,7 +123,8 @@ type EventDismissReminderRequest struct{ BaseRequest }
 //
 func (b *EventDismissReminderRequestBuilder) Request() *EventDismissReminderRequest {
 	return &EventDismissReminderRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -146,7 +150,8 @@ type EventSnoozeReminderRequest struct{ BaseRequest }
 //
 func (b *EventSnoozeReminderRequestBuilder) Request() *EventSnoozeReminderRequest {
 	return &EventSnoozeReminderRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -172,7 +177,8 @@ type EventForwardRequest struct{ BaseRequest }
 //
 func (b *EventForwardRequestBuilder) Request() *EventForwardRequest {
 	return &EventForwardRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -198,7 +204,8 @@ type EventAcceptRequest struct{ BaseRequest }
 //
 func (b *EventAcceptRequestBuilder) Request() *EventAcceptRequest {
 	return &EventAcceptRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -224,7 +231,8 @@ type EventDeclineRequest struct{ BaseRequest }
 //
 func (b *EventDeclineRequestBuilder) Request() *EventDeclineRequest {
 	return &EventDeclineRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -250,7 +258,8 @@ type EventTentativelyAcceptRequest struct{ BaseRequest }
 //
 func (b *EventTentativelyAcceptRequestBuilder) Request() *EventTentativelyAcceptRequest {
 	return &EventTentativelyAcceptRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -276,7 +285,8 @@ type EventCancelRequest struct{ BaseRequest }
 //
 func (b *EventCancelRequestBuilder) Request() *EventCancelRequest {
 	return &EventCancelRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -302,7 +312,8 @@ type EventMessageRequestObjectAcceptRequest struct{ BaseRequest }
 //
 func (b *EventMessageRequestObjectAcceptRequestBuilder) Request() *EventMessageRequestObjectAcceptRequest {
 	return &EventMessageRequestObjectAcceptRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -328,7 +339,8 @@ type EventMessageRequestObjectDeclineRequest struct{ BaseRequest }
 //
 func (b *EventMessageRequestObjectDeclineRequestBuilder) Request() *EventMessageRequestObjectDeclineRequest {
 	return &EventMessageRequestObjectDeclineRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -354,7 +366,8 @@ type EventMessageRequestObjectTentativelyAcceptRequest struct{ BaseRequest }
 //
 func (b *EventMessageRequestObjectTentativelyAcceptRequestBuilder) Request() *EventMessageRequestObjectTentativelyAcceptRequest {
 	return &EventMessageRequestObjectTentativelyAcceptRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

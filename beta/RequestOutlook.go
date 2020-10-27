@@ -17,7 +17,8 @@ type OutlookCategoryRequestBuilder struct{ BaseRequestBuilder }
 // Request returns OutlookCategoryRequest
 func (b *OutlookCategoryRequestBuilder) Request() *OutlookCategoryRequest {
 	return &OutlookCategoryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -50,7 +51,8 @@ type OutlookItemRequestBuilder struct{ BaseRequestBuilder }
 // Request returns OutlookItemRequest
 func (b *OutlookItemRequestBuilder) Request() *OutlookItemRequest {
 	return &OutlookItemRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -83,7 +85,8 @@ type OutlookTaskRequestBuilder struct{ BaseRequestBuilder }
 // Request returns OutlookTaskRequest
 func (b *OutlookTaskRequestBuilder) Request() *OutlookTaskRequest {
 	return &OutlookTaskRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -116,7 +119,8 @@ type OutlookTaskFolderRequestBuilder struct{ BaseRequestBuilder }
 // Request returns OutlookTaskFolderRequest
 func (b *OutlookTaskFolderRequestBuilder) Request() *OutlookTaskFolderRequest {
 	return &OutlookTaskFolderRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -149,7 +153,8 @@ type OutlookTaskGroupRequestBuilder struct{ BaseRequestBuilder }
 // Request returns OutlookTaskGroupRequest
 func (b *OutlookTaskGroupRequestBuilder) Request() *OutlookTaskGroupRequest {
 	return &OutlookTaskGroupRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -182,7 +187,8 @@ type OutlookUserRequestBuilder struct{ BaseRequestBuilder }
 // Request returns OutlookUserRequest
 func (b *OutlookUserRequestBuilder) Request() *OutlookUserRequest {
 	return &OutlookUserRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -226,7 +232,8 @@ type OutlookTaskCompleteRequest struct{ BaseRequest }
 //
 func (b *OutlookTaskCompleteRequestBuilder) Request() *OutlookTaskCompleteRequest {
 	return &OutlookTaskCompleteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

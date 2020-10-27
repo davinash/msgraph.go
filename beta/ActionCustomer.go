@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 
@@ -45,7 +46,8 @@ type CustomerPictureCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for Picture collection
 func (b *CustomerPictureCollectionRequestBuilder) Request() *CustomerPictureCollectionRequest {
 	return &CustomerPictureCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -104,7 +106,7 @@ func (r *CustomerPictureCollectionRequest) Paging(ctx context.Context, method, p
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -113,6 +115,20 @@ func (r *CustomerPictureCollectionRequest) Paging(ctx context.Context, method, p
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *CustomerPictureCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for Picture collection, max N pages
@@ -169,7 +185,8 @@ type CustomerPaymentJournalCustomerPaymentsCollectionRequestBuilder struct{ Base
 // Request returns request for CustomerPayment collection
 func (b *CustomerPaymentJournalCustomerPaymentsCollectionRequestBuilder) Request() *CustomerPaymentJournalCustomerPaymentsCollectionRequest {
 	return &CustomerPaymentJournalCustomerPaymentsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -228,7 +245,7 @@ func (r *CustomerPaymentJournalCustomerPaymentsCollectionRequest) Paging(ctx con
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -237,6 +254,20 @@ func (r *CustomerPaymentJournalCustomerPaymentsCollectionRequest) Paging(ctx con
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *CustomerPaymentJournalCustomerPaymentsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for CustomerPayment collection, max N pages

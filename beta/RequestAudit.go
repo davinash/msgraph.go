@@ -10,7 +10,8 @@ type AuditEventRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AuditEventRequest
 func (b *AuditEventRequestBuilder) Request() *AuditEventRequest {
 	return &AuditEventRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type AuditLogRootRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AuditLogRootRequest
 func (b *AuditLogRootRequestBuilder) Request() *AuditLogRootRequest {
 	return &AuditLogRootRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

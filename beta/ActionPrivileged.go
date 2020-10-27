@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 
@@ -68,7 +69,8 @@ type PrivilegedAccessResourcesCollectionRequestBuilder struct{ BaseRequestBuilde
 // Request returns request for GovernanceResource collection
 func (b *PrivilegedAccessResourcesCollectionRequestBuilder) Request() *PrivilegedAccessResourcesCollectionRequest {
 	return &PrivilegedAccessResourcesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -127,7 +129,7 @@ func (r *PrivilegedAccessResourcesCollectionRequest) Paging(ctx context.Context,
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -136,6 +138,20 @@ func (r *PrivilegedAccessResourcesCollectionRequest) Paging(ctx context.Context,
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *PrivilegedAccessResourcesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for GovernanceResource collection, max N pages
@@ -171,7 +187,8 @@ type PrivilegedAccessRoleAssignmentRequestsCollectionRequestBuilder struct{ Base
 // Request returns request for GovernanceRoleAssignmentRequestObject collection
 func (b *PrivilegedAccessRoleAssignmentRequestsCollectionRequestBuilder) Request() *PrivilegedAccessRoleAssignmentRequestsCollectionRequest {
 	return &PrivilegedAccessRoleAssignmentRequestsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -230,7 +247,7 @@ func (r *PrivilegedAccessRoleAssignmentRequestsCollectionRequest) Paging(ctx con
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -239,6 +256,20 @@ func (r *PrivilegedAccessRoleAssignmentRequestsCollectionRequest) Paging(ctx con
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *PrivilegedAccessRoleAssignmentRequestsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for GovernanceRoleAssignmentRequestObject collection, max N pages
@@ -274,7 +305,8 @@ type PrivilegedAccessRoleAssignmentsCollectionRequestBuilder struct{ BaseRequest
 // Request returns request for GovernanceRoleAssignment collection
 func (b *PrivilegedAccessRoleAssignmentsCollectionRequestBuilder) Request() *PrivilegedAccessRoleAssignmentsCollectionRequest {
 	return &PrivilegedAccessRoleAssignmentsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -333,7 +365,7 @@ func (r *PrivilegedAccessRoleAssignmentsCollectionRequest) Paging(ctx context.Co
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -342,6 +374,20 @@ func (r *PrivilegedAccessRoleAssignmentsCollectionRequest) Paging(ctx context.Co
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *PrivilegedAccessRoleAssignmentsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for GovernanceRoleAssignment collection, max N pages
@@ -377,7 +423,8 @@ type PrivilegedAccessRoleDefinitionsCollectionRequestBuilder struct{ BaseRequest
 // Request returns request for GovernanceRoleDefinition collection
 func (b *PrivilegedAccessRoleDefinitionsCollectionRequestBuilder) Request() *PrivilegedAccessRoleDefinitionsCollectionRequest {
 	return &PrivilegedAccessRoleDefinitionsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -436,7 +483,7 @@ func (r *PrivilegedAccessRoleDefinitionsCollectionRequest) Paging(ctx context.Co
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -445,6 +492,20 @@ func (r *PrivilegedAccessRoleDefinitionsCollectionRequest) Paging(ctx context.Co
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *PrivilegedAccessRoleDefinitionsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for GovernanceRoleDefinition collection, max N pages
@@ -480,7 +541,8 @@ type PrivilegedAccessRoleSettingsCollectionRequestBuilder struct{ BaseRequestBui
 // Request returns request for GovernanceRoleSetting collection
 func (b *PrivilegedAccessRoleSettingsCollectionRequestBuilder) Request() *PrivilegedAccessRoleSettingsCollectionRequest {
 	return &PrivilegedAccessRoleSettingsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -539,7 +601,7 @@ func (r *PrivilegedAccessRoleSettingsCollectionRequest) Paging(ctx context.Conte
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -548,6 +610,20 @@ func (r *PrivilegedAccessRoleSettingsCollectionRequest) Paging(ctx context.Conte
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *PrivilegedAccessRoleSettingsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for GovernanceRoleSetting collection, max N pages
@@ -597,7 +673,8 @@ type PrivilegedRoleAssignmentsCollectionRequestBuilder struct{ BaseRequestBuilde
 // Request returns request for PrivilegedRoleAssignment collection
 func (b *PrivilegedRoleAssignmentsCollectionRequestBuilder) Request() *PrivilegedRoleAssignmentsCollectionRequest {
 	return &PrivilegedRoleAssignmentsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -656,7 +733,7 @@ func (r *PrivilegedRoleAssignmentsCollectionRequest) Paging(ctx context.Context,
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -665,6 +742,20 @@ func (r *PrivilegedRoleAssignmentsCollectionRequest) Paging(ctx context.Context,
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *PrivilegedRoleAssignmentsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for PrivilegedRoleAssignment collection, max N pages

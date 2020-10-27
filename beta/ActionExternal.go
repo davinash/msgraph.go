@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 
@@ -24,7 +25,8 @@ type ExternalConnectionsCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for ExternalConnection collection
 func (b *ExternalConnectionsCollectionRequestBuilder) Request() *ExternalConnectionsCollectionRequest {
 	return &ExternalConnectionsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -83,7 +85,7 @@ func (r *ExternalConnectionsCollectionRequest) Paging(ctx context.Context, metho
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -92,6 +94,20 @@ func (r *ExternalConnectionsCollectionRequest) Paging(ctx context.Context, metho
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *ExternalConnectionsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ExternalConnection collection, max N pages
@@ -127,7 +143,8 @@ type ExternalConnectionItemsCollectionRequestBuilder struct{ BaseRequestBuilder 
 // Request returns request for ExternalItem collection
 func (b *ExternalConnectionItemsCollectionRequestBuilder) Request() *ExternalConnectionItemsCollectionRequest {
 	return &ExternalConnectionItemsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -186,7 +203,7 @@ func (r *ExternalConnectionItemsCollectionRequest) Paging(ctx context.Context, m
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -195,6 +212,20 @@ func (r *ExternalConnectionItemsCollectionRequest) Paging(ctx context.Context, m
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *ExternalConnectionItemsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ExternalItem collection, max N pages
@@ -230,7 +261,8 @@ type ExternalConnectionOperationsCollectionRequestBuilder struct{ BaseRequestBui
 // Request returns request for ConnectionOperation collection
 func (b *ExternalConnectionOperationsCollectionRequestBuilder) Request() *ExternalConnectionOperationsCollectionRequest {
 	return &ExternalConnectionOperationsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -289,7 +321,7 @@ func (r *ExternalConnectionOperationsCollectionRequest) Paging(ctx context.Conte
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -298,6 +330,20 @@ func (r *ExternalConnectionOperationsCollectionRequest) Paging(ctx context.Conte
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *ExternalConnectionOperationsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ConnectionOperation collection, max N pages

@@ -21,7 +21,8 @@ type WorkbookFunctionsFloor_MathRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsFloor_MathRequestBuilder) Request() *WorkbookFunctionsFloor_MathRequest {
 	return &WorkbookFunctionsFloor_MathRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsFloor_PreciseRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsFloor_PreciseRequestBuilder) Request() *WorkbookFunctionsFloor_PreciseRequest {
 	return &WorkbookFunctionsFloor_PreciseRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -21,7 +21,8 @@ type WorkbookFunctionsBitxorRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsBitxorRequestBuilder) Request() *WorkbookFunctionsBitxorRequest {
 	return &WorkbookFunctionsBitxorRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

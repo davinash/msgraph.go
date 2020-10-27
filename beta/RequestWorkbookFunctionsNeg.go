@@ -21,7 +21,8 @@ type WorkbookFunctionsNegBinom_DistRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsNegBinom_DistRequestBuilder) Request() *WorkbookFunctionsNegBinom_DistRequest {
 	return &WorkbookFunctionsNegBinom_DistRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

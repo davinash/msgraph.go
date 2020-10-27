@@ -21,7 +21,8 @@ type WorkbookFunctionsHypGeom_DistRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsHypGeom_DistRequestBuilder) Request() *WorkbookFunctionsHypGeom_DistRequest {
 	return &WorkbookFunctionsHypGeom_DistRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

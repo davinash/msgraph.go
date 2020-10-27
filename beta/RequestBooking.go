@@ -10,7 +10,8 @@ type BookingAppointmentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns BookingAppointmentRequest
 func (b *BookingAppointmentRequestBuilder) Request() *BookingAppointmentRequest {
 	return &BookingAppointmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type BookingBusinessRequestBuilder struct{ BaseRequestBuilder }
 // Request returns BookingBusinessRequest
 func (b *BookingBusinessRequestBuilder) Request() *BookingBusinessRequest {
 	return &BookingBusinessRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type BookingCurrencyRequestBuilder struct{ BaseRequestBuilder }
 // Request returns BookingCurrencyRequest
 func (b *BookingCurrencyRequestBuilder) Request() *BookingCurrencyRequest {
 	return &BookingCurrencyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -109,7 +112,8 @@ type BookingCustomerRequestBuilder struct{ BaseRequestBuilder }
 // Request returns BookingCustomerRequest
 func (b *BookingCustomerRequestBuilder) Request() *BookingCustomerRequest {
 	return &BookingCustomerRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -142,7 +146,8 @@ type BookingServiceRequestBuilder struct{ BaseRequestBuilder }
 // Request returns BookingServiceRequest
 func (b *BookingServiceRequestBuilder) Request() *BookingServiceRequest {
 	return &BookingServiceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -175,7 +180,8 @@ type BookingStaffMemberRequestBuilder struct{ BaseRequestBuilder }
 // Request returns BookingStaffMemberRequest
 func (b *BookingStaffMemberRequestBuilder) Request() *BookingStaffMemberRequest {
 	return &BookingStaffMemberRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -219,7 +225,8 @@ type BookingAppointmentCancelRequest struct{ BaseRequest }
 //
 func (b *BookingAppointmentCancelRequestBuilder) Request() *BookingAppointmentCancelRequest {
 	return &BookingAppointmentCancelRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -245,7 +252,8 @@ type BookingBusinessPublishRequest struct{ BaseRequest }
 //
 func (b *BookingBusinessPublishRequestBuilder) Request() *BookingBusinessPublishRequest {
 	return &BookingBusinessPublishRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -271,7 +279,8 @@ type BookingBusinessUnpublishRequest struct{ BaseRequest }
 //
 func (b *BookingBusinessUnpublishRequestBuilder) Request() *BookingBusinessUnpublishRequest {
 	return &BookingBusinessUnpublishRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

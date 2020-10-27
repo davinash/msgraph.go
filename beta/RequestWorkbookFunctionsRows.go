@@ -21,7 +21,8 @@ type WorkbookFunctionsRowsRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsRowsRequestBuilder) Request() *WorkbookFunctionsRowsRequest {
 	return &WorkbookFunctionsRowsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

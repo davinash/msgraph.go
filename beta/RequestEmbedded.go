@@ -17,7 +17,8 @@ type EmbeddedSIMActivationCodePoolRequestBuilder struct{ BaseRequestBuilder }
 // Request returns EmbeddedSIMActivationCodePoolRequest
 func (b *EmbeddedSIMActivationCodePoolRequestBuilder) Request() *EmbeddedSIMActivationCodePoolRequest {
 	return &EmbeddedSIMActivationCodePoolRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -50,7 +51,8 @@ type EmbeddedSIMActivationCodePoolAssignmentRequestBuilder struct{ BaseRequestBu
 // Request returns EmbeddedSIMActivationCodePoolAssignmentRequest
 func (b *EmbeddedSIMActivationCodePoolAssignmentRequestBuilder) Request() *EmbeddedSIMActivationCodePoolAssignmentRequest {
 	return &EmbeddedSIMActivationCodePoolAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -83,7 +85,8 @@ type EmbeddedSIMDeviceStateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns EmbeddedSIMDeviceStateRequest
 func (b *EmbeddedSIMDeviceStateRequestBuilder) Request() *EmbeddedSIMDeviceStateRequest {
 	return &EmbeddedSIMDeviceStateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -127,7 +130,8 @@ type EmbeddedSIMActivationCodePoolAssignRequest struct{ BaseRequest }
 //
 func (b *EmbeddedSIMActivationCodePoolAssignRequestBuilder) Request() *EmbeddedSIMActivationCodePoolAssignRequest {
 	return &EmbeddedSIMActivationCodePoolAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

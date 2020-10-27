@@ -21,7 +21,8 @@ type WorkbookFunctionsAcoshRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsAcoshRequestBuilder) Request() *WorkbookFunctionsAcoshRequest {
 	return &WorkbookFunctionsAcoshRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

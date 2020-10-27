@@ -21,7 +21,8 @@ type WorkbookFunctionsPercentile_ExcRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsPercentile_ExcRequestBuilder) Request() *WorkbookFunctionsPercentile_ExcRequest {
 	return &WorkbookFunctionsPercentile_ExcRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsPercentile_IncRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsPercentile_IncRequestBuilder) Request() *WorkbookFunctionsPercentile_IncRequest {
 	return &WorkbookFunctionsPercentile_IncRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

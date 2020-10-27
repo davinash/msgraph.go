@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 	"time"
@@ -47,7 +48,8 @@ type ScheduleOpenShiftChangeRequestsCollectionRequestBuilder struct{ BaseRequest
 // Request returns request for OpenShiftChangeRequestObject collection
 func (b *ScheduleOpenShiftChangeRequestsCollectionRequestBuilder) Request() *ScheduleOpenShiftChangeRequestsCollectionRequest {
 	return &ScheduleOpenShiftChangeRequestsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -106,7 +108,7 @@ func (r *ScheduleOpenShiftChangeRequestsCollectionRequest) Paging(ctx context.Co
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -115,6 +117,20 @@ func (r *ScheduleOpenShiftChangeRequestsCollectionRequest) Paging(ctx context.Co
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *ScheduleOpenShiftChangeRequestsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for OpenShiftChangeRequestObject collection, max N pages
@@ -150,7 +166,8 @@ type ScheduleOpenShiftsCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for OpenShift collection
 func (b *ScheduleOpenShiftsCollectionRequestBuilder) Request() *ScheduleOpenShiftsCollectionRequest {
 	return &ScheduleOpenShiftsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -209,7 +226,7 @@ func (r *ScheduleOpenShiftsCollectionRequest) Paging(ctx context.Context, method
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -218,6 +235,20 @@ func (r *ScheduleOpenShiftsCollectionRequest) Paging(ctx context.Context, method
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *ScheduleOpenShiftsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for OpenShift collection, max N pages
@@ -253,7 +284,8 @@ type ScheduleSchedulingGroupsCollectionRequestBuilder struct{ BaseRequestBuilder
 // Request returns request for SchedulingGroup collection
 func (b *ScheduleSchedulingGroupsCollectionRequestBuilder) Request() *ScheduleSchedulingGroupsCollectionRequest {
 	return &ScheduleSchedulingGroupsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -312,7 +344,7 @@ func (r *ScheduleSchedulingGroupsCollectionRequest) Paging(ctx context.Context, 
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -321,6 +353,20 @@ func (r *ScheduleSchedulingGroupsCollectionRequest) Paging(ctx context.Context, 
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *ScheduleSchedulingGroupsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for SchedulingGroup collection, max N pages
@@ -356,7 +402,8 @@ type ScheduleShiftsCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for Shift collection
 func (b *ScheduleShiftsCollectionRequestBuilder) Request() *ScheduleShiftsCollectionRequest {
 	return &ScheduleShiftsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -415,7 +462,7 @@ func (r *ScheduleShiftsCollectionRequest) Paging(ctx context.Context, method, pa
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -424,6 +471,20 @@ func (r *ScheduleShiftsCollectionRequest) Paging(ctx context.Context, method, pa
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *ScheduleShiftsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for Shift collection, max N pages
@@ -459,7 +520,8 @@ type ScheduleSwapShiftsChangeRequestsCollectionRequestBuilder struct{ BaseReques
 // Request returns request for SwapShiftsChangeRequestObject collection
 func (b *ScheduleSwapShiftsChangeRequestsCollectionRequestBuilder) Request() *ScheduleSwapShiftsChangeRequestsCollectionRequest {
 	return &ScheduleSwapShiftsChangeRequestsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -518,7 +580,7 @@ func (r *ScheduleSwapShiftsChangeRequestsCollectionRequest) Paging(ctx context.C
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -527,6 +589,20 @@ func (r *ScheduleSwapShiftsChangeRequestsCollectionRequest) Paging(ctx context.C
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *ScheduleSwapShiftsChangeRequestsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for SwapShiftsChangeRequestObject collection, max N pages
@@ -562,7 +638,8 @@ type ScheduleTimeOffReasonsCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for TimeOffReason collection
 func (b *ScheduleTimeOffReasonsCollectionRequestBuilder) Request() *ScheduleTimeOffReasonsCollectionRequest {
 	return &ScheduleTimeOffReasonsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -621,7 +698,7 @@ func (r *ScheduleTimeOffReasonsCollectionRequest) Paging(ctx context.Context, me
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -630,6 +707,20 @@ func (r *ScheduleTimeOffReasonsCollectionRequest) Paging(ctx context.Context, me
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *ScheduleTimeOffReasonsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for TimeOffReason collection, max N pages
@@ -665,7 +756,8 @@ type ScheduleTimeOffRequestsCollectionRequestBuilder struct{ BaseRequestBuilder 
 // Request returns request for TimeOffRequestObject collection
 func (b *ScheduleTimeOffRequestsCollectionRequestBuilder) Request() *ScheduleTimeOffRequestsCollectionRequest {
 	return &ScheduleTimeOffRequestsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -724,7 +816,7 @@ func (r *ScheduleTimeOffRequestsCollectionRequest) Paging(ctx context.Context, m
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -733,6 +825,20 @@ func (r *ScheduleTimeOffRequestsCollectionRequest) Paging(ctx context.Context, m
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *ScheduleTimeOffRequestsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for TimeOffRequestObject collection, max N pages
@@ -768,7 +874,8 @@ type ScheduleTimesOffCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for TimeOff collection
 func (b *ScheduleTimesOffCollectionRequestBuilder) Request() *ScheduleTimesOffCollectionRequest {
 	return &ScheduleTimesOffCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -827,7 +934,7 @@ func (r *ScheduleTimesOffCollectionRequest) Paging(ctx context.Context, method, 
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -836,6 +943,20 @@ func (r *ScheduleTimesOffCollectionRequest) Paging(ctx context.Context, method, 
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *ScheduleTimesOffCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for TimeOff collection, max N pages

@@ -10,7 +10,8 @@ type MentionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns MentionRequest
 func (b *MentionRequestBuilder) Request() *MentionRequest {
 	return &MentionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

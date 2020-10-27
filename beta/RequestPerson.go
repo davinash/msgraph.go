@@ -10,7 +10,8 @@ type PersonRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PersonRequest
 func (b *PersonRequestBuilder) Request() *PersonRequest {
 	return &PersonRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type PersonAnniversaryRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PersonAnniversaryRequest
 func (b *PersonAnniversaryRequestBuilder) Request() *PersonAnniversaryRequest {
 	return &PersonAnniversaryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type PersonInterestRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PersonInterestRequest
 func (b *PersonInterestRequestBuilder) Request() *PersonInterestRequest {
 	return &PersonInterestRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -109,7 +112,8 @@ type PersonNameRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PersonNameRequest
 func (b *PersonNameRequestBuilder) Request() *PersonNameRequest {
 	return &PersonNameRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -142,7 +146,8 @@ type PersonWebsiteRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PersonWebsiteRequest
 func (b *PersonWebsiteRequestBuilder) Request() *PersonWebsiteRequest {
 	return &PersonWebsiteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -17,7 +17,8 @@ type InformationProtectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns InformationProtectionRequest
 func (b *InformationProtectionRequestBuilder) Request() *InformationProtectionRequest {
 	return &InformationProtectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -50,7 +51,8 @@ type InformationProtectionLabelRequestBuilder struct{ BaseRequestBuilder }
 // Request returns InformationProtectionLabelRequest
 func (b *InformationProtectionLabelRequestBuilder) Request() *InformationProtectionLabelRequest {
 	return &InformationProtectionLabelRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -83,7 +85,8 @@ type InformationProtectionPolicyRequestBuilder struct{ BaseRequestBuilder }
 // Request returns InformationProtectionPolicyRequest
 func (b *InformationProtectionPolicyRequestBuilder) Request() *InformationProtectionPolicyRequest {
 	return &InformationProtectionPolicyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -127,7 +130,8 @@ type InformationProtectionLabelCollectionExtractLabelRequest struct{ BaseRequest
 //
 func (b *InformationProtectionLabelCollectionExtractLabelRequestBuilder) Request() *InformationProtectionLabelCollectionExtractLabelRequest {
 	return &InformationProtectionLabelCollectionExtractLabelRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -154,7 +158,8 @@ type InformationProtectionLabelCollectionEvaluateApplicationRequest struct{ Base
 //
 func (b *InformationProtectionLabelCollectionEvaluateApplicationRequestBuilder) Request() *InformationProtectionLabelCollectionEvaluateApplicationRequest {
 	return &InformationProtectionLabelCollectionEvaluateApplicationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -241,7 +246,8 @@ type InformationProtectionLabelCollectionEvaluateRemovalRequest struct{ BaseRequ
 //
 func (b *InformationProtectionLabelCollectionEvaluateRemovalRequestBuilder) Request() *InformationProtectionLabelCollectionEvaluateRemovalRequest {
 	return &InformationProtectionLabelCollectionEvaluateRemovalRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -328,7 +334,8 @@ type InformationProtectionLabelCollectionEvaluateClassificationResultsRequest st
 //
 func (b *InformationProtectionLabelCollectionEvaluateClassificationResultsRequestBuilder) Request() *InformationProtectionLabelCollectionEvaluateClassificationResultsRequest {
 	return &InformationProtectionLabelCollectionEvaluateClassificationResultsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -415,7 +422,8 @@ type InformationProtectionEvaluateLabelsAndPoliciesRequest struct{ BaseRequest }
 //
 func (b *InformationProtectionEvaluateLabelsAndPoliciesRequestBuilder) Request() *InformationProtectionEvaluateLabelsAndPoliciesRequest {
 	return &InformationProtectionEvaluateLabelsAndPoliciesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

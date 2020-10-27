@@ -10,7 +10,8 @@ type AgreementRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AgreementRequest
 func (b *AgreementRequestBuilder) Request() *AgreementRequest {
 	return &AgreementRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type AgreementAcceptanceRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AgreementAcceptanceRequest
 func (b *AgreementAcceptanceRequestBuilder) Request() *AgreementAcceptanceRequest {
 	return &AgreementAcceptanceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type AgreementFileRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AgreementFileRequest
 func (b *AgreementFileRequestBuilder) Request() *AgreementFileRequest {
 	return &AgreementFileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

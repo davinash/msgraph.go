@@ -21,7 +21,8 @@ type WorkbookFunctionsTrimRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsTrimRequestBuilder) Request() *WorkbookFunctionsTrimRequest {
 	return &WorkbookFunctionsTrimRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsTrimMeanRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsTrimMeanRequestBuilder) Request() *WorkbookFunctionsTrimMeanRequest {
 	return &WorkbookFunctionsTrimMeanRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

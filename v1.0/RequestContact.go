@@ -10,7 +10,8 @@ type ContactRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ContactRequest
 func (b *ContactRequestBuilder) Request() *ContactRequest {
 	return &ContactRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type ContactFolderRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ContactFolderRequest
 func (b *ContactFolderRequestBuilder) Request() *ContactFolderRequest {
 	return &ContactFolderRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -10,7 +10,8 @@ type UnifiedRoleAssignmentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns UnifiedRoleAssignmentRequest
 func (b *UnifiedRoleAssignmentRequestBuilder) Request() *UnifiedRoleAssignmentRequest {
 	return &UnifiedRoleAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type UnifiedRoleDefinitionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns UnifiedRoleDefinitionRequest
 func (b *UnifiedRoleDefinitionRequestBuilder) Request() *UnifiedRoleDefinitionRequest {
 	return &UnifiedRoleDefinitionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

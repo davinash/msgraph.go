@@ -21,7 +21,8 @@ type WorkbookFunctionsMaxRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsMaxRequestBuilder) Request() *WorkbookFunctionsMaxRequest {
 	return &WorkbookFunctionsMaxRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsMaxARequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsMaxARequestBuilder) Request() *WorkbookFunctionsMaxARequest {
 	return &WorkbookFunctionsMaxARequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

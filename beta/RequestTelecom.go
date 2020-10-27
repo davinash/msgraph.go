@@ -10,7 +10,8 @@ type TelecomExpenseManagementPartnerRequestBuilder struct{ BaseRequestBuilder }
 // Request returns TelecomExpenseManagementPartnerRequest
 func (b *TelecomExpenseManagementPartnerRequestBuilder) Request() *TelecomExpenseManagementPartnerRequest {
 	return &TelecomExpenseManagementPartnerRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

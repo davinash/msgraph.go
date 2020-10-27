@@ -10,7 +10,8 @@ type SkillProficiencyRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SkillProficiencyRequest
 func (b *SkillProficiencyRequestBuilder) Request() *SkillProficiencyRequest {
 	return &SkillProficiencyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

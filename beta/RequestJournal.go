@@ -10,7 +10,8 @@ type JournalRequestBuilder struct{ BaseRequestBuilder }
 // Request returns JournalRequest
 func (b *JournalRequestBuilder) Request() *JournalRequest {
 	return &JournalRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type JournalLineRequestBuilder struct{ BaseRequestBuilder }
 // Request returns JournalLineRequest
 func (b *JournalLineRequestBuilder) Request() *JournalLineRequest {
 	return &JournalLineRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -87,7 +89,8 @@ type JournalPostRequest struct{ BaseRequest }
 //
 func (b *JournalPostRequestBuilder) Request() *JournalPostRequest {
 	return &JournalPostRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

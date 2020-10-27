@@ -10,7 +10,8 @@ type MicrosoftStoreForBusinessAppRequestBuilder struct{ BaseRequestBuilder }
 // Request returns MicrosoftStoreForBusinessAppRequest
 func (b *MicrosoftStoreForBusinessAppRequestBuilder) Request() *MicrosoftStoreForBusinessAppRequest {
 	return &MicrosoftStoreForBusinessAppRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

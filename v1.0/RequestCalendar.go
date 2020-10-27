@@ -17,7 +17,8 @@ type CalendarRequestBuilder struct{ BaseRequestBuilder }
 // Request returns CalendarRequest
 func (b *CalendarRequestBuilder) Request() *CalendarRequest {
 	return &CalendarRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -50,7 +51,8 @@ type CalendarGroupRequestBuilder struct{ BaseRequestBuilder }
 // Request returns CalendarGroupRequest
 func (b *CalendarGroupRequestBuilder) Request() *CalendarGroupRequest {
 	return &CalendarGroupRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -94,7 +96,8 @@ type CalendarGetScheduleRequest struct{ BaseRequest }
 //
 func (b *CalendarGetScheduleRequestBuilder) Request() *CalendarGetScheduleRequest {
 	return &CalendarGetScheduleRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

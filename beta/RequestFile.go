@@ -10,7 +10,8 @@ type FileClassificationRequestObjectRequestBuilder struct{ BaseRequestBuilder }
 // Request returns FileClassificationRequestObjectRequest
 func (b *FileClassificationRequestObjectRequestBuilder) Request() *FileClassificationRequestObjectRequest {
 	return &FileClassificationRequestObjectRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type FileSecurityProfileRequestBuilder struct{ BaseRequestBuilder }
 // Request returns FileSecurityProfileRequest
 func (b *FileSecurityProfileRequestBuilder) Request() *FileSecurityProfileRequest {
 	return &FileSecurityProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

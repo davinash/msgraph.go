@@ -21,7 +21,8 @@ type WorkbookFunctionsIsErrRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsIsErrRequestBuilder) Request() *WorkbookFunctionsIsErrRequest {
 	return &WorkbookFunctionsIsErrRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsIsErrorRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsIsErrorRequestBuilder) Request() *WorkbookFunctionsIsErrorRequest {
 	return &WorkbookFunctionsIsErrorRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -75,7 +77,8 @@ type WorkbookFunctionsIsEvenRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsIsEvenRequestBuilder) Request() *WorkbookFunctionsIsEvenRequest {
 	return &WorkbookFunctionsIsEvenRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -102,7 +105,8 @@ type WorkbookFunctionsIsFormulaRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsIsFormulaRequestBuilder) Request() *WorkbookFunctionsIsFormulaRequest {
 	return &WorkbookFunctionsIsFormulaRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -129,7 +133,8 @@ type WorkbookFunctionsIsLogicalRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsIsLogicalRequestBuilder) Request() *WorkbookFunctionsIsLogicalRequest {
 	return &WorkbookFunctionsIsLogicalRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -156,7 +161,8 @@ type WorkbookFunctionsIsNARequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsIsNARequestBuilder) Request() *WorkbookFunctionsIsNARequest {
 	return &WorkbookFunctionsIsNARequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -183,7 +189,8 @@ type WorkbookFunctionsIsNonTextRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsIsNonTextRequestBuilder) Request() *WorkbookFunctionsIsNonTextRequest {
 	return &WorkbookFunctionsIsNonTextRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -210,7 +217,8 @@ type WorkbookFunctionsIsNumberRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsIsNumberRequestBuilder) Request() *WorkbookFunctionsIsNumberRequest {
 	return &WorkbookFunctionsIsNumberRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -237,7 +245,8 @@ type WorkbookFunctionsIsOddRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsIsOddRequestBuilder) Request() *WorkbookFunctionsIsOddRequest {
 	return &WorkbookFunctionsIsOddRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -264,7 +273,8 @@ type WorkbookFunctionsIsTextRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsIsTextRequestBuilder) Request() *WorkbookFunctionsIsTextRequest {
 	return &WorkbookFunctionsIsTextRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

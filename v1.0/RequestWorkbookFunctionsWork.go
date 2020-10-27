@@ -21,7 +21,8 @@ type WorkbookFunctionsWorkDayRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsWorkDayRequestBuilder) Request() *WorkbookFunctionsWorkDayRequest {
 	return &WorkbookFunctionsWorkDayRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsWorkDay_IntlRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsWorkDay_IntlRequestBuilder) Request() *WorkbookFunctionsWorkDay_IntlRequest {
 	return &WorkbookFunctionsWorkDay_IntlRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

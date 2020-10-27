@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 
@@ -38,7 +39,8 @@ type DataClassificationServiceClassifyFileCollectionRequestBuilder struct{ BaseR
 // Request returns request for FileClassificationRequestObject collection
 func (b *DataClassificationServiceClassifyFileCollectionRequestBuilder) Request() *DataClassificationServiceClassifyFileCollectionRequest {
 	return &DataClassificationServiceClassifyFileCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -97,7 +99,7 @@ func (r *DataClassificationServiceClassifyFileCollectionRequest) Paging(ctx cont
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -106,6 +108,20 @@ func (r *DataClassificationServiceClassifyFileCollectionRequest) Paging(ctx cont
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DataClassificationServiceClassifyFileCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for FileClassificationRequestObject collection, max N pages
@@ -141,7 +157,8 @@ type DataClassificationServiceClassifyFileJobsCollectionRequestBuilder struct{ B
 // Request returns request for JobResponseBase collection
 func (b *DataClassificationServiceClassifyFileJobsCollectionRequestBuilder) Request() *DataClassificationServiceClassifyFileJobsCollectionRequest {
 	return &DataClassificationServiceClassifyFileJobsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -200,7 +217,7 @@ func (r *DataClassificationServiceClassifyFileJobsCollectionRequest) Paging(ctx 
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -209,6 +226,20 @@ func (r *DataClassificationServiceClassifyFileJobsCollectionRequest) Paging(ctx 
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DataClassificationServiceClassifyFileJobsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for JobResponseBase collection, max N pages
@@ -244,7 +275,8 @@ type DataClassificationServiceClassifyTextCollectionRequestBuilder struct{ BaseR
 // Request returns request for TextClassificationRequestObject collection
 func (b *DataClassificationServiceClassifyTextCollectionRequestBuilder) Request() *DataClassificationServiceClassifyTextCollectionRequest {
 	return &DataClassificationServiceClassifyTextCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -303,7 +335,7 @@ func (r *DataClassificationServiceClassifyTextCollectionRequest) Paging(ctx cont
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -312,6 +344,20 @@ func (r *DataClassificationServiceClassifyTextCollectionRequest) Paging(ctx cont
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DataClassificationServiceClassifyTextCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for TextClassificationRequestObject collection, max N pages
@@ -347,7 +393,8 @@ type DataClassificationServiceClassifyTextJobsCollectionRequestBuilder struct{ B
 // Request returns request for JobResponseBase collection
 func (b *DataClassificationServiceClassifyTextJobsCollectionRequestBuilder) Request() *DataClassificationServiceClassifyTextJobsCollectionRequest {
 	return &DataClassificationServiceClassifyTextJobsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -406,7 +453,7 @@ func (r *DataClassificationServiceClassifyTextJobsCollectionRequest) Paging(ctx 
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -415,6 +462,20 @@ func (r *DataClassificationServiceClassifyTextJobsCollectionRequest) Paging(ctx 
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DataClassificationServiceClassifyTextJobsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for JobResponseBase collection, max N pages
@@ -450,7 +511,8 @@ type DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequestBuilder st
 // Request returns request for JobResponseBase collection
 func (b *DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequestBuilder) Request() *DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequest {
 	return &DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -509,7 +571,7 @@ func (r *DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequest) Pagi
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -518,6 +580,20 @@ func (r *DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequest) Pagi
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for JobResponseBase collection, max N pages
@@ -553,7 +629,8 @@ type DataClassificationServiceEvaluateLabelJobsCollectionRequestBuilder struct{ 
 // Request returns request for JobResponseBase collection
 func (b *DataClassificationServiceEvaluateLabelJobsCollectionRequestBuilder) Request() *DataClassificationServiceEvaluateLabelJobsCollectionRequest {
 	return &DataClassificationServiceEvaluateLabelJobsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -612,7 +689,7 @@ func (r *DataClassificationServiceEvaluateLabelJobsCollectionRequest) Paging(ctx
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -621,6 +698,20 @@ func (r *DataClassificationServiceEvaluateLabelJobsCollectionRequest) Paging(ctx
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DataClassificationServiceEvaluateLabelJobsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for JobResponseBase collection, max N pages
@@ -656,7 +747,8 @@ type DataClassificationServiceExactMatchDataStoresCollectionRequestBuilder struc
 // Request returns request for ExactMatchDataStore collection
 func (b *DataClassificationServiceExactMatchDataStoresCollectionRequestBuilder) Request() *DataClassificationServiceExactMatchDataStoresCollectionRequest {
 	return &DataClassificationServiceExactMatchDataStoresCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -715,7 +807,7 @@ func (r *DataClassificationServiceExactMatchDataStoresCollectionRequest) Paging(
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -724,6 +816,20 @@ func (r *DataClassificationServiceExactMatchDataStoresCollectionRequest) Paging(
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DataClassificationServiceExactMatchDataStoresCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ExactMatchDataStore collection, max N pages
@@ -759,7 +865,8 @@ type DataClassificationServiceExactMatchUploadAgentsCollectionRequestBuilder str
 // Request returns request for ExactMatchUploadAgent collection
 func (b *DataClassificationServiceExactMatchUploadAgentsCollectionRequestBuilder) Request() *DataClassificationServiceExactMatchUploadAgentsCollectionRequest {
 	return &DataClassificationServiceExactMatchUploadAgentsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -818,7 +925,7 @@ func (r *DataClassificationServiceExactMatchUploadAgentsCollectionRequest) Pagin
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -827,6 +934,20 @@ func (r *DataClassificationServiceExactMatchUploadAgentsCollectionRequest) Pagin
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DataClassificationServiceExactMatchUploadAgentsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ExactMatchUploadAgent collection, max N pages
@@ -862,7 +983,8 @@ type DataClassificationServiceJobsCollectionRequestBuilder struct{ BaseRequestBu
 // Request returns request for JobResponseBase collection
 func (b *DataClassificationServiceJobsCollectionRequestBuilder) Request() *DataClassificationServiceJobsCollectionRequest {
 	return &DataClassificationServiceJobsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -921,7 +1043,7 @@ func (r *DataClassificationServiceJobsCollectionRequest) Paging(ctx context.Cont
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -930,6 +1052,20 @@ func (r *DataClassificationServiceJobsCollectionRequest) Paging(ctx context.Cont
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DataClassificationServiceJobsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for JobResponseBase collection, max N pages
@@ -965,7 +1101,8 @@ type DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequestBu
 // Request returns request for JobResponseBase collection
 func (b *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequestBuilder) Request() *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest {
 	return &DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1024,7 +1161,7 @@ func (r *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionReque
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -1033,6 +1170,20 @@ func (r *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionReque
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for JobResponseBase collection, max N pages
@@ -1068,7 +1219,8 @@ type DataClassificationServiceSensitiveTypesCollectionRequestBuilder struct{ Bas
 // Request returns request for SensitiveType collection
 func (b *DataClassificationServiceSensitiveTypesCollectionRequestBuilder) Request() *DataClassificationServiceSensitiveTypesCollectionRequest {
 	return &DataClassificationServiceSensitiveTypesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1127,7 +1279,7 @@ func (r *DataClassificationServiceSensitiveTypesCollectionRequest) Paging(ctx co
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -1136,6 +1288,20 @@ func (r *DataClassificationServiceSensitiveTypesCollectionRequest) Paging(ctx co
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DataClassificationServiceSensitiveTypesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for SensitiveType collection, max N pages
@@ -1171,7 +1337,8 @@ type DataClassificationServiceSensitivityLabelsCollectionRequestBuilder struct{ 
 // Request returns request for SensitivityLabel collection
 func (b *DataClassificationServiceSensitivityLabelsCollectionRequestBuilder) Request() *DataClassificationServiceSensitivityLabelsCollectionRequest {
 	return &DataClassificationServiceSensitivityLabelsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1230,7 +1397,7 @@ func (r *DataClassificationServiceSensitivityLabelsCollectionRequest) Paging(ctx
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -1239,6 +1406,20 @@ func (r *DataClassificationServiceSensitivityLabelsCollectionRequest) Paging(ctx
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DataClassificationServiceSensitivityLabelsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for SensitivityLabel collection, max N pages

@@ -10,7 +10,8 @@ type EducationClassRequestBuilder struct{ BaseRequestBuilder }
 // Request returns EducationClassRequest
 func (b *EducationClassRequestBuilder) Request() *EducationClassRequest {
 	return &EducationClassRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type EducationRootRequestBuilder struct{ BaseRequestBuilder }
 // Request returns EducationRootRequest
 func (b *EducationRootRequestBuilder) Request() *EducationRootRequest {
 	return &EducationRootRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type EducationSchoolRequestBuilder struct{ BaseRequestBuilder }
 // Request returns EducationSchoolRequest
 func (b *EducationSchoolRequestBuilder) Request() *EducationSchoolRequest {
 	return &EducationSchoolRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -109,7 +112,8 @@ type EducationUserRequestBuilder struct{ BaseRequestBuilder }
 // Request returns EducationUserRequest
 func (b *EducationUserRequestBuilder) Request() *EducationUserRequest {
 	return &EducationUserRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

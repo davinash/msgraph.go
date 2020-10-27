@@ -10,7 +10,8 @@ type AttributeMappingFunctionSchemaRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AttributeMappingFunctionSchemaRequest
 func (b *AttributeMappingFunctionSchemaRequestBuilder) Request() *AttributeMappingFunctionSchemaRequest {
 	return &AttributeMappingFunctionSchemaRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

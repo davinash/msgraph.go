@@ -10,7 +10,8 @@ type NotebookRequestBuilder struct{ BaseRequestBuilder }
 // Request returns NotebookRequest
 func (b *NotebookRequestBuilder) Request() *NotebookRequest {
 	return &NotebookRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -54,7 +55,8 @@ type NotebookCollectionGetNotebookFromWebURLRequest struct{ BaseRequest }
 //
 func (b *NotebookCollectionGetNotebookFromWebURLRequestBuilder) Request() *NotebookCollectionGetNotebookFromWebURLRequest {
 	return &NotebookCollectionGetNotebookFromWebURLRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -81,7 +83,8 @@ type NotebookCopyNotebookRequest struct{ BaseRequest }
 //
 func (b *NotebookCopyNotebookRequestBuilder) Request() *NotebookCopyNotebookRequest {
 	return &NotebookCopyNotebookRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

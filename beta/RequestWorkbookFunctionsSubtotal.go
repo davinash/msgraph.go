@@ -21,7 +21,8 @@ type WorkbookFunctionsSubtotalRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsSubtotalRequestBuilder) Request() *WorkbookFunctionsSubtotalRequest {
 	return &WorkbookFunctionsSubtotalRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

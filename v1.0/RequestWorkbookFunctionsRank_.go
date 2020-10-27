@@ -21,7 +21,8 @@ type WorkbookFunctionsRank_AvgRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsRank_AvgRequestBuilder) Request() *WorkbookFunctionsRank_AvgRequest {
 	return &WorkbookFunctionsRank_AvgRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsRank_EqRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsRank_EqRequestBuilder) Request() *WorkbookFunctionsRank_EqRequest {
 	return &WorkbookFunctionsRank_EqRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

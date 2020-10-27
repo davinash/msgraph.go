@@ -21,7 +21,8 @@ type WorkbookFunctionsPiRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsPiRequestBuilder) Request() *WorkbookFunctionsPiRequest {
 	return &WorkbookFunctionsPiRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

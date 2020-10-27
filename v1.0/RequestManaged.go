@@ -10,7 +10,8 @@ type ManagedAppOperationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ManagedAppOperationRequest
 func (b *ManagedAppOperationRequestBuilder) Request() *ManagedAppOperationRequest {
 	return &ManagedAppOperationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type ManagedAppPolicyRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ManagedAppPolicyRequest
 func (b *ManagedAppPolicyRequestBuilder) Request() *ManagedAppPolicyRequest {
 	return &ManagedAppPolicyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type ManagedAppPolicyDeploymentSummaryRequestBuilder struct{ BaseRequestBuilder 
 // Request returns ManagedAppPolicyDeploymentSummaryRequest
 func (b *ManagedAppPolicyDeploymentSummaryRequestBuilder) Request() *ManagedAppPolicyDeploymentSummaryRequest {
 	return &ManagedAppPolicyDeploymentSummaryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -109,7 +112,8 @@ type ManagedAppProtectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ManagedAppProtectionRequest
 func (b *ManagedAppProtectionRequestBuilder) Request() *ManagedAppProtectionRequest {
 	return &ManagedAppProtectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -142,7 +146,8 @@ type ManagedAppRegistrationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ManagedAppRegistrationRequest
 func (b *ManagedAppRegistrationRequestBuilder) Request() *ManagedAppRegistrationRequest {
 	return &ManagedAppRegistrationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -175,7 +180,8 @@ type ManagedAppStatusRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ManagedAppStatusRequest
 func (b *ManagedAppStatusRequestBuilder) Request() *ManagedAppStatusRequest {
 	return &ManagedAppStatusRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -208,7 +214,8 @@ type ManagedDeviceRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ManagedDeviceRequest
 func (b *ManagedDeviceRequestBuilder) Request() *ManagedDeviceRequest {
 	return &ManagedDeviceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -241,7 +248,8 @@ type ManagedDeviceMobileAppConfigurationRequestBuilder struct{ BaseRequestBuilde
 // Request returns ManagedDeviceMobileAppConfigurationRequest
 func (b *ManagedDeviceMobileAppConfigurationRequestBuilder) Request() *ManagedDeviceMobileAppConfigurationRequest {
 	return &ManagedDeviceMobileAppConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -274,7 +282,8 @@ type ManagedDeviceMobileAppConfigurationAssignmentRequestBuilder struct{ BaseReq
 // Request returns ManagedDeviceMobileAppConfigurationAssignmentRequest
 func (b *ManagedDeviceMobileAppConfigurationAssignmentRequestBuilder) Request() *ManagedDeviceMobileAppConfigurationAssignmentRequest {
 	return &ManagedDeviceMobileAppConfigurationAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -307,7 +316,8 @@ type ManagedDeviceMobileAppConfigurationDeviceStatusRequestBuilder struct{ BaseR
 // Request returns ManagedDeviceMobileAppConfigurationDeviceStatusRequest
 func (b *ManagedDeviceMobileAppConfigurationDeviceStatusRequestBuilder) Request() *ManagedDeviceMobileAppConfigurationDeviceStatusRequest {
 	return &ManagedDeviceMobileAppConfigurationDeviceStatusRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -340,7 +350,8 @@ type ManagedDeviceMobileAppConfigurationDeviceSummaryRequestBuilder struct{ Base
 // Request returns ManagedDeviceMobileAppConfigurationDeviceSummaryRequest
 func (b *ManagedDeviceMobileAppConfigurationDeviceSummaryRequestBuilder) Request() *ManagedDeviceMobileAppConfigurationDeviceSummaryRequest {
 	return &ManagedDeviceMobileAppConfigurationDeviceSummaryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -373,7 +384,8 @@ type ManagedDeviceMobileAppConfigurationUserStatusRequestBuilder struct{ BaseReq
 // Request returns ManagedDeviceMobileAppConfigurationUserStatusRequest
 func (b *ManagedDeviceMobileAppConfigurationUserStatusRequestBuilder) Request() *ManagedDeviceMobileAppConfigurationUserStatusRequest {
 	return &ManagedDeviceMobileAppConfigurationUserStatusRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -406,7 +418,8 @@ type ManagedDeviceMobileAppConfigurationUserSummaryRequestBuilder struct{ BaseRe
 // Request returns ManagedDeviceMobileAppConfigurationUserSummaryRequest
 func (b *ManagedDeviceMobileAppConfigurationUserSummaryRequestBuilder) Request() *ManagedDeviceMobileAppConfigurationUserSummaryRequest {
 	return &ManagedDeviceMobileAppConfigurationUserSummaryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -439,7 +452,8 @@ type ManagedDeviceOverviewRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ManagedDeviceOverviewRequest
 func (b *ManagedDeviceOverviewRequestBuilder) Request() *ManagedDeviceOverviewRequest {
 	return &ManagedDeviceOverviewRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -472,7 +486,8 @@ type ManagedEBookRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ManagedEBookRequest
 func (b *ManagedEBookRequestBuilder) Request() *ManagedEBookRequest {
 	return &ManagedEBookRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -505,7 +520,8 @@ type ManagedEBookAssignmentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ManagedEBookAssignmentRequest
 func (b *ManagedEBookAssignmentRequestBuilder) Request() *ManagedEBookAssignmentRequest {
 	return &ManagedEBookAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -538,7 +554,8 @@ type ManagedMobileAppRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ManagedMobileAppRequest
 func (b *ManagedMobileAppRequestBuilder) Request() *ManagedMobileAppRequest {
 	return &ManagedMobileAppRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -571,7 +588,8 @@ type ManagedMobileLobAppRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ManagedMobileLobAppRequest
 func (b *ManagedMobileLobAppRequestBuilder) Request() *ManagedMobileLobAppRequest {
 	return &ManagedMobileLobAppRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -615,7 +633,8 @@ type ManagedAppPolicyTargetAppsRequest struct{ BaseRequest }
 //
 func (b *ManagedAppPolicyTargetAppsRequestBuilder) Request() *ManagedAppPolicyTargetAppsRequest {
 	return &ManagedAppPolicyTargetAppsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -641,7 +660,8 @@ type ManagedAppProtectionTargetAppsRequest struct{ BaseRequest }
 //
 func (b *ManagedAppProtectionTargetAppsRequestBuilder) Request() *ManagedAppProtectionTargetAppsRequest {
 	return &ManagedAppProtectionTargetAppsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -667,7 +687,8 @@ type ManagedDeviceRetireRequest struct{ BaseRequest }
 //
 func (b *ManagedDeviceRetireRequestBuilder) Request() *ManagedDeviceRetireRequest {
 	return &ManagedDeviceRetireRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -693,7 +714,8 @@ type ManagedDeviceWipeRequest struct{ BaseRequest }
 //
 func (b *ManagedDeviceWipeRequestBuilder) Request() *ManagedDeviceWipeRequest {
 	return &ManagedDeviceWipeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -719,7 +741,8 @@ type ManagedDeviceResetPasscodeRequest struct{ BaseRequest }
 //
 func (b *ManagedDeviceResetPasscodeRequestBuilder) Request() *ManagedDeviceResetPasscodeRequest {
 	return &ManagedDeviceResetPasscodeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -745,7 +768,8 @@ type ManagedDeviceRemoteLockRequest struct{ BaseRequest }
 //
 func (b *ManagedDeviceRemoteLockRequestBuilder) Request() *ManagedDeviceRemoteLockRequest {
 	return &ManagedDeviceRemoteLockRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -771,7 +795,8 @@ type ManagedDeviceRequestRemoteAssistanceRequest struct{ BaseRequest }
 //
 func (b *ManagedDeviceRequestRemoteAssistanceRequestBuilder) Request() *ManagedDeviceRequestRemoteAssistanceRequest {
 	return &ManagedDeviceRequestRemoteAssistanceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -797,7 +822,8 @@ type ManagedDeviceDisableLostModeRequest struct{ BaseRequest }
 //
 func (b *ManagedDeviceDisableLostModeRequestBuilder) Request() *ManagedDeviceDisableLostModeRequest {
 	return &ManagedDeviceDisableLostModeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -823,7 +849,8 @@ type ManagedDeviceLocateDeviceRequest struct{ BaseRequest }
 //
 func (b *ManagedDeviceLocateDeviceRequestBuilder) Request() *ManagedDeviceLocateDeviceRequest {
 	return &ManagedDeviceLocateDeviceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -849,7 +876,8 @@ type ManagedDeviceBypassActivationLockRequest struct{ BaseRequest }
 //
 func (b *ManagedDeviceBypassActivationLockRequestBuilder) Request() *ManagedDeviceBypassActivationLockRequest {
 	return &ManagedDeviceBypassActivationLockRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -875,7 +903,8 @@ type ManagedDeviceRebootNowRequest struct{ BaseRequest }
 //
 func (b *ManagedDeviceRebootNowRequestBuilder) Request() *ManagedDeviceRebootNowRequest {
 	return &ManagedDeviceRebootNowRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -901,7 +930,8 @@ type ManagedDeviceShutDownRequest struct{ BaseRequest }
 //
 func (b *ManagedDeviceShutDownRequestBuilder) Request() *ManagedDeviceShutDownRequest {
 	return &ManagedDeviceShutDownRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -927,7 +957,8 @@ type ManagedDeviceRecoverPasscodeRequest struct{ BaseRequest }
 //
 func (b *ManagedDeviceRecoverPasscodeRequestBuilder) Request() *ManagedDeviceRecoverPasscodeRequest {
 	return &ManagedDeviceRecoverPasscodeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -953,7 +984,8 @@ type ManagedDeviceCleanWindowsDeviceRequest struct{ BaseRequest }
 //
 func (b *ManagedDeviceCleanWindowsDeviceRequestBuilder) Request() *ManagedDeviceCleanWindowsDeviceRequest {
 	return &ManagedDeviceCleanWindowsDeviceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -979,7 +1011,8 @@ type ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest struct{ BaseRequest }
 //
 func (b *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestBuilder) Request() *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest {
 	return &ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1005,7 +1038,8 @@ type ManagedDeviceDeleteUserFromSharedAppleDeviceRequest struct{ BaseRequest }
 //
 func (b *ManagedDeviceDeleteUserFromSharedAppleDeviceRequestBuilder) Request() *ManagedDeviceDeleteUserFromSharedAppleDeviceRequest {
 	return &ManagedDeviceDeleteUserFromSharedAppleDeviceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1031,7 +1065,8 @@ type ManagedDeviceSyncDeviceRequest struct{ BaseRequest }
 //
 func (b *ManagedDeviceSyncDeviceRequestBuilder) Request() *ManagedDeviceSyncDeviceRequest {
 	return &ManagedDeviceSyncDeviceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1057,7 +1092,8 @@ type ManagedDeviceWindowsDefenderScanRequest struct{ BaseRequest }
 //
 func (b *ManagedDeviceWindowsDefenderScanRequestBuilder) Request() *ManagedDeviceWindowsDefenderScanRequest {
 	return &ManagedDeviceWindowsDefenderScanRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1083,7 +1119,8 @@ type ManagedDeviceWindowsDefenderUpdateSignaturesRequest struct{ BaseRequest }
 //
 func (b *ManagedDeviceWindowsDefenderUpdateSignaturesRequestBuilder) Request() *ManagedDeviceWindowsDefenderUpdateSignaturesRequest {
 	return &ManagedDeviceWindowsDefenderUpdateSignaturesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1109,7 +1146,8 @@ type ManagedDeviceUpdateWindowsDeviceAccountRequest struct{ BaseRequest }
 //
 func (b *ManagedDeviceUpdateWindowsDeviceAccountRequestBuilder) Request() *ManagedDeviceUpdateWindowsDeviceAccountRequest {
 	return &ManagedDeviceUpdateWindowsDeviceAccountRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1135,7 +1173,8 @@ type ManagedDeviceMobileAppConfigurationAssignRequest struct{ BaseRequest }
 //
 func (b *ManagedDeviceMobileAppConfigurationAssignRequestBuilder) Request() *ManagedDeviceMobileAppConfigurationAssignRequest {
 	return &ManagedDeviceMobileAppConfigurationAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1161,7 +1200,8 @@ type ManagedEBookAssignRequest struct{ BaseRequest }
 //
 func (b *ManagedEBookAssignRequestBuilder) Request() *ManagedEBookAssignRequest {
 	return &ManagedEBookAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

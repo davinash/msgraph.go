@@ -10,7 +10,8 @@ type ActivityHistoryItemRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ActivityHistoryItemRequest
 func (b *ActivityHistoryItemRequestBuilder) Request() *ActivityHistoryItemRequest {
 	return &ActivityHistoryItemRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

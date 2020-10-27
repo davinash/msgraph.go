@@ -10,7 +10,8 @@ type RoleAssignmentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns RoleAssignmentRequest
 func (b *RoleAssignmentRequestBuilder) Request() *RoleAssignmentRequest {
 	return &RoleAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type RoleDefinitionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns RoleDefinitionRequest
 func (b *RoleDefinitionRequestBuilder) Request() *RoleDefinitionRequest {
 	return &RoleDefinitionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

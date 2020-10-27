@@ -10,7 +10,8 @@ type DepIOSEnrollmentProfileRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DepIOSEnrollmentProfileRequest
 func (b *DepIOSEnrollmentProfileRequestBuilder) Request() *DepIOSEnrollmentProfileRequest {
 	return &DepIOSEnrollmentProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type DepMacOSEnrollmentProfileRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DepMacOSEnrollmentProfileRequest
 func (b *DepMacOSEnrollmentProfileRequestBuilder) Request() *DepMacOSEnrollmentProfileRequest {
 	return &DepMacOSEnrollmentProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type DepOnboardingSettingRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DepOnboardingSettingRequest
 func (b *DepOnboardingSettingRequestBuilder) Request() *DepOnboardingSettingRequest {
 	return &DepOnboardingSettingRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -120,7 +123,8 @@ type DepOnboardingSettingUploadDepTokenRequest struct{ BaseRequest }
 //
 func (b *DepOnboardingSettingUploadDepTokenRequestBuilder) Request() *DepOnboardingSettingUploadDepTokenRequest {
 	return &DepOnboardingSettingUploadDepTokenRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -146,7 +150,8 @@ type DepOnboardingSettingSyncWithAppleDeviceEnrollmentProgramRequest struct{ Bas
 //
 func (b *DepOnboardingSettingSyncWithAppleDeviceEnrollmentProgramRequestBuilder) Request() *DepOnboardingSettingSyncWithAppleDeviceEnrollmentProgramRequest {
 	return &DepOnboardingSettingSyncWithAppleDeviceEnrollmentProgramRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -172,7 +177,8 @@ type DepOnboardingSettingShareForSchoolDataSyncServiceRequest struct{ BaseReques
 //
 func (b *DepOnboardingSettingShareForSchoolDataSyncServiceRequestBuilder) Request() *DepOnboardingSettingShareForSchoolDataSyncServiceRequest {
 	return &DepOnboardingSettingShareForSchoolDataSyncServiceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -198,7 +204,8 @@ type DepOnboardingSettingUnshareForSchoolDataSyncServiceRequest struct{ BaseRequ
 //
 func (b *DepOnboardingSettingUnshareForSchoolDataSyncServiceRequestBuilder) Request() *DepOnboardingSettingUnshareForSchoolDataSyncServiceRequest {
 	return &DepOnboardingSettingUnshareForSchoolDataSyncServiceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

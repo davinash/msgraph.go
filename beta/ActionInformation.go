@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 
@@ -64,7 +65,8 @@ type InformationProtectionDataLossPreventionPoliciesCollectionRequestBuilder str
 // Request returns request for DataLossPreventionPolicy collection
 func (b *InformationProtectionDataLossPreventionPoliciesCollectionRequestBuilder) Request() *InformationProtectionDataLossPreventionPoliciesCollectionRequest {
 	return &InformationProtectionDataLossPreventionPoliciesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -123,7 +125,7 @@ func (r *InformationProtectionDataLossPreventionPoliciesCollectionRequest) Pagin
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -132,6 +134,20 @@ func (r *InformationProtectionDataLossPreventionPoliciesCollectionRequest) Pagin
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *InformationProtectionDataLossPreventionPoliciesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DataLossPreventionPolicy collection, max N pages
@@ -174,7 +190,8 @@ type InformationProtectionSensitivityLabelsCollectionRequestBuilder struct{ Base
 // Request returns request for SensitivityLabel collection
 func (b *InformationProtectionSensitivityLabelsCollectionRequestBuilder) Request() *InformationProtectionSensitivityLabelsCollectionRequest {
 	return &InformationProtectionSensitivityLabelsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -233,7 +250,7 @@ func (r *InformationProtectionSensitivityLabelsCollectionRequest) Paging(ctx con
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -242,6 +259,20 @@ func (r *InformationProtectionSensitivityLabelsCollectionRequest) Paging(ctx con
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *InformationProtectionSensitivityLabelsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for SensitivityLabel collection, max N pages
@@ -284,7 +315,8 @@ type InformationProtectionThreatAssessmentRequestsCollectionRequestBuilder struc
 // Request returns request for ThreatAssessmentRequestObject collection
 func (b *InformationProtectionThreatAssessmentRequestsCollectionRequestBuilder) Request() *InformationProtectionThreatAssessmentRequestsCollectionRequest {
 	return &InformationProtectionThreatAssessmentRequestsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -343,7 +375,7 @@ func (r *InformationProtectionThreatAssessmentRequestsCollectionRequest) Paging(
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -352,6 +384,20 @@ func (r *InformationProtectionThreatAssessmentRequestsCollectionRequest) Paging(
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *InformationProtectionThreatAssessmentRequestsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ThreatAssessmentRequestObject collection, max N pages
@@ -387,7 +433,8 @@ type InformationProtectionPolicyLabelsCollectionRequestBuilder struct{ BaseReque
 // Request returns request for InformationProtectionLabel collection
 func (b *InformationProtectionPolicyLabelsCollectionRequestBuilder) Request() *InformationProtectionPolicyLabelsCollectionRequest {
 	return &InformationProtectionPolicyLabelsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -446,7 +493,7 @@ func (r *InformationProtectionPolicyLabelsCollectionRequest) Paging(ctx context.
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -455,6 +502,20 @@ func (r *InformationProtectionPolicyLabelsCollectionRequest) Paging(ctx context.
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *InformationProtectionPolicyLabelsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for InformationProtectionLabel collection, max N pages

@@ -10,7 +10,8 @@ type AccessPackageRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AccessPackageRequest
 func (b *AccessPackageRequestBuilder) Request() *AccessPackageRequest {
 	return &AccessPackageRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type AccessPackageAssignmentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AccessPackageAssignmentRequest
 func (b *AccessPackageAssignmentRequestBuilder) Request() *AccessPackageAssignmentRequest {
 	return &AccessPackageAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type AccessPackageAssignmentPolicyRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AccessPackageAssignmentPolicyRequest
 func (b *AccessPackageAssignmentPolicyRequestBuilder) Request() *AccessPackageAssignmentPolicyRequest {
 	return &AccessPackageAssignmentPolicyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -109,7 +112,8 @@ type AccessPackageAssignmentRequestObjectRequestBuilder struct{ BaseRequestBuild
 // Request returns AccessPackageAssignmentRequestObjectRequest
 func (b *AccessPackageAssignmentRequestObjectRequestBuilder) Request() *AccessPackageAssignmentRequestObjectRequest {
 	return &AccessPackageAssignmentRequestObjectRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -142,7 +146,8 @@ type AccessPackageAssignmentResourceRoleRequestBuilder struct{ BaseRequestBuilde
 // Request returns AccessPackageAssignmentResourceRoleRequest
 func (b *AccessPackageAssignmentResourceRoleRequestBuilder) Request() *AccessPackageAssignmentResourceRoleRequest {
 	return &AccessPackageAssignmentResourceRoleRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -175,7 +180,8 @@ type AccessPackageCatalogRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AccessPackageCatalogRequest
 func (b *AccessPackageCatalogRequestBuilder) Request() *AccessPackageCatalogRequest {
 	return &AccessPackageCatalogRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -208,7 +214,8 @@ type AccessPackageResourceRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AccessPackageResourceRequest
 func (b *AccessPackageResourceRequestBuilder) Request() *AccessPackageResourceRequest {
 	return &AccessPackageResourceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -241,7 +248,8 @@ type AccessPackageResourceRequestObjectRequestBuilder struct{ BaseRequestBuilder
 // Request returns AccessPackageResourceRequestObjectRequest
 func (b *AccessPackageResourceRequestObjectRequestBuilder) Request() *AccessPackageResourceRequestObjectRequest {
 	return &AccessPackageResourceRequestObjectRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -274,7 +282,8 @@ type AccessPackageResourceRoleRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AccessPackageResourceRoleRequest
 func (b *AccessPackageResourceRoleRequestBuilder) Request() *AccessPackageResourceRoleRequest {
 	return &AccessPackageResourceRoleRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -307,7 +316,8 @@ type AccessPackageResourceRoleScopeRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AccessPackageResourceRoleScopeRequest
 func (b *AccessPackageResourceRoleScopeRequestBuilder) Request() *AccessPackageResourceRoleScopeRequest {
 	return &AccessPackageResourceRoleScopeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -340,7 +350,8 @@ type AccessPackageResourceScopeRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AccessPackageResourceScopeRequest
 func (b *AccessPackageResourceScopeRequestBuilder) Request() *AccessPackageResourceScopeRequest {
 	return &AccessPackageResourceScopeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -373,7 +384,8 @@ type AccessPackageSubjectRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AccessPackageSubjectRequest
 func (b *AccessPackageSubjectRequestBuilder) Request() *AccessPackageSubjectRequest {
 	return &AccessPackageSubjectRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -406,7 +418,8 @@ type AccessReviewRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AccessReviewRequest
 func (b *AccessReviewRequestBuilder) Request() *AccessReviewRequest {
 	return &AccessReviewRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -439,7 +452,8 @@ type AccessReviewDecisionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AccessReviewDecisionRequest
 func (b *AccessReviewDecisionRequestBuilder) Request() *AccessReviewDecisionRequest {
 	return &AccessReviewDecisionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -472,7 +486,8 @@ type AccessReviewReviewerRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AccessReviewReviewerRequest
 func (b *AccessReviewReviewerRequestBuilder) Request() *AccessReviewReviewerRequest {
 	return &AccessReviewReviewerRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -516,7 +531,8 @@ type AccessPackageAssignmentRequestObjectCancelRequest struct{ BaseRequest }
 //
 func (b *AccessPackageAssignmentRequestObjectCancelRequestBuilder) Request() *AccessPackageAssignmentRequestObjectCancelRequest {
 	return &AccessPackageAssignmentRequestObjectCancelRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -542,7 +558,8 @@ type AccessReviewStopRequest struct{ BaseRequest }
 //
 func (b *AccessReviewStopRequestBuilder) Request() *AccessReviewStopRequest {
 	return &AccessReviewStopRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -568,7 +585,8 @@ type AccessReviewSendReminderRequest struct{ BaseRequest }
 //
 func (b *AccessReviewSendReminderRequestBuilder) Request() *AccessReviewSendReminderRequest {
 	return &AccessReviewSendReminderRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -594,7 +612,8 @@ type AccessReviewResetDecisionsRequest struct{ BaseRequest }
 //
 func (b *AccessReviewResetDecisionsRequestBuilder) Request() *AccessReviewResetDecisionsRequest {
 	return &AccessReviewResetDecisionsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -620,7 +639,8 @@ type AccessReviewApplyDecisionsRequest struct{ BaseRequest }
 //
 func (b *AccessReviewApplyDecisionsRequestBuilder) Request() *AccessReviewApplyDecisionsRequest {
 	return &AccessReviewApplyDecisionsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

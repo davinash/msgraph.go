@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 
@@ -31,7 +32,8 @@ type RoleDefinitionRoleAssignmentsCollectionRequestBuilder struct{ BaseRequestBu
 // Request returns request for RoleAssignment collection
 func (b *RoleDefinitionRoleAssignmentsCollectionRequestBuilder) Request() *RoleDefinitionRoleAssignmentsCollectionRequest {
 	return &RoleDefinitionRoleAssignmentsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -90,7 +92,7 @@ func (r *RoleDefinitionRoleAssignmentsCollectionRequest) Paging(ctx context.Cont
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -99,6 +101,20 @@ func (r *RoleDefinitionRoleAssignmentsCollectionRequest) Paging(ctx context.Cont
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *RoleDefinitionRoleAssignmentsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for RoleAssignment collection, max N pages

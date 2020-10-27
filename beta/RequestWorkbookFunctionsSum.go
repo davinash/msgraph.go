@@ -21,7 +21,8 @@ type WorkbookFunctionsSumRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsSumRequestBuilder) Request() *WorkbookFunctionsSumRequest {
 	return &WorkbookFunctionsSumRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsSumIfRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsSumIfRequestBuilder) Request() *WorkbookFunctionsSumIfRequest {
 	return &WorkbookFunctionsSumIfRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -75,7 +77,8 @@ type WorkbookFunctionsSumIfsRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsSumIfsRequestBuilder) Request() *WorkbookFunctionsSumIfsRequest {
 	return &WorkbookFunctionsSumIfsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -102,7 +105,8 @@ type WorkbookFunctionsSumSqRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsSumSqRequestBuilder) Request() *WorkbookFunctionsSumSqRequest {
 	return &WorkbookFunctionsSumSqRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

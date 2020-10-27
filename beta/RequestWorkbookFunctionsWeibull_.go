@@ -21,7 +21,8 @@ type WorkbookFunctionsWeibull_DistRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsWeibull_DistRequestBuilder) Request() *WorkbookFunctionsWeibull_DistRequest {
 	return &WorkbookFunctionsWeibull_DistRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -10,7 +10,8 @@ type WorkforceIntegrationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkforceIntegrationRequest
 func (b *WorkforceIntegrationRequestBuilder) Request() *WorkforceIntegrationRequest {
 	return &WorkforceIntegrationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -10,7 +10,8 @@ type SensitivityLabelRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SensitivityLabelRequest
 func (b *SensitivityLabelRequestBuilder) Request() *SensitivityLabelRequest {
 	return &SensitivityLabelRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type SensitivityPolicySettingsRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SensitivityPolicySettingsRequest
 func (b *SensitivityPolicySettingsRequestBuilder) Request() *SensitivityPolicySettingsRequest {
 	return &SensitivityPolicySettingsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -103,7 +105,8 @@ type SensitivityLabelCollectionEvaluateRequest struct{ BaseRequest }
 //
 func (b *SensitivityLabelCollectionEvaluateRequestBuilder) Request() *SensitivityLabelCollectionEvaluateRequest {
 	return &SensitivityLabelCollectionEvaluateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

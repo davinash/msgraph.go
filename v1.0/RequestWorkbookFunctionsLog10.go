@@ -21,7 +21,8 @@ type WorkbookFunctionsLog10Request struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsLog10RequestBuilder) Request() *WorkbookFunctionsLog10Request {
 	return &WorkbookFunctionsLog10Request{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

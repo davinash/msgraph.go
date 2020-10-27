@@ -17,7 +17,8 @@ type CloudAppSecurityProfileRequestBuilder struct{ BaseRequestBuilder }
 // Request returns CloudAppSecurityProfileRequest
 func (b *CloudAppSecurityProfileRequestBuilder) Request() *CloudAppSecurityProfileRequest {
 	return &CloudAppSecurityProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -50,7 +51,8 @@ type CloudCommunicationsRequestBuilder struct{ BaseRequestBuilder }
 // Request returns CloudCommunicationsRequest
 func (b *CloudCommunicationsRequestBuilder) Request() *CloudCommunicationsRequest {
 	return &CloudCommunicationsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -94,7 +96,8 @@ type CloudCommunicationsGetPresencesByUserIDRequest struct{ BaseRequest }
 //
 func (b *CloudCommunicationsGetPresencesByUserIDRequestBuilder) Request() *CloudCommunicationsGetPresencesByUserIDRequest {
 	return &CloudCommunicationsGetPresencesByUserIDRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

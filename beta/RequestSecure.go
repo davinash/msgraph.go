@@ -10,7 +10,8 @@ type SecureScoreRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SecureScoreRequest
 func (b *SecureScoreRequestBuilder) Request() *SecureScoreRequest {
 	return &SecureScoreRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type SecureScoreControlProfileRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SecureScoreControlProfileRequest
 func (b *SecureScoreControlProfileRequestBuilder) Request() *SecureScoreControlProfileRequest {
 	return &SecureScoreControlProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

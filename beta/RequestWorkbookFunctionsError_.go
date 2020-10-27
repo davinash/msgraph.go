@@ -21,7 +21,8 @@ type WorkbookFunctionsError_TypeRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsError_TypeRequestBuilder) Request() *WorkbookFunctionsError_TypeRequest {
 	return &WorkbookFunctionsError_TypeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

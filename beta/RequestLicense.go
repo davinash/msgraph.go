@@ -10,7 +10,8 @@ type LicenseDetailsRequestBuilder struct{ BaseRequestBuilder }
 // Request returns LicenseDetailsRequest
 func (b *LicenseDetailsRequestBuilder) Request() *LicenseDetailsRequest {
 	return &LicenseDetailsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

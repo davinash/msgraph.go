@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 
@@ -31,7 +32,8 @@ type ChannelMembersCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for ConversationMember collection
 func (b *ChannelMembersCollectionRequestBuilder) Request() *ChannelMembersCollectionRequest {
 	return &ChannelMembersCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -90,7 +92,7 @@ func (r *ChannelMembersCollectionRequest) Paging(ctx context.Context, method, pa
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -99,6 +101,20 @@ func (r *ChannelMembersCollectionRequest) Paging(ctx context.Context, method, pa
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *ChannelMembersCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ConversationMember collection, max N pages
@@ -134,7 +150,8 @@ type ChannelMessagesCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for ChatMessage collection
 func (b *ChannelMessagesCollectionRequestBuilder) Request() *ChannelMessagesCollectionRequest {
 	return &ChannelMessagesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -193,7 +210,7 @@ func (r *ChannelMessagesCollectionRequest) Paging(ctx context.Context, method, p
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -202,6 +219,20 @@ func (r *ChannelMessagesCollectionRequest) Paging(ctx context.Context, method, p
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *ChannelMessagesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ChatMessage collection, max N pages
@@ -237,7 +268,8 @@ type ChannelTabsCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for TeamsTab collection
 func (b *ChannelTabsCollectionRequestBuilder) Request() *ChannelTabsCollectionRequest {
 	return &ChannelTabsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -296,7 +328,7 @@ func (r *ChannelTabsCollectionRequest) Paging(ctx context.Context, method, path 
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -305,6 +337,20 @@ func (r *ChannelTabsCollectionRequest) Paging(ctx context.Context, method, path 
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *ChannelTabsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for TeamsTab collection, max N pages

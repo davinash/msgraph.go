@@ -10,7 +10,8 @@ type TermsAndConditionsRequestBuilder struct{ BaseRequestBuilder }
 // Request returns TermsAndConditionsRequest
 func (b *TermsAndConditionsRequestBuilder) Request() *TermsAndConditionsRequest {
 	return &TermsAndConditionsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type TermsAndConditionsAcceptanceStatusRequestBuilder struct{ BaseRequestBuilder
 // Request returns TermsAndConditionsAcceptanceStatusRequest
 func (b *TermsAndConditionsAcceptanceStatusRequestBuilder) Request() *TermsAndConditionsAcceptanceStatusRequest {
 	return &TermsAndConditionsAcceptanceStatusRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type TermsAndConditionsAssignmentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns TermsAndConditionsAssignmentRequest
 func (b *TermsAndConditionsAssignmentRequestBuilder) Request() *TermsAndConditionsAssignmentRequest {
 	return &TermsAndConditionsAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -109,7 +112,8 @@ type TermsAndConditionsGroupAssignmentRequestBuilder struct{ BaseRequestBuilder 
 // Request returns TermsAndConditionsGroupAssignmentRequest
 func (b *TermsAndConditionsGroupAssignmentRequestBuilder) Request() *TermsAndConditionsGroupAssignmentRequest {
 	return &TermsAndConditionsGroupAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -17,7 +17,8 @@ type EducationAssignmentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns EducationAssignmentRequest
 func (b *EducationAssignmentRequestBuilder) Request() *EducationAssignmentRequest {
 	return &EducationAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -50,7 +51,8 @@ type EducationAssignmentResourceRequestBuilder struct{ BaseRequestBuilder }
 // Request returns EducationAssignmentResourceRequest
 func (b *EducationAssignmentResourceRequestBuilder) Request() *EducationAssignmentResourceRequest {
 	return &EducationAssignmentResourceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -83,7 +85,8 @@ type EducationCategoryRequestBuilder struct{ BaseRequestBuilder }
 // Request returns EducationCategoryRequest
 func (b *EducationCategoryRequestBuilder) Request() *EducationCategoryRequest {
 	return &EducationCategoryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -116,7 +119,8 @@ type EducationClassRequestBuilder struct{ BaseRequestBuilder }
 // Request returns EducationClassRequest
 func (b *EducationClassRequestBuilder) Request() *EducationClassRequest {
 	return &EducationClassRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -149,7 +153,8 @@ type EducationOutcomeRequestBuilder struct{ BaseRequestBuilder }
 // Request returns EducationOutcomeRequest
 func (b *EducationOutcomeRequestBuilder) Request() *EducationOutcomeRequest {
 	return &EducationOutcomeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -182,7 +187,8 @@ type EducationRootRequestBuilder struct{ BaseRequestBuilder }
 // Request returns EducationRootRequest
 func (b *EducationRootRequestBuilder) Request() *EducationRootRequest {
 	return &EducationRootRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -215,7 +221,8 @@ type EducationRubricRequestBuilder struct{ BaseRequestBuilder }
 // Request returns EducationRubricRequest
 func (b *EducationRubricRequestBuilder) Request() *EducationRubricRequest {
 	return &EducationRubricRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -248,7 +255,8 @@ type EducationSchoolRequestBuilder struct{ BaseRequestBuilder }
 // Request returns EducationSchoolRequest
 func (b *EducationSchoolRequestBuilder) Request() *EducationSchoolRequest {
 	return &EducationSchoolRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -281,7 +289,8 @@ type EducationSubmissionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns EducationSubmissionRequest
 func (b *EducationSubmissionRequestBuilder) Request() *EducationSubmissionRequest {
 	return &EducationSubmissionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -314,7 +323,8 @@ type EducationSubmissionResourceRequestBuilder struct{ BaseRequestBuilder }
 // Request returns EducationSubmissionResourceRequest
 func (b *EducationSubmissionResourceRequestBuilder) Request() *EducationSubmissionResourceRequest {
 	return &EducationSubmissionResourceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -347,7 +357,8 @@ type EducationSynchronizationErrorRequestBuilder struct{ BaseRequestBuilder }
 // Request returns EducationSynchronizationErrorRequest
 func (b *EducationSynchronizationErrorRequestBuilder) Request() *EducationSynchronizationErrorRequest {
 	return &EducationSynchronizationErrorRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -380,7 +391,8 @@ type EducationSynchronizationProfileRequestBuilder struct{ BaseRequestBuilder }
 // Request returns EducationSynchronizationProfileRequest
 func (b *EducationSynchronizationProfileRequestBuilder) Request() *EducationSynchronizationProfileRequest {
 	return &EducationSynchronizationProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -413,7 +425,8 @@ type EducationSynchronizationProfileStatusRequestBuilder struct{ BaseRequestBuil
 // Request returns EducationSynchronizationProfileStatusRequest
 func (b *EducationSynchronizationProfileStatusRequestBuilder) Request() *EducationSynchronizationProfileStatusRequest {
 	return &EducationSynchronizationProfileStatusRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -446,7 +459,8 @@ type EducationUserRequestBuilder struct{ BaseRequestBuilder }
 // Request returns EducationUserRequest
 func (b *EducationUserRequestBuilder) Request() *EducationUserRequest {
 	return &EducationUserRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -490,7 +504,8 @@ type EducationAssignmentPublishRequest struct{ BaseRequest }
 //
 func (b *EducationAssignmentPublishRequestBuilder) Request() *EducationAssignmentPublishRequest {
 	return &EducationAssignmentPublishRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -517,7 +532,8 @@ type EducationSubmissionReturnRequest struct{ BaseRequest }
 //
 func (b *EducationSubmissionReturnRequestBuilder) Request() *EducationSubmissionReturnRequest {
 	return &EducationSubmissionReturnRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -544,7 +560,8 @@ type EducationSubmissionSubmitRequest struct{ BaseRequest }
 //
 func (b *EducationSubmissionSubmitRequestBuilder) Request() *EducationSubmissionSubmitRequest {
 	return &EducationSubmissionSubmitRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -571,7 +588,8 @@ type EducationSubmissionUnsubmitRequest struct{ BaseRequest }
 //
 func (b *EducationSubmissionUnsubmitRequestBuilder) Request() *EducationSubmissionUnsubmitRequest {
 	return &EducationSubmissionUnsubmitRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -598,7 +616,8 @@ type EducationSynchronizationProfileResumeRequest struct{ BaseRequest }
 //
 func (b *EducationSynchronizationProfileResumeRequestBuilder) Request() *EducationSynchronizationProfileResumeRequest {
 	return &EducationSynchronizationProfileResumeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -624,7 +643,8 @@ type EducationSynchronizationProfilePauseRequest struct{ BaseRequest }
 //
 func (b *EducationSynchronizationProfilePauseRequestBuilder) Request() *EducationSynchronizationProfilePauseRequest {
 	return &EducationSynchronizationProfilePauseRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -650,7 +670,8 @@ type EducationSynchronizationProfileResetRequest struct{ BaseRequest }
 //
 func (b *EducationSynchronizationProfileResetRequestBuilder) Request() *EducationSynchronizationProfileResetRequest {
 	return &EducationSynchronizationProfileResetRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -676,7 +697,8 @@ type EducationSynchronizationProfileStartRequest struct{ BaseRequest }
 //
 func (b *EducationSynchronizationProfileStartRequestBuilder) Request() *EducationSynchronizationProfileStartRequest {
 	return &EducationSynchronizationProfileStartRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

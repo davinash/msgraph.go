@@ -21,7 +21,8 @@ type WorkbookFunctionsComplexRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsComplexRequestBuilder) Request() *WorkbookFunctionsComplexRequest {
 	return &WorkbookFunctionsComplexRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

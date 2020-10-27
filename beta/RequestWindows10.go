@@ -10,7 +10,8 @@ type Windows10GeneralConfigurationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns Windows10GeneralConfigurationRequest
 func (b *Windows10GeneralConfigurationRequestBuilder) Request() *Windows10GeneralConfigurationRequest {
 	return &Windows10GeneralConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type Windows10ImportedPFXCertificateProfileRequestBuilder struct{ BaseRequestBui
 // Request returns Windows10ImportedPFXCertificateProfileRequest
 func (b *Windows10ImportedPFXCertificateProfileRequestBuilder) Request() *Windows10ImportedPFXCertificateProfileRequest {
 	return &Windows10ImportedPFXCertificateProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type Windows10PkcsCertificateProfileRequestBuilder struct{ BaseRequestBuilder }
 // Request returns Windows10PkcsCertificateProfileRequest
 func (b *Windows10PkcsCertificateProfileRequestBuilder) Request() *Windows10PkcsCertificateProfileRequest {
 	return &Windows10PkcsCertificateProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -109,7 +112,8 @@ type Windows10VpnConfigurationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns Windows10VpnConfigurationRequest
 func (b *Windows10VpnConfigurationRequestBuilder) Request() *Windows10VpnConfigurationRequest {
 	return &Windows10VpnConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

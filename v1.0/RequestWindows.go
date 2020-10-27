@@ -10,7 +10,8 @@ type WindowsInformationProtectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WindowsInformationProtectionRequest
 func (b *WindowsInformationProtectionRequestBuilder) Request() *WindowsInformationProtectionRequest {
 	return &WindowsInformationProtectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type WindowsInformationProtectionAppLearningSummaryRequestBuilder struct{ BaseRe
 // Request returns WindowsInformationProtectionAppLearningSummaryRequest
 func (b *WindowsInformationProtectionAppLearningSummaryRequestBuilder) Request() *WindowsInformationProtectionAppLearningSummaryRequest {
 	return &WindowsInformationProtectionAppLearningSummaryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type WindowsInformationProtectionAppLockerFileRequestBuilder struct{ BaseRequest
 // Request returns WindowsInformationProtectionAppLockerFileRequest
 func (b *WindowsInformationProtectionAppLockerFileRequestBuilder) Request() *WindowsInformationProtectionAppLockerFileRequest {
 	return &WindowsInformationProtectionAppLockerFileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -109,7 +112,8 @@ type WindowsInformationProtectionNetworkLearningSummaryRequestBuilder struct{ Ba
 // Request returns WindowsInformationProtectionNetworkLearningSummaryRequest
 func (b *WindowsInformationProtectionNetworkLearningSummaryRequestBuilder) Request() *WindowsInformationProtectionNetworkLearningSummaryRequest {
 	return &WindowsInformationProtectionNetworkLearningSummaryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -142,7 +146,8 @@ type WindowsInformationProtectionPolicyRequestBuilder struct{ BaseRequestBuilder
 // Request returns WindowsInformationProtectionPolicyRequest
 func (b *WindowsInformationProtectionPolicyRequestBuilder) Request() *WindowsInformationProtectionPolicyRequest {
 	return &WindowsInformationProtectionPolicyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -186,7 +191,8 @@ type WindowsInformationProtectionAssignRequest struct{ BaseRequest }
 //
 func (b *WindowsInformationProtectionAssignRequestBuilder) Request() *WindowsInformationProtectionAssignRequest {
 	return &WindowsInformationProtectionAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

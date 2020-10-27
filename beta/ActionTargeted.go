@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 
@@ -48,7 +49,8 @@ type TargetedManagedAppConfigurationAppsCollectionRequestBuilder struct{ BaseReq
 // Request returns request for ManagedMobileApp collection
 func (b *TargetedManagedAppConfigurationAppsCollectionRequestBuilder) Request() *TargetedManagedAppConfigurationAppsCollectionRequest {
 	return &TargetedManagedAppConfigurationAppsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -107,7 +109,7 @@ func (r *TargetedManagedAppConfigurationAppsCollectionRequest) Paging(ctx contex
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -116,6 +118,20 @@ func (r *TargetedManagedAppConfigurationAppsCollectionRequest) Paging(ctx contex
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *TargetedManagedAppConfigurationAppsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ManagedMobileApp collection, max N pages
@@ -151,7 +167,8 @@ type TargetedManagedAppConfigurationAssignmentsCollectionRequestBuilder struct{ 
 // Request returns request for TargetedManagedAppPolicyAssignment collection
 func (b *TargetedManagedAppConfigurationAssignmentsCollectionRequestBuilder) Request() *TargetedManagedAppConfigurationAssignmentsCollectionRequest {
 	return &TargetedManagedAppConfigurationAssignmentsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -210,7 +227,7 @@ func (r *TargetedManagedAppConfigurationAssignmentsCollectionRequest) Paging(ctx
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -219,6 +236,20 @@ func (r *TargetedManagedAppConfigurationAssignmentsCollectionRequest) Paging(ctx
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *TargetedManagedAppConfigurationAssignmentsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for TargetedManagedAppPolicyAssignment collection, max N pages
@@ -261,7 +292,8 @@ type TargetedManagedAppProtectionAssignmentsCollectionRequestBuilder struct{ Bas
 // Request returns request for TargetedManagedAppPolicyAssignment collection
 func (b *TargetedManagedAppProtectionAssignmentsCollectionRequestBuilder) Request() *TargetedManagedAppProtectionAssignmentsCollectionRequest {
 	return &TargetedManagedAppProtectionAssignmentsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -320,7 +352,7 @@ func (r *TargetedManagedAppProtectionAssignmentsCollectionRequest) Paging(ctx co
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -329,6 +361,20 @@ func (r *TargetedManagedAppProtectionAssignmentsCollectionRequest) Paging(ctx co
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *TargetedManagedAppProtectionAssignmentsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for TargetedManagedAppPolicyAssignment collection, max N pages

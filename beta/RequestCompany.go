@@ -10,7 +10,8 @@ type CompanyRequestBuilder struct{ BaseRequestBuilder }
 // Request returns CompanyRequest
 func (b *CompanyRequestBuilder) Request() *CompanyRequest {
 	return &CompanyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type CompanyInformationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns CompanyInformationRequest
 func (b *CompanyInformationRequestBuilder) Request() *CompanyInformationRequest {
 	return &CompanyInformationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

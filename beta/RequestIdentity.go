@@ -10,7 +10,8 @@ type IdentityContainerRequestBuilder struct{ BaseRequestBuilder }
 // Request returns IdentityContainerRequest
 func (b *IdentityContainerRequestBuilder) Request() *IdentityContainerRequest {
 	return &IdentityContainerRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type IdentityGovernanceRequestBuilder struct{ BaseRequestBuilder }
 // Request returns IdentityGovernanceRequest
 func (b *IdentityGovernanceRequestBuilder) Request() *IdentityGovernanceRequest {
 	return &IdentityGovernanceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type IdentityProviderRequestBuilder struct{ BaseRequestBuilder }
 // Request returns IdentityProviderRequest
 func (b *IdentityProviderRequestBuilder) Request() *IdentityProviderRequest {
 	return &IdentityProviderRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -109,7 +112,8 @@ type IdentityRiskEventRequestBuilder struct{ BaseRequestBuilder }
 // Request returns IdentityRiskEventRequest
 func (b *IdentityRiskEventRequestBuilder) Request() *IdentityRiskEventRequest {
 	return &IdentityRiskEventRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -142,7 +146,8 @@ type IdentityUserFlowRequestBuilder struct{ BaseRequestBuilder }
 // Request returns IdentityUserFlowRequest
 func (b *IdentityUserFlowRequestBuilder) Request() *IdentityUserFlowRequest {
 	return &IdentityUserFlowRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

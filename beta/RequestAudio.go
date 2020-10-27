@@ -10,7 +10,8 @@ type AudioRoutingGroupRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AudioRoutingGroupRequest
 func (b *AudioRoutingGroupRequestBuilder) Request() *AudioRoutingGroupRequest {
 	return &AudioRoutingGroupRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

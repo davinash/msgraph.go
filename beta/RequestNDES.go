@@ -10,7 +10,8 @@ type NDESConnectorRequestBuilder struct{ BaseRequestBuilder }
 // Request returns NDESConnectorRequest
 func (b *NDESConnectorRequestBuilder) Request() *NDESConnectorRequest {
 	return &NDESConnectorRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -21,7 +21,8 @@ type WorkbookFunctionsVarARequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsVarARequestBuilder) Request() *WorkbookFunctionsVarARequest {
 	return &WorkbookFunctionsVarARequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsVarPARequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsVarPARequestBuilder) Request() *WorkbookFunctionsVarPARequest {
 	return &WorkbookFunctionsVarPARequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

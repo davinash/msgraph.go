@@ -21,7 +21,8 @@ type WorkbookFunctionsPermutationaRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsPermutationaRequestBuilder) Request() *WorkbookFunctionsPermutationaRequest {
 	return &WorkbookFunctionsPermutationaRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -10,7 +10,8 @@ type AlertRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AlertRequest
 func (b *AlertRequestBuilder) Request() *AlertRequest {
 	return &AlertRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

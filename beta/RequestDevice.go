@@ -17,7 +17,8 @@ type DeviceRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceRequest
 func (b *DeviceRequestBuilder) Request() *DeviceRequest {
 	return &DeviceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -50,7 +51,8 @@ type DeviceAndAppManagementRoleAssignmentRequestBuilder struct{ BaseRequestBuild
 // Request returns DeviceAndAppManagementRoleAssignmentRequest
 func (b *DeviceAndAppManagementRoleAssignmentRequestBuilder) Request() *DeviceAndAppManagementRoleAssignmentRequest {
 	return &DeviceAndAppManagementRoleAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -83,7 +85,8 @@ type DeviceAppManagementRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceAppManagementRequest
 func (b *DeviceAppManagementRequestBuilder) Request() *DeviceAppManagementRequest {
 	return &DeviceAppManagementRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -116,7 +119,8 @@ type DeviceAppManagementTaskRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceAppManagementTaskRequest
 func (b *DeviceAppManagementTaskRequestBuilder) Request() *DeviceAppManagementTaskRequest {
 	return &DeviceAppManagementTaskRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -149,7 +153,8 @@ type DeviceCategoryRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceCategoryRequest
 func (b *DeviceCategoryRequestBuilder) Request() *DeviceCategoryRequest {
 	return &DeviceCategoryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -182,7 +187,8 @@ type DeviceComplianceActionItemRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceComplianceActionItemRequest
 func (b *DeviceComplianceActionItemRequestBuilder) Request() *DeviceComplianceActionItemRequest {
 	return &DeviceComplianceActionItemRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -215,7 +221,8 @@ type DeviceComplianceDeviceOverviewRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceComplianceDeviceOverviewRequest
 func (b *DeviceComplianceDeviceOverviewRequestBuilder) Request() *DeviceComplianceDeviceOverviewRequest {
 	return &DeviceComplianceDeviceOverviewRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -248,7 +255,8 @@ type DeviceComplianceDeviceStatusRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceComplianceDeviceStatusRequest
 func (b *DeviceComplianceDeviceStatusRequestBuilder) Request() *DeviceComplianceDeviceStatusRequest {
 	return &DeviceComplianceDeviceStatusRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -281,7 +289,8 @@ type DeviceCompliancePolicyRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceCompliancePolicyRequest
 func (b *DeviceCompliancePolicyRequestBuilder) Request() *DeviceCompliancePolicyRequest {
 	return &DeviceCompliancePolicyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -314,7 +323,8 @@ type DeviceCompliancePolicyAssignmentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceCompliancePolicyAssignmentRequest
 func (b *DeviceCompliancePolicyAssignmentRequestBuilder) Request() *DeviceCompliancePolicyAssignmentRequest {
 	return &DeviceCompliancePolicyAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -347,7 +357,8 @@ type DeviceCompliancePolicyDeviceStateSummaryRequestBuilder struct{ BaseRequestB
 // Request returns DeviceCompliancePolicyDeviceStateSummaryRequest
 func (b *DeviceCompliancePolicyDeviceStateSummaryRequestBuilder) Request() *DeviceCompliancePolicyDeviceStateSummaryRequest {
 	return &DeviceCompliancePolicyDeviceStateSummaryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -380,7 +391,8 @@ type DeviceCompliancePolicyGroupAssignmentRequestBuilder struct{ BaseRequestBuil
 // Request returns DeviceCompliancePolicyGroupAssignmentRequest
 func (b *DeviceCompliancePolicyGroupAssignmentRequestBuilder) Request() *DeviceCompliancePolicyGroupAssignmentRequest {
 	return &DeviceCompliancePolicyGroupAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -413,7 +425,8 @@ type DeviceCompliancePolicySettingStateSummaryRequestBuilder struct{ BaseRequest
 // Request returns DeviceCompliancePolicySettingStateSummaryRequest
 func (b *DeviceCompliancePolicySettingStateSummaryRequestBuilder) Request() *DeviceCompliancePolicySettingStateSummaryRequest {
 	return &DeviceCompliancePolicySettingStateSummaryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -446,7 +459,8 @@ type DeviceCompliancePolicyStateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceCompliancePolicyStateRequest
 func (b *DeviceCompliancePolicyStateRequestBuilder) Request() *DeviceCompliancePolicyStateRequest {
 	return &DeviceCompliancePolicyStateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -479,7 +493,8 @@ type DeviceComplianceScheduledActionForRuleRequestBuilder struct{ BaseRequestBui
 // Request returns DeviceComplianceScheduledActionForRuleRequest
 func (b *DeviceComplianceScheduledActionForRuleRequestBuilder) Request() *DeviceComplianceScheduledActionForRuleRequest {
 	return &DeviceComplianceScheduledActionForRuleRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -512,7 +527,8 @@ type DeviceComplianceSettingStateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceComplianceSettingStateRequest
 func (b *DeviceComplianceSettingStateRequestBuilder) Request() *DeviceComplianceSettingStateRequest {
 	return &DeviceComplianceSettingStateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -545,7 +561,8 @@ type DeviceComplianceUserOverviewRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceComplianceUserOverviewRequest
 func (b *DeviceComplianceUserOverviewRequestBuilder) Request() *DeviceComplianceUserOverviewRequest {
 	return &DeviceComplianceUserOverviewRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -578,7 +595,8 @@ type DeviceComplianceUserStatusRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceComplianceUserStatusRequest
 func (b *DeviceComplianceUserStatusRequestBuilder) Request() *DeviceComplianceUserStatusRequest {
 	return &DeviceComplianceUserStatusRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -611,7 +629,8 @@ type DeviceConfigurationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceConfigurationRequest
 func (b *DeviceConfigurationRequestBuilder) Request() *DeviceConfigurationRequest {
 	return &DeviceConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -644,7 +663,8 @@ type DeviceConfigurationAssignmentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceConfigurationAssignmentRequest
 func (b *DeviceConfigurationAssignmentRequestBuilder) Request() *DeviceConfigurationAssignmentRequest {
 	return &DeviceConfigurationAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -677,7 +697,8 @@ type DeviceConfigurationConflictSummaryRequestBuilder struct{ BaseRequestBuilder
 // Request returns DeviceConfigurationConflictSummaryRequest
 func (b *DeviceConfigurationConflictSummaryRequestBuilder) Request() *DeviceConfigurationConflictSummaryRequest {
 	return &DeviceConfigurationConflictSummaryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -710,7 +731,8 @@ type DeviceConfigurationDeviceOverviewRequestBuilder struct{ BaseRequestBuilder 
 // Request returns DeviceConfigurationDeviceOverviewRequest
 func (b *DeviceConfigurationDeviceOverviewRequestBuilder) Request() *DeviceConfigurationDeviceOverviewRequest {
 	return &DeviceConfigurationDeviceOverviewRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -743,7 +765,8 @@ type DeviceConfigurationDeviceStateSummaryRequestBuilder struct{ BaseRequestBuil
 // Request returns DeviceConfigurationDeviceStateSummaryRequest
 func (b *DeviceConfigurationDeviceStateSummaryRequestBuilder) Request() *DeviceConfigurationDeviceStateSummaryRequest {
 	return &DeviceConfigurationDeviceStateSummaryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -776,7 +799,8 @@ type DeviceConfigurationDeviceStatusRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceConfigurationDeviceStatusRequest
 func (b *DeviceConfigurationDeviceStatusRequestBuilder) Request() *DeviceConfigurationDeviceStatusRequest {
 	return &DeviceConfigurationDeviceStatusRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -809,7 +833,8 @@ type DeviceConfigurationGroupAssignmentRequestBuilder struct{ BaseRequestBuilder
 // Request returns DeviceConfigurationGroupAssignmentRequest
 func (b *DeviceConfigurationGroupAssignmentRequestBuilder) Request() *DeviceConfigurationGroupAssignmentRequest {
 	return &DeviceConfigurationGroupAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -842,7 +867,8 @@ type DeviceConfigurationStateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceConfigurationStateRequest
 func (b *DeviceConfigurationStateRequestBuilder) Request() *DeviceConfigurationStateRequest {
 	return &DeviceConfigurationStateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -875,7 +901,8 @@ type DeviceConfigurationUserOverviewRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceConfigurationUserOverviewRequest
 func (b *DeviceConfigurationUserOverviewRequestBuilder) Request() *DeviceConfigurationUserOverviewRequest {
 	return &DeviceConfigurationUserOverviewRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -908,7 +935,8 @@ type DeviceConfigurationUserStateSummaryRequestBuilder struct{ BaseRequestBuilde
 // Request returns DeviceConfigurationUserStateSummaryRequest
 func (b *DeviceConfigurationUserStateSummaryRequestBuilder) Request() *DeviceConfigurationUserStateSummaryRequest {
 	return &DeviceConfigurationUserStateSummaryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -941,7 +969,8 @@ type DeviceConfigurationUserStatusRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceConfigurationUserStatusRequest
 func (b *DeviceConfigurationUserStatusRequestBuilder) Request() *DeviceConfigurationUserStatusRequest {
 	return &DeviceConfigurationUserStatusRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -974,7 +1003,8 @@ type DeviceEnrollmentConfigurationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceEnrollmentConfigurationRequest
 func (b *DeviceEnrollmentConfigurationRequestBuilder) Request() *DeviceEnrollmentConfigurationRequest {
 	return &DeviceEnrollmentConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1007,7 +1037,8 @@ type DeviceHealthScriptRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceHealthScriptRequest
 func (b *DeviceHealthScriptRequestBuilder) Request() *DeviceHealthScriptRequest {
 	return &DeviceHealthScriptRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1040,7 +1071,8 @@ type DeviceHealthScriptAssignmentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceHealthScriptAssignmentRequest
 func (b *DeviceHealthScriptAssignmentRequestBuilder) Request() *DeviceHealthScriptAssignmentRequest {
 	return &DeviceHealthScriptAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1073,7 +1105,8 @@ type DeviceHealthScriptDeviceStateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceHealthScriptDeviceStateRequest
 func (b *DeviceHealthScriptDeviceStateRequestBuilder) Request() *DeviceHealthScriptDeviceStateRequest {
 	return &DeviceHealthScriptDeviceStateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1106,7 +1139,8 @@ type DeviceHealthScriptRunSummaryRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceHealthScriptRunSummaryRequest
 func (b *DeviceHealthScriptRunSummaryRequestBuilder) Request() *DeviceHealthScriptRunSummaryRequest {
 	return &DeviceHealthScriptRunSummaryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1139,7 +1173,8 @@ type DeviceInstallStateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceInstallStateRequest
 func (b *DeviceInstallStateRequestBuilder) Request() *DeviceInstallStateRequest {
 	return &DeviceInstallStateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1172,7 +1207,8 @@ type DeviceManagementRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceManagementRequest
 func (b *DeviceManagementRequestBuilder) Request() *DeviceManagementRequest {
 	return &DeviceManagementRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1205,7 +1241,8 @@ type DeviceManagementAbstractComplexSettingInstanceRequestBuilder struct{ BaseRe
 // Request returns DeviceManagementAbstractComplexSettingInstanceRequest
 func (b *DeviceManagementAbstractComplexSettingInstanceRequestBuilder) Request() *DeviceManagementAbstractComplexSettingInstanceRequest {
 	return &DeviceManagementAbstractComplexSettingInstanceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1238,7 +1275,8 @@ type DeviceManagementAutopilotEventRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceManagementAutopilotEventRequest
 func (b *DeviceManagementAutopilotEventRequestBuilder) Request() *DeviceManagementAutopilotEventRequest {
 	return &DeviceManagementAutopilotEventRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1271,7 +1309,8 @@ type DeviceManagementCachedReportConfigurationRequestBuilder struct{ BaseRequest
 // Request returns DeviceManagementCachedReportConfigurationRequest
 func (b *DeviceManagementCachedReportConfigurationRequestBuilder) Request() *DeviceManagementCachedReportConfigurationRequest {
 	return &DeviceManagementCachedReportConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1304,7 +1343,8 @@ type DeviceManagementCollectionSettingInstanceRequestBuilder struct{ BaseRequest
 // Request returns DeviceManagementCollectionSettingInstanceRequest
 func (b *DeviceManagementCollectionSettingInstanceRequestBuilder) Request() *DeviceManagementCollectionSettingInstanceRequest {
 	return &DeviceManagementCollectionSettingInstanceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1337,7 +1377,8 @@ type DeviceManagementComplexSettingInstanceRequestBuilder struct{ BaseRequestBui
 // Request returns DeviceManagementComplexSettingInstanceRequest
 func (b *DeviceManagementComplexSettingInstanceRequestBuilder) Request() *DeviceManagementComplexSettingInstanceRequest {
 	return &DeviceManagementComplexSettingInstanceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1370,7 +1411,8 @@ type DeviceManagementDerivedCredentialSettingsRequestBuilder struct{ BaseRequest
 // Request returns DeviceManagementDerivedCredentialSettingsRequest
 func (b *DeviceManagementDerivedCredentialSettingsRequestBuilder) Request() *DeviceManagementDerivedCredentialSettingsRequest {
 	return &DeviceManagementDerivedCredentialSettingsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1403,7 +1445,8 @@ type DeviceManagementDomainJoinConnectorRequestBuilder struct{ BaseRequestBuilde
 // Request returns DeviceManagementDomainJoinConnectorRequest
 func (b *DeviceManagementDomainJoinConnectorRequestBuilder) Request() *DeviceManagementDomainJoinConnectorRequest {
 	return &DeviceManagementDomainJoinConnectorRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1436,7 +1479,8 @@ type DeviceManagementExchangeConnectorRequestBuilder struct{ BaseRequestBuilder 
 // Request returns DeviceManagementExchangeConnectorRequest
 func (b *DeviceManagementExchangeConnectorRequestBuilder) Request() *DeviceManagementExchangeConnectorRequest {
 	return &DeviceManagementExchangeConnectorRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1469,7 +1513,8 @@ type DeviceManagementExchangeOnPremisesPolicyRequestBuilder struct{ BaseRequestB
 // Request returns DeviceManagementExchangeOnPremisesPolicyRequest
 func (b *DeviceManagementExchangeOnPremisesPolicyRequestBuilder) Request() *DeviceManagementExchangeOnPremisesPolicyRequest {
 	return &DeviceManagementExchangeOnPremisesPolicyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1502,7 +1547,8 @@ type DeviceManagementExportJobRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceManagementExportJobRequest
 func (b *DeviceManagementExportJobRequestBuilder) Request() *DeviceManagementExportJobRequest {
 	return &DeviceManagementExportJobRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1535,7 +1581,8 @@ type DeviceManagementIntentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceManagementIntentRequest
 func (b *DeviceManagementIntentRequestBuilder) Request() *DeviceManagementIntentRequest {
 	return &DeviceManagementIntentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1568,7 +1615,8 @@ type DeviceManagementIntentAssignmentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceManagementIntentAssignmentRequest
 func (b *DeviceManagementIntentAssignmentRequestBuilder) Request() *DeviceManagementIntentAssignmentRequest {
 	return &DeviceManagementIntentAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1601,7 +1649,8 @@ type DeviceManagementIntentDeviceSettingStateSummaryRequestBuilder struct{ BaseR
 // Request returns DeviceManagementIntentDeviceSettingStateSummaryRequest
 func (b *DeviceManagementIntentDeviceSettingStateSummaryRequestBuilder) Request() *DeviceManagementIntentDeviceSettingStateSummaryRequest {
 	return &DeviceManagementIntentDeviceSettingStateSummaryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1634,7 +1683,8 @@ type DeviceManagementIntentDeviceStateRequestBuilder struct{ BaseRequestBuilder 
 // Request returns DeviceManagementIntentDeviceStateRequest
 func (b *DeviceManagementIntentDeviceStateRequestBuilder) Request() *DeviceManagementIntentDeviceStateRequest {
 	return &DeviceManagementIntentDeviceStateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1667,7 +1717,8 @@ type DeviceManagementIntentDeviceStateSummaryRequestBuilder struct{ BaseRequestB
 // Request returns DeviceManagementIntentDeviceStateSummaryRequest
 func (b *DeviceManagementIntentDeviceStateSummaryRequestBuilder) Request() *DeviceManagementIntentDeviceStateSummaryRequest {
 	return &DeviceManagementIntentDeviceStateSummaryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1700,7 +1751,8 @@ type DeviceManagementIntentSettingCategoryRequestBuilder struct{ BaseRequestBuil
 // Request returns DeviceManagementIntentSettingCategoryRequest
 func (b *DeviceManagementIntentSettingCategoryRequestBuilder) Request() *DeviceManagementIntentSettingCategoryRequest {
 	return &DeviceManagementIntentSettingCategoryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1733,7 +1785,8 @@ type DeviceManagementIntentUserStateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceManagementIntentUserStateRequest
 func (b *DeviceManagementIntentUserStateRequestBuilder) Request() *DeviceManagementIntentUserStateRequest {
 	return &DeviceManagementIntentUserStateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1766,7 +1819,8 @@ type DeviceManagementIntentUserStateSummaryRequestBuilder struct{ BaseRequestBui
 // Request returns DeviceManagementIntentUserStateSummaryRequest
 func (b *DeviceManagementIntentUserStateSummaryRequestBuilder) Request() *DeviceManagementIntentUserStateSummaryRequest {
 	return &DeviceManagementIntentUserStateSummaryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1799,7 +1853,8 @@ type DeviceManagementPartnerRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceManagementPartnerRequest
 func (b *DeviceManagementPartnerRequestBuilder) Request() *DeviceManagementPartnerRequest {
 	return &DeviceManagementPartnerRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1832,7 +1887,8 @@ type DeviceManagementReportScheduleRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceManagementReportScheduleRequest
 func (b *DeviceManagementReportScheduleRequestBuilder) Request() *DeviceManagementReportScheduleRequest {
 	return &DeviceManagementReportScheduleRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1865,7 +1921,8 @@ type DeviceManagementReportsRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceManagementReportsRequest
 func (b *DeviceManagementReportsRequestBuilder) Request() *DeviceManagementReportsRequest {
 	return &DeviceManagementReportsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1898,7 +1955,8 @@ type DeviceManagementScriptRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceManagementScriptRequest
 func (b *DeviceManagementScriptRequestBuilder) Request() *DeviceManagementScriptRequest {
 	return &DeviceManagementScriptRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1931,7 +1989,8 @@ type DeviceManagementScriptAssignmentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceManagementScriptAssignmentRequest
 func (b *DeviceManagementScriptAssignmentRequestBuilder) Request() *DeviceManagementScriptAssignmentRequest {
 	return &DeviceManagementScriptAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1964,7 +2023,8 @@ type DeviceManagementScriptDeviceStateRequestBuilder struct{ BaseRequestBuilder 
 // Request returns DeviceManagementScriptDeviceStateRequest
 func (b *DeviceManagementScriptDeviceStateRequestBuilder) Request() *DeviceManagementScriptDeviceStateRequest {
 	return &DeviceManagementScriptDeviceStateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1997,7 +2057,8 @@ type DeviceManagementScriptGroupAssignmentRequestBuilder struct{ BaseRequestBuil
 // Request returns DeviceManagementScriptGroupAssignmentRequest
 func (b *DeviceManagementScriptGroupAssignmentRequestBuilder) Request() *DeviceManagementScriptGroupAssignmentRequest {
 	return &DeviceManagementScriptGroupAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2030,7 +2091,8 @@ type DeviceManagementScriptRunSummaryRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceManagementScriptRunSummaryRequest
 func (b *DeviceManagementScriptRunSummaryRequestBuilder) Request() *DeviceManagementScriptRunSummaryRequest {
 	return &DeviceManagementScriptRunSummaryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2063,7 +2125,8 @@ type DeviceManagementScriptUserStateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceManagementScriptUserStateRequest
 func (b *DeviceManagementScriptUserStateRequestBuilder) Request() *DeviceManagementScriptUserStateRequest {
 	return &DeviceManagementScriptUserStateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2096,7 +2159,8 @@ type DeviceManagementSettingCategoryRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceManagementSettingCategoryRequest
 func (b *DeviceManagementSettingCategoryRequestBuilder) Request() *DeviceManagementSettingCategoryRequest {
 	return &DeviceManagementSettingCategoryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2129,7 +2193,8 @@ type DeviceManagementSettingDefinitionRequestBuilder struct{ BaseRequestBuilder 
 // Request returns DeviceManagementSettingDefinitionRequest
 func (b *DeviceManagementSettingDefinitionRequestBuilder) Request() *DeviceManagementSettingDefinitionRequest {
 	return &DeviceManagementSettingDefinitionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2162,7 +2227,8 @@ type DeviceManagementSettingInstanceRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceManagementSettingInstanceRequest
 func (b *DeviceManagementSettingInstanceRequestBuilder) Request() *DeviceManagementSettingInstanceRequest {
 	return &DeviceManagementSettingInstanceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2195,7 +2261,8 @@ type DeviceManagementTemplateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DeviceManagementTemplateRequest
 func (b *DeviceManagementTemplateRequestBuilder) Request() *DeviceManagementTemplateRequest {
 	return &DeviceManagementTemplateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2228,7 +2295,8 @@ type DeviceManagementTemplateSettingCategoryRequestBuilder struct{ BaseRequestBu
 // Request returns DeviceManagementTemplateSettingCategoryRequest
 func (b *DeviceManagementTemplateSettingCategoryRequestBuilder) Request() *DeviceManagementTemplateSettingCategoryRequest {
 	return &DeviceManagementTemplateSettingCategoryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2261,7 +2329,8 @@ type DeviceManagementTroubleshootingEventRequestBuilder struct{ BaseRequestBuild
 // Request returns DeviceManagementTroubleshootingEventRequest
 func (b *DeviceManagementTroubleshootingEventRequestBuilder) Request() *DeviceManagementTroubleshootingEventRequest {
 	return &DeviceManagementTroubleshootingEventRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2305,7 +2374,8 @@ type DeviceCompliancePolicyCollectionHasPayloadLinksRequest struct{ BaseRequest 
 //
 func (b *DeviceCompliancePolicyCollectionHasPayloadLinksRequestBuilder) Request() *DeviceCompliancePolicyCollectionHasPayloadLinksRequest {
 	return &DeviceCompliancePolicyCollectionHasPayloadLinksRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2392,7 +2462,8 @@ type DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationR
 //
 func (b *DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequestBuilder) Request() *DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequest {
 	return &DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2426,7 +2497,8 @@ type DeviceConfigurationCollectionHasPayloadLinksRequest struct{ BaseRequest }
 //
 func (b *DeviceConfigurationCollectionHasPayloadLinksRequestBuilder) Request() *DeviceConfigurationCollectionHasPayloadLinksRequest {
 	return &DeviceConfigurationCollectionHasPayloadLinksRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2521,7 +2593,8 @@ type DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest struct{ Base
 //
 func (b *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequestBuilder) Request() *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest {
 	return &DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2616,7 +2689,8 @@ type DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequest struct{ BaseR
 //
 func (b *DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequestBuilder) Request() *DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequest {
 	return &DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2703,7 +2777,8 @@ type DeviceManagementScriptCollectionHasPayloadLinksRequest struct{ BaseRequest 
 //
 func (b *DeviceManagementScriptCollectionHasPayloadLinksRequestBuilder) Request() *DeviceManagementScriptCollectionHasPayloadLinksRequest {
 	return &DeviceManagementScriptCollectionHasPayloadLinksRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2790,7 +2865,8 @@ type DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest struct{ BaseReq
 //
 func (b *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestBuilder) Request() *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest {
 	return &DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2816,7 +2892,8 @@ type DeviceAppManagementTaskUpdateStatusRequest struct{ BaseRequest }
 //
 func (b *DeviceAppManagementTaskUpdateStatusRequestBuilder) Request() *DeviceAppManagementTaskUpdateStatusRequest {
 	return &DeviceAppManagementTaskUpdateStatusRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2842,7 +2919,8 @@ type DeviceCompliancePolicyAssignRequest struct{ BaseRequest }
 //
 func (b *DeviceCompliancePolicyAssignRequestBuilder) Request() *DeviceCompliancePolicyAssignRequest {
 	return &DeviceCompliancePolicyAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2929,7 +3007,8 @@ type DeviceCompliancePolicyScheduleActionsForRulesRequest struct{ BaseRequest }
 //
 func (b *DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder) Request() *DeviceCompliancePolicyScheduleActionsForRulesRequest {
 	return &DeviceCompliancePolicyScheduleActionsForRulesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2955,7 +3034,8 @@ type DeviceConfigurationAssignRequest struct{ BaseRequest }
 //
 func (b *DeviceConfigurationAssignRequestBuilder) Request() *DeviceConfigurationAssignRequest {
 	return &DeviceConfigurationAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -3042,7 +3122,8 @@ type DeviceConfigurationWindowsPrivacyAccessControlsRequest struct{ BaseRequest 
 //
 func (b *DeviceConfigurationWindowsPrivacyAccessControlsRequestBuilder) Request() *DeviceConfigurationWindowsPrivacyAccessControlsRequest {
 	return &DeviceConfigurationWindowsPrivacyAccessControlsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -3068,7 +3149,8 @@ type DeviceConfigurationAssignedAccessMultiModeProfilesRequest struct{ BaseReque
 //
 func (b *DeviceConfigurationAssignedAccessMultiModeProfilesRequestBuilder) Request() *DeviceConfigurationAssignedAccessMultiModeProfilesRequest {
 	return &DeviceConfigurationAssignedAccessMultiModeProfilesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -3094,7 +3176,8 @@ type DeviceEnrollmentConfigurationSetPriorityRequest struct{ BaseRequest }
 //
 func (b *DeviceEnrollmentConfigurationSetPriorityRequestBuilder) Request() *DeviceEnrollmentConfigurationSetPriorityRequest {
 	return &DeviceEnrollmentConfigurationSetPriorityRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -3120,7 +3203,8 @@ type DeviceEnrollmentConfigurationAssignRequest struct{ BaseRequest }
 //
 func (b *DeviceEnrollmentConfigurationAssignRequestBuilder) Request() *DeviceEnrollmentConfigurationAssignRequest {
 	return &DeviceEnrollmentConfigurationAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -3146,7 +3230,8 @@ type DeviceHealthScriptAssignRequest struct{ BaseRequest }
 //
 func (b *DeviceHealthScriptAssignRequestBuilder) Request() *DeviceHealthScriptAssignRequest {
 	return &DeviceHealthScriptAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -3172,7 +3257,8 @@ type DeviceManagementEnableLegacyPcManagementRequest struct{ BaseRequest }
 //
 func (b *DeviceManagementEnableLegacyPcManagementRequestBuilder) Request() *DeviceManagementEnableLegacyPcManagementRequest {
 	return &DeviceManagementEnableLegacyPcManagementRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -3198,7 +3284,8 @@ type DeviceManagementEnableAndroidDeviceAdministratorEnrollmentRequest struct{ B
 //
 func (b *DeviceManagementEnableAndroidDeviceAdministratorEnrollmentRequestBuilder) Request() *DeviceManagementEnableAndroidDeviceAdministratorEnrollmentRequest {
 	return &DeviceManagementEnableAndroidDeviceAdministratorEnrollmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -3224,7 +3311,8 @@ type DeviceManagementSendCustomNotificationToCompanyPortalRequest struct{ BaseRe
 //
 func (b *DeviceManagementSendCustomNotificationToCompanyPortalRequestBuilder) Request() *DeviceManagementSendCustomNotificationToCompanyPortalRequest {
 	return &DeviceManagementSendCustomNotificationToCompanyPortalRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -3250,7 +3338,8 @@ type DeviceManagementExchangeConnectorSyncRequest struct{ BaseRequest }
 //
 func (b *DeviceManagementExchangeConnectorSyncRequestBuilder) Request() *DeviceManagementExchangeConnectorSyncRequest {
 	return &DeviceManagementExchangeConnectorSyncRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -3276,7 +3365,8 @@ type DeviceManagementIntentUpdateSettingsRequest struct{ BaseRequest }
 //
 func (b *DeviceManagementIntentUpdateSettingsRequestBuilder) Request() *DeviceManagementIntentUpdateSettingsRequest {
 	return &DeviceManagementIntentUpdateSettingsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -3302,7 +3392,8 @@ type DeviceManagementIntentMigrateToTemplateRequest struct{ BaseRequest }
 //
 func (b *DeviceManagementIntentMigrateToTemplateRequestBuilder) Request() *DeviceManagementIntentMigrateToTemplateRequest {
 	return &DeviceManagementIntentMigrateToTemplateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -3328,7 +3419,8 @@ type DeviceManagementIntentAssignRequest struct{ BaseRequest }
 //
 func (b *DeviceManagementIntentAssignRequestBuilder) Request() *DeviceManagementIntentAssignRequest {
 	return &DeviceManagementIntentAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -3354,7 +3446,8 @@ type DeviceManagementReportsGetDeviceNonComplianceReportRequest struct{ BaseRequ
 //
 func (b *DeviceManagementReportsGetDeviceNonComplianceReportRequestBuilder) Request() *DeviceManagementReportsGetDeviceNonComplianceReportRequest {
 	return &DeviceManagementReportsGetDeviceNonComplianceReportRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -3381,7 +3474,8 @@ type DeviceManagementReportsGetPolicyNonComplianceReportRequest struct{ BaseRequ
 //
 func (b *DeviceManagementReportsGetPolicyNonComplianceReportRequestBuilder) Request() *DeviceManagementReportsGetPolicyNonComplianceReportRequest {
 	return &DeviceManagementReportsGetPolicyNonComplianceReportRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -3408,7 +3502,8 @@ type DeviceManagementReportsGetPolicyNonComplianceMetadataRequest struct{ BaseRe
 //
 func (b *DeviceManagementReportsGetPolicyNonComplianceMetadataRequestBuilder) Request() *DeviceManagementReportsGetPolicyNonComplianceMetadataRequest {
 	return &DeviceManagementReportsGetPolicyNonComplianceMetadataRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -3435,7 +3530,8 @@ type DeviceManagementReportsGetHistoricalReportRequest struct{ BaseRequest }
 //
 func (b *DeviceManagementReportsGetHistoricalReportRequestBuilder) Request() *DeviceManagementReportsGetHistoricalReportRequest {
 	return &DeviceManagementReportsGetHistoricalReportRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -3462,7 +3558,8 @@ type DeviceManagementReportsGetCachedReportRequest struct{ BaseRequest }
 //
 func (b *DeviceManagementReportsGetCachedReportRequestBuilder) Request() *DeviceManagementReportsGetCachedReportRequest {
 	return &DeviceManagementReportsGetCachedReportRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -3489,7 +3586,8 @@ type DeviceManagementScriptAssignRequest struct{ BaseRequest }
 //
 func (b *DeviceManagementScriptAssignRequestBuilder) Request() *DeviceManagementScriptAssignRequest {
 	return &DeviceManagementScriptAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -3515,7 +3613,8 @@ type DeviceManagementTemplateCreateInstanceRequest struct{ BaseRequest }
 //
 func (b *DeviceManagementTemplateCreateInstanceRequestBuilder) Request() *DeviceManagementTemplateCreateInstanceRequest {
 	return &DeviceManagementTemplateCreateInstanceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

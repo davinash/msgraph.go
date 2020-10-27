@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 
@@ -92,7 +93,8 @@ type MessageAttachmentsCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for Attachment collection
 func (b *MessageAttachmentsCollectionRequestBuilder) Request() *MessageAttachmentsCollectionRequest {
 	return &MessageAttachmentsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -151,7 +153,7 @@ func (r *MessageAttachmentsCollectionRequest) Paging(ctx context.Context, method
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -160,6 +162,20 @@ func (r *MessageAttachmentsCollectionRequest) Paging(ctx context.Context, method
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *MessageAttachmentsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for Attachment collection, max N pages
@@ -195,7 +211,8 @@ type MessageExtensionsCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for Extension collection
 func (b *MessageExtensionsCollectionRequestBuilder) Request() *MessageExtensionsCollectionRequest {
 	return &MessageExtensionsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -254,7 +271,7 @@ func (r *MessageExtensionsCollectionRequest) Paging(ctx context.Context, method,
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -263,6 +280,20 @@ func (r *MessageExtensionsCollectionRequest) Paging(ctx context.Context, method,
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *MessageExtensionsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for Extension collection, max N pages
@@ -298,7 +329,8 @@ type MessageMultiValueExtendedPropertiesCollectionRequestBuilder struct{ BaseReq
 // Request returns request for MultiValueLegacyExtendedProperty collection
 func (b *MessageMultiValueExtendedPropertiesCollectionRequestBuilder) Request() *MessageMultiValueExtendedPropertiesCollectionRequest {
 	return &MessageMultiValueExtendedPropertiesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -357,7 +389,7 @@ func (r *MessageMultiValueExtendedPropertiesCollectionRequest) Paging(ctx contex
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -366,6 +398,20 @@ func (r *MessageMultiValueExtendedPropertiesCollectionRequest) Paging(ctx contex
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *MessageMultiValueExtendedPropertiesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for MultiValueLegacyExtendedProperty collection, max N pages
@@ -401,7 +447,8 @@ type MessageSingleValueExtendedPropertiesCollectionRequestBuilder struct{ BaseRe
 // Request returns request for SingleValueLegacyExtendedProperty collection
 func (b *MessageSingleValueExtendedPropertiesCollectionRequestBuilder) Request() *MessageSingleValueExtendedPropertiesCollectionRequest {
 	return &MessageSingleValueExtendedPropertiesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -460,7 +507,7 @@ func (r *MessageSingleValueExtendedPropertiesCollectionRequest) Paging(ctx conte
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -469,6 +516,20 @@ func (r *MessageSingleValueExtendedPropertiesCollectionRequest) Paging(ctx conte
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *MessageSingleValueExtendedPropertiesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for SingleValueLegacyExtendedProperty collection, max N pages

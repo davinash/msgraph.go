@@ -10,7 +10,8 @@ type ExtensionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ExtensionRequest
 func (b *ExtensionRequestBuilder) Request() *ExtensionRequest {
 	return &ExtensionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type ExtensionPropertyRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ExtensionPropertyRequest
 func (b *ExtensionPropertyRequestBuilder) Request() *ExtensionPropertyRequest {
 	return &ExtensionPropertyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

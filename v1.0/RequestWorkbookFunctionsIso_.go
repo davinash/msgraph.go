@@ -21,7 +21,8 @@ type WorkbookFunctionsIso_CeilingRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsIso_CeilingRequestBuilder) Request() *WorkbookFunctionsIso_CeilingRequest {
 	return &WorkbookFunctionsIso_CeilingRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

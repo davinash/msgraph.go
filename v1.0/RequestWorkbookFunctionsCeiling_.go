@@ -21,7 +21,8 @@ type WorkbookFunctionsCeiling_MathRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsCeiling_MathRequestBuilder) Request() *WorkbookFunctionsCeiling_MathRequest {
 	return &WorkbookFunctionsCeiling_MathRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsCeiling_PreciseRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsCeiling_PreciseRequestBuilder) Request() *WorkbookFunctionsCeiling_PreciseRequest {
 	return &WorkbookFunctionsCeiling_PreciseRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

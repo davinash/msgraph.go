@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 
@@ -64,7 +65,8 @@ type DeviceExtensionsCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for Extension collection
 func (b *DeviceExtensionsCollectionRequestBuilder) Request() *DeviceExtensionsCollectionRequest {
 	return &DeviceExtensionsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -123,7 +125,7 @@ func (r *DeviceExtensionsCollectionRequest) Paging(ctx context.Context, method, 
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -132,6 +134,20 @@ func (r *DeviceExtensionsCollectionRequest) Paging(ctx context.Context, method, 
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceExtensionsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for Extension collection, max N pages
@@ -167,7 +183,8 @@ type DeviceMemberOfCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for DirectoryObject collection
 func (b *DeviceMemberOfCollectionRequestBuilder) Request() *DeviceMemberOfCollectionRequest {
 	return &DeviceMemberOfCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -226,7 +243,7 @@ func (r *DeviceMemberOfCollectionRequest) Paging(ctx context.Context, method, pa
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -235,6 +252,20 @@ func (r *DeviceMemberOfCollectionRequest) Paging(ctx context.Context, method, pa
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceMemberOfCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DirectoryObject collection, max N pages
@@ -270,7 +301,8 @@ type DeviceRegisteredOwnersCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for DirectoryObject collection
 func (b *DeviceRegisteredOwnersCollectionRequestBuilder) Request() *DeviceRegisteredOwnersCollectionRequest {
 	return &DeviceRegisteredOwnersCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -329,7 +361,7 @@ func (r *DeviceRegisteredOwnersCollectionRequest) Paging(ctx context.Context, me
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -338,6 +370,20 @@ func (r *DeviceRegisteredOwnersCollectionRequest) Paging(ctx context.Context, me
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceRegisteredOwnersCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DirectoryObject collection, max N pages
@@ -373,7 +419,8 @@ type DeviceRegisteredUsersCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for DirectoryObject collection
 func (b *DeviceRegisteredUsersCollectionRequestBuilder) Request() *DeviceRegisteredUsersCollectionRequest {
 	return &DeviceRegisteredUsersCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -432,7 +479,7 @@ func (r *DeviceRegisteredUsersCollectionRequest) Paging(ctx context.Context, met
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -441,6 +488,20 @@ func (r *DeviceRegisteredUsersCollectionRequest) Paging(ctx context.Context, met
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceRegisteredUsersCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DirectoryObject collection, max N pages
@@ -476,7 +537,8 @@ type DeviceTransitiveMemberOfCollectionRequestBuilder struct{ BaseRequestBuilder
 // Request returns request for DirectoryObject collection
 func (b *DeviceTransitiveMemberOfCollectionRequestBuilder) Request() *DeviceTransitiveMemberOfCollectionRequest {
 	return &DeviceTransitiveMemberOfCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -535,7 +597,7 @@ func (r *DeviceTransitiveMemberOfCollectionRequest) Paging(ctx context.Context, 
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -544,6 +606,20 @@ func (r *DeviceTransitiveMemberOfCollectionRequest) Paging(ctx context.Context, 
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceTransitiveMemberOfCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DirectoryObject collection, max N pages
@@ -579,7 +655,8 @@ type DeviceAppManagementAndroidManagedAppProtectionsCollectionRequestBuilder str
 // Request returns request for AndroidManagedAppProtection collection
 func (b *DeviceAppManagementAndroidManagedAppProtectionsCollectionRequestBuilder) Request() *DeviceAppManagementAndroidManagedAppProtectionsCollectionRequest {
 	return &DeviceAppManagementAndroidManagedAppProtectionsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -638,7 +715,7 @@ func (r *DeviceAppManagementAndroidManagedAppProtectionsCollectionRequest) Pagin
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -647,6 +724,20 @@ func (r *DeviceAppManagementAndroidManagedAppProtectionsCollectionRequest) Pagin
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceAppManagementAndroidManagedAppProtectionsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for AndroidManagedAppProtection collection, max N pages
@@ -682,7 +773,8 @@ type DeviceAppManagementDefaultManagedAppProtectionsCollectionRequestBuilder str
 // Request returns request for DefaultManagedAppProtection collection
 func (b *DeviceAppManagementDefaultManagedAppProtectionsCollectionRequestBuilder) Request() *DeviceAppManagementDefaultManagedAppProtectionsCollectionRequest {
 	return &DeviceAppManagementDefaultManagedAppProtectionsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -741,7 +833,7 @@ func (r *DeviceAppManagementDefaultManagedAppProtectionsCollectionRequest) Pagin
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -750,6 +842,20 @@ func (r *DeviceAppManagementDefaultManagedAppProtectionsCollectionRequest) Pagin
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceAppManagementDefaultManagedAppProtectionsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DefaultManagedAppProtection collection, max N pages
@@ -785,7 +891,8 @@ type DeviceAppManagementIOSManagedAppProtectionsCollectionRequestBuilder struct{
 // Request returns request for IOSManagedAppProtection collection
 func (b *DeviceAppManagementIOSManagedAppProtectionsCollectionRequestBuilder) Request() *DeviceAppManagementIOSManagedAppProtectionsCollectionRequest {
 	return &DeviceAppManagementIOSManagedAppProtectionsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -844,7 +951,7 @@ func (r *DeviceAppManagementIOSManagedAppProtectionsCollectionRequest) Paging(ct
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -853,6 +960,20 @@ func (r *DeviceAppManagementIOSManagedAppProtectionsCollectionRequest) Paging(ct
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceAppManagementIOSManagedAppProtectionsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for IOSManagedAppProtection collection, max N pages
@@ -888,7 +1009,8 @@ type DeviceAppManagementManagedAppPoliciesCollectionRequestBuilder struct{ BaseR
 // Request returns request for ManagedAppPolicy collection
 func (b *DeviceAppManagementManagedAppPoliciesCollectionRequestBuilder) Request() *DeviceAppManagementManagedAppPoliciesCollectionRequest {
 	return &DeviceAppManagementManagedAppPoliciesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -947,7 +1069,7 @@ func (r *DeviceAppManagementManagedAppPoliciesCollectionRequest) Paging(ctx cont
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -956,6 +1078,20 @@ func (r *DeviceAppManagementManagedAppPoliciesCollectionRequest) Paging(ctx cont
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceAppManagementManagedAppPoliciesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ManagedAppPolicy collection, max N pages
@@ -991,7 +1127,8 @@ type DeviceAppManagementManagedAppRegistrationsCollectionRequestBuilder struct{ 
 // Request returns request for ManagedAppRegistration collection
 func (b *DeviceAppManagementManagedAppRegistrationsCollectionRequestBuilder) Request() *DeviceAppManagementManagedAppRegistrationsCollectionRequest {
 	return &DeviceAppManagementManagedAppRegistrationsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1050,7 +1187,7 @@ func (r *DeviceAppManagementManagedAppRegistrationsCollectionRequest) Paging(ctx
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -1059,6 +1196,20 @@ func (r *DeviceAppManagementManagedAppRegistrationsCollectionRequest) Paging(ctx
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceAppManagementManagedAppRegistrationsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ManagedAppRegistration collection, max N pages
@@ -1094,7 +1245,8 @@ type DeviceAppManagementManagedAppStatusesCollectionRequestBuilder struct{ BaseR
 // Request returns request for ManagedAppStatus collection
 func (b *DeviceAppManagementManagedAppStatusesCollectionRequestBuilder) Request() *DeviceAppManagementManagedAppStatusesCollectionRequest {
 	return &DeviceAppManagementManagedAppStatusesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1153,7 +1305,7 @@ func (r *DeviceAppManagementManagedAppStatusesCollectionRequest) Paging(ctx cont
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -1162,6 +1314,20 @@ func (r *DeviceAppManagementManagedAppStatusesCollectionRequest) Paging(ctx cont
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceAppManagementManagedAppStatusesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ManagedAppStatus collection, max N pages
@@ -1197,7 +1363,8 @@ type DeviceAppManagementManagedEBooksCollectionRequestBuilder struct{ BaseReques
 // Request returns request for ManagedEBook collection
 func (b *DeviceAppManagementManagedEBooksCollectionRequestBuilder) Request() *DeviceAppManagementManagedEBooksCollectionRequest {
 	return &DeviceAppManagementManagedEBooksCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1256,7 +1423,7 @@ func (r *DeviceAppManagementManagedEBooksCollectionRequest) Paging(ctx context.C
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -1265,6 +1432,20 @@ func (r *DeviceAppManagementManagedEBooksCollectionRequest) Paging(ctx context.C
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceAppManagementManagedEBooksCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ManagedEBook collection, max N pages
@@ -1300,7 +1481,8 @@ type DeviceAppManagementMDMWindowsInformationProtectionPoliciesCollectionRequest
 // Request returns request for MDMWindowsInformationProtectionPolicy collection
 func (b *DeviceAppManagementMDMWindowsInformationProtectionPoliciesCollectionRequestBuilder) Request() *DeviceAppManagementMDMWindowsInformationProtectionPoliciesCollectionRequest {
 	return &DeviceAppManagementMDMWindowsInformationProtectionPoliciesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1359,7 +1541,7 @@ func (r *DeviceAppManagementMDMWindowsInformationProtectionPoliciesCollectionReq
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -1368,6 +1550,20 @@ func (r *DeviceAppManagementMDMWindowsInformationProtectionPoliciesCollectionReq
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceAppManagementMDMWindowsInformationProtectionPoliciesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for MDMWindowsInformationProtectionPolicy collection, max N pages
@@ -1403,7 +1599,8 @@ type DeviceAppManagementMobileAppCategoriesCollectionRequestBuilder struct{ Base
 // Request returns request for MobileAppCategory collection
 func (b *DeviceAppManagementMobileAppCategoriesCollectionRequestBuilder) Request() *DeviceAppManagementMobileAppCategoriesCollectionRequest {
 	return &DeviceAppManagementMobileAppCategoriesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1462,7 +1659,7 @@ func (r *DeviceAppManagementMobileAppCategoriesCollectionRequest) Paging(ctx con
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -1471,6 +1668,20 @@ func (r *DeviceAppManagementMobileAppCategoriesCollectionRequest) Paging(ctx con
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceAppManagementMobileAppCategoriesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for MobileAppCategory collection, max N pages
@@ -1506,7 +1717,8 @@ type DeviceAppManagementMobileAppConfigurationsCollectionRequestBuilder struct{ 
 // Request returns request for ManagedDeviceMobileAppConfiguration collection
 func (b *DeviceAppManagementMobileAppConfigurationsCollectionRequestBuilder) Request() *DeviceAppManagementMobileAppConfigurationsCollectionRequest {
 	return &DeviceAppManagementMobileAppConfigurationsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1565,7 +1777,7 @@ func (r *DeviceAppManagementMobileAppConfigurationsCollectionRequest) Paging(ctx
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -1574,6 +1786,20 @@ func (r *DeviceAppManagementMobileAppConfigurationsCollectionRequest) Paging(ctx
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceAppManagementMobileAppConfigurationsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ManagedDeviceMobileAppConfiguration collection, max N pages
@@ -1609,7 +1835,8 @@ type DeviceAppManagementMobileAppsCollectionRequestBuilder struct{ BaseRequestBu
 // Request returns request for MobileApp collection
 func (b *DeviceAppManagementMobileAppsCollectionRequestBuilder) Request() *DeviceAppManagementMobileAppsCollectionRequest {
 	return &DeviceAppManagementMobileAppsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1668,7 +1895,7 @@ func (r *DeviceAppManagementMobileAppsCollectionRequest) Paging(ctx context.Cont
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -1677,6 +1904,20 @@ func (r *DeviceAppManagementMobileAppsCollectionRequest) Paging(ctx context.Cont
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceAppManagementMobileAppsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for MobileApp collection, max N pages
@@ -1712,7 +1953,8 @@ type DeviceAppManagementTargetedManagedAppConfigurationsCollectionRequestBuilder
 // Request returns request for TargetedManagedAppConfiguration collection
 func (b *DeviceAppManagementTargetedManagedAppConfigurationsCollectionRequestBuilder) Request() *DeviceAppManagementTargetedManagedAppConfigurationsCollectionRequest {
 	return &DeviceAppManagementTargetedManagedAppConfigurationsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1771,7 +2013,7 @@ func (r *DeviceAppManagementTargetedManagedAppConfigurationsCollectionRequest) P
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -1780,6 +2022,20 @@ func (r *DeviceAppManagementTargetedManagedAppConfigurationsCollectionRequest) P
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceAppManagementTargetedManagedAppConfigurationsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for TargetedManagedAppConfiguration collection, max N pages
@@ -1815,7 +2071,8 @@ type DeviceAppManagementVPPTokensCollectionRequestBuilder struct{ BaseRequestBui
 // Request returns request for VPPToken collection
 func (b *DeviceAppManagementVPPTokensCollectionRequestBuilder) Request() *DeviceAppManagementVPPTokensCollectionRequest {
 	return &DeviceAppManagementVPPTokensCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1874,7 +2131,7 @@ func (r *DeviceAppManagementVPPTokensCollectionRequest) Paging(ctx context.Conte
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -1883,6 +2140,20 @@ func (r *DeviceAppManagementVPPTokensCollectionRequest) Paging(ctx context.Conte
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceAppManagementVPPTokensCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for VPPToken collection, max N pages
@@ -1918,7 +2189,8 @@ type DeviceAppManagementWindowsInformationProtectionPoliciesCollectionRequestBui
 // Request returns request for WindowsInformationProtectionPolicy collection
 func (b *DeviceAppManagementWindowsInformationProtectionPoliciesCollectionRequestBuilder) Request() *DeviceAppManagementWindowsInformationProtectionPoliciesCollectionRequest {
 	return &DeviceAppManagementWindowsInformationProtectionPoliciesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1977,7 +2249,7 @@ func (r *DeviceAppManagementWindowsInformationProtectionPoliciesCollectionReques
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -1986,6 +2258,20 @@ func (r *DeviceAppManagementWindowsInformationProtectionPoliciesCollectionReques
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceAppManagementWindowsInformationProtectionPoliciesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for WindowsInformationProtectionPolicy collection, max N pages
@@ -2021,7 +2307,8 @@ type DeviceCompliancePolicyAssignmentsCollectionRequestBuilder struct{ BaseReque
 // Request returns request for DeviceCompliancePolicyAssignment collection
 func (b *DeviceCompliancePolicyAssignmentsCollectionRequestBuilder) Request() *DeviceCompliancePolicyAssignmentsCollectionRequest {
 	return &DeviceCompliancePolicyAssignmentsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2080,7 +2367,7 @@ func (r *DeviceCompliancePolicyAssignmentsCollectionRequest) Paging(ctx context.
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -2089,6 +2376,20 @@ func (r *DeviceCompliancePolicyAssignmentsCollectionRequest) Paging(ctx context.
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceCompliancePolicyAssignmentsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DeviceCompliancePolicyAssignment collection, max N pages
@@ -2124,7 +2425,8 @@ type DeviceCompliancePolicyDeviceSettingStateSummariesCollectionRequestBuilder s
 // Request returns request for SettingStateDeviceSummary collection
 func (b *DeviceCompliancePolicyDeviceSettingStateSummariesCollectionRequestBuilder) Request() *DeviceCompliancePolicyDeviceSettingStateSummariesCollectionRequest {
 	return &DeviceCompliancePolicyDeviceSettingStateSummariesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2183,7 +2485,7 @@ func (r *DeviceCompliancePolicyDeviceSettingStateSummariesCollectionRequest) Pag
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -2192,6 +2494,20 @@ func (r *DeviceCompliancePolicyDeviceSettingStateSummariesCollectionRequest) Pag
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceCompliancePolicyDeviceSettingStateSummariesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for SettingStateDeviceSummary collection, max N pages
@@ -2234,7 +2550,8 @@ type DeviceCompliancePolicyDeviceStatusesCollectionRequestBuilder struct{ BaseRe
 // Request returns request for DeviceComplianceDeviceStatus collection
 func (b *DeviceCompliancePolicyDeviceStatusesCollectionRequestBuilder) Request() *DeviceCompliancePolicyDeviceStatusesCollectionRequest {
 	return &DeviceCompliancePolicyDeviceStatusesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2293,7 +2610,7 @@ func (r *DeviceCompliancePolicyDeviceStatusesCollectionRequest) Paging(ctx conte
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -2302,6 +2619,20 @@ func (r *DeviceCompliancePolicyDeviceStatusesCollectionRequest) Paging(ctx conte
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceCompliancePolicyDeviceStatusesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DeviceComplianceDeviceStatus collection, max N pages
@@ -2337,7 +2668,8 @@ type DeviceCompliancePolicyScheduledActionsForRuleCollectionRequestBuilder struc
 // Request returns request for DeviceComplianceScheduledActionForRule collection
 func (b *DeviceCompliancePolicyScheduledActionsForRuleCollectionRequestBuilder) Request() *DeviceCompliancePolicyScheduledActionsForRuleCollectionRequest {
 	return &DeviceCompliancePolicyScheduledActionsForRuleCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2396,7 +2728,7 @@ func (r *DeviceCompliancePolicyScheduledActionsForRuleCollectionRequest) Paging(
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -2405,6 +2737,20 @@ func (r *DeviceCompliancePolicyScheduledActionsForRuleCollectionRequest) Paging(
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceCompliancePolicyScheduledActionsForRuleCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DeviceComplianceScheduledActionForRule collection, max N pages
@@ -2447,7 +2793,8 @@ type DeviceCompliancePolicyUserStatusesCollectionRequestBuilder struct{ BaseRequ
 // Request returns request for DeviceComplianceUserStatus collection
 func (b *DeviceCompliancePolicyUserStatusesCollectionRequestBuilder) Request() *DeviceCompliancePolicyUserStatusesCollectionRequest {
 	return &DeviceCompliancePolicyUserStatusesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2506,7 +2853,7 @@ func (r *DeviceCompliancePolicyUserStatusesCollectionRequest) Paging(ctx context
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -2515,6 +2862,20 @@ func (r *DeviceCompliancePolicyUserStatusesCollectionRequest) Paging(ctx context
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceCompliancePolicyUserStatusesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DeviceComplianceUserStatus collection, max N pages
@@ -2550,7 +2911,8 @@ type DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesColle
 // Request returns request for DeviceComplianceSettingState collection
 func (b *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequestBuilder) Request() *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequest {
 	return &DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2609,7 +2971,7 @@ func (r *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesC
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -2618,6 +2980,20 @@ func (r *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesC
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DeviceComplianceSettingState collection, max N pages
@@ -2653,7 +3029,8 @@ type DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsCollecti
 // Request returns request for DeviceComplianceActionItem collection
 func (b *DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsCollectionRequestBuilder) Request() *DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsCollectionRequest {
 	return &DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2712,7 +3089,7 @@ func (r *DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsColl
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -2721,6 +3098,20 @@ func (r *DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsColl
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DeviceComplianceActionItem collection, max N pages
@@ -2756,7 +3147,8 @@ type DeviceConfigurationAssignmentsCollectionRequestBuilder struct{ BaseRequestB
 // Request returns request for DeviceConfigurationAssignment collection
 func (b *DeviceConfigurationAssignmentsCollectionRequestBuilder) Request() *DeviceConfigurationAssignmentsCollectionRequest {
 	return &DeviceConfigurationAssignmentsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2815,7 +3207,7 @@ func (r *DeviceConfigurationAssignmentsCollectionRequest) Paging(ctx context.Con
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -2824,6 +3216,20 @@ func (r *DeviceConfigurationAssignmentsCollectionRequest) Paging(ctx context.Con
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceConfigurationAssignmentsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DeviceConfigurationAssignment collection, max N pages
@@ -2859,7 +3265,8 @@ type DeviceConfigurationDeviceSettingStateSummariesCollectionRequestBuilder stru
 // Request returns request for SettingStateDeviceSummary collection
 func (b *DeviceConfigurationDeviceSettingStateSummariesCollectionRequestBuilder) Request() *DeviceConfigurationDeviceSettingStateSummariesCollectionRequest {
 	return &DeviceConfigurationDeviceSettingStateSummariesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2918,7 +3325,7 @@ func (r *DeviceConfigurationDeviceSettingStateSummariesCollectionRequest) Paging
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -2927,6 +3334,20 @@ func (r *DeviceConfigurationDeviceSettingStateSummariesCollectionRequest) Paging
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceConfigurationDeviceSettingStateSummariesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for SettingStateDeviceSummary collection, max N pages
@@ -2969,7 +3390,8 @@ type DeviceConfigurationDeviceStatusesCollectionRequestBuilder struct{ BaseReque
 // Request returns request for DeviceConfigurationDeviceStatus collection
 func (b *DeviceConfigurationDeviceStatusesCollectionRequestBuilder) Request() *DeviceConfigurationDeviceStatusesCollectionRequest {
 	return &DeviceConfigurationDeviceStatusesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -3028,7 +3450,7 @@ func (r *DeviceConfigurationDeviceStatusesCollectionRequest) Paging(ctx context.
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -3037,6 +3459,20 @@ func (r *DeviceConfigurationDeviceStatusesCollectionRequest) Paging(ctx context.
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceConfigurationDeviceStatusesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DeviceConfigurationDeviceStatus collection, max N pages
@@ -3079,7 +3515,8 @@ type DeviceConfigurationUserStatusesCollectionRequestBuilder struct{ BaseRequest
 // Request returns request for DeviceConfigurationUserStatus collection
 func (b *DeviceConfigurationUserStatusesCollectionRequestBuilder) Request() *DeviceConfigurationUserStatusesCollectionRequest {
 	return &DeviceConfigurationUserStatusesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -3138,7 +3575,7 @@ func (r *DeviceConfigurationUserStatusesCollectionRequest) Paging(ctx context.Co
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -3147,6 +3584,20 @@ func (r *DeviceConfigurationUserStatusesCollectionRequest) Paging(ctx context.Co
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceConfigurationUserStatusesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DeviceConfigurationUserStatus collection, max N pages
@@ -3182,7 +3633,8 @@ type DeviceEnrollmentConfigurationAssignmentsCollectionRequestBuilder struct{ Ba
 // Request returns request for EnrollmentConfigurationAssignment collection
 func (b *DeviceEnrollmentConfigurationAssignmentsCollectionRequestBuilder) Request() *DeviceEnrollmentConfigurationAssignmentsCollectionRequest {
 	return &DeviceEnrollmentConfigurationAssignmentsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -3241,7 +3693,7 @@ func (r *DeviceEnrollmentConfigurationAssignmentsCollectionRequest) Paging(ctx c
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -3250,6 +3702,20 @@ func (r *DeviceEnrollmentConfigurationAssignmentsCollectionRequest) Paging(ctx c
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceEnrollmentConfigurationAssignmentsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for EnrollmentConfigurationAssignment collection, max N pages
@@ -3299,7 +3765,8 @@ type DeviceManagementDetectedAppsCollectionRequestBuilder struct{ BaseRequestBui
 // Request returns request for DetectedApp collection
 func (b *DeviceManagementDetectedAppsCollectionRequestBuilder) Request() *DeviceManagementDetectedAppsCollectionRequest {
 	return &DeviceManagementDetectedAppsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -3358,7 +3825,7 @@ func (r *DeviceManagementDetectedAppsCollectionRequest) Paging(ctx context.Conte
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -3367,6 +3834,20 @@ func (r *DeviceManagementDetectedAppsCollectionRequest) Paging(ctx context.Conte
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceManagementDetectedAppsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DetectedApp collection, max N pages
@@ -3402,7 +3883,8 @@ type DeviceManagementDeviceCategoriesCollectionRequestBuilder struct{ BaseReques
 // Request returns request for DeviceCategory collection
 func (b *DeviceManagementDeviceCategoriesCollectionRequestBuilder) Request() *DeviceManagementDeviceCategoriesCollectionRequest {
 	return &DeviceManagementDeviceCategoriesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -3461,7 +3943,7 @@ func (r *DeviceManagementDeviceCategoriesCollectionRequest) Paging(ctx context.C
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -3470,6 +3952,20 @@ func (r *DeviceManagementDeviceCategoriesCollectionRequest) Paging(ctx context.C
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceManagementDeviceCategoriesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DeviceCategory collection, max N pages
@@ -3505,7 +4001,8 @@ type DeviceManagementDeviceCompliancePoliciesCollectionRequestBuilder struct{ Ba
 // Request returns request for DeviceCompliancePolicy collection
 func (b *DeviceManagementDeviceCompliancePoliciesCollectionRequestBuilder) Request() *DeviceManagementDeviceCompliancePoliciesCollectionRequest {
 	return &DeviceManagementDeviceCompliancePoliciesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -3564,7 +4061,7 @@ func (r *DeviceManagementDeviceCompliancePoliciesCollectionRequest) Paging(ctx c
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -3573,6 +4070,20 @@ func (r *DeviceManagementDeviceCompliancePoliciesCollectionRequest) Paging(ctx c
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceManagementDeviceCompliancePoliciesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DeviceCompliancePolicy collection, max N pages
@@ -3615,7 +4126,8 @@ type DeviceManagementDeviceCompliancePolicySettingStateSummariesCollectionReques
 // Request returns request for DeviceCompliancePolicySettingStateSummary collection
 func (b *DeviceManagementDeviceCompliancePolicySettingStateSummariesCollectionRequestBuilder) Request() *DeviceManagementDeviceCompliancePolicySettingStateSummariesCollectionRequest {
 	return &DeviceManagementDeviceCompliancePolicySettingStateSummariesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -3674,7 +4186,7 @@ func (r *DeviceManagementDeviceCompliancePolicySettingStateSummariesCollectionRe
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -3683,6 +4195,20 @@ func (r *DeviceManagementDeviceCompliancePolicySettingStateSummariesCollectionRe
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceManagementDeviceCompliancePolicySettingStateSummariesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DeviceCompliancePolicySettingStateSummary collection, max N pages
@@ -3725,7 +4251,8 @@ type DeviceManagementDeviceConfigurationsCollectionRequestBuilder struct{ BaseRe
 // Request returns request for DeviceConfiguration collection
 func (b *DeviceManagementDeviceConfigurationsCollectionRequestBuilder) Request() *DeviceManagementDeviceConfigurationsCollectionRequest {
 	return &DeviceManagementDeviceConfigurationsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -3784,7 +4311,7 @@ func (r *DeviceManagementDeviceConfigurationsCollectionRequest) Paging(ctx conte
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -3793,6 +4320,20 @@ func (r *DeviceManagementDeviceConfigurationsCollectionRequest) Paging(ctx conte
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceManagementDeviceConfigurationsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DeviceConfiguration collection, max N pages
@@ -3828,7 +4369,8 @@ type DeviceManagementDeviceEnrollmentConfigurationsCollectionRequestBuilder stru
 // Request returns request for DeviceEnrollmentConfiguration collection
 func (b *DeviceManagementDeviceEnrollmentConfigurationsCollectionRequestBuilder) Request() *DeviceManagementDeviceEnrollmentConfigurationsCollectionRequest {
 	return &DeviceManagementDeviceEnrollmentConfigurationsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -3887,7 +4429,7 @@ func (r *DeviceManagementDeviceEnrollmentConfigurationsCollectionRequest) Paging
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -3896,6 +4438,20 @@ func (r *DeviceManagementDeviceEnrollmentConfigurationsCollectionRequest) Paging
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceManagementDeviceEnrollmentConfigurationsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DeviceEnrollmentConfiguration collection, max N pages
@@ -3931,7 +4487,8 @@ type DeviceManagementDeviceManagementPartnersCollectionRequestBuilder struct{ Ba
 // Request returns request for DeviceManagementPartner collection
 func (b *DeviceManagementDeviceManagementPartnersCollectionRequestBuilder) Request() *DeviceManagementDeviceManagementPartnersCollectionRequest {
 	return &DeviceManagementDeviceManagementPartnersCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -3990,7 +4547,7 @@ func (r *DeviceManagementDeviceManagementPartnersCollectionRequest) Paging(ctx c
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -3999,6 +4556,20 @@ func (r *DeviceManagementDeviceManagementPartnersCollectionRequest) Paging(ctx c
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceManagementDeviceManagementPartnersCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DeviceManagementPartner collection, max N pages
@@ -4034,7 +4605,8 @@ type DeviceManagementExchangeConnectorsCollectionRequestBuilder struct{ BaseRequ
 // Request returns request for DeviceManagementExchangeConnector collection
 func (b *DeviceManagementExchangeConnectorsCollectionRequestBuilder) Request() *DeviceManagementExchangeConnectorsCollectionRequest {
 	return &DeviceManagementExchangeConnectorsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -4093,7 +4665,7 @@ func (r *DeviceManagementExchangeConnectorsCollectionRequest) Paging(ctx context
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -4102,6 +4674,20 @@ func (r *DeviceManagementExchangeConnectorsCollectionRequest) Paging(ctx context
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceManagementExchangeConnectorsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DeviceManagementExchangeConnector collection, max N pages
@@ -4137,7 +4723,8 @@ type DeviceManagementIOSUpdateStatusesCollectionRequestBuilder struct{ BaseReque
 // Request returns request for IOSUpdateDeviceStatus collection
 func (b *DeviceManagementIOSUpdateStatusesCollectionRequestBuilder) Request() *DeviceManagementIOSUpdateStatusesCollectionRequest {
 	return &DeviceManagementIOSUpdateStatusesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -4196,7 +4783,7 @@ func (r *DeviceManagementIOSUpdateStatusesCollectionRequest) Paging(ctx context.
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -4205,6 +4792,20 @@ func (r *DeviceManagementIOSUpdateStatusesCollectionRequest) Paging(ctx context.
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceManagementIOSUpdateStatusesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for IOSUpdateDeviceStatus collection, max N pages
@@ -4247,7 +4848,8 @@ type DeviceManagementManagedDevicesCollectionRequestBuilder struct{ BaseRequestB
 // Request returns request for ManagedDevice collection
 func (b *DeviceManagementManagedDevicesCollectionRequestBuilder) Request() *DeviceManagementManagedDevicesCollectionRequest {
 	return &DeviceManagementManagedDevicesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -4306,7 +4908,7 @@ func (r *DeviceManagementManagedDevicesCollectionRequest) Paging(ctx context.Con
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -4315,6 +4917,20 @@ func (r *DeviceManagementManagedDevicesCollectionRequest) Paging(ctx context.Con
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceManagementManagedDevicesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ManagedDevice collection, max N pages
@@ -4350,7 +4966,8 @@ type DeviceManagementMobileThreatDefenseConnectorsCollectionRequestBuilder struc
 // Request returns request for MobileThreatDefenseConnector collection
 func (b *DeviceManagementMobileThreatDefenseConnectorsCollectionRequestBuilder) Request() *DeviceManagementMobileThreatDefenseConnectorsCollectionRequest {
 	return &DeviceManagementMobileThreatDefenseConnectorsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -4409,7 +5026,7 @@ func (r *DeviceManagementMobileThreatDefenseConnectorsCollectionRequest) Paging(
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -4418,6 +5035,20 @@ func (r *DeviceManagementMobileThreatDefenseConnectorsCollectionRequest) Paging(
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceManagementMobileThreatDefenseConnectorsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for MobileThreatDefenseConnector collection, max N pages
@@ -4453,7 +5084,8 @@ type DeviceManagementNotificationMessageTemplatesCollectionRequestBuilder struct
 // Request returns request for NotificationMessageTemplate collection
 func (b *DeviceManagementNotificationMessageTemplatesCollectionRequestBuilder) Request() *DeviceManagementNotificationMessageTemplatesCollectionRequest {
 	return &DeviceManagementNotificationMessageTemplatesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -4512,7 +5144,7 @@ func (r *DeviceManagementNotificationMessageTemplatesCollectionRequest) Paging(c
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -4521,6 +5153,20 @@ func (r *DeviceManagementNotificationMessageTemplatesCollectionRequest) Paging(c
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceManagementNotificationMessageTemplatesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for NotificationMessageTemplate collection, max N pages
@@ -4556,7 +5202,8 @@ type DeviceManagementRemoteAssistancePartnersCollectionRequestBuilder struct{ Ba
 // Request returns request for RemoteAssistancePartner collection
 func (b *DeviceManagementRemoteAssistancePartnersCollectionRequestBuilder) Request() *DeviceManagementRemoteAssistancePartnersCollectionRequest {
 	return &DeviceManagementRemoteAssistancePartnersCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -4615,7 +5262,7 @@ func (r *DeviceManagementRemoteAssistancePartnersCollectionRequest) Paging(ctx c
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -4624,6 +5271,20 @@ func (r *DeviceManagementRemoteAssistancePartnersCollectionRequest) Paging(ctx c
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceManagementRemoteAssistancePartnersCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for RemoteAssistancePartner collection, max N pages
@@ -4659,7 +5320,8 @@ type DeviceManagementResourceOperationsCollectionRequestBuilder struct{ BaseRequ
 // Request returns request for ResourceOperation collection
 func (b *DeviceManagementResourceOperationsCollectionRequestBuilder) Request() *DeviceManagementResourceOperationsCollectionRequest {
 	return &DeviceManagementResourceOperationsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -4718,7 +5380,7 @@ func (r *DeviceManagementResourceOperationsCollectionRequest) Paging(ctx context
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -4727,6 +5389,20 @@ func (r *DeviceManagementResourceOperationsCollectionRequest) Paging(ctx context
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceManagementResourceOperationsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ResourceOperation collection, max N pages
@@ -4762,7 +5438,8 @@ type DeviceManagementRoleAssignmentsCollectionRequestBuilder struct{ BaseRequest
 // Request returns request for DeviceAndAppManagementRoleAssignment collection
 func (b *DeviceManagementRoleAssignmentsCollectionRequestBuilder) Request() *DeviceManagementRoleAssignmentsCollectionRequest {
 	return &DeviceManagementRoleAssignmentsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -4821,7 +5498,7 @@ func (r *DeviceManagementRoleAssignmentsCollectionRequest) Paging(ctx context.Co
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -4830,6 +5507,20 @@ func (r *DeviceManagementRoleAssignmentsCollectionRequest) Paging(ctx context.Co
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceManagementRoleAssignmentsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DeviceAndAppManagementRoleAssignment collection, max N pages
@@ -4865,7 +5556,8 @@ type DeviceManagementRoleDefinitionsCollectionRequestBuilder struct{ BaseRequest
 // Request returns request for RoleDefinition collection
 func (b *DeviceManagementRoleDefinitionsCollectionRequestBuilder) Request() *DeviceManagementRoleDefinitionsCollectionRequest {
 	return &DeviceManagementRoleDefinitionsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -4924,7 +5616,7 @@ func (r *DeviceManagementRoleDefinitionsCollectionRequest) Paging(ctx context.Co
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -4933,6 +5625,20 @@ func (r *DeviceManagementRoleDefinitionsCollectionRequest) Paging(ctx context.Co
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceManagementRoleDefinitionsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for RoleDefinition collection, max N pages
@@ -4975,7 +5681,8 @@ type DeviceManagementTelecomExpenseManagementPartnersCollectionRequestBuilder st
 // Request returns request for TelecomExpenseManagementPartner collection
 func (b *DeviceManagementTelecomExpenseManagementPartnersCollectionRequestBuilder) Request() *DeviceManagementTelecomExpenseManagementPartnersCollectionRequest {
 	return &DeviceManagementTelecomExpenseManagementPartnersCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -5034,7 +5741,7 @@ func (r *DeviceManagementTelecomExpenseManagementPartnersCollectionRequest) Pagi
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -5043,6 +5750,20 @@ func (r *DeviceManagementTelecomExpenseManagementPartnersCollectionRequest) Pagi
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceManagementTelecomExpenseManagementPartnersCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for TelecomExpenseManagementPartner collection, max N pages
@@ -5078,7 +5799,8 @@ type DeviceManagementTermsAndConditionsCollectionRequestBuilder struct{ BaseRequ
 // Request returns request for TermsAndConditions collection
 func (b *DeviceManagementTermsAndConditionsCollectionRequestBuilder) Request() *DeviceManagementTermsAndConditionsCollectionRequest {
 	return &DeviceManagementTermsAndConditionsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -5137,7 +5859,7 @@ func (r *DeviceManagementTermsAndConditionsCollectionRequest) Paging(ctx context
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -5146,6 +5868,20 @@ func (r *DeviceManagementTermsAndConditionsCollectionRequest) Paging(ctx context
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceManagementTermsAndConditionsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for TermsAndConditions collection, max N pages
@@ -5181,7 +5917,8 @@ type DeviceManagementTroubleshootingEventsCollectionRequestBuilder struct{ BaseR
 // Request returns request for DeviceManagementTroubleshootingEvent collection
 func (b *DeviceManagementTroubleshootingEventsCollectionRequestBuilder) Request() *DeviceManagementTroubleshootingEventsCollectionRequest {
 	return &DeviceManagementTroubleshootingEventsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -5240,7 +5977,7 @@ func (r *DeviceManagementTroubleshootingEventsCollectionRequest) Paging(ctx cont
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -5249,6 +5986,20 @@ func (r *DeviceManagementTroubleshootingEventsCollectionRequest) Paging(ctx cont
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceManagementTroubleshootingEventsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for DeviceManagementTroubleshootingEvent collection, max N pages
@@ -5284,7 +6035,8 @@ type DeviceManagementWindowsInformationProtectionAppLearningSummariesCollectionR
 // Request returns request for WindowsInformationProtectionAppLearningSummary collection
 func (b *DeviceManagementWindowsInformationProtectionAppLearningSummariesCollectionRequestBuilder) Request() *DeviceManagementWindowsInformationProtectionAppLearningSummariesCollectionRequest {
 	return &DeviceManagementWindowsInformationProtectionAppLearningSummariesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -5343,7 +6095,7 @@ func (r *DeviceManagementWindowsInformationProtectionAppLearningSummariesCollect
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -5352,6 +6104,20 @@ func (r *DeviceManagementWindowsInformationProtectionAppLearningSummariesCollect
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceManagementWindowsInformationProtectionAppLearningSummariesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for WindowsInformationProtectionAppLearningSummary collection, max N pages
@@ -5387,7 +6153,8 @@ type DeviceManagementWindowsInformationProtectionNetworkLearningSummariesCollect
 // Request returns request for WindowsInformationProtectionNetworkLearningSummary collection
 func (b *DeviceManagementWindowsInformationProtectionNetworkLearningSummariesCollectionRequestBuilder) Request() *DeviceManagementWindowsInformationProtectionNetworkLearningSummariesCollectionRequest {
 	return &DeviceManagementWindowsInformationProtectionNetworkLearningSummariesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -5446,7 +6213,7 @@ func (r *DeviceManagementWindowsInformationProtectionNetworkLearningSummariesCol
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -5455,6 +6222,20 @@ func (r *DeviceManagementWindowsInformationProtectionNetworkLearningSummariesCol
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *DeviceManagementWindowsInformationProtectionNetworkLearningSummariesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for WindowsInformationProtectionNetworkLearningSummary collection, max N pages

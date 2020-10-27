@@ -10,7 +10,8 @@ type AgedAccountsPayableRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AgedAccountsPayableRequest
 func (b *AgedAccountsPayableRequestBuilder) Request() *AgedAccountsPayableRequest {
 	return &AgedAccountsPayableRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type AgedAccountsReceivableRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AgedAccountsReceivableRequest
 func (b *AgedAccountsReceivableRequestBuilder) Request() *AgedAccountsReceivableRequest {
 	return &AgedAccountsReceivableRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -21,7 +21,8 @@ type WorkbookFunctionsDcountRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsDcountRequestBuilder) Request() *WorkbookFunctionsDcountRequest {
 	return &WorkbookFunctionsDcountRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsDcountARequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsDcountARequestBuilder) Request() *WorkbookFunctionsDcountARequest {
 	return &WorkbookFunctionsDcountARequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

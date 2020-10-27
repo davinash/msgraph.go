@@ -10,7 +10,8 @@ type SchemaRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SchemaRequest
 func (b *SchemaRequestBuilder) Request() *SchemaRequest {
 	return &SchemaRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type SchemaExtensionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SchemaExtensionRequest
 func (b *SchemaExtensionRequestBuilder) Request() *SchemaExtensionRequest {
 	return &SchemaExtensionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

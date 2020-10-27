@@ -10,7 +10,8 @@ type TrustFrameworkRequestBuilder struct{ BaseRequestBuilder }
 // Request returns TrustFrameworkRequest
 func (b *TrustFrameworkRequestBuilder) Request() *TrustFrameworkRequest {
 	return &TrustFrameworkRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type TrustFrameworkKeySetRequestBuilder struct{ BaseRequestBuilder }
 // Request returns TrustFrameworkKeySetRequest
 func (b *TrustFrameworkKeySetRequestBuilder) Request() *TrustFrameworkKeySetRequest {
 	return &TrustFrameworkKeySetRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type TrustFrameworkPolicyRequestBuilder struct{ BaseRequestBuilder }
 // Request returns TrustFrameworkPolicyRequest
 func (b *TrustFrameworkPolicyRequestBuilder) Request() *TrustFrameworkPolicyRequest {
 	return &TrustFrameworkPolicyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -120,7 +123,8 @@ type TrustFrameworkKeySetGenerateKeyRequest struct{ BaseRequest }
 //
 func (b *TrustFrameworkKeySetGenerateKeyRequestBuilder) Request() *TrustFrameworkKeySetGenerateKeyRequest {
 	return &TrustFrameworkKeySetGenerateKeyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -147,7 +151,8 @@ type TrustFrameworkKeySetUploadSecretRequest struct{ BaseRequest }
 //
 func (b *TrustFrameworkKeySetUploadSecretRequestBuilder) Request() *TrustFrameworkKeySetUploadSecretRequest {
 	return &TrustFrameworkKeySetUploadSecretRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -174,7 +179,8 @@ type TrustFrameworkKeySetUploadCertificateRequest struct{ BaseRequest }
 //
 func (b *TrustFrameworkKeySetUploadCertificateRequestBuilder) Request() *TrustFrameworkKeySetUploadCertificateRequest {
 	return &TrustFrameworkKeySetUploadCertificateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -201,7 +207,8 @@ type TrustFrameworkKeySetUploadPkcs12Request struct{ BaseRequest }
 //
 func (b *TrustFrameworkKeySetUploadPkcs12RequestBuilder) Request() *TrustFrameworkKeySetUploadPkcs12Request {
 	return &TrustFrameworkKeySetUploadPkcs12Request{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

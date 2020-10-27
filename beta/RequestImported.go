@@ -17,7 +17,8 @@ type ImportedAppleDeviceIdentityRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ImportedAppleDeviceIdentityRequest
 func (b *ImportedAppleDeviceIdentityRequestBuilder) Request() *ImportedAppleDeviceIdentityRequest {
 	return &ImportedAppleDeviceIdentityRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -50,7 +51,8 @@ type ImportedDeviceIdentityRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ImportedDeviceIdentityRequest
 func (b *ImportedDeviceIdentityRequestBuilder) Request() *ImportedDeviceIdentityRequest {
 	return &ImportedDeviceIdentityRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -83,7 +85,8 @@ type ImportedWindowsAutopilotDeviceIdentityRequestBuilder struct{ BaseRequestBui
 // Request returns ImportedWindowsAutopilotDeviceIdentityRequest
 func (b *ImportedWindowsAutopilotDeviceIdentityRequestBuilder) Request() *ImportedWindowsAutopilotDeviceIdentityRequest {
 	return &ImportedWindowsAutopilotDeviceIdentityRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -116,7 +119,8 @@ type ImportedWindowsAutopilotDeviceIdentityUploadRequestBuilder struct{ BaseRequ
 // Request returns ImportedWindowsAutopilotDeviceIdentityUploadRequest
 func (b *ImportedWindowsAutopilotDeviceIdentityUploadRequestBuilder) Request() *ImportedWindowsAutopilotDeviceIdentityUploadRequest {
 	return &ImportedWindowsAutopilotDeviceIdentityUploadRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -160,7 +164,8 @@ type ImportedAppleDeviceIdentityCollectionImportAppleDeviceIdentityListRequest s
 //
 func (b *ImportedAppleDeviceIdentityCollectionImportAppleDeviceIdentityListRequestBuilder) Request() *ImportedAppleDeviceIdentityCollectionImportAppleDeviceIdentityListRequest {
 	return &ImportedAppleDeviceIdentityCollectionImportAppleDeviceIdentityListRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -247,7 +252,8 @@ type ImportedDeviceIdentityCollectionImportDeviceIdentityListRequest struct{ Bas
 //
 func (b *ImportedDeviceIdentityCollectionImportDeviceIdentityListRequestBuilder) Request() *ImportedDeviceIdentityCollectionImportDeviceIdentityListRequest {
 	return &ImportedDeviceIdentityCollectionImportDeviceIdentityListRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -334,7 +340,8 @@ type ImportedDeviceIdentityCollectionSearchExistingIdentitiesRequest struct{ Bas
 //
 func (b *ImportedDeviceIdentityCollectionSearchExistingIdentitiesRequestBuilder) Request() *ImportedDeviceIdentityCollectionSearchExistingIdentitiesRequest {
 	return &ImportedDeviceIdentityCollectionSearchExistingIdentitiesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -429,7 +436,8 @@ type ImportedWindowsAutopilotDeviceIdentityCollectionImportRequest struct{ BaseR
 //
 func (b *ImportedWindowsAutopilotDeviceIdentityCollectionImportRequestBuilder) Request() *ImportedWindowsAutopilotDeviceIdentityCollectionImportRequest {
 	return &ImportedWindowsAutopilotDeviceIdentityCollectionImportRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

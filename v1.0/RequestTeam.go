@@ -10,7 +10,8 @@ type TeamRequestBuilder struct{ BaseRequestBuilder }
 // Request returns TeamRequest
 func (b *TeamRequestBuilder) Request() *TeamRequest {
 	return &TeamRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -54,7 +55,8 @@ type TeamCloneRequest struct{ BaseRequest }
 //
 func (b *TeamCloneRequestBuilder) Request() *TeamCloneRequest {
 	return &TeamCloneRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -80,7 +82,8 @@ type TeamArchiveRequest struct{ BaseRequest }
 //
 func (b *TeamArchiveRequestBuilder) Request() *TeamArchiveRequest {
 	return &TeamArchiveRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -106,7 +109,8 @@ type TeamUnarchiveRequest struct{ BaseRequest }
 //
 func (b *TeamUnarchiveRequestBuilder) Request() *TeamUnarchiveRequest {
 	return &TeamUnarchiveRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

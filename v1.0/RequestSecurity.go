@@ -10,7 +10,8 @@ type SecurityRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SecurityRequest
 func (b *SecurityRequestBuilder) Request() *SecurityRequest {
 	return &SecurityRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

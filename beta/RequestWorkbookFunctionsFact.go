@@ -21,7 +21,8 @@ type WorkbookFunctionsFactRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsFactRequestBuilder) Request() *WorkbookFunctionsFactRequest {
 	return &WorkbookFunctionsFactRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsFactDoubleRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsFactDoubleRequestBuilder) Request() *WorkbookFunctionsFactDoubleRequest {
 	return &WorkbookFunctionsFactDoubleRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

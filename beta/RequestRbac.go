@@ -10,7 +10,8 @@ type RbacApplicationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns RbacApplicationRequest
 func (b *RbacApplicationRequestBuilder) Request() *RbacApplicationRequest {
 	return &RbacApplicationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -21,7 +21,8 @@ type WorkbookFunctionsMidbRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsMidbRequestBuilder) Request() *WorkbookFunctionsMidbRequest {
 	return &WorkbookFunctionsMidbRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -10,7 +10,8 @@ type OnenoteRequestBuilder struct{ BaseRequestBuilder }
 // Request returns OnenoteRequest
 func (b *OnenoteRequestBuilder) Request() *OnenoteRequest {
 	return &OnenoteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type OnenoteOperationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns OnenoteOperationRequest
 func (b *OnenoteOperationRequestBuilder) Request() *OnenoteOperationRequest {
 	return &OnenoteOperationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type OnenotePageRequestBuilder struct{ BaseRequestBuilder }
 // Request returns OnenotePageRequest
 func (b *OnenotePageRequestBuilder) Request() *OnenotePageRequest {
 	return &OnenotePageRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -109,7 +112,8 @@ type OnenoteResourceRequestBuilder struct{ BaseRequestBuilder }
 // Request returns OnenoteResourceRequest
 func (b *OnenoteResourceRequestBuilder) Request() *OnenoteResourceRequest {
 	return &OnenoteResourceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -142,7 +146,8 @@ type OnenoteSectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns OnenoteSectionRequest
 func (b *OnenoteSectionRequestBuilder) Request() *OnenoteSectionRequest {
 	return &OnenoteSectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -186,7 +191,8 @@ type OnenotePageOnenotePatchContentRequest struct{ BaseRequest }
 //
 func (b *OnenotePageOnenotePatchContentRequestBuilder) Request() *OnenotePageOnenotePatchContentRequest {
 	return &OnenotePageOnenotePatchContentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -212,7 +218,8 @@ type OnenotePageCopyToSectionRequest struct{ BaseRequest }
 //
 func (b *OnenotePageCopyToSectionRequestBuilder) Request() *OnenotePageCopyToSectionRequest {
 	return &OnenotePageCopyToSectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -239,7 +246,8 @@ type OnenoteSectionCopyToNotebookRequest struct{ BaseRequest }
 //
 func (b *OnenoteSectionCopyToNotebookRequestBuilder) Request() *OnenoteSectionCopyToNotebookRequest {
 	return &OnenoteSectionCopyToNotebookRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -266,7 +274,8 @@ type OnenoteSectionCopyToSectionGroupRequest struct{ BaseRequest }
 //
 func (b *OnenoteSectionCopyToSectionGroupRequestBuilder) Request() *OnenoteSectionCopyToSectionGroupRequest {
 	return &OnenoteSectionCopyToSectionGroupRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

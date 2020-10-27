@@ -10,7 +10,8 @@ type SecurityRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SecurityRequest
 func (b *SecurityRequestBuilder) Request() *SecurityRequest {
 	return &SecurityRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type SecurityActionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SecurityActionRequest
 func (b *SecurityActionRequestBuilder) Request() *SecurityActionRequest {
 	return &SecurityActionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type SecurityBaselineCategoryStateSummaryRequestBuilder struct{ BaseRequestBuild
 // Request returns SecurityBaselineCategoryStateSummaryRequest
 func (b *SecurityBaselineCategoryStateSummaryRequestBuilder) Request() *SecurityBaselineCategoryStateSummaryRequest {
 	return &SecurityBaselineCategoryStateSummaryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -109,7 +112,8 @@ type SecurityBaselineDeviceStateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SecurityBaselineDeviceStateRequest
 func (b *SecurityBaselineDeviceStateRequestBuilder) Request() *SecurityBaselineDeviceStateRequest {
 	return &SecurityBaselineDeviceStateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -142,7 +146,8 @@ type SecurityBaselineSettingStateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SecurityBaselineSettingStateRequest
 func (b *SecurityBaselineSettingStateRequestBuilder) Request() *SecurityBaselineSettingStateRequest {
 	return &SecurityBaselineSettingStateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -175,7 +180,8 @@ type SecurityBaselineStateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SecurityBaselineStateRequest
 func (b *SecurityBaselineStateRequestBuilder) Request() *SecurityBaselineStateRequest {
 	return &SecurityBaselineStateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -208,7 +214,8 @@ type SecurityBaselineStateSummaryRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SecurityBaselineStateSummaryRequest
 func (b *SecurityBaselineStateSummaryRequestBuilder) Request() *SecurityBaselineStateSummaryRequest {
 	return &SecurityBaselineStateSummaryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -241,7 +248,8 @@ type SecurityBaselineTemplateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SecurityBaselineTemplateRequest
 func (b *SecurityBaselineTemplateRequestBuilder) Request() *SecurityBaselineTemplateRequest {
 	return &SecurityBaselineTemplateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -285,7 +293,8 @@ type SecurityActionCancelSecurityActionRequest struct{ BaseRequest }
 //
 func (b *SecurityActionCancelSecurityActionRequestBuilder) Request() *SecurityActionCancelSecurityActionRequest {
 	return &SecurityActionCancelSecurityActionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

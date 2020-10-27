@@ -10,7 +10,8 @@ type TimeOffRequestBuilder struct{ BaseRequestBuilder }
 // Request returns TimeOffRequest
 func (b *TimeOffRequestBuilder) Request() *TimeOffRequest {
 	return &TimeOffRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type TimeOffReasonRequestBuilder struct{ BaseRequestBuilder }
 // Request returns TimeOffReasonRequest
 func (b *TimeOffReasonRequestBuilder) Request() *TimeOffReasonRequest {
 	return &TimeOffReasonRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type TimeOffRequestObjectRequestBuilder struct{ BaseRequestBuilder }
 // Request returns TimeOffRequestObjectRequest
 func (b *TimeOffRequestObjectRequestBuilder) Request() *TimeOffRequestObjectRequest {
 	return &TimeOffRequestObjectRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

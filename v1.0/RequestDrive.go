@@ -17,7 +17,8 @@ type DriveRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DriveRequest
 func (b *DriveRequestBuilder) Request() *DriveRequest {
 	return &DriveRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -50,7 +51,8 @@ type DriveItemRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DriveItemRequest
 func (b *DriveItemRequestBuilder) Request() *DriveItemRequest {
 	return &DriveItemRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -83,7 +85,8 @@ type DriveItemVersionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DriveItemVersionRequest
 func (b *DriveItemVersionRequestBuilder) Request() *DriveItemVersionRequest {
 	return &DriveItemVersionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -127,7 +130,8 @@ type DriveItemCheckinRequest struct{ BaseRequest }
 //
 func (b *DriveItemCheckinRequestBuilder) Request() *DriveItemCheckinRequest {
 	return &DriveItemCheckinRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -153,7 +157,8 @@ type DriveItemCheckoutRequest struct{ BaseRequest }
 //
 func (b *DriveItemCheckoutRequestBuilder) Request() *DriveItemCheckoutRequest {
 	return &DriveItemCheckoutRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -179,7 +184,8 @@ type DriveItemCopyRequest struct{ BaseRequest }
 //
 func (b *DriveItemCopyRequestBuilder) Request() *DriveItemCopyRequest {
 	return &DriveItemCopyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -206,7 +212,8 @@ type DriveItemCreateLinkRequest struct{ BaseRequest }
 //
 func (b *DriveItemCreateLinkRequestBuilder) Request() *DriveItemCreateLinkRequest {
 	return &DriveItemCreateLinkRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -233,7 +240,8 @@ type DriveItemCreateUploadSessionRequest struct{ BaseRequest }
 //
 func (b *DriveItemCreateUploadSessionRequestBuilder) Request() *DriveItemCreateUploadSessionRequest {
 	return &DriveItemCreateUploadSessionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -260,7 +268,8 @@ type DriveItemInviteRequest struct{ BaseRequest }
 //
 func (b *DriveItemInviteRequestBuilder) Request() *DriveItemInviteRequest {
 	return &DriveItemInviteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -347,7 +356,8 @@ type DriveItemPreviewRequest struct{ BaseRequest }
 //
 func (b *DriveItemPreviewRequestBuilder) Request() *DriveItemPreviewRequest {
 	return &DriveItemPreviewRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -374,7 +384,8 @@ type DriveItemVersionRestoreVersionRequest struct{ BaseRequest }
 //
 func (b *DriveItemVersionRestoreVersionRequestBuilder) Request() *DriveItemVersionRestoreVersionRequest {
 	return &DriveItemVersionRestoreVersionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

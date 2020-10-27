@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 
@@ -24,7 +25,8 @@ type ReportRootApplicationSignInDetailedSummaryCollectionRequestBuilder struct{ 
 // Request returns request for ApplicationSignInDetailedSummary collection
 func (b *ReportRootApplicationSignInDetailedSummaryCollectionRequestBuilder) Request() *ReportRootApplicationSignInDetailedSummaryCollectionRequest {
 	return &ReportRootApplicationSignInDetailedSummaryCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -83,7 +85,7 @@ func (r *ReportRootApplicationSignInDetailedSummaryCollectionRequest) Paging(ctx
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -92,6 +94,20 @@ func (r *ReportRootApplicationSignInDetailedSummaryCollectionRequest) Paging(ctx
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *ReportRootApplicationSignInDetailedSummaryCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ApplicationSignInDetailedSummary collection, max N pages
@@ -127,7 +143,8 @@ type ReportRootCredentialUserRegistrationDetailsCollectionRequestBuilder struct{
 // Request returns request for CredentialUserRegistrationDetails collection
 func (b *ReportRootCredentialUserRegistrationDetailsCollectionRequestBuilder) Request() *ReportRootCredentialUserRegistrationDetailsCollectionRequest {
 	return &ReportRootCredentialUserRegistrationDetailsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -186,7 +203,7 @@ func (r *ReportRootCredentialUserRegistrationDetailsCollectionRequest) Paging(ct
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -195,6 +212,20 @@ func (r *ReportRootCredentialUserRegistrationDetailsCollectionRequest) Paging(ct
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *ReportRootCredentialUserRegistrationDetailsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for CredentialUserRegistrationDetails collection, max N pages
@@ -230,7 +261,8 @@ type ReportRootUserCredentialUsageDetailsCollectionRequestBuilder struct{ BaseRe
 // Request returns request for UserCredentialUsageDetails collection
 func (b *ReportRootUserCredentialUsageDetailsCollectionRequestBuilder) Request() *ReportRootUserCredentialUsageDetailsCollectionRequest {
 	return &ReportRootUserCredentialUsageDetailsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -289,7 +321,7 @@ func (r *ReportRootUserCredentialUsageDetailsCollectionRequest) Paging(ctx conte
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -298,6 +330,20 @@ func (r *ReportRootUserCredentialUsageDetailsCollectionRequest) Paging(ctx conte
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *ReportRootUserCredentialUsageDetailsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for UserCredentialUsageDetails collection, max N pages

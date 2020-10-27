@@ -10,7 +10,8 @@ type CountryRegionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns CountryRegionRequest
 func (b *CountryRegionRequestBuilder) Request() *CountryRegionRequest {
 	return &CountryRegionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

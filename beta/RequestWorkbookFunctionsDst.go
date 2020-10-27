@@ -21,7 +21,8 @@ type WorkbookFunctionsDstDevRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsDstDevRequestBuilder) Request() *WorkbookFunctionsDstDevRequest {
 	return &WorkbookFunctionsDstDevRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsDstDevPRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsDstDevPRequestBuilder) Request() *WorkbookFunctionsDstDevPRequest {
 	return &WorkbookFunctionsDstDevPRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

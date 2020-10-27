@@ -10,7 +10,8 @@ type ProviderTenantSettingRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ProviderTenantSettingRequest
 func (b *ProviderTenantSettingRequestBuilder) Request() *ProviderTenantSettingRequest {
 	return &ProviderTenantSettingRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

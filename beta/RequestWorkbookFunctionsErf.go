@@ -21,7 +21,8 @@ type WorkbookFunctionsErfRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsErfRequestBuilder) Request() *WorkbookFunctionsErfRequest {
 	return &WorkbookFunctionsErfRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsErfCRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsErfCRequestBuilder) Request() *WorkbookFunctionsErfCRequest {
 	return &WorkbookFunctionsErfCRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -75,7 +77,8 @@ type WorkbookFunctionsErfC_PreciseRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsErfC_PreciseRequestBuilder) Request() *WorkbookFunctionsErfC_PreciseRequest {
 	return &WorkbookFunctionsErfC_PreciseRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

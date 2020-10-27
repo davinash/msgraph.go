@@ -10,7 +10,8 @@ type ImpossibleTravelRiskEventRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ImpossibleTravelRiskEventRequest
 func (b *ImpossibleTravelRiskEventRequestBuilder) Request() *ImpossibleTravelRiskEventRequest {
 	return &ImpossibleTravelRiskEventRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

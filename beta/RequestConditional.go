@@ -10,7 +10,8 @@ type ConditionalAccessPolicyRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ConditionalAccessPolicyRequest
 func (b *ConditionalAccessPolicyRequestBuilder) Request() *ConditionalAccessPolicyRequest {
 	return &ConditionalAccessPolicyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type ConditionalAccessRootRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ConditionalAccessRootRequest
 func (b *ConditionalAccessRootRequestBuilder) Request() *ConditionalAccessRootRequest {
 	return &ConditionalAccessRootRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

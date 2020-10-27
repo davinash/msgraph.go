@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 
@@ -73,7 +74,8 @@ type SalesCreditMemoSalesCreditMemoLinesCollectionRequestBuilder struct{ BaseReq
 // Request returns request for SalesCreditMemoLine collection
 func (b *SalesCreditMemoSalesCreditMemoLinesCollectionRequestBuilder) Request() *SalesCreditMemoSalesCreditMemoLinesCollectionRequest {
 	return &SalesCreditMemoSalesCreditMemoLinesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -132,7 +134,7 @@ func (r *SalesCreditMemoSalesCreditMemoLinesCollectionRequest) Paging(ctx contex
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -141,6 +143,20 @@ func (r *SalesCreditMemoSalesCreditMemoLinesCollectionRequest) Paging(ctx contex
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *SalesCreditMemoSalesCreditMemoLinesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for SalesCreditMemoLine collection, max N pages
@@ -211,7 +227,8 @@ type SalesInvoiceSalesInvoiceLinesCollectionRequestBuilder struct{ BaseRequestBu
 // Request returns request for SalesInvoiceLine collection
 func (b *SalesInvoiceSalesInvoiceLinesCollectionRequestBuilder) Request() *SalesInvoiceSalesInvoiceLinesCollectionRequest {
 	return &SalesInvoiceSalesInvoiceLinesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -270,7 +287,7 @@ func (r *SalesInvoiceSalesInvoiceLinesCollectionRequest) Paging(ctx context.Cont
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -279,6 +296,20 @@ func (r *SalesInvoiceSalesInvoiceLinesCollectionRequest) Paging(ctx context.Cont
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *SalesInvoiceSalesInvoiceLinesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for SalesInvoiceLine collection, max N pages
@@ -356,7 +387,8 @@ type SalesOrderSalesOrderLinesCollectionRequestBuilder struct{ BaseRequestBuilde
 // Request returns request for SalesOrderLine collection
 func (b *SalesOrderSalesOrderLinesCollectionRequestBuilder) Request() *SalesOrderSalesOrderLinesCollectionRequest {
 	return &SalesOrderSalesOrderLinesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -415,7 +447,7 @@ func (r *SalesOrderSalesOrderLinesCollectionRequest) Paging(ctx context.Context,
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -424,6 +456,20 @@ func (r *SalesOrderSalesOrderLinesCollectionRequest) Paging(ctx context.Context,
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *SalesOrderSalesOrderLinesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for SalesOrderLine collection, max N pages
@@ -494,7 +540,8 @@ type SalesQuoteSalesQuoteLinesCollectionRequestBuilder struct{ BaseRequestBuilde
 // Request returns request for SalesQuoteLine collection
 func (b *SalesQuoteSalesQuoteLinesCollectionRequestBuilder) Request() *SalesQuoteSalesQuoteLinesCollectionRequest {
 	return &SalesQuoteSalesQuoteLinesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -553,7 +600,7 @@ func (r *SalesQuoteSalesQuoteLinesCollectionRequest) Paging(ctx context.Context,
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -562,6 +609,20 @@ func (r *SalesQuoteSalesQuoteLinesCollectionRequest) Paging(ctx context.Context,
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *SalesQuoteSalesQuoteLinesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for SalesQuoteLine collection, max N pages

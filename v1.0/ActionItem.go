@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 
@@ -31,7 +32,8 @@ type ItemActivityStatActivitiesCollectionRequestBuilder struct{ BaseRequestBuild
 // Request returns request for ItemActivity collection
 func (b *ItemActivityStatActivitiesCollectionRequestBuilder) Request() *ItemActivityStatActivitiesCollectionRequest {
 	return &ItemActivityStatActivitiesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -90,7 +92,7 @@ func (r *ItemActivityStatActivitiesCollectionRequest) Paging(ctx context.Context
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -99,6 +101,20 @@ func (r *ItemActivityStatActivitiesCollectionRequest) Paging(ctx context.Context
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *ItemActivityStatActivitiesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ItemActivity collection, max N pages
@@ -141,7 +157,8 @@ type ItemAnalyticsItemActivityStatsCollectionRequestBuilder struct{ BaseRequestB
 // Request returns request for ItemActivityStat collection
 func (b *ItemAnalyticsItemActivityStatsCollectionRequestBuilder) Request() *ItemAnalyticsItemActivityStatsCollectionRequest {
 	return &ItemAnalyticsItemActivityStatsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -200,7 +217,7 @@ func (r *ItemAnalyticsItemActivityStatsCollectionRequest) Paging(ctx context.Con
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -209,6 +226,20 @@ func (r *ItemAnalyticsItemActivityStatsCollectionRequest) Paging(ctx context.Con
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *ItemAnalyticsItemActivityStatsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ItemActivityStat collection, max N pages

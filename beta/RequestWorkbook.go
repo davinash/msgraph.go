@@ -10,7 +10,8 @@ type WorkbookRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookRequest
 func (b *WorkbookRequestBuilder) Request() *WorkbookRequest {
 	return &WorkbookRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type WorkbookApplicationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookApplicationRequest
 func (b *WorkbookApplicationRequestBuilder) Request() *WorkbookApplicationRequest {
 	return &WorkbookApplicationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type WorkbookChartRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookChartRequest
 func (b *WorkbookChartRequestBuilder) Request() *WorkbookChartRequest {
 	return &WorkbookChartRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -109,7 +112,8 @@ type WorkbookChartAreaFormatRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookChartAreaFormatRequest
 func (b *WorkbookChartAreaFormatRequestBuilder) Request() *WorkbookChartAreaFormatRequest {
 	return &WorkbookChartAreaFormatRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -142,7 +146,8 @@ type WorkbookChartAxesRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookChartAxesRequest
 func (b *WorkbookChartAxesRequestBuilder) Request() *WorkbookChartAxesRequest {
 	return &WorkbookChartAxesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -175,7 +180,8 @@ type WorkbookChartAxisRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookChartAxisRequest
 func (b *WorkbookChartAxisRequestBuilder) Request() *WorkbookChartAxisRequest {
 	return &WorkbookChartAxisRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -208,7 +214,8 @@ type WorkbookChartAxisFormatRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookChartAxisFormatRequest
 func (b *WorkbookChartAxisFormatRequestBuilder) Request() *WorkbookChartAxisFormatRequest {
 	return &WorkbookChartAxisFormatRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -241,7 +248,8 @@ type WorkbookChartAxisTitleRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookChartAxisTitleRequest
 func (b *WorkbookChartAxisTitleRequestBuilder) Request() *WorkbookChartAxisTitleRequest {
 	return &WorkbookChartAxisTitleRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -274,7 +282,8 @@ type WorkbookChartAxisTitleFormatRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookChartAxisTitleFormatRequest
 func (b *WorkbookChartAxisTitleFormatRequestBuilder) Request() *WorkbookChartAxisTitleFormatRequest {
 	return &WorkbookChartAxisTitleFormatRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -307,7 +316,8 @@ type WorkbookChartDataLabelFormatRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookChartDataLabelFormatRequest
 func (b *WorkbookChartDataLabelFormatRequestBuilder) Request() *WorkbookChartDataLabelFormatRequest {
 	return &WorkbookChartDataLabelFormatRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -340,7 +350,8 @@ type WorkbookChartDataLabelsRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookChartDataLabelsRequest
 func (b *WorkbookChartDataLabelsRequestBuilder) Request() *WorkbookChartDataLabelsRequest {
 	return &WorkbookChartDataLabelsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -373,7 +384,8 @@ type WorkbookChartFillRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookChartFillRequest
 func (b *WorkbookChartFillRequestBuilder) Request() *WorkbookChartFillRequest {
 	return &WorkbookChartFillRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -406,7 +418,8 @@ type WorkbookChartFontRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookChartFontRequest
 func (b *WorkbookChartFontRequestBuilder) Request() *WorkbookChartFontRequest {
 	return &WorkbookChartFontRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -439,7 +452,8 @@ type WorkbookChartGridlinesRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookChartGridlinesRequest
 func (b *WorkbookChartGridlinesRequestBuilder) Request() *WorkbookChartGridlinesRequest {
 	return &WorkbookChartGridlinesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -472,7 +486,8 @@ type WorkbookChartGridlinesFormatRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookChartGridlinesFormatRequest
 func (b *WorkbookChartGridlinesFormatRequestBuilder) Request() *WorkbookChartGridlinesFormatRequest {
 	return &WorkbookChartGridlinesFormatRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -505,7 +520,8 @@ type WorkbookChartLegendRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookChartLegendRequest
 func (b *WorkbookChartLegendRequestBuilder) Request() *WorkbookChartLegendRequest {
 	return &WorkbookChartLegendRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -538,7 +554,8 @@ type WorkbookChartLegendFormatRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookChartLegendFormatRequest
 func (b *WorkbookChartLegendFormatRequestBuilder) Request() *WorkbookChartLegendFormatRequest {
 	return &WorkbookChartLegendFormatRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -571,7 +588,8 @@ type WorkbookChartLineFormatRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookChartLineFormatRequest
 func (b *WorkbookChartLineFormatRequestBuilder) Request() *WorkbookChartLineFormatRequest {
 	return &WorkbookChartLineFormatRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -604,7 +622,8 @@ type WorkbookChartPointRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookChartPointRequest
 func (b *WorkbookChartPointRequestBuilder) Request() *WorkbookChartPointRequest {
 	return &WorkbookChartPointRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -637,7 +656,8 @@ type WorkbookChartPointFormatRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookChartPointFormatRequest
 func (b *WorkbookChartPointFormatRequestBuilder) Request() *WorkbookChartPointFormatRequest {
 	return &WorkbookChartPointFormatRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -670,7 +690,8 @@ type WorkbookChartSeriesRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookChartSeriesRequest
 func (b *WorkbookChartSeriesRequestBuilder) Request() *WorkbookChartSeriesRequest {
 	return &WorkbookChartSeriesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -703,7 +724,8 @@ type WorkbookChartSeriesFormatRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookChartSeriesFormatRequest
 func (b *WorkbookChartSeriesFormatRequestBuilder) Request() *WorkbookChartSeriesFormatRequest {
 	return &WorkbookChartSeriesFormatRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -736,7 +758,8 @@ type WorkbookChartTitleRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookChartTitleRequest
 func (b *WorkbookChartTitleRequestBuilder) Request() *WorkbookChartTitleRequest {
 	return &WorkbookChartTitleRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -769,7 +792,8 @@ type WorkbookChartTitleFormatRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookChartTitleFormatRequest
 func (b *WorkbookChartTitleFormatRequestBuilder) Request() *WorkbookChartTitleFormatRequest {
 	return &WorkbookChartTitleFormatRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -802,7 +826,8 @@ type WorkbookCommentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookCommentRequest
 func (b *WorkbookCommentRequestBuilder) Request() *WorkbookCommentRequest {
 	return &WorkbookCommentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -835,7 +860,8 @@ type WorkbookCommentReplyRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookCommentReplyRequest
 func (b *WorkbookCommentReplyRequestBuilder) Request() *WorkbookCommentReplyRequest {
 	return &WorkbookCommentReplyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -868,7 +894,8 @@ type WorkbookFilterRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookFilterRequest
 func (b *WorkbookFilterRequestBuilder) Request() *WorkbookFilterRequest {
 	return &WorkbookFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -901,7 +928,8 @@ type WorkbookFormatProtectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookFormatProtectionRequest
 func (b *WorkbookFormatProtectionRequestBuilder) Request() *WorkbookFormatProtectionRequest {
 	return &WorkbookFormatProtectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -934,7 +962,8 @@ type WorkbookNamedItemRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookNamedItemRequest
 func (b *WorkbookNamedItemRequestBuilder) Request() *WorkbookNamedItemRequest {
 	return &WorkbookNamedItemRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -967,7 +996,8 @@ type WorkbookPivotTableRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookPivotTableRequest
 func (b *WorkbookPivotTableRequestBuilder) Request() *WorkbookPivotTableRequest {
 	return &WorkbookPivotTableRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1000,7 +1030,8 @@ type WorkbookRangeRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookRangeRequest
 func (b *WorkbookRangeRequestBuilder) Request() *WorkbookRangeRequest {
 	return &WorkbookRangeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1033,7 +1064,8 @@ type WorkbookRangeBorderRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookRangeBorderRequest
 func (b *WorkbookRangeBorderRequestBuilder) Request() *WorkbookRangeBorderRequest {
 	return &WorkbookRangeBorderRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1066,7 +1098,8 @@ type WorkbookRangeFillRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookRangeFillRequest
 func (b *WorkbookRangeFillRequestBuilder) Request() *WorkbookRangeFillRequest {
 	return &WorkbookRangeFillRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1099,7 +1132,8 @@ type WorkbookRangeFontRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookRangeFontRequest
 func (b *WorkbookRangeFontRequestBuilder) Request() *WorkbookRangeFontRequest {
 	return &WorkbookRangeFontRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1132,7 +1166,8 @@ type WorkbookRangeFormatRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookRangeFormatRequest
 func (b *WorkbookRangeFormatRequestBuilder) Request() *WorkbookRangeFormatRequest {
 	return &WorkbookRangeFormatRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1165,7 +1200,8 @@ type WorkbookRangeSortRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookRangeSortRequest
 func (b *WorkbookRangeSortRequestBuilder) Request() *WorkbookRangeSortRequest {
 	return &WorkbookRangeSortRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1198,7 +1234,8 @@ type WorkbookRangeViewRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookRangeViewRequest
 func (b *WorkbookRangeViewRequestBuilder) Request() *WorkbookRangeViewRequest {
 	return &WorkbookRangeViewRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1231,7 +1268,8 @@ type WorkbookTableRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookTableRequest
 func (b *WorkbookTableRequestBuilder) Request() *WorkbookTableRequest {
 	return &WorkbookTableRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1264,7 +1302,8 @@ type WorkbookTableColumnRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookTableColumnRequest
 func (b *WorkbookTableColumnRequestBuilder) Request() *WorkbookTableColumnRequest {
 	return &WorkbookTableColumnRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1297,7 +1336,8 @@ type WorkbookTableRowRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookTableRowRequest
 func (b *WorkbookTableRowRequestBuilder) Request() *WorkbookTableRowRequest {
 	return &WorkbookTableRowRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1330,7 +1370,8 @@ type WorkbookTableSortRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookTableSortRequest
 func (b *WorkbookTableSortRequestBuilder) Request() *WorkbookTableSortRequest {
 	return &WorkbookTableSortRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1363,7 +1404,8 @@ type WorkbookWorksheetRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookWorksheetRequest
 func (b *WorkbookWorksheetRequestBuilder) Request() *WorkbookWorksheetRequest {
 	return &WorkbookWorksheetRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1396,7 +1438,8 @@ type WorkbookWorksheetProtectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookWorksheetProtectionRequest
 func (b *WorkbookWorksheetProtectionRequestBuilder) Request() *WorkbookWorksheetProtectionRequest {
 	return &WorkbookWorksheetProtectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1440,7 +1483,8 @@ type WorkbookChartCollectionAddRequest struct{ BaseRequest }
 //
 func (b *WorkbookChartCollectionAddRequestBuilder) Request() *WorkbookChartCollectionAddRequest {
 	return &WorkbookChartCollectionAddRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1475,7 +1519,8 @@ type WorkbookNamedItemCollectionAddRequest struct{ BaseRequest }
 //
 func (b *WorkbookNamedItemCollectionAddRequestBuilder) Request() *WorkbookNamedItemCollectionAddRequest {
 	return &WorkbookNamedItemCollectionAddRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1510,7 +1555,8 @@ type WorkbookNamedItemCollectionAddFormulaLocalRequest struct{ BaseRequest }
 //
 func (b *WorkbookNamedItemCollectionAddFormulaLocalRequestBuilder) Request() *WorkbookNamedItemCollectionAddFormulaLocalRequest {
 	return &WorkbookNamedItemCollectionAddFormulaLocalRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1537,7 +1583,8 @@ type WorkbookPivotTableCollectionRefreshAllRequest struct{ BaseRequest }
 //
 func (b *WorkbookPivotTableCollectionRefreshAllRequestBuilder) Request() *WorkbookPivotTableCollectionRefreshAllRequest {
 	return &WorkbookPivotTableCollectionRefreshAllRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1571,7 +1618,8 @@ type WorkbookTableCollectionAddRequest struct{ BaseRequest }
 //
 func (b *WorkbookTableCollectionAddRequestBuilder) Request() *WorkbookTableCollectionAddRequest {
 	return &WorkbookTableCollectionAddRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1598,7 +1646,8 @@ type WorkbookTableColumnCollectionAddRequest struct{ BaseRequest }
 //
 func (b *WorkbookTableColumnCollectionAddRequestBuilder) Request() *WorkbookTableColumnCollectionAddRequest {
 	return &WorkbookTableColumnCollectionAddRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1625,7 +1674,8 @@ type WorkbookTableRowCollectionAddRequest struct{ BaseRequest }
 //
 func (b *WorkbookTableRowCollectionAddRequestBuilder) Request() *WorkbookTableRowCollectionAddRequest {
 	return &WorkbookTableRowCollectionAddRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1652,7 +1702,8 @@ type WorkbookWorksheetCollectionAddRequest struct{ BaseRequest }
 //
 func (b *WorkbookWorksheetCollectionAddRequestBuilder) Request() *WorkbookWorksheetCollectionAddRequest {
 	return &WorkbookWorksheetCollectionAddRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1679,7 +1730,8 @@ type WorkbookCreateSessionRequest struct{ BaseRequest }
 //
 func (b *WorkbookCreateSessionRequestBuilder) Request() *WorkbookCreateSessionRequest {
 	return &WorkbookCreateSessionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1706,7 +1758,8 @@ type WorkbookCloseSessionRequest struct{ BaseRequest }
 //
 func (b *WorkbookCloseSessionRequestBuilder) Request() *WorkbookCloseSessionRequest {
 	return &WorkbookCloseSessionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1732,7 +1785,8 @@ type WorkbookRefreshSessionRequest struct{ BaseRequest }
 //
 func (b *WorkbookRefreshSessionRequestBuilder) Request() *WorkbookRefreshSessionRequest {
 	return &WorkbookRefreshSessionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1758,7 +1812,8 @@ type WorkbookApplicationCalculateRequest struct{ BaseRequest }
 //
 func (b *WorkbookApplicationCalculateRequestBuilder) Request() *WorkbookApplicationCalculateRequest {
 	return &WorkbookApplicationCalculateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1784,7 +1839,8 @@ type WorkbookChartSetDataRequest struct{ BaseRequest }
 //
 func (b *WorkbookChartSetDataRequestBuilder) Request() *WorkbookChartSetDataRequest {
 	return &WorkbookChartSetDataRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1810,7 +1866,8 @@ type WorkbookChartSetPositionRequest struct{ BaseRequest }
 //
 func (b *WorkbookChartSetPositionRequestBuilder) Request() *WorkbookChartSetPositionRequest {
 	return &WorkbookChartSetPositionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1836,7 +1893,8 @@ type WorkbookChartFillClearRequest struct{ BaseRequest }
 //
 func (b *WorkbookChartFillClearRequestBuilder) Request() *WorkbookChartFillClearRequest {
 	return &WorkbookChartFillClearRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1862,7 +1920,8 @@ type WorkbookChartFillSetSolidColorRequest struct{ BaseRequest }
 //
 func (b *WorkbookChartFillSetSolidColorRequestBuilder) Request() *WorkbookChartFillSetSolidColorRequest {
 	return &WorkbookChartFillSetSolidColorRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1888,7 +1947,8 @@ type WorkbookChartLineFormatClearRequest struct{ BaseRequest }
 //
 func (b *WorkbookChartLineFormatClearRequestBuilder) Request() *WorkbookChartLineFormatClearRequest {
 	return &WorkbookChartLineFormatClearRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1914,7 +1974,8 @@ type WorkbookFilterApplyRequest struct{ BaseRequest }
 //
 func (b *WorkbookFilterApplyRequestBuilder) Request() *WorkbookFilterApplyRequest {
 	return &WorkbookFilterApplyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1940,7 +2001,8 @@ type WorkbookFilterApplyBottomItemsFilterRequest struct{ BaseRequest }
 //
 func (b *WorkbookFilterApplyBottomItemsFilterRequestBuilder) Request() *WorkbookFilterApplyBottomItemsFilterRequest {
 	return &WorkbookFilterApplyBottomItemsFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1966,7 +2028,8 @@ type WorkbookFilterApplyBottomPercentFilterRequest struct{ BaseRequest }
 //
 func (b *WorkbookFilterApplyBottomPercentFilterRequestBuilder) Request() *WorkbookFilterApplyBottomPercentFilterRequest {
 	return &WorkbookFilterApplyBottomPercentFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1992,7 +2055,8 @@ type WorkbookFilterApplyCellColorFilterRequest struct{ BaseRequest }
 //
 func (b *WorkbookFilterApplyCellColorFilterRequestBuilder) Request() *WorkbookFilterApplyCellColorFilterRequest {
 	return &WorkbookFilterApplyCellColorFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2018,7 +2082,8 @@ type WorkbookFilterApplyCustomFilterRequest struct{ BaseRequest }
 //
 func (b *WorkbookFilterApplyCustomFilterRequestBuilder) Request() *WorkbookFilterApplyCustomFilterRequest {
 	return &WorkbookFilterApplyCustomFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2044,7 +2109,8 @@ type WorkbookFilterApplyDynamicFilterRequest struct{ BaseRequest }
 //
 func (b *WorkbookFilterApplyDynamicFilterRequestBuilder) Request() *WorkbookFilterApplyDynamicFilterRequest {
 	return &WorkbookFilterApplyDynamicFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2070,7 +2136,8 @@ type WorkbookFilterApplyFontColorFilterRequest struct{ BaseRequest }
 //
 func (b *WorkbookFilterApplyFontColorFilterRequestBuilder) Request() *WorkbookFilterApplyFontColorFilterRequest {
 	return &WorkbookFilterApplyFontColorFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2096,7 +2163,8 @@ type WorkbookFilterApplyIconFilterRequest struct{ BaseRequest }
 //
 func (b *WorkbookFilterApplyIconFilterRequestBuilder) Request() *WorkbookFilterApplyIconFilterRequest {
 	return &WorkbookFilterApplyIconFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2122,7 +2190,8 @@ type WorkbookFilterApplyTopItemsFilterRequest struct{ BaseRequest }
 //
 func (b *WorkbookFilterApplyTopItemsFilterRequestBuilder) Request() *WorkbookFilterApplyTopItemsFilterRequest {
 	return &WorkbookFilterApplyTopItemsFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2148,7 +2217,8 @@ type WorkbookFilterApplyTopPercentFilterRequest struct{ BaseRequest }
 //
 func (b *WorkbookFilterApplyTopPercentFilterRequestBuilder) Request() *WorkbookFilterApplyTopPercentFilterRequest {
 	return &WorkbookFilterApplyTopPercentFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2174,7 +2244,8 @@ type WorkbookFilterApplyValuesFilterRequest struct{ BaseRequest }
 //
 func (b *WorkbookFilterApplyValuesFilterRequestBuilder) Request() *WorkbookFilterApplyValuesFilterRequest {
 	return &WorkbookFilterApplyValuesFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2200,7 +2271,8 @@ type WorkbookFilterClearRequest struct{ BaseRequest }
 //
 func (b *WorkbookFilterClearRequestBuilder) Request() *WorkbookFilterClearRequest {
 	return &WorkbookFilterClearRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2226,7 +2298,8 @@ type WorkbookPivotTableRefreshRequest struct{ BaseRequest }
 //
 func (b *WorkbookPivotTableRefreshRequestBuilder) Request() *WorkbookPivotTableRefreshRequest {
 	return &WorkbookPivotTableRefreshRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2252,7 +2325,8 @@ type WorkbookRangeClearRequest struct{ BaseRequest }
 //
 func (b *WorkbookRangeClearRequestBuilder) Request() *WorkbookRangeClearRequest {
 	return &WorkbookRangeClearRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2278,7 +2352,8 @@ type WorkbookRangeDeleteRequest struct{ BaseRequest }
 //
 func (b *WorkbookRangeDeleteRequestBuilder) Request() *WorkbookRangeDeleteRequest {
 	return &WorkbookRangeDeleteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2304,7 +2379,8 @@ type WorkbookRangeInsertRequest struct{ BaseRequest }
 //
 func (b *WorkbookRangeInsertRequestBuilder) Request() *WorkbookRangeInsertRequest {
 	return &WorkbookRangeInsertRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2331,7 +2407,8 @@ type WorkbookRangeMergeRequest struct{ BaseRequest }
 //
 func (b *WorkbookRangeMergeRequestBuilder) Request() *WorkbookRangeMergeRequest {
 	return &WorkbookRangeMergeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2357,7 +2434,8 @@ type WorkbookRangeUnmergeRequest struct{ BaseRequest }
 //
 func (b *WorkbookRangeUnmergeRequestBuilder) Request() *WorkbookRangeUnmergeRequest {
 	return &WorkbookRangeUnmergeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2383,7 +2461,8 @@ type WorkbookRangeFillClearRequest struct{ BaseRequest }
 //
 func (b *WorkbookRangeFillClearRequestBuilder) Request() *WorkbookRangeFillClearRequest {
 	return &WorkbookRangeFillClearRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2409,7 +2488,8 @@ type WorkbookRangeFormatAutofitColumnsRequest struct{ BaseRequest }
 //
 func (b *WorkbookRangeFormatAutofitColumnsRequestBuilder) Request() *WorkbookRangeFormatAutofitColumnsRequest {
 	return &WorkbookRangeFormatAutofitColumnsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2435,7 +2515,8 @@ type WorkbookRangeFormatAutofitRowsRequest struct{ BaseRequest }
 //
 func (b *WorkbookRangeFormatAutofitRowsRequestBuilder) Request() *WorkbookRangeFormatAutofitRowsRequest {
 	return &WorkbookRangeFormatAutofitRowsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2461,7 +2542,8 @@ type WorkbookRangeSortApplyRequest struct{ BaseRequest }
 //
 func (b *WorkbookRangeSortApplyRequestBuilder) Request() *WorkbookRangeSortApplyRequest {
 	return &WorkbookRangeSortApplyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2487,7 +2569,8 @@ type WorkbookTableClearFiltersRequest struct{ BaseRequest }
 //
 func (b *WorkbookTableClearFiltersRequestBuilder) Request() *WorkbookTableClearFiltersRequest {
 	return &WorkbookTableClearFiltersRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2513,7 +2596,8 @@ type WorkbookTableConvertToRangeRequest struct{ BaseRequest }
 //
 func (b *WorkbookTableConvertToRangeRequestBuilder) Request() *WorkbookTableConvertToRangeRequest {
 	return &WorkbookTableConvertToRangeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2540,7 +2624,8 @@ type WorkbookTableReapplyFiltersRequest struct{ BaseRequest }
 //
 func (b *WorkbookTableReapplyFiltersRequestBuilder) Request() *WorkbookTableReapplyFiltersRequest {
 	return &WorkbookTableReapplyFiltersRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2566,7 +2651,8 @@ type WorkbookTableSortApplyRequest struct{ BaseRequest }
 //
 func (b *WorkbookTableSortApplyRequestBuilder) Request() *WorkbookTableSortApplyRequest {
 	return &WorkbookTableSortApplyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2592,7 +2678,8 @@ type WorkbookTableSortClearRequest struct{ BaseRequest }
 //
 func (b *WorkbookTableSortClearRequestBuilder) Request() *WorkbookTableSortClearRequest {
 	return &WorkbookTableSortClearRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2618,7 +2705,8 @@ type WorkbookTableSortReapplyRequest struct{ BaseRequest }
 //
 func (b *WorkbookTableSortReapplyRequestBuilder) Request() *WorkbookTableSortReapplyRequest {
 	return &WorkbookTableSortReapplyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2644,7 +2732,8 @@ type WorkbookWorksheetProtectionProtectRequest struct{ BaseRequest }
 //
 func (b *WorkbookWorksheetProtectionProtectRequestBuilder) Request() *WorkbookWorksheetProtectionProtectRequest {
 	return &WorkbookWorksheetProtectionProtectRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -2670,7 +2759,8 @@ type WorkbookWorksheetProtectionUnprotectRequest struct{ BaseRequest }
 //
 func (b *WorkbookWorksheetProtectionUnprotectRequestBuilder) Request() *WorkbookWorksheetProtectionUnprotectRequest {
 	return &WorkbookWorksheetProtectionUnprotectRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

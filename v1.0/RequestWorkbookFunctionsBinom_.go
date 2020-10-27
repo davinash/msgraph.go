@@ -21,7 +21,8 @@ type WorkbookFunctionsBinom_DistRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsBinom_DistRequestBuilder) Request() *WorkbookFunctionsBinom_DistRequest {
 	return &WorkbookFunctionsBinom_DistRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsBinom_Dist_RangeRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsBinom_Dist_RangeRequestBuilder) Request() *WorkbookFunctionsBinom_Dist_RangeRequest {
 	return &WorkbookFunctionsBinom_Dist_RangeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -75,7 +77,8 @@ type WorkbookFunctionsBinom_InvRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsBinom_InvRequestBuilder) Request() *WorkbookFunctionsBinom_InvRequest {
 	return &WorkbookFunctionsBinom_InvRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

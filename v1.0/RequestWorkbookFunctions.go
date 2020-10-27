@@ -10,7 +10,8 @@ type WorkbookFunctionsRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WorkbookFunctionsRequest
 func (b *WorkbookFunctionsRequestBuilder) Request() *WorkbookFunctionsRequest {
 	return &WorkbookFunctionsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

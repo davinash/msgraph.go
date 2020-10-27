@@ -21,7 +21,8 @@ type WorkbookFunctionsCumIPmtRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsCumIPmtRequestBuilder) Request() *WorkbookFunctionsCumIPmtRequest {
 	return &WorkbookFunctionsCumIPmtRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsCumPrincRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsCumPrincRequestBuilder) Request() *WorkbookFunctionsCumPrincRequest {
 	return &WorkbookFunctionsCumPrincRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

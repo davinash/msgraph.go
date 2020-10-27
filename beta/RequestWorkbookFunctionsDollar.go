@@ -21,7 +21,8 @@ type WorkbookFunctionsDollarRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsDollarRequestBuilder) Request() *WorkbookFunctionsDollarRequest {
 	return &WorkbookFunctionsDollarRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsDollarDeRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsDollarDeRequestBuilder) Request() *WorkbookFunctionsDollarDeRequest {
 	return &WorkbookFunctionsDollarDeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -75,7 +77,8 @@ type WorkbookFunctionsDollarFrRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsDollarFrRequestBuilder) Request() *WorkbookFunctionsDollarFrRequest {
 	return &WorkbookFunctionsDollarFrRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

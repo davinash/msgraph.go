@@ -10,7 +10,8 @@ type ThumbnailSetRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ThumbnailSetRequest
 func (b *ThumbnailSetRequestBuilder) Request() *ThumbnailSetRequest {
 	return &ThumbnailSetRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

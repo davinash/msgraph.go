@@ -21,7 +21,8 @@ type WorkbookFunctionsDec2BinRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsDec2BinRequestBuilder) Request() *WorkbookFunctionsDec2BinRequest {
 	return &WorkbookFunctionsDec2BinRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsDec2HexRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsDec2HexRequestBuilder) Request() *WorkbookFunctionsDec2HexRequest {
 	return &WorkbookFunctionsDec2HexRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -75,7 +77,8 @@ type WorkbookFunctionsDec2OctRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsDec2OctRequestBuilder) Request() *WorkbookFunctionsDec2OctRequest {
 	return &WorkbookFunctionsDec2OctRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

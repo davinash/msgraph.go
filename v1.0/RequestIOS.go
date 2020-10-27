@@ -10,7 +10,8 @@ type IOSManagedAppProtectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns IOSManagedAppProtectionRequest
 func (b *IOSManagedAppProtectionRequestBuilder) Request() *IOSManagedAppProtectionRequest {
 	return &IOSManagedAppProtectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type IOSUpdateDeviceStatusRequestBuilder struct{ BaseRequestBuilder }
 // Request returns IOSUpdateDeviceStatusRequest
 func (b *IOSUpdateDeviceStatusRequestBuilder) Request() *IOSUpdateDeviceStatusRequest {
 	return &IOSUpdateDeviceStatusRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

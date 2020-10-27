@@ -10,7 +10,8 @@ type BusinessFlowRequestBuilder struct{ BaseRequestBuilder }
 // Request returns BusinessFlowRequest
 func (b *BusinessFlowRequestBuilder) Request() *BusinessFlowRequest {
 	return &BusinessFlowRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type BusinessFlowTemplateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns BusinessFlowTemplateRequest
 func (b *BusinessFlowTemplateRequestBuilder) Request() *BusinessFlowTemplateRequest {
 	return &BusinessFlowTemplateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -87,7 +89,8 @@ type BusinessFlowRecordDecisionsRequest struct{ BaseRequest }
 //
 func (b *BusinessFlowRecordDecisionsRequestBuilder) Request() *BusinessFlowRecordDecisionsRequest {
 	return &BusinessFlowRecordDecisionsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

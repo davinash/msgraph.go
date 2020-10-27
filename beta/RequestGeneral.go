@@ -10,7 +10,8 @@ type GeneralLedgerEntryRequestBuilder struct{ BaseRequestBuilder }
 // Request returns GeneralLedgerEntryRequest
 func (b *GeneralLedgerEntryRequestBuilder) Request() *GeneralLedgerEntryRequest {
 	return &GeneralLedgerEntryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

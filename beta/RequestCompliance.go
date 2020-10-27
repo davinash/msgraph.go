@@ -10,7 +10,8 @@ type ComplianceManagementPartnerRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ComplianceManagementPartnerRequest
 func (b *ComplianceManagementPartnerRequestBuilder) Request() *ComplianceManagementPartnerRequest {
 	return &ComplianceManagementPartnerRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

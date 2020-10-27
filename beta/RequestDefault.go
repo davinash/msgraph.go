@@ -10,7 +10,8 @@ type DefaultManagedAppProtectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DefaultManagedAppProtectionRequest
 func (b *DefaultManagedAppProtectionRequestBuilder) Request() *DefaultManagedAppProtectionRequest {
 	return &DefaultManagedAppProtectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

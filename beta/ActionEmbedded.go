@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 
@@ -30,7 +31,8 @@ type EmbeddedSIMActivationCodePoolAssignmentsCollectionRequestBuilder struct{ Ba
 // Request returns request for EmbeddedSIMActivationCodePoolAssignment collection
 func (b *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequestBuilder) Request() *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest {
 	return &EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -89,7 +91,7 @@ func (r *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest) Paging(ctx c
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -98,6 +100,20 @@ func (r *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest) Paging(ctx c
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for EmbeddedSIMActivationCodePoolAssignment collection, max N pages
@@ -133,7 +149,8 @@ type EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequestBuilder struct{ B
 // Request returns request for EmbeddedSIMDeviceState collection
 func (b *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequestBuilder) Request() *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest {
 	return &EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -192,7 +209,7 @@ func (r *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest) Paging(ctx 
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -201,6 +218,20 @@ func (r *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest) Paging(ctx 
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for EmbeddedSIMDeviceState collection, max N pages

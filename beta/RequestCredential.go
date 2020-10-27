@@ -10,7 +10,8 @@ type CredentialUserRegistrationDetailsRequestBuilder struct{ BaseRequestBuilder 
 // Request returns CredentialUserRegistrationDetailsRequest
 func (b *CredentialUserRegistrationDetailsRequestBuilder) Request() *CredentialUserRegistrationDetailsRequest {
 	return &CredentialUserRegistrationDetailsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

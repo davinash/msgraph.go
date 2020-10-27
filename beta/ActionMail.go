@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 
@@ -36,7 +37,8 @@ type MailFolderChildFoldersCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for MailFolder collection
 func (b *MailFolderChildFoldersCollectionRequestBuilder) Request() *MailFolderChildFoldersCollectionRequest {
 	return &MailFolderChildFoldersCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -95,7 +97,7 @@ func (r *MailFolderChildFoldersCollectionRequest) Paging(ctx context.Context, me
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -104,6 +106,20 @@ func (r *MailFolderChildFoldersCollectionRequest) Paging(ctx context.Context, me
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *MailFolderChildFoldersCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for MailFolder collection, max N pages
@@ -139,7 +155,8 @@ type MailFolderMessageRulesCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for MessageRule collection
 func (b *MailFolderMessageRulesCollectionRequestBuilder) Request() *MailFolderMessageRulesCollectionRequest {
 	return &MailFolderMessageRulesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -198,7 +215,7 @@ func (r *MailFolderMessageRulesCollectionRequest) Paging(ctx context.Context, me
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -207,6 +224,20 @@ func (r *MailFolderMessageRulesCollectionRequest) Paging(ctx context.Context, me
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *MailFolderMessageRulesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for MessageRule collection, max N pages
@@ -242,7 +273,8 @@ type MailFolderMessagesCollectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns request for Message collection
 func (b *MailFolderMessagesCollectionRequestBuilder) Request() *MailFolderMessagesCollectionRequest {
 	return &MailFolderMessagesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -301,7 +333,7 @@ func (r *MailFolderMessagesCollectionRequest) Paging(ctx context.Context, method
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -310,6 +342,20 @@ func (r *MailFolderMessagesCollectionRequest) Paging(ctx context.Context, method
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *MailFolderMessagesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for Message collection, max N pages
@@ -345,7 +391,8 @@ type MailFolderMultiValueExtendedPropertiesCollectionRequestBuilder struct{ Base
 // Request returns request for MultiValueLegacyExtendedProperty collection
 func (b *MailFolderMultiValueExtendedPropertiesCollectionRequestBuilder) Request() *MailFolderMultiValueExtendedPropertiesCollectionRequest {
 	return &MailFolderMultiValueExtendedPropertiesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -404,7 +451,7 @@ func (r *MailFolderMultiValueExtendedPropertiesCollectionRequest) Paging(ctx con
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -413,6 +460,20 @@ func (r *MailFolderMultiValueExtendedPropertiesCollectionRequest) Paging(ctx con
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *MailFolderMultiValueExtendedPropertiesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for MultiValueLegacyExtendedProperty collection, max N pages
@@ -448,7 +509,8 @@ type MailFolderSingleValueExtendedPropertiesCollectionRequestBuilder struct{ Bas
 // Request returns request for SingleValueLegacyExtendedProperty collection
 func (b *MailFolderSingleValueExtendedPropertiesCollectionRequestBuilder) Request() *MailFolderSingleValueExtendedPropertiesCollectionRequest {
 	return &MailFolderSingleValueExtendedPropertiesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -507,7 +569,7 @@ func (r *MailFolderSingleValueExtendedPropertiesCollectionRequest) Paging(ctx co
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -516,6 +578,20 @@ func (r *MailFolderSingleValueExtendedPropertiesCollectionRequest) Paging(ctx co
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *MailFolderSingleValueExtendedPropertiesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for SingleValueLegacyExtendedProperty collection, max N pages
@@ -551,7 +627,8 @@ type MailFolderUserConfigurationsCollectionRequestBuilder struct{ BaseRequestBui
 // Request returns request for UserConfiguration collection
 func (b *MailFolderUserConfigurationsCollectionRequestBuilder) Request() *MailFolderUserConfigurationsCollectionRequest {
 	return &MailFolderUserConfigurationsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -610,7 +687,7 @@ func (r *MailFolderUserConfigurationsCollectionRequest) Paging(ctx context.Conte
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -619,6 +696,20 @@ func (r *MailFolderUserConfigurationsCollectionRequest) Paging(ctx context.Conte
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *MailFolderUserConfigurationsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for UserConfiguration collection, max N pages

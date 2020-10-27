@@ -21,7 +21,8 @@ type WorkbookFunctionsLeftbRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsLeftbRequestBuilder) Request() *WorkbookFunctionsLeftbRequest {
 	return &WorkbookFunctionsLeftbRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

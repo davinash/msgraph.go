@@ -21,7 +21,8 @@ type WorkbookFunctionsQuartile_ExcRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsQuartile_ExcRequestBuilder) Request() *WorkbookFunctionsQuartile_ExcRequest {
 	return &WorkbookFunctionsQuartile_ExcRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsQuartile_IncRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsQuartile_IncRequestBuilder) Request() *WorkbookFunctionsQuartile_IncRequest {
 	return &WorkbookFunctionsQuartile_IncRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

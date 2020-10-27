@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 
@@ -24,7 +25,8 @@ type OnPremisesAgentAgentGroupsCollectionRequestBuilder struct{ BaseRequestBuild
 // Request returns request for OnPremisesAgentGroup collection
 func (b *OnPremisesAgentAgentGroupsCollectionRequestBuilder) Request() *OnPremisesAgentAgentGroupsCollectionRequest {
 	return &OnPremisesAgentAgentGroupsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -83,7 +85,7 @@ func (r *OnPremisesAgentAgentGroupsCollectionRequest) Paging(ctx context.Context
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -92,6 +94,20 @@ func (r *OnPremisesAgentAgentGroupsCollectionRequest) Paging(ctx context.Context
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *OnPremisesAgentAgentGroupsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for OnPremisesAgentGroup collection, max N pages
@@ -127,7 +143,8 @@ type OnPremisesAgentGroupAgentsCollectionRequestBuilder struct{ BaseRequestBuild
 // Request returns request for OnPremisesAgent collection
 func (b *OnPremisesAgentGroupAgentsCollectionRequestBuilder) Request() *OnPremisesAgentGroupAgentsCollectionRequest {
 	return &OnPremisesAgentGroupAgentsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -186,7 +203,7 @@ func (r *OnPremisesAgentGroupAgentsCollectionRequest) Paging(ctx context.Context
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -195,6 +212,20 @@ func (r *OnPremisesAgentGroupAgentsCollectionRequest) Paging(ctx context.Context
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *OnPremisesAgentGroupAgentsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for OnPremisesAgent collection, max N pages
@@ -230,7 +261,8 @@ type OnPremisesAgentGroupPublishedResourcesCollectionRequestBuilder struct{ Base
 // Request returns request for PublishedResource collection
 func (b *OnPremisesAgentGroupPublishedResourcesCollectionRequestBuilder) Request() *OnPremisesAgentGroupPublishedResourcesCollectionRequest {
 	return &OnPremisesAgentGroupPublishedResourcesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -289,7 +321,7 @@ func (r *OnPremisesAgentGroupPublishedResourcesCollectionRequest) Paging(ctx con
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -298,6 +330,20 @@ func (r *OnPremisesAgentGroupPublishedResourcesCollectionRequest) Paging(ctx con
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *OnPremisesAgentGroupPublishedResourcesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for PublishedResource collection, max N pages
@@ -333,7 +379,8 @@ type OnPremisesPublishingProfileAgentGroupsCollectionRequestBuilder struct{ Base
 // Request returns request for OnPremisesAgentGroup collection
 func (b *OnPremisesPublishingProfileAgentGroupsCollectionRequestBuilder) Request() *OnPremisesPublishingProfileAgentGroupsCollectionRequest {
 	return &OnPremisesPublishingProfileAgentGroupsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -392,7 +439,7 @@ func (r *OnPremisesPublishingProfileAgentGroupsCollectionRequest) Paging(ctx con
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -401,6 +448,20 @@ func (r *OnPremisesPublishingProfileAgentGroupsCollectionRequest) Paging(ctx con
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *OnPremisesPublishingProfileAgentGroupsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for OnPremisesAgentGroup collection, max N pages
@@ -436,7 +497,8 @@ type OnPremisesPublishingProfileAgentsCollectionRequestBuilder struct{ BaseReque
 // Request returns request for OnPremisesAgent collection
 func (b *OnPremisesPublishingProfileAgentsCollectionRequestBuilder) Request() *OnPremisesPublishingProfileAgentsCollectionRequest {
 	return &OnPremisesPublishingProfileAgentsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -495,7 +557,7 @@ func (r *OnPremisesPublishingProfileAgentsCollectionRequest) Paging(ctx context.
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -504,6 +566,20 @@ func (r *OnPremisesPublishingProfileAgentsCollectionRequest) Paging(ctx context.
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *OnPremisesPublishingProfileAgentsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for OnPremisesAgent collection, max N pages
@@ -539,7 +615,8 @@ type OnPremisesPublishingProfilePublishedResourcesCollectionRequestBuilder struc
 // Request returns request for PublishedResource collection
 func (b *OnPremisesPublishingProfilePublishedResourcesCollectionRequestBuilder) Request() *OnPremisesPublishingProfilePublishedResourcesCollectionRequest {
 	return &OnPremisesPublishingProfilePublishedResourcesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -598,7 +675,7 @@ func (r *OnPremisesPublishingProfilePublishedResourcesCollectionRequest) Paging(
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -607,6 +684,20 @@ func (r *OnPremisesPublishingProfilePublishedResourcesCollectionRequest) Paging(
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *OnPremisesPublishingProfilePublishedResourcesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for PublishedResource collection, max N pages

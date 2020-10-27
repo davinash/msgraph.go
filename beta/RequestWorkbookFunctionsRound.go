@@ -21,7 +21,8 @@ type WorkbookFunctionsRoundRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsRoundRequestBuilder) Request() *WorkbookFunctionsRoundRequest {
 	return &WorkbookFunctionsRoundRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsRoundDownRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsRoundDownRequestBuilder) Request() *WorkbookFunctionsRoundDownRequest {
 	return &WorkbookFunctionsRoundDownRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -75,7 +77,8 @@ type WorkbookFunctionsRoundUpRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsRoundUpRequestBuilder) Request() *WorkbookFunctionsRoundUpRequest {
 	return &WorkbookFunctionsRoundUpRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

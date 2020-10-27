@@ -10,7 +10,8 @@ type TeamworkRequestBuilder struct{ BaseRequestBuilder }
 // Request returns TeamworkRequest
 func (b *TeamworkRequestBuilder) Request() *TeamworkRequest {
 	return &TeamworkRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

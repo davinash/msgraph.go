@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 
@@ -46,7 +47,8 @@ type ExactMatchDataStoreSessionsCollectionRequestBuilder struct{ BaseRequestBuil
 // Request returns request for ExactMatchSession collection
 func (b *ExactMatchDataStoreSessionsCollectionRequestBuilder) Request() *ExactMatchDataStoreSessionsCollectionRequest {
 	return &ExactMatchDataStoreSessionsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -105,7 +107,7 @@ func (r *ExactMatchDataStoreSessionsCollectionRequest) Paging(ctx context.Contex
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -114,6 +116,20 @@ func (r *ExactMatchDataStoreSessionsCollectionRequest) Paging(ctx context.Contex
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *ExactMatchDataStoreSessionsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ExactMatchSession collection, max N pages
@@ -149,7 +165,8 @@ type ExactMatchLookupJobMatchingRowsCollectionRequestBuilder struct{ BaseRequest
 // Request returns request for LookupResultRow collection
 func (b *ExactMatchLookupJobMatchingRowsCollectionRequestBuilder) Request() *ExactMatchLookupJobMatchingRowsCollectionRequest {
 	return &ExactMatchLookupJobMatchingRowsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -208,7 +225,7 @@ func (r *ExactMatchLookupJobMatchingRowsCollectionRequest) Paging(ctx context.Co
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -217,6 +234,20 @@ func (r *ExactMatchLookupJobMatchingRowsCollectionRequest) Paging(ctx context.Co
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *ExactMatchLookupJobMatchingRowsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for LookupResultRow collection, max N pages

@@ -10,7 +10,8 @@ type SingleValueLegacyExtendedPropertyRequestBuilder struct{ BaseRequestBuilder 
 // Request returns SingleValueLegacyExtendedPropertyRequest
 func (b *SingleValueLegacyExtendedPropertyRequestBuilder) Request() *SingleValueLegacyExtendedPropertyRequest {
 	return &SingleValueLegacyExtendedPropertyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

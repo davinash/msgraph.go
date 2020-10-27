@@ -21,7 +21,8 @@ type WorkbookFunctionsAsinRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsAsinRequestBuilder) Request() *WorkbookFunctionsAsinRequest {
 	return &WorkbookFunctionsAsinRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

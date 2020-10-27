@@ -21,7 +21,8 @@ type {{$ySymBindingType}}{{$y.Sym}}Request struct { BaseRequest }
 //
 func (b *{{$ySymBindingType}}{{$y.Sym}}RequestBuilder) Request() *{{$ySymBindingType}}{{$y.Sym}}Request {
     return &{{$ySymBindingType}}{{$y.Sym}}Request{
-        BaseRequest: BaseRequest{ baseURL: b.baseURL, client:  b.client, requestObject: b.requestObject },
+        BaseRequest: BaseRequest{ baseURL: b.baseURL, client:  b.client, requestObject: b.requestObject,
+         tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
     }
 }
 

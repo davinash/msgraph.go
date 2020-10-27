@@ -10,7 +10,8 @@ type EntitlementManagementRequestBuilder struct{ BaseRequestBuilder }
 // Request returns EntitlementManagementRequest
 func (b *EntitlementManagementRequestBuilder) Request() *EntitlementManagementRequest {
 	return &EntitlementManagementRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -21,7 +21,8 @@ type WorkbookFunctionsLookupRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsLookupRequestBuilder) Request() *WorkbookFunctionsLookupRequest {
 	return &WorkbookFunctionsLookupRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

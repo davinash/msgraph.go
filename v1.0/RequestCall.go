@@ -10,7 +10,8 @@ type CallRequestBuilder struct{ BaseRequestBuilder }
 // Request returns CallRequest
 func (b *CallRequestBuilder) Request() *CallRequest {
 	return &CallRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -54,7 +55,8 @@ type CallAnswerRequest struct{ BaseRequest }
 //
 func (b *CallAnswerRequestBuilder) Request() *CallAnswerRequest {
 	return &CallAnswerRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -80,7 +82,8 @@ type CallChangeScreenSharingRoleRequest struct{ BaseRequest }
 //
 func (b *CallChangeScreenSharingRoleRequestBuilder) Request() *CallChangeScreenSharingRoleRequest {
 	return &CallChangeScreenSharingRoleRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -106,7 +109,8 @@ type CallKeepAliveRequest struct{ BaseRequest }
 //
 func (b *CallKeepAliveRequestBuilder) Request() *CallKeepAliveRequest {
 	return &CallKeepAliveRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -132,7 +136,8 @@ type CallMuteRequest struct{ BaseRequest }
 //
 func (b *CallMuteRequestBuilder) Request() *CallMuteRequest {
 	return &CallMuteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -159,7 +164,8 @@ type CallPlayPromptRequest struct{ BaseRequest }
 //
 func (b *CallPlayPromptRequestBuilder) Request() *CallPlayPromptRequest {
 	return &CallPlayPromptRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -186,7 +192,8 @@ type CallRecordResponseRequest struct{ BaseRequest }
 //
 func (b *CallRecordResponseRequestBuilder) Request() *CallRecordResponseRequest {
 	return &CallRecordResponseRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -213,7 +220,8 @@ type CallRedirectRequest struct{ BaseRequest }
 //
 func (b *CallRedirectRequestBuilder) Request() *CallRedirectRequest {
 	return &CallRedirectRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -239,7 +247,8 @@ type CallRejectRequest struct{ BaseRequest }
 //
 func (b *CallRejectRequestBuilder) Request() *CallRejectRequest {
 	return &CallRejectRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -265,7 +274,8 @@ type CallSubscribeToToneRequest struct{ BaseRequest }
 //
 func (b *CallSubscribeToToneRequestBuilder) Request() *CallSubscribeToToneRequest {
 	return &CallSubscribeToToneRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -292,7 +302,8 @@ type CallTransferRequest struct{ BaseRequest }
 //
 func (b *CallTransferRequestBuilder) Request() *CallTransferRequest {
 	return &CallTransferRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -318,7 +329,8 @@ type CallUnmuteRequest struct{ BaseRequest }
 //
 func (b *CallUnmuteRequestBuilder) Request() *CallUnmuteRequest {
 	return &CallUnmuteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

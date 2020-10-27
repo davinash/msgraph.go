@@ -10,7 +10,8 @@ type DomainRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DomainRequest
 func (b *DomainRequestBuilder) Request() *DomainRequest {
 	return &DomainRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type DomainDNSRecordRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DomainDNSRecordRequest
 func (b *DomainDNSRecordRequestBuilder) Request() *DomainDNSRecordRequest {
 	return &DomainDNSRecordRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -87,7 +89,8 @@ type DomainForceDeleteRequest struct{ BaseRequest }
 //
 func (b *DomainForceDeleteRequestBuilder) Request() *DomainForceDeleteRequest {
 	return &DomainForceDeleteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -113,7 +116,8 @@ type DomainVerifyRequest struct{ BaseRequest }
 //
 func (b *DomainVerifyRequestBuilder) Request() *DomainVerifyRequest {
 	return &DomainVerifyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

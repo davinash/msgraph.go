@@ -10,7 +10,8 @@ type OAuth2PermissionGrantRequestBuilder struct{ BaseRequestBuilder }
 // Request returns OAuth2PermissionGrantRequest
 func (b *OAuth2PermissionGrantRequestBuilder) Request() *OAuth2PermissionGrantRequest {
 	return &OAuth2PermissionGrantRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

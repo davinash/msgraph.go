@@ -21,7 +21,8 @@ type WorkbookFunctionsIrrRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsIrrRequestBuilder) Request() *WorkbookFunctionsIrrRequest {
 	return &WorkbookFunctionsIrrRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

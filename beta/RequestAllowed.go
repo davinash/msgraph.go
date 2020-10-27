@@ -10,7 +10,8 @@ type AllowedDataLocationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AllowedDataLocationRequest
 func (b *AllowedDataLocationRequestBuilder) Request() *AllowedDataLocationRequest {
 	return &AllowedDataLocationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -21,7 +21,8 @@ type WorkbookFunctionsDmaxRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsDmaxRequestBuilder) Request() *WorkbookFunctionsDmaxRequest {
 	return &WorkbookFunctionsDmaxRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

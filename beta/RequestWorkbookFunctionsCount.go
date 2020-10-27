@@ -21,7 +21,8 @@ type WorkbookFunctionsCountRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsCountRequestBuilder) Request() *WorkbookFunctionsCountRequest {
 	return &WorkbookFunctionsCountRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsCountARequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsCountARequestBuilder) Request() *WorkbookFunctionsCountARequest {
 	return &WorkbookFunctionsCountARequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -75,7 +77,8 @@ type WorkbookFunctionsCountBlankRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsCountBlankRequestBuilder) Request() *WorkbookFunctionsCountBlankRequest {
 	return &WorkbookFunctionsCountBlankRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -102,7 +105,8 @@ type WorkbookFunctionsCountIfRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsCountIfRequestBuilder) Request() *WorkbookFunctionsCountIfRequest {
 	return &WorkbookFunctionsCountIfRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -129,7 +133,8 @@ type WorkbookFunctionsCountIfsRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsCountIfsRequestBuilder) Request() *WorkbookFunctionsCountIfsRequest {
 	return &WorkbookFunctionsCountIfsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

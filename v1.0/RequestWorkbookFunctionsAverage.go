@@ -21,7 +21,8 @@ type WorkbookFunctionsAverageRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsAverageRequestBuilder) Request() *WorkbookFunctionsAverageRequest {
 	return &WorkbookFunctionsAverageRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsAverageARequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsAverageARequestBuilder) Request() *WorkbookFunctionsAverageARequest {
 	return &WorkbookFunctionsAverageARequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -75,7 +77,8 @@ type WorkbookFunctionsAverageIfRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsAverageIfRequestBuilder) Request() *WorkbookFunctionsAverageIfRequest {
 	return &WorkbookFunctionsAverageIfRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -102,7 +105,8 @@ type WorkbookFunctionsAverageIfsRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsAverageIfsRequestBuilder) Request() *WorkbookFunctionsAverageIfsRequest {
 	return &WorkbookFunctionsAverageIfsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

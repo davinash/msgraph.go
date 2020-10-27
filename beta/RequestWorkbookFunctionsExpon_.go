@@ -21,7 +21,8 @@ type WorkbookFunctionsExpon_DistRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsExpon_DistRequestBuilder) Request() *WorkbookFunctionsExpon_DistRequest {
 	return &WorkbookFunctionsExpon_DistRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 
@@ -53,7 +54,8 @@ type GovernanceResourceRoleAssignmentRequestsCollectionRequestBuilder struct{ Ba
 // Request returns request for GovernanceRoleAssignmentRequestObject collection
 func (b *GovernanceResourceRoleAssignmentRequestsCollectionRequestBuilder) Request() *GovernanceResourceRoleAssignmentRequestsCollectionRequest {
 	return &GovernanceResourceRoleAssignmentRequestsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -112,7 +114,7 @@ func (r *GovernanceResourceRoleAssignmentRequestsCollectionRequest) Paging(ctx c
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -121,6 +123,20 @@ func (r *GovernanceResourceRoleAssignmentRequestsCollectionRequest) Paging(ctx c
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *GovernanceResourceRoleAssignmentRequestsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for GovernanceRoleAssignmentRequestObject collection, max N pages
@@ -156,7 +172,8 @@ type GovernanceResourceRoleAssignmentsCollectionRequestBuilder struct{ BaseReque
 // Request returns request for GovernanceRoleAssignment collection
 func (b *GovernanceResourceRoleAssignmentsCollectionRequestBuilder) Request() *GovernanceResourceRoleAssignmentsCollectionRequest {
 	return &GovernanceResourceRoleAssignmentsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -215,7 +232,7 @@ func (r *GovernanceResourceRoleAssignmentsCollectionRequest) Paging(ctx context.
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -224,6 +241,20 @@ func (r *GovernanceResourceRoleAssignmentsCollectionRequest) Paging(ctx context.
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *GovernanceResourceRoleAssignmentsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for GovernanceRoleAssignment collection, max N pages
@@ -259,7 +290,8 @@ type GovernanceResourceRoleDefinitionsCollectionRequestBuilder struct{ BaseReque
 // Request returns request for GovernanceRoleDefinition collection
 func (b *GovernanceResourceRoleDefinitionsCollectionRequestBuilder) Request() *GovernanceResourceRoleDefinitionsCollectionRequest {
 	return &GovernanceResourceRoleDefinitionsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -318,7 +350,7 @@ func (r *GovernanceResourceRoleDefinitionsCollectionRequest) Paging(ctx context.
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -327,6 +359,20 @@ func (r *GovernanceResourceRoleDefinitionsCollectionRequest) Paging(ctx context.
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *GovernanceResourceRoleDefinitionsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for GovernanceRoleDefinition collection, max N pages
@@ -362,7 +408,8 @@ type GovernanceResourceRoleSettingsCollectionRequestBuilder struct{ BaseRequestB
 // Request returns request for GovernanceRoleSetting collection
 func (b *GovernanceResourceRoleSettingsCollectionRequestBuilder) Request() *GovernanceResourceRoleSettingsCollectionRequest {
 	return &GovernanceResourceRoleSettingsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -421,7 +468,7 @@ func (r *GovernanceResourceRoleSettingsCollectionRequest) Paging(ctx context.Con
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -430,6 +477,20 @@ func (r *GovernanceResourceRoleSettingsCollectionRequest) Paging(ctx context.Con
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *GovernanceResourceRoleSettingsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for GovernanceRoleSetting collection, max N pages

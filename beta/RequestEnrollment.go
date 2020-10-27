@@ -10,7 +10,8 @@ type EnrollmentConfigurationAssignmentRequestBuilder struct{ BaseRequestBuilder 
 // Request returns EnrollmentConfigurationAssignmentRequest
 func (b *EnrollmentConfigurationAssignmentRequestBuilder) Request() *EnrollmentConfigurationAssignmentRequest {
 	return &EnrollmentConfigurationAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type EnrollmentProfileRequestBuilder struct{ BaseRequestBuilder }
 // Request returns EnrollmentProfileRequest
 func (b *EnrollmentProfileRequestBuilder) Request() *EnrollmentProfileRequest {
 	return &EnrollmentProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -87,7 +89,8 @@ type EnrollmentProfileSetDefaultProfileRequest struct{ BaseRequest }
 //
 func (b *EnrollmentProfileSetDefaultProfileRequestBuilder) Request() *EnrollmentProfileSetDefaultProfileRequest {
 	return &EnrollmentProfileSetDefaultProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -113,7 +116,8 @@ type EnrollmentProfileUpdateDeviceProfileAssignmentRequest struct{ BaseRequest }
 //
 func (b *EnrollmentProfileUpdateDeviceProfileAssignmentRequestBuilder) Request() *EnrollmentProfileUpdateDeviceProfileAssignmentRequest {
 	return &EnrollmentProfileUpdateDeviceProfileAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

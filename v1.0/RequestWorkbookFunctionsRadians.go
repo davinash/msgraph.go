@@ -21,7 +21,8 @@ type WorkbookFunctionsRadiansRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsRadiansRequestBuilder) Request() *WorkbookFunctionsRadiansRequest {
 	return &WorkbookFunctionsRadiansRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

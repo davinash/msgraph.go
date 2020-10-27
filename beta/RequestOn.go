@@ -10,7 +10,8 @@ type OnPremisesAgentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns OnPremisesAgentRequest
 func (b *OnPremisesAgentRequestBuilder) Request() *OnPremisesAgentRequest {
 	return &OnPremisesAgentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type OnPremisesAgentGroupRequestBuilder struct{ BaseRequestBuilder }
 // Request returns OnPremisesAgentGroupRequest
 func (b *OnPremisesAgentGroupRequestBuilder) Request() *OnPremisesAgentGroupRequest {
 	return &OnPremisesAgentGroupRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type OnPremisesConditionalAccessSettingsRequestBuilder struct{ BaseRequestBuilde
 // Request returns OnPremisesConditionalAccessSettingsRequest
 func (b *OnPremisesConditionalAccessSettingsRequestBuilder) Request() *OnPremisesConditionalAccessSettingsRequest {
 	return &OnPremisesConditionalAccessSettingsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -109,7 +112,8 @@ type OnPremisesPublishingProfileRequestBuilder struct{ BaseRequestBuilder }
 // Request returns OnPremisesPublishingProfileRequest
 func (b *OnPremisesPublishingProfileRequestBuilder) Request() *OnPremisesPublishingProfileRequest {
 	return &OnPremisesPublishingProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

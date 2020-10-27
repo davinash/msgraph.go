@@ -10,7 +10,8 @@ type DocumentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DocumentRequest
 func (b *DocumentRequestBuilder) Request() *DocumentRequest {
 	return &DocumentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type DocumentCommentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DocumentCommentRequest
 func (b *DocumentCommentRequestBuilder) Request() *DocumentCommentRequest {
 	return &DocumentCommentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type DocumentCommentReplyRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DocumentCommentReplyRequest
 func (b *DocumentCommentReplyRequestBuilder) Request() *DocumentCommentReplyRequest {
 	return &DocumentCommentReplyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -10,7 +10,8 @@ type ItemRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ItemRequest
 func (b *ItemRequestBuilder) Request() *ItemRequest {
 	return &ItemRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type ItemActivityRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ItemActivityRequest
 func (b *ItemActivityRequestBuilder) Request() *ItemActivityRequest {
 	return &ItemActivityRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type ItemActivityOLDRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ItemActivityOLDRequest
 func (b *ItemActivityOLDRequestBuilder) Request() *ItemActivityOLDRequest {
 	return &ItemActivityOLDRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -109,7 +112,8 @@ type ItemActivityStatRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ItemActivityStatRequest
 func (b *ItemActivityStatRequestBuilder) Request() *ItemActivityStatRequest {
 	return &ItemActivityStatRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -142,7 +146,8 @@ type ItemAnalyticsRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ItemAnalyticsRequest
 func (b *ItemAnalyticsRequestBuilder) Request() *ItemAnalyticsRequest {
 	return &ItemAnalyticsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -175,7 +180,8 @@ type ItemAttachmentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ItemAttachmentRequest
 func (b *ItemAttachmentRequestBuilder) Request() *ItemAttachmentRequest {
 	return &ItemAttachmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -208,7 +214,8 @@ type ItemCategoryRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ItemCategoryRequest
 func (b *ItemCategoryRequestBuilder) Request() *ItemCategoryRequest {
 	return &ItemCategoryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -241,7 +248,8 @@ type ItemEmailRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ItemEmailRequest
 func (b *ItemEmailRequestBuilder) Request() *ItemEmailRequest {
 	return &ItemEmailRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -274,7 +282,8 @@ type ItemPhoneRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ItemPhoneRequest
 func (b *ItemPhoneRequestBuilder) Request() *ItemPhoneRequest {
 	return &ItemPhoneRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

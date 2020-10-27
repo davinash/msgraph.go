@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 
@@ -138,7 +139,8 @@ type AndroidDeviceOwnerScepCertificateProfileManagedDeviceCertificateStatesColle
 // Request returns request for ManagedDeviceCertificateState collection
 func (b *AndroidDeviceOwnerScepCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder) Request() *AndroidDeviceOwnerScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest {
 	return &AndroidDeviceOwnerScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -197,7 +199,7 @@ func (r *AndroidDeviceOwnerScepCertificateProfileManagedDeviceCertificateStatesC
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -206,6 +208,20 @@ func (r *AndroidDeviceOwnerScepCertificateProfileManagedDeviceCertificateStatesC
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *AndroidDeviceOwnerScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ManagedDeviceCertificateState collection, max N pages
@@ -304,7 +320,8 @@ type AndroidForWorkImportedPFXCertificateProfileManagedDeviceCertificateStatesCo
 // Request returns request for ManagedDeviceCertificateState collection
 func (b *AndroidForWorkImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder) Request() *AndroidForWorkImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest {
 	return &AndroidForWorkImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -363,7 +380,7 @@ func (r *AndroidForWorkImportedPFXCertificateProfileManagedDeviceCertificateStat
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -372,6 +389,20 @@ func (r *AndroidForWorkImportedPFXCertificateProfileManagedDeviceCertificateStat
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *AndroidForWorkImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ManagedDeviceCertificateState collection, max N pages
@@ -407,7 +438,8 @@ type AndroidForWorkPkcsCertificateProfileManagedDeviceCertificateStatesCollectio
 // Request returns request for ManagedDeviceCertificateState collection
 func (b *AndroidForWorkPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder) Request() *AndroidForWorkPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest {
 	return &AndroidForWorkPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -466,7 +498,7 @@ func (r *AndroidForWorkPkcsCertificateProfileManagedDeviceCertificateStatesColle
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -475,6 +507,20 @@ func (r *AndroidForWorkPkcsCertificateProfileManagedDeviceCertificateStatesColle
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *AndroidForWorkPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ManagedDeviceCertificateState collection, max N pages
@@ -510,7 +556,8 @@ type AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesCollectio
 // Request returns request for ManagedDeviceCertificateState collection
 func (b *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder) Request() *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest {
 	return &AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -569,7 +616,7 @@ func (r *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesColle
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -578,6 +625,20 @@ func (r *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesColle
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ManagedDeviceCertificateState collection, max N pages
@@ -620,7 +681,8 @@ type AndroidImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectio
 // Request returns request for ManagedDeviceCertificateState collection
 func (b *AndroidImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder) Request() *AndroidImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest {
 	return &AndroidImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -679,7 +741,7 @@ func (r *AndroidImportedPFXCertificateProfileManagedDeviceCertificateStatesColle
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -688,6 +750,20 @@ func (r *AndroidImportedPFXCertificateProfileManagedDeviceCertificateStatesColle
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *AndroidImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ManagedDeviceCertificateState collection, max N pages
@@ -723,7 +799,8 @@ type AndroidManagedAppProtectionAppsCollectionRequestBuilder struct{ BaseRequest
 // Request returns request for ManagedMobileApp collection
 func (b *AndroidManagedAppProtectionAppsCollectionRequestBuilder) Request() *AndroidManagedAppProtectionAppsCollectionRequest {
 	return &AndroidManagedAppProtectionAppsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -782,7 +859,7 @@ func (r *AndroidManagedAppProtectionAppsCollectionRequest) Paging(ctx context.Co
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -791,6 +868,20 @@ func (r *AndroidManagedAppProtectionAppsCollectionRequest) Paging(ctx context.Co
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *AndroidManagedAppProtectionAppsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ManagedMobileApp collection, max N pages
@@ -833,7 +924,8 @@ type AndroidPkcsCertificateProfileManagedDeviceCertificateStatesCollectionReques
 // Request returns request for ManagedDeviceCertificateState collection
 func (b *AndroidPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder) Request() *AndroidPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest {
 	return &AndroidPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -892,7 +984,7 @@ func (r *AndroidPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRe
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -901,6 +993,20 @@ func (r *AndroidPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRe
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *AndroidPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ManagedDeviceCertificateState collection, max N pages
@@ -936,7 +1042,8 @@ type AndroidScepCertificateProfileManagedDeviceCertificateStatesCollectionReques
 // Request returns request for ManagedDeviceCertificateState collection
 func (b *AndroidScepCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder) Request() *AndroidScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest {
 	return &AndroidScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -995,7 +1102,7 @@ func (r *AndroidScepCertificateProfileManagedDeviceCertificateStatesCollectionRe
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -1004,6 +1111,20 @@ func (r *AndroidScepCertificateProfileManagedDeviceCertificateStatesCollectionRe
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *AndroidScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ManagedDeviceCertificateState collection, max N pages
@@ -1074,7 +1195,8 @@ type AndroidWorkProfilePkcsCertificateProfileManagedDeviceCertificateStatesColle
 // Request returns request for ManagedDeviceCertificateState collection
 func (b *AndroidWorkProfilePkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder) Request() *AndroidWorkProfilePkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest {
 	return &AndroidWorkProfilePkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1133,7 +1255,7 @@ func (r *AndroidWorkProfilePkcsCertificateProfileManagedDeviceCertificateStatesC
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -1142,6 +1264,20 @@ func (r *AndroidWorkProfilePkcsCertificateProfileManagedDeviceCertificateStatesC
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *AndroidWorkProfilePkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ManagedDeviceCertificateState collection, max N pages
@@ -1177,7 +1313,8 @@ type AndroidWorkProfileScepCertificateProfileManagedDeviceCertificateStatesColle
 // Request returns request for ManagedDeviceCertificateState collection
 func (b *AndroidWorkProfileScepCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder) Request() *AndroidWorkProfileScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest {
 	return &AndroidWorkProfileScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1236,7 +1373,7 @@ func (r *AndroidWorkProfileScepCertificateProfileManagedDeviceCertificateStatesC
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -1245,6 +1382,20 @@ func (r *AndroidWorkProfileScepCertificateProfileManagedDeviceCertificateStatesC
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *AndroidWorkProfileScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ManagedDeviceCertificateState collection, max N pages

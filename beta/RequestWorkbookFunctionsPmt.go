@@ -21,7 +21,8 @@ type WorkbookFunctionsPmtRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsPmtRequestBuilder) Request() *WorkbookFunctionsPmtRequest {
 	return &WorkbookFunctionsPmtRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

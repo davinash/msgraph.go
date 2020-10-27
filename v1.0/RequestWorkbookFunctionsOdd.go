@@ -21,7 +21,8 @@ type WorkbookFunctionsOddRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsOddRequestBuilder) Request() *WorkbookFunctionsOddRequest {
 	return &WorkbookFunctionsOddRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsOddFPriceRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsOddFPriceRequestBuilder) Request() *WorkbookFunctionsOddFPriceRequest {
 	return &WorkbookFunctionsOddFPriceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -75,7 +77,8 @@ type WorkbookFunctionsOddFYieldRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsOddFYieldRequestBuilder) Request() *WorkbookFunctionsOddFYieldRequest {
 	return &WorkbookFunctionsOddFYieldRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -102,7 +105,8 @@ type WorkbookFunctionsOddLPriceRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsOddLPriceRequestBuilder) Request() *WorkbookFunctionsOddLPriceRequest {
 	return &WorkbookFunctionsOddLPriceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -129,7 +133,8 @@ type WorkbookFunctionsOddLYieldRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsOddLYieldRequestBuilder) Request() *WorkbookFunctionsOddLYieldRequest {
 	return &WorkbookFunctionsOddLYieldRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

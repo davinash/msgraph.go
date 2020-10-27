@@ -21,7 +21,8 @@ type WorkbookFunctionsExactRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsExactRequestBuilder) Request() *WorkbookFunctionsExactRequest {
 	return &WorkbookFunctionsExactRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

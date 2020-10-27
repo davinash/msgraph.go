@@ -10,7 +10,8 @@ type TenantSetupInfoRequestBuilder struct{ BaseRequestBuilder }
 // Request returns TenantSetupInfoRequest
 func (b *TenantSetupInfoRequestBuilder) Request() *TenantSetupInfoRequest {
 	return &TenantSetupInfoRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

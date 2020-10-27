@@ -10,7 +10,8 @@ type ProjectParticipationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ProjectParticipationRequest
 func (b *ProjectParticipationRequestBuilder) Request() *ProjectParticipationRequest {
 	return &ProjectParticipationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -21,7 +21,8 @@ type WorkbookFunctionsPdurationRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsPdurationRequestBuilder) Request() *WorkbookFunctionsPdurationRequest {
 	return &WorkbookFunctionsPdurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

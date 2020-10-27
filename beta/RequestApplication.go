@@ -10,7 +10,8 @@ type ApplicationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ApplicationRequest
 func (b *ApplicationRequestBuilder) Request() *ApplicationRequest {
 	return &ApplicationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type ApplicationSignInDetailedSummaryRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ApplicationSignInDetailedSummaryRequest
 func (b *ApplicationSignInDetailedSummaryRequestBuilder) Request() *ApplicationSignInDetailedSummaryRequest {
 	return &ApplicationSignInDetailedSummaryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type ApplicationTemplateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ApplicationTemplateRequest
 func (b *ApplicationTemplateRequestBuilder) Request() *ApplicationTemplateRequest {
 	return &ApplicationTemplateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -120,7 +123,8 @@ type ApplicationAddKeyRequest struct{ BaseRequest }
 //
 func (b *ApplicationAddKeyRequestBuilder) Request() *ApplicationAddKeyRequest {
 	return &ApplicationAddKeyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -147,7 +151,8 @@ type ApplicationAddPasswordRequest struct{ BaseRequest }
 //
 func (b *ApplicationAddPasswordRequestBuilder) Request() *ApplicationAddPasswordRequest {
 	return &ApplicationAddPasswordRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -174,7 +179,8 @@ type ApplicationRemoveKeyRequest struct{ BaseRequest }
 //
 func (b *ApplicationRemoveKeyRequestBuilder) Request() *ApplicationRemoveKeyRequest {
 	return &ApplicationRemoveKeyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -200,7 +206,8 @@ type ApplicationRemovePasswordRequest struct{ BaseRequest }
 //
 func (b *ApplicationRemovePasswordRequestBuilder) Request() *ApplicationRemovePasswordRequest {
 	return &ApplicationRemovePasswordRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -226,7 +233,8 @@ type ApplicationTemplateInstantiateRequest struct{ BaseRequest }
 //
 func (b *ApplicationTemplateInstantiateRequestBuilder) Request() *ApplicationTemplateInstantiateRequest {
 	return &ApplicationTemplateInstantiateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

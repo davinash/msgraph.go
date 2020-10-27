@@ -17,7 +17,8 @@ type DirectoryRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DirectoryRequest
 func (b *DirectoryRequestBuilder) Request() *DirectoryRequest {
 	return &DirectoryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -50,7 +51,8 @@ type DirectoryAuditRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DirectoryAuditRequest
 func (b *DirectoryAuditRequestBuilder) Request() *DirectoryAuditRequest {
 	return &DirectoryAuditRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -83,7 +85,8 @@ type DirectoryObjectRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DirectoryObjectRequest
 func (b *DirectoryObjectRequestBuilder) Request() *DirectoryObjectRequest {
 	return &DirectoryObjectRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -116,7 +119,8 @@ type DirectoryRoleRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DirectoryRoleRequest
 func (b *DirectoryRoleRequestBuilder) Request() *DirectoryRoleRequest {
 	return &DirectoryRoleRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -149,7 +153,8 @@ type DirectoryRoleTemplateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DirectoryRoleTemplateRequest
 func (b *DirectoryRoleTemplateRequestBuilder) Request() *DirectoryRoleTemplateRequest {
 	return &DirectoryRoleTemplateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -393,7 +398,8 @@ type DirectoryObjectCollectionGetByIDsRequest struct{ BaseRequest }
 //
 func (b *DirectoryObjectCollectionGetByIDsRequestBuilder) Request() *DirectoryObjectCollectionGetByIDsRequest {
 	return &DirectoryObjectCollectionGetByIDsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -680,7 +686,8 @@ type DirectoryObjectCollectionValidatePropertiesRequest struct{ BaseRequest }
 //
 func (b *DirectoryObjectCollectionValidatePropertiesRequestBuilder) Request() *DirectoryObjectCollectionValidatePropertiesRequest {
 	return &DirectoryObjectCollectionValidatePropertiesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -706,7 +713,8 @@ type DirectoryObjectCheckMemberGroupsRequest struct{ BaseRequest }
 //
 func (b *DirectoryObjectCheckMemberGroupsRequestBuilder) Request() *DirectoryObjectCheckMemberGroupsRequest {
 	return &DirectoryObjectCheckMemberGroupsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -793,7 +801,8 @@ type DirectoryObjectCheckMemberObjectsRequest struct{ BaseRequest }
 //
 func (b *DirectoryObjectCheckMemberObjectsRequestBuilder) Request() *DirectoryObjectCheckMemberObjectsRequest {
 	return &DirectoryObjectCheckMemberObjectsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -880,7 +889,8 @@ type DirectoryObjectGetMemberGroupsRequest struct{ BaseRequest }
 //
 func (b *DirectoryObjectGetMemberGroupsRequestBuilder) Request() *DirectoryObjectGetMemberGroupsRequest {
 	return &DirectoryObjectGetMemberGroupsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -967,7 +977,8 @@ type DirectoryObjectGetMemberObjectsRequest struct{ BaseRequest }
 //
 func (b *DirectoryObjectGetMemberObjectsRequestBuilder) Request() *DirectoryObjectGetMemberObjectsRequest {
 	return &DirectoryObjectGetMemberObjectsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1054,7 +1065,8 @@ type DirectoryObjectRestoreRequest struct{ BaseRequest }
 //
 func (b *DirectoryObjectRestoreRequestBuilder) Request() *DirectoryObjectRestoreRequest {
 	return &DirectoryObjectRestoreRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

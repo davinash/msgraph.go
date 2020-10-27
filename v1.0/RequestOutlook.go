@@ -10,7 +10,8 @@ type OutlookCategoryRequestBuilder struct{ BaseRequestBuilder }
 // Request returns OutlookCategoryRequest
 func (b *OutlookCategoryRequestBuilder) Request() *OutlookCategoryRequest {
 	return &OutlookCategoryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type OutlookItemRequestBuilder struct{ BaseRequestBuilder }
 // Request returns OutlookItemRequest
 func (b *OutlookItemRequestBuilder) Request() *OutlookItemRequest {
 	return &OutlookItemRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type OutlookUserRequestBuilder struct{ BaseRequestBuilder }
 // Request returns OutlookUserRequest
 func (b *OutlookUserRequestBuilder) Request() *OutlookUserRequest {
 	return &OutlookUserRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

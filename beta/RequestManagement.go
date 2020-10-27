@@ -10,7 +10,8 @@ type ManagementConditionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ManagementConditionRequest
 func (b *ManagementConditionRequestBuilder) Request() *ManagementConditionRequest {
 	return &ManagementConditionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type ManagementConditionStatementRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ManagementConditionStatementRequest
 func (b *ManagementConditionStatementRequestBuilder) Request() *ManagementConditionStatementRequest {
 	return &ManagementConditionStatementRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

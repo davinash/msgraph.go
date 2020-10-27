@@ -21,7 +21,8 @@ type WorkbookFunctionsT_DistRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsT_DistRequestBuilder) Request() *WorkbookFunctionsT_DistRequest {
 	return &WorkbookFunctionsT_DistRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsT_Dist_2TRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsT_Dist_2TRequestBuilder) Request() *WorkbookFunctionsT_Dist_2TRequest {
 	return &WorkbookFunctionsT_Dist_2TRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -75,7 +77,8 @@ type WorkbookFunctionsT_Dist_RTRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsT_Dist_RTRequestBuilder) Request() *WorkbookFunctionsT_Dist_RTRequest {
 	return &WorkbookFunctionsT_Dist_RTRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -102,7 +105,8 @@ type WorkbookFunctionsT_InvRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsT_InvRequestBuilder) Request() *WorkbookFunctionsT_InvRequest {
 	return &WorkbookFunctionsT_InvRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -129,7 +133,8 @@ type WorkbookFunctionsT_Inv_2TRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsT_Inv_2TRequestBuilder) Request() *WorkbookFunctionsT_Inv_2TRequest {
 	return &WorkbookFunctionsT_Inv_2TRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

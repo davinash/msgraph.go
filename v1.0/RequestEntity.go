@@ -10,7 +10,8 @@ type EntityRequestBuilder struct{ BaseRequestBuilder }
 // Request returns EntityRequest
 func (b *EntityRequestBuilder) Request() *EntityRequest {
 	return &EntityRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

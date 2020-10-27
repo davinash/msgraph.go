@@ -10,7 +10,8 @@ type MultiValueLegacyExtendedPropertyRequestBuilder struct{ BaseRequestBuilder }
 // Request returns MultiValueLegacyExtendedPropertyRequest
 func (b *MultiValueLegacyExtendedPropertyRequestBuilder) Request() *MultiValueLegacyExtendedPropertyRequest {
 	return &MultiValueLegacyExtendedPropertyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

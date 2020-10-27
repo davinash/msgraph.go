@@ -10,7 +10,8 @@ type AnonymousIPRiskEventRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AnonymousIPRiskEventRequest
 func (b *AnonymousIPRiskEventRequestBuilder) Request() *AnonymousIPRiskEventRequest {
 	return &AnonymousIPRiskEventRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

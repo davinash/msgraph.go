@@ -10,7 +10,8 @@ type InferenceClassificationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns InferenceClassificationRequest
 func (b *InferenceClassificationRequestBuilder) Request() *InferenceClassificationRequest {
 	return &InferenceClassificationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type InferenceClassificationOverrideRequestBuilder struct{ BaseRequestBuilder }
 // Request returns InferenceClassificationOverrideRequest
 func (b *InferenceClassificationOverrideRequestBuilder) Request() *InferenceClassificationOverrideRequest {
 	return &InferenceClassificationOverrideRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

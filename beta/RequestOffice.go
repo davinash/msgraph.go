@@ -17,7 +17,8 @@ type OfficeClientConfigurationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns OfficeClientConfigurationRequest
 func (b *OfficeClientConfigurationRequestBuilder) Request() *OfficeClientConfigurationRequest {
 	return &OfficeClientConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -50,7 +51,8 @@ type OfficeClientConfigurationAssignmentRequestBuilder struct{ BaseRequestBuilde
 // Request returns OfficeClientConfigurationAssignmentRequest
 func (b *OfficeClientConfigurationAssignmentRequestBuilder) Request() *OfficeClientConfigurationAssignmentRequest {
 	return &OfficeClientConfigurationAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -83,7 +85,8 @@ type OfficeConfigurationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns OfficeConfigurationRequest
 func (b *OfficeConfigurationRequestBuilder) Request() *OfficeConfigurationRequest {
 	return &OfficeConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -116,7 +119,8 @@ type OfficeGraphInsightsRequestBuilder struct{ BaseRequestBuilder }
 // Request returns OfficeGraphInsightsRequest
 func (b *OfficeGraphInsightsRequestBuilder) Request() *OfficeGraphInsightsRequest {
 	return &OfficeGraphInsightsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -160,7 +164,8 @@ type OfficeClientConfigurationCollectionUpdatePrioritiesRequest struct{ BaseRequ
 //
 func (b *OfficeClientConfigurationCollectionUpdatePrioritiesRequestBuilder) Request() *OfficeClientConfigurationCollectionUpdatePrioritiesRequest {
 	return &OfficeClientConfigurationCollectionUpdatePrioritiesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -186,7 +191,8 @@ type OfficeClientConfigurationAssignRequest struct{ BaseRequest }
 //
 func (b *OfficeClientConfigurationAssignRequestBuilder) Request() *OfficeClientConfigurationAssignRequest {
 	return &OfficeClientConfigurationAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

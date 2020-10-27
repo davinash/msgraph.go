@@ -17,7 +17,8 @@ type AlertRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AlertRequest
 func (b *AlertRequestBuilder) Request() *AlertRequest {
 	return &AlertRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -61,7 +62,8 @@ type AlertCollectionUpdateAlertsRequest struct{ BaseRequest }
 //
 func (b *AlertCollectionUpdateAlertsRequestBuilder) Request() *AlertCollectionUpdateAlertsRequest {
 	return &AlertCollectionUpdateAlertsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

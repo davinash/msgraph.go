@@ -10,7 +10,8 @@ type TeamsAppRequestBuilder struct{ BaseRequestBuilder }
 // Request returns TeamsAppRequest
 func (b *TeamsAppRequestBuilder) Request() *TeamsAppRequest {
 	return &TeamsAppRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type TeamsAppDefinitionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns TeamsAppDefinitionRequest
 func (b *TeamsAppDefinitionRequestBuilder) Request() *TeamsAppDefinitionRequest {
 	return &TeamsAppDefinitionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type TeamsAppInstallationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns TeamsAppInstallationRequest
 func (b *TeamsAppInstallationRequestBuilder) Request() *TeamsAppInstallationRequest {
 	return &TeamsAppInstallationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -109,7 +112,8 @@ type TeamsAsyncOperationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns TeamsAsyncOperationRequest
 func (b *TeamsAsyncOperationRequestBuilder) Request() *TeamsAsyncOperationRequest {
 	return &TeamsAsyncOperationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -142,7 +146,8 @@ type TeamsCatalogAppRequestBuilder struct{ BaseRequestBuilder }
 // Request returns TeamsCatalogAppRequest
 func (b *TeamsCatalogAppRequestBuilder) Request() *TeamsCatalogAppRequest {
 	return &TeamsCatalogAppRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -175,7 +180,8 @@ type TeamsTabRequestBuilder struct{ BaseRequestBuilder }
 // Request returns TeamsTabRequest
 func (b *TeamsTabRequestBuilder) Request() *TeamsTabRequest {
 	return &TeamsTabRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -208,7 +214,8 @@ type TeamsTemplateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns TeamsTemplateRequest
 func (b *TeamsTemplateRequestBuilder) Request() *TeamsTemplateRequest {
 	return &TeamsTemplateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -252,7 +259,8 @@ type TeamsAppInstallationUpgradeRequest struct{ BaseRequest }
 //
 func (b *TeamsAppInstallationUpgradeRequestBuilder) Request() *TeamsAppInstallationUpgradeRequest {
 	return &TeamsAppInstallationUpgradeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

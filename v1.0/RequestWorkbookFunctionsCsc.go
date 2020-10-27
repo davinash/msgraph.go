@@ -21,7 +21,8 @@ type WorkbookFunctionsCscRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsCscRequestBuilder) Request() *WorkbookFunctionsCscRequest {
 	return &WorkbookFunctionsCscRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

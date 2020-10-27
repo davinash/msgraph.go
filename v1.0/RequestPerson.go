@@ -10,7 +10,8 @@ type PersonRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PersonRequest
 func (b *PersonRequestBuilder) Request() *PersonRequest {
 	return &PersonRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -21,7 +21,8 @@ type WorkbookFunctionsFvRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsFvRequestBuilder) Request() *WorkbookFunctionsFvRequest {
 	return &WorkbookFunctionsFvRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

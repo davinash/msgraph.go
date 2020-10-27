@@ -21,7 +21,8 @@ type WorkbookFunctionsBesselIRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsBesselIRequestBuilder) Request() *WorkbookFunctionsBesselIRequest {
 	return &WorkbookFunctionsBesselIRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsBesselJRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsBesselJRequestBuilder) Request() *WorkbookFunctionsBesselJRequest {
 	return &WorkbookFunctionsBesselJRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -75,7 +77,8 @@ type WorkbookFunctionsBesselKRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsBesselKRequestBuilder) Request() *WorkbookFunctionsBesselKRequest {
 	return &WorkbookFunctionsBesselKRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -102,7 +105,8 @@ type WorkbookFunctionsBesselYRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsBesselYRequestBuilder) Request() *WorkbookFunctionsBesselYRequest {
 	return &WorkbookFunctionsBesselYRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -10,7 +10,8 @@ type ExternalRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ExternalRequest
 func (b *ExternalRequestBuilder) Request() *ExternalRequest {
 	return &ExternalRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type ExternalConnectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ExternalConnectionRequest
 func (b *ExternalConnectionRequestBuilder) Request() *ExternalConnectionRequest {
 	return &ExternalConnectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type ExternalItemRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ExternalItemRequest
 func (b *ExternalItemRequestBuilder) Request() *ExternalItemRequest {
 	return &ExternalItemRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

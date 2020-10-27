@@ -21,7 +21,8 @@ type WorkbookFunctionsSeriesSumRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsSeriesSumRequestBuilder) Request() *WorkbookFunctionsSeriesSumRequest {
 	return &WorkbookFunctionsSeriesSumRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

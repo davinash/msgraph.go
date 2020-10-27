@@ -21,7 +21,8 @@ type WorkbookFunctionsIntRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsIntRequestBuilder) Request() *WorkbookFunctionsIntRequest {
 	return &WorkbookFunctionsIntRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsIntRateRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsIntRateRequestBuilder) Request() *WorkbookFunctionsIntRateRequest {
 	return &WorkbookFunctionsIntRateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

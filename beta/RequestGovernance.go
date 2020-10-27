@@ -10,7 +10,8 @@ type GovernancePolicyTemplateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns GovernancePolicyTemplateRequest
 func (b *GovernancePolicyTemplateRequestBuilder) Request() *GovernancePolicyTemplateRequest {
 	return &GovernancePolicyTemplateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type GovernanceResourceRequestBuilder struct{ BaseRequestBuilder }
 // Request returns GovernanceResourceRequest
 func (b *GovernanceResourceRequestBuilder) Request() *GovernanceResourceRequest {
 	return &GovernanceResourceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type GovernanceRoleAssignmentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns GovernanceRoleAssignmentRequest
 func (b *GovernanceRoleAssignmentRequestBuilder) Request() *GovernanceRoleAssignmentRequest {
 	return &GovernanceRoleAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -109,7 +112,8 @@ type GovernanceRoleAssignmentRequestObjectRequestBuilder struct{ BaseRequestBuil
 // Request returns GovernanceRoleAssignmentRequestObjectRequest
 func (b *GovernanceRoleAssignmentRequestObjectRequestBuilder) Request() *GovernanceRoleAssignmentRequestObjectRequest {
 	return &GovernanceRoleAssignmentRequestObjectRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -142,7 +146,8 @@ type GovernanceRoleDefinitionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns GovernanceRoleDefinitionRequest
 func (b *GovernanceRoleDefinitionRequestBuilder) Request() *GovernanceRoleDefinitionRequest {
 	return &GovernanceRoleDefinitionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -175,7 +180,8 @@ type GovernanceRoleSettingRequestBuilder struct{ BaseRequestBuilder }
 // Request returns GovernanceRoleSettingRequest
 func (b *GovernanceRoleSettingRequestBuilder) Request() *GovernanceRoleSettingRequest {
 	return &GovernanceRoleSettingRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -208,7 +214,8 @@ type GovernanceSubjectRequestBuilder struct{ BaseRequestBuilder }
 // Request returns GovernanceSubjectRequest
 func (b *GovernanceSubjectRequestBuilder) Request() *GovernanceSubjectRequest {
 	return &GovernanceSubjectRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -252,7 +259,8 @@ type GovernanceResourceCollectionRegisterRequest struct{ BaseRequest }
 //
 func (b *GovernanceResourceCollectionRegisterRequestBuilder) Request() *GovernanceResourceCollectionRegisterRequest {
 	return &GovernanceResourceCollectionRegisterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -278,7 +286,8 @@ type GovernanceRoleAssignmentRequestObjectCancelRequest struct{ BaseRequest }
 //
 func (b *GovernanceRoleAssignmentRequestObjectCancelRequestBuilder) Request() *GovernanceRoleAssignmentRequestObjectCancelRequest {
 	return &GovernanceRoleAssignmentRequestObjectCancelRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -304,7 +313,8 @@ type GovernanceRoleAssignmentRequestObjectUpdateRequestActionRequest struct{ Bas
 //
 func (b *GovernanceRoleAssignmentRequestObjectUpdateRequestActionRequestBuilder) Request() *GovernanceRoleAssignmentRequestObjectUpdateRequestActionRequest {
 	return &GovernanceRoleAssignmentRequestObjectUpdateRequestActionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

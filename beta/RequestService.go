@@ -10,7 +10,8 @@ type ServicePrincipalRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ServicePrincipalRequest
 func (b *ServicePrincipalRequestBuilder) Request() *ServicePrincipalRequest {
 	return &ServicePrincipalRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -54,7 +55,8 @@ type ServicePrincipalCreatePasswordSingleSignOnCredentialsRequest struct{ BaseRe
 //
 func (b *ServicePrincipalCreatePasswordSingleSignOnCredentialsRequestBuilder) Request() *ServicePrincipalCreatePasswordSingleSignOnCredentialsRequest {
 	return &ServicePrincipalCreatePasswordSingleSignOnCredentialsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -81,7 +83,8 @@ type ServicePrincipalGetPasswordSingleSignOnCredentialsRequest struct{ BaseReque
 //
 func (b *ServicePrincipalGetPasswordSingleSignOnCredentialsRequestBuilder) Request() *ServicePrincipalGetPasswordSingleSignOnCredentialsRequest {
 	return &ServicePrincipalGetPasswordSingleSignOnCredentialsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -108,7 +111,8 @@ type ServicePrincipalDeletePasswordSingleSignOnCredentialsRequest struct{ BaseRe
 //
 func (b *ServicePrincipalDeletePasswordSingleSignOnCredentialsRequestBuilder) Request() *ServicePrincipalDeletePasswordSingleSignOnCredentialsRequest {
 	return &ServicePrincipalDeletePasswordSingleSignOnCredentialsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -134,7 +138,8 @@ type ServicePrincipalUpdatePasswordSingleSignOnCredentialsRequest struct{ BaseRe
 //
 func (b *ServicePrincipalUpdatePasswordSingleSignOnCredentialsRequestBuilder) Request() *ServicePrincipalUpdatePasswordSingleSignOnCredentialsRequest {
 	return &ServicePrincipalUpdatePasswordSingleSignOnCredentialsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

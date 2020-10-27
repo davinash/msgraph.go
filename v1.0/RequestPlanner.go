@@ -10,7 +10,8 @@ type PlannerRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PlannerRequest
 func (b *PlannerRequestBuilder) Request() *PlannerRequest {
 	return &PlannerRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type PlannerAssignedToTaskBoardTaskFormatRequestBuilder struct{ BaseRequestBuild
 // Request returns PlannerAssignedToTaskBoardTaskFormatRequest
 func (b *PlannerAssignedToTaskBoardTaskFormatRequestBuilder) Request() *PlannerAssignedToTaskBoardTaskFormatRequest {
 	return &PlannerAssignedToTaskBoardTaskFormatRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type PlannerBucketRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PlannerBucketRequest
 func (b *PlannerBucketRequestBuilder) Request() *PlannerBucketRequest {
 	return &PlannerBucketRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -109,7 +112,8 @@ type PlannerBucketTaskBoardTaskFormatRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PlannerBucketTaskBoardTaskFormatRequest
 func (b *PlannerBucketTaskBoardTaskFormatRequestBuilder) Request() *PlannerBucketTaskBoardTaskFormatRequest {
 	return &PlannerBucketTaskBoardTaskFormatRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -142,7 +146,8 @@ type PlannerGroupRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PlannerGroupRequest
 func (b *PlannerGroupRequestBuilder) Request() *PlannerGroupRequest {
 	return &PlannerGroupRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -175,7 +180,8 @@ type PlannerPlanRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PlannerPlanRequest
 func (b *PlannerPlanRequestBuilder) Request() *PlannerPlanRequest {
 	return &PlannerPlanRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -208,7 +214,8 @@ type PlannerPlanDetailsRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PlannerPlanDetailsRequest
 func (b *PlannerPlanDetailsRequestBuilder) Request() *PlannerPlanDetailsRequest {
 	return &PlannerPlanDetailsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -241,7 +248,8 @@ type PlannerProgressTaskBoardTaskFormatRequestBuilder struct{ BaseRequestBuilder
 // Request returns PlannerProgressTaskBoardTaskFormatRequest
 func (b *PlannerProgressTaskBoardTaskFormatRequestBuilder) Request() *PlannerProgressTaskBoardTaskFormatRequest {
 	return &PlannerProgressTaskBoardTaskFormatRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -274,7 +282,8 @@ type PlannerTaskRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PlannerTaskRequest
 func (b *PlannerTaskRequestBuilder) Request() *PlannerTaskRequest {
 	return &PlannerTaskRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -307,7 +316,8 @@ type PlannerTaskDetailsRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PlannerTaskDetailsRequest
 func (b *PlannerTaskDetailsRequestBuilder) Request() *PlannerTaskDetailsRequest {
 	return &PlannerTaskDetailsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -340,7 +350,8 @@ type PlannerUserRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PlannerUserRequest
 func (b *PlannerUserRequestBuilder) Request() *PlannerUserRequest {
 	return &PlannerUserRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

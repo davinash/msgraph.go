@@ -10,7 +10,8 @@ type PrivilegedAccessRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PrivilegedAccessRequest
 func (b *PrivilegedAccessRequestBuilder) Request() *PrivilegedAccessRequest {
 	return &PrivilegedAccessRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type PrivilegedApprovalRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PrivilegedApprovalRequest
 func (b *PrivilegedApprovalRequestBuilder) Request() *PrivilegedApprovalRequest {
 	return &PrivilegedApprovalRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type PrivilegedOperationEventRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PrivilegedOperationEventRequest
 func (b *PrivilegedOperationEventRequestBuilder) Request() *PrivilegedOperationEventRequest {
 	return &PrivilegedOperationEventRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -109,7 +112,8 @@ type PrivilegedRoleRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PrivilegedRoleRequest
 func (b *PrivilegedRoleRequestBuilder) Request() *PrivilegedRoleRequest {
 	return &PrivilegedRoleRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -142,7 +146,8 @@ type PrivilegedRoleAssignmentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PrivilegedRoleAssignmentRequest
 func (b *PrivilegedRoleAssignmentRequestBuilder) Request() *PrivilegedRoleAssignmentRequest {
 	return &PrivilegedRoleAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -175,7 +180,8 @@ type PrivilegedRoleAssignmentRequestObjectRequestBuilder struct{ BaseRequestBuil
 // Request returns PrivilegedRoleAssignmentRequestObjectRequest
 func (b *PrivilegedRoleAssignmentRequestObjectRequestBuilder) Request() *PrivilegedRoleAssignmentRequestObjectRequest {
 	return &PrivilegedRoleAssignmentRequestObjectRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -208,7 +214,8 @@ type PrivilegedRoleSettingsRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PrivilegedRoleSettingsRequest
 func (b *PrivilegedRoleSettingsRequestBuilder) Request() *PrivilegedRoleSettingsRequest {
 	return &PrivilegedRoleSettingsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -241,7 +248,8 @@ type PrivilegedRoleSummaryRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PrivilegedRoleSummaryRequest
 func (b *PrivilegedRoleSummaryRequestBuilder) Request() *PrivilegedRoleSummaryRequest {
 	return &PrivilegedRoleSummaryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -274,7 +282,8 @@ type PrivilegedSignupStatusRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PrivilegedSignupStatusRequest
 func (b *PrivilegedSignupStatusRequestBuilder) Request() *PrivilegedSignupStatusRequest {
 	return &PrivilegedSignupStatusRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -318,7 +327,8 @@ type PrivilegedRoleSelfActivateRequest struct{ BaseRequest }
 //
 func (b *PrivilegedRoleSelfActivateRequestBuilder) Request() *PrivilegedRoleSelfActivateRequest {
 	return &PrivilegedRoleSelfActivateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -345,7 +355,8 @@ type PrivilegedRoleSelfDeactivateRequest struct{ BaseRequest }
 //
 func (b *PrivilegedRoleSelfDeactivateRequestBuilder) Request() *PrivilegedRoleSelfDeactivateRequest {
 	return &PrivilegedRoleSelfDeactivateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -372,7 +383,8 @@ type PrivilegedRoleAssignmentMakePermanentRequest struct{ BaseRequest }
 //
 func (b *PrivilegedRoleAssignmentMakePermanentRequestBuilder) Request() *PrivilegedRoleAssignmentMakePermanentRequest {
 	return &PrivilegedRoleAssignmentMakePermanentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -399,7 +411,8 @@ type PrivilegedRoleAssignmentMakeEligibleRequest struct{ BaseRequest }
 //
 func (b *PrivilegedRoleAssignmentMakeEligibleRequestBuilder) Request() *PrivilegedRoleAssignmentMakeEligibleRequest {
 	return &PrivilegedRoleAssignmentMakeEligibleRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -426,7 +439,8 @@ type PrivilegedRoleAssignmentRequestObjectCancelRequest struct{ BaseRequest }
 //
 func (b *PrivilegedRoleAssignmentRequestObjectCancelRequestBuilder) Request() *PrivilegedRoleAssignmentRequestObjectCancelRequest {
 	return &PrivilegedRoleAssignmentRequestObjectCancelRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

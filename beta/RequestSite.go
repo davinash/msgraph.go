@@ -17,7 +17,8 @@ type SiteRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SiteRequest
 func (b *SiteRequestBuilder) Request() *SiteRequest {
 	return &SiteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -50,7 +51,8 @@ type SitePageRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SitePageRequest
 func (b *SitePageRequestBuilder) Request() *SitePageRequest {
 	return &SitePageRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -110,7 +112,8 @@ type SiteCollectionAddRequest struct{ BaseRequest }
 //
 func (b *SiteCollectionAddRequestBuilder) Request() *SiteCollectionAddRequest {
 	return &SiteCollectionAddRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -213,7 +216,8 @@ type SiteCollectionRemoveRequest struct{ BaseRequest }
 //
 func (b *SiteCollectionRemoveRequestBuilder) Request() *SiteCollectionRemoveRequest {
 	return &SiteCollectionRemoveRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -300,7 +304,8 @@ type SitePagePublishRequest struct{ BaseRequest }
 //
 func (b *SitePagePublishRequestBuilder) Request() *SitePagePublishRequest {
 	return &SitePagePublishRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

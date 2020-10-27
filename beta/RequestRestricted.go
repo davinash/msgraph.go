@@ -10,7 +10,8 @@ type RestrictedAppsViolationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns RestrictedAppsViolationRequest
 func (b *RestrictedAppsViolationRequestBuilder) Request() *RestrictedAppsViolationRequest {
 	return &RestrictedAppsViolationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type RestrictedSignInRequestBuilder struct{ BaseRequestBuilder }
 // Request returns RestrictedSignInRequest
 func (b *RestrictedSignInRequestBuilder) Request() *RestrictedSignInRequest {
 	return &RestrictedSignInRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

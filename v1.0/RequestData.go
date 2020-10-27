@@ -10,7 +10,8 @@ type DataPolicyOperationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns DataPolicyOperationRequest
 func (b *DataPolicyOperationRequestBuilder) Request() *DataPolicyOperationRequest {
 	return &DataPolicyOperationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

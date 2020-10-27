@@ -10,7 +10,8 @@ type CertificateBasedAuthConfigurationRequestBuilder struct{ BaseRequestBuilder 
 // Request returns CertificateBasedAuthConfigurationRequest
 func (b *CertificateBasedAuthConfigurationRequestBuilder) Request() *CertificateBasedAuthConfigurationRequest {
 	return &CertificateBasedAuthConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -10,7 +10,8 @@ type OfficeGraphInsightsRequestBuilder struct{ BaseRequestBuilder }
 // Request returns OfficeGraphInsightsRequest
 func (b *OfficeGraphInsightsRequestBuilder) Request() *OfficeGraphInsightsRequest {
 	return &OfficeGraphInsightsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 
@@ -24,7 +25,8 @@ type ApprovalWorkflowProviderBusinessFlowsCollectionRequestBuilder struct{ BaseR
 // Request returns request for BusinessFlow collection
 func (b *ApprovalWorkflowProviderBusinessFlowsCollectionRequestBuilder) Request() *ApprovalWorkflowProviderBusinessFlowsCollectionRequest {
 	return &ApprovalWorkflowProviderBusinessFlowsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -83,7 +85,7 @@ func (r *ApprovalWorkflowProviderBusinessFlowsCollectionRequest) Paging(ctx cont
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -92,6 +94,20 @@ func (r *ApprovalWorkflowProviderBusinessFlowsCollectionRequest) Paging(ctx cont
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *ApprovalWorkflowProviderBusinessFlowsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for BusinessFlow collection, max N pages
@@ -127,7 +143,8 @@ type ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollecti
 // Request returns request for BusinessFlow collection
 func (b *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollectionRequestBuilder) Request() *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollectionRequest {
 	return &ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -186,7 +203,7 @@ func (r *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionColl
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -195,6 +212,20 @@ func (r *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionColl
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for BusinessFlow collection, max N pages
@@ -230,7 +261,8 @@ type ApprovalWorkflowProviderPolicyTemplatesCollectionRequestBuilder struct{ Bas
 // Request returns request for GovernancePolicyTemplate collection
 func (b *ApprovalWorkflowProviderPolicyTemplatesCollectionRequestBuilder) Request() *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest {
 	return &ApprovalWorkflowProviderPolicyTemplatesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -289,7 +321,7 @@ func (r *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest) Paging(ctx co
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -298,6 +330,20 @@ func (r *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest) Paging(ctx co
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for GovernancePolicyTemplate collection, max N pages
@@ -333,7 +379,8 @@ type ApprovalWorkflowProviderRequestsCollectionRequestBuilder struct{ BaseReques
 // Request returns request for RequestObject collection
 func (b *ApprovalWorkflowProviderRequestsCollectionRequestBuilder) Request() *ApprovalWorkflowProviderRequestsCollectionRequest {
 	return &ApprovalWorkflowProviderRequestsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -392,7 +439,7 @@ func (r *ApprovalWorkflowProviderRequestsCollectionRequest) Paging(ctx context.C
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -401,6 +448,20 @@ func (r *ApprovalWorkflowProviderRequestsCollectionRequest) Paging(ctx context.C
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *ApprovalWorkflowProviderRequestsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for RequestObject collection, max N pages
@@ -436,7 +497,8 @@ type ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequestBuilder 
 // Request returns request for RequestObject collection
 func (b *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequestBuilder) Request() *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest {
 	return &ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -495,7 +557,7 @@ func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) Pa
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -504,6 +566,20 @@ func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) Pa
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for RequestObject collection, max N pages

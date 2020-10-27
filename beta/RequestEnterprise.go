@@ -10,7 +10,8 @@ type EnterpriseCodeSigningCertificateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns EnterpriseCodeSigningCertificateRequest
 func (b *EnterpriseCodeSigningCertificateRequestBuilder) Request() *EnterpriseCodeSigningCertificateRequest {
 	return &EnterpriseCodeSigningCertificateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

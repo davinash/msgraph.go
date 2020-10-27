@@ -10,7 +10,8 @@ type ContentTypeRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ContentTypeRequest
 func (b *ContentTypeRequestBuilder) Request() *ContentTypeRequest {
 	return &ContentTypeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

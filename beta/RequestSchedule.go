@@ -10,7 +10,8 @@ type ScheduleRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ScheduleRequest
 func (b *ScheduleRequestBuilder) Request() *ScheduleRequest {
 	return &ScheduleRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type ScheduleChangeRequestObjectRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ScheduleChangeRequestObjectRequest
 func (b *ScheduleChangeRequestObjectRequestBuilder) Request() *ScheduleChangeRequestObjectRequest {
 	return &ScheduleChangeRequestObjectRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -87,7 +89,8 @@ type ScheduleShareRequest struct{ BaseRequest }
 //
 func (b *ScheduleShareRequestBuilder) Request() *ScheduleShareRequest {
 	return &ScheduleShareRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -113,7 +116,8 @@ type ScheduleChangeRequestObjectApproveRequest struct{ BaseRequest }
 //
 func (b *ScheduleChangeRequestObjectApproveRequestBuilder) Request() *ScheduleChangeRequestObjectApproveRequest {
 	return &ScheduleChangeRequestObjectApproveRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -139,7 +143,8 @@ type ScheduleChangeRequestObjectDeclineRequest struct{ BaseRequest }
 //
 func (b *ScheduleChangeRequestObjectDeclineRequestBuilder) Request() *ScheduleChangeRequestObjectDeclineRequest {
 	return &ScheduleChangeRequestObjectDeclineRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

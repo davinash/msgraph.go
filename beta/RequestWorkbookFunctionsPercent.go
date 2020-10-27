@@ -21,7 +21,8 @@ type WorkbookFunctionsPercentRank_ExcRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsPercentRank_ExcRequestBuilder) Request() *WorkbookFunctionsPercentRank_ExcRequest {
 	return &WorkbookFunctionsPercentRank_ExcRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsPercentRank_IncRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsPercentRank_IncRequestBuilder) Request() *WorkbookFunctionsPercentRank_IncRequest {
 	return &WorkbookFunctionsPercentRank_IncRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

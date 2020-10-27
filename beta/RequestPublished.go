@@ -10,7 +10,8 @@ type PublishedResourceRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PublishedResourceRequest
 func (b *PublishedResourceRequestBuilder) Request() *PublishedResourceRequest {
 	return &PublishedResourceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

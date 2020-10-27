@@ -10,7 +10,8 @@ type ScopedRoleMembershipRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ScopedRoleMembershipRequest
 func (b *ScopedRoleMembershipRequestBuilder) Request() *ScopedRoleMembershipRequest {
 	return &ScopedRoleMembershipRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

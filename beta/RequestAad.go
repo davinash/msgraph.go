@@ -10,7 +10,8 @@ type AadUserConversationMemberRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AadUserConversationMemberRequest
 func (b *AadUserConversationMemberRequestBuilder) Request() *AadUserConversationMemberRequest {
 	return &AadUserConversationMemberRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

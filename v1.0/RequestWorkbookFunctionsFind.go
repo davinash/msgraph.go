@@ -21,7 +21,8 @@ type WorkbookFunctionsFindRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsFindRequestBuilder) Request() *WorkbookFunctionsFindRequest {
 	return &WorkbookFunctionsFindRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsFindBRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsFindBRequestBuilder) Request() *WorkbookFunctionsFindBRequest {
 	return &WorkbookFunctionsFindBRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

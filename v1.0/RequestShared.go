@@ -10,7 +10,8 @@ type SharedDriveItemRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SharedDriveItemRequest
 func (b *SharedDriveItemRequestBuilder) Request() *SharedDriveItemRequest {
 	return &SharedDriveItemRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type SharedInsightRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SharedInsightRequest
 func (b *SharedInsightRequestBuilder) Request() *SharedInsightRequest {
 	return &SharedInsightRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -10,7 +10,8 @@ type RemoteAssistancePartnerRequestBuilder struct{ BaseRequestBuilder }
 // Request returns RemoteAssistancePartnerRequest
 func (b *RemoteAssistancePartnerRequestBuilder) Request() *RemoteAssistancePartnerRequest {
 	return &RemoteAssistancePartnerRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -54,7 +55,8 @@ type RemoteAssistancePartnerBeginOnboardingRequest struct{ BaseRequest }
 //
 func (b *RemoteAssistancePartnerBeginOnboardingRequestBuilder) Request() *RemoteAssistancePartnerBeginOnboardingRequest {
 	return &RemoteAssistancePartnerBeginOnboardingRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -80,7 +82,8 @@ type RemoteAssistancePartnerDisconnectRequest struct{ BaseRequest }
 //
 func (b *RemoteAssistancePartnerDisconnectRequestBuilder) Request() *RemoteAssistancePartnerDisconnectRequest {
 	return &RemoteAssistancePartnerDisconnectRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

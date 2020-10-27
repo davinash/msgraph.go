@@ -21,7 +21,8 @@ type WorkbookFunctionsLargeRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsLargeRequestBuilder) Request() *WorkbookFunctionsLargeRequest {
 	return &WorkbookFunctionsLargeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

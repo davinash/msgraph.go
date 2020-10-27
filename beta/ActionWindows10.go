@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 
@@ -24,7 +25,8 @@ type Windows10GeneralConfigurationPrivacyAccessControlsCollectionRequestBuilder 
 // Request returns request for WindowsPrivacyDataAccessControlItem collection
 func (b *Windows10GeneralConfigurationPrivacyAccessControlsCollectionRequestBuilder) Request() *Windows10GeneralConfigurationPrivacyAccessControlsCollectionRequest {
 	return &Windows10GeneralConfigurationPrivacyAccessControlsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -83,7 +85,7 @@ func (r *Windows10GeneralConfigurationPrivacyAccessControlsCollectionRequest) Pa
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -92,6 +94,20 @@ func (r *Windows10GeneralConfigurationPrivacyAccessControlsCollectionRequest) Pa
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *Windows10GeneralConfigurationPrivacyAccessControlsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for WindowsPrivacyDataAccessControlItem collection, max N pages
@@ -127,7 +143,8 @@ type Windows10ImportedPFXCertificateProfileManagedDeviceCertificateStatesCollect
 // Request returns request for ManagedDeviceCertificateState collection
 func (b *Windows10ImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder) Request() *Windows10ImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest {
 	return &Windows10ImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -186,7 +203,7 @@ func (r *Windows10ImportedPFXCertificateProfileManagedDeviceCertificateStatesCol
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -195,6 +212,20 @@ func (r *Windows10ImportedPFXCertificateProfileManagedDeviceCertificateStatesCol
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *Windows10ImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ManagedDeviceCertificateState collection, max N pages
@@ -230,7 +261,8 @@ type Windows10PkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequ
 // Request returns request for ManagedDeviceCertificateState collection
 func (b *Windows10PkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder) Request() *Windows10PkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest {
 	return &Windows10PkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -289,7 +321,7 @@ func (r *Windows10PkcsCertificateProfileManagedDeviceCertificateStatesCollection
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -298,6 +330,20 @@ func (r *Windows10PkcsCertificateProfileManagedDeviceCertificateStatesCollection
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *Windows10PkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for ManagedDeviceCertificateState collection, max N pages

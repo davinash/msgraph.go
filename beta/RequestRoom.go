@@ -10,7 +10,8 @@ type RoomRequestBuilder struct{ BaseRequestBuilder }
 // Request returns RoomRequest
 func (b *RoomRequestBuilder) Request() *RoomRequest {
 	return &RoomRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type RoomListRequestBuilder struct{ BaseRequestBuilder }
 // Request returns RoomListRequest
 func (b *RoomListRequestBuilder) Request() *RoomListRequest {
 	return &RoomListRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

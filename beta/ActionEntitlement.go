@@ -5,6 +5,7 @@ package msgraph
 import (
 	"context"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 
@@ -24,7 +25,8 @@ type EntitlementManagementAccessPackageAssignmentPoliciesCollectionRequestBuilde
 // Request returns request for AccessPackageAssignmentPolicy collection
 func (b *EntitlementManagementAccessPackageAssignmentPoliciesCollectionRequestBuilder) Request() *EntitlementManagementAccessPackageAssignmentPoliciesCollectionRequest {
 	return &EntitlementManagementAccessPackageAssignmentPoliciesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -83,7 +85,7 @@ func (r *EntitlementManagementAccessPackageAssignmentPoliciesCollectionRequest) 
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -92,6 +94,20 @@ func (r *EntitlementManagementAccessPackageAssignmentPoliciesCollectionRequest) 
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *EntitlementManagementAccessPackageAssignmentPoliciesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for AccessPackageAssignmentPolicy collection, max N pages
@@ -127,7 +143,8 @@ type EntitlementManagementAccessPackageAssignmentRequestsCollectionRequestBuilde
 // Request returns request for AccessPackageAssignmentRequestObject collection
 func (b *EntitlementManagementAccessPackageAssignmentRequestsCollectionRequestBuilder) Request() *EntitlementManagementAccessPackageAssignmentRequestsCollectionRequest {
 	return &EntitlementManagementAccessPackageAssignmentRequestsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -186,7 +203,7 @@ func (r *EntitlementManagementAccessPackageAssignmentRequestsCollectionRequest) 
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -195,6 +212,20 @@ func (r *EntitlementManagementAccessPackageAssignmentRequestsCollectionRequest) 
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *EntitlementManagementAccessPackageAssignmentRequestsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for AccessPackageAssignmentRequestObject collection, max N pages
@@ -230,7 +261,8 @@ type EntitlementManagementAccessPackageAssignmentResourceRolesCollectionRequestB
 // Request returns request for AccessPackageAssignmentResourceRole collection
 func (b *EntitlementManagementAccessPackageAssignmentResourceRolesCollectionRequestBuilder) Request() *EntitlementManagementAccessPackageAssignmentResourceRolesCollectionRequest {
 	return &EntitlementManagementAccessPackageAssignmentResourceRolesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -289,7 +321,7 @@ func (r *EntitlementManagementAccessPackageAssignmentResourceRolesCollectionRequ
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -298,6 +330,20 @@ func (r *EntitlementManagementAccessPackageAssignmentResourceRolesCollectionRequ
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *EntitlementManagementAccessPackageAssignmentResourceRolesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for AccessPackageAssignmentResourceRole collection, max N pages
@@ -333,7 +379,8 @@ type EntitlementManagementAccessPackageAssignmentsCollectionRequestBuilder struc
 // Request returns request for AccessPackageAssignment collection
 func (b *EntitlementManagementAccessPackageAssignmentsCollectionRequestBuilder) Request() *EntitlementManagementAccessPackageAssignmentsCollectionRequest {
 	return &EntitlementManagementAccessPackageAssignmentsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -392,7 +439,7 @@ func (r *EntitlementManagementAccessPackageAssignmentsCollectionRequest) Paging(
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -401,6 +448,20 @@ func (r *EntitlementManagementAccessPackageAssignmentsCollectionRequest) Paging(
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *EntitlementManagementAccessPackageAssignmentsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for AccessPackageAssignment collection, max N pages
@@ -436,7 +497,8 @@ type EntitlementManagementAccessPackageCatalogsCollectionRequestBuilder struct{ 
 // Request returns request for AccessPackageCatalog collection
 func (b *EntitlementManagementAccessPackageCatalogsCollectionRequestBuilder) Request() *EntitlementManagementAccessPackageCatalogsCollectionRequest {
 	return &EntitlementManagementAccessPackageCatalogsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -495,7 +557,7 @@ func (r *EntitlementManagementAccessPackageCatalogsCollectionRequest) Paging(ctx
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -504,6 +566,20 @@ func (r *EntitlementManagementAccessPackageCatalogsCollectionRequest) Paging(ctx
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *EntitlementManagementAccessPackageCatalogsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for AccessPackageCatalog collection, max N pages
@@ -539,7 +615,8 @@ type EntitlementManagementAccessPackageResourceRequestsCollectionRequestBuilder 
 // Request returns request for AccessPackageResourceRequestObject collection
 func (b *EntitlementManagementAccessPackageResourceRequestsCollectionRequestBuilder) Request() *EntitlementManagementAccessPackageResourceRequestsCollectionRequest {
 	return &EntitlementManagementAccessPackageResourceRequestsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -598,7 +675,7 @@ func (r *EntitlementManagementAccessPackageResourceRequestsCollectionRequest) Pa
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -607,6 +684,20 @@ func (r *EntitlementManagementAccessPackageResourceRequestsCollectionRequest) Pa
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *EntitlementManagementAccessPackageResourceRequestsCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for AccessPackageResourceRequestObject collection, max N pages
@@ -642,7 +733,8 @@ type EntitlementManagementAccessPackageResourceRoleScopesCollectionRequestBuilde
 // Request returns request for AccessPackageResourceRoleScope collection
 func (b *EntitlementManagementAccessPackageResourceRoleScopesCollectionRequestBuilder) Request() *EntitlementManagementAccessPackageResourceRoleScopesCollectionRequest {
 	return &EntitlementManagementAccessPackageResourceRoleScopesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -701,7 +793,7 @@ func (r *EntitlementManagementAccessPackageResourceRoleScopesCollectionRequest) 
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -710,6 +802,20 @@ func (r *EntitlementManagementAccessPackageResourceRoleScopesCollectionRequest) 
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *EntitlementManagementAccessPackageResourceRoleScopesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for AccessPackageResourceRoleScope collection, max N pages
@@ -745,7 +851,8 @@ type EntitlementManagementAccessPackageResourcesCollectionRequestBuilder struct{
 // Request returns request for AccessPackageResource collection
 func (b *EntitlementManagementAccessPackageResourcesCollectionRequestBuilder) Request() *EntitlementManagementAccessPackageResourcesCollectionRequest {
 	return &EntitlementManagementAccessPackageResourcesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -804,7 +911,7 @@ func (r *EntitlementManagementAccessPackageResourcesCollectionRequest) Paging(ct
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -813,6 +920,20 @@ func (r *EntitlementManagementAccessPackageResourcesCollectionRequest) Paging(ct
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *EntitlementManagementAccessPackageResourcesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for AccessPackageResource collection, max N pages
@@ -848,7 +969,8 @@ type EntitlementManagementAccessPackagesCollectionRequestBuilder struct{ BaseReq
 // Request returns request for AccessPackage collection
 func (b *EntitlementManagementAccessPackagesCollectionRequestBuilder) Request() *EntitlementManagementAccessPackagesCollectionRequest {
 	return &EntitlementManagementAccessPackagesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -907,7 +1029,7 @@ func (r *EntitlementManagementAccessPackagesCollectionRequest) Paging(ctx contex
 		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		req, err = r.NewRequest("GET", paging.NextLink, nil)
 		if ctx != nil {
 			req = req.WithContext(ctx)
 		}
@@ -916,6 +1038,20 @@ func (r *EntitlementManagementAccessPackagesCollectionRequest) Paging(ctx contex
 			return nil, err
 		}
 	}
+}
+
+// NewRequest Wrapper over the http.NewRequest with adding auth tokens
+func (r *EntitlementManagementAccessPackagesCollectionRequest) NewRequest(method, url string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(context.Background(), method, url, body)
+	if err != nil {
+		return nil, err
+	}
+	err = r.getAuthToken()
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Authorization", r.token.GetAccessToken())
+	return req, err
 }
 
 // GetN performs GET request for AccessPackage collection, max N pages

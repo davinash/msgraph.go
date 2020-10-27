@@ -10,7 +10,8 @@ type NotificationMessageTemplateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns NotificationMessageTemplateRequest
 func (b *NotificationMessageTemplateRequestBuilder) Request() *NotificationMessageTemplateRequest {
 	return &NotificationMessageTemplateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -54,7 +55,8 @@ type NotificationMessageTemplateSendTestMessageRequest struct{ BaseRequest }
 //
 func (b *NotificationMessageTemplateSendTestMessageRequestBuilder) Request() *NotificationMessageTemplateSendTestMessageRequest {
 	return &NotificationMessageTemplateSendTestMessageRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

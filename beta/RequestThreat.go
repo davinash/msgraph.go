@@ -10,7 +10,8 @@ type ThreatAssessmentRequestObjectRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ThreatAssessmentRequestObjectRequest
 func (b *ThreatAssessmentRequestObjectRequestBuilder) Request() *ThreatAssessmentRequestObjectRequest {
 	return &ThreatAssessmentRequestObjectRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type ThreatAssessmentResultRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ThreatAssessmentResultRequest
 func (b *ThreatAssessmentResultRequestBuilder) Request() *ThreatAssessmentResultRequest {
 	return &ThreatAssessmentResultRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -10,7 +10,8 @@ type PermissionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PermissionRequest
 func (b *PermissionRequestBuilder) Request() *PermissionRequest {
 	return &PermissionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

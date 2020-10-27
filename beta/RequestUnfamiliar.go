@@ -10,7 +10,8 @@ type UnfamiliarLocationRiskEventRequestBuilder struct{ BaseRequestBuilder }
 // Request returns UnfamiliarLocationRiskEventRequest
 func (b *UnfamiliarLocationRiskEventRequestBuilder) Request() *UnfamiliarLocationRiskEventRequest {
 	return &UnfamiliarLocationRiskEventRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

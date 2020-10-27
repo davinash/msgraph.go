@@ -21,7 +21,8 @@ type WorkbookFunctionsNorm_DistRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsNorm_DistRequestBuilder) Request() *WorkbookFunctionsNorm_DistRequest {
 	return &WorkbookFunctionsNorm_DistRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsNorm_InvRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsNorm_InvRequestBuilder) Request() *WorkbookFunctionsNorm_InvRequest {
 	return &WorkbookFunctionsNorm_InvRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -75,7 +77,8 @@ type WorkbookFunctionsNorm_S_DistRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsNorm_S_DistRequestBuilder) Request() *WorkbookFunctionsNorm_S_DistRequest {
 	return &WorkbookFunctionsNorm_S_DistRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -102,7 +105,8 @@ type WorkbookFunctionsNorm_S_InvRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsNorm_S_InvRequestBuilder) Request() *WorkbookFunctionsNorm_S_InvRequest {
 	return &WorkbookFunctionsNorm_S_InvRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

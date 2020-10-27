@@ -10,7 +10,8 @@ type VPPTokenRequestBuilder struct{ BaseRequestBuilder }
 // Request returns VPPTokenRequest
 func (b *VPPTokenRequestBuilder) Request() *VPPTokenRequest {
 	return &VPPTokenRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -54,7 +55,8 @@ type VPPTokenSyncLicensesRequest struct{ BaseRequest }
 //
 func (b *VPPTokenSyncLicensesRequestBuilder) Request() *VPPTokenSyncLicensesRequest {
 	return &VPPTokenSyncLicensesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -81,7 +83,8 @@ type VPPTokenRevokeLicensesRequest struct{ BaseRequest }
 //
 func (b *VPPTokenRevokeLicensesRequestBuilder) Request() *VPPTokenRevokeLicensesRequest {
 	return &VPPTokenRevokeLicensesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

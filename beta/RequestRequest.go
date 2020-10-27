@@ -10,7 +10,8 @@ type RequestObjectRequestBuilder struct{ BaseRequestBuilder }
 // Request returns RequestObjectRequest
 func (b *RequestObjectRequestBuilder) Request() *RequestObjectRequest {
 	return &RequestObjectRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -54,7 +55,8 @@ type RequestObjectStopRequest struct{ BaseRequest }
 //
 func (b *RequestObjectStopRequestBuilder) Request() *RequestObjectStopRequest {
 	return &RequestObjectStopRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -80,7 +82,8 @@ type RequestObjectRecordDecisionsRequest struct{ BaseRequest }
 //
 func (b *RequestObjectRecordDecisionsRequestBuilder) Request() *RequestObjectRecordDecisionsRequest {
 	return &RequestObjectRecordDecisionsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

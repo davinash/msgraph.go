@@ -10,7 +10,8 @@ type PostRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PostRequest
 func (b *PostRequestBuilder) Request() *PostRequest {
 	return &PostRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -54,7 +55,8 @@ type PostReplyRequest struct{ BaseRequest }
 //
 func (b *PostReplyRequestBuilder) Request() *PostReplyRequest {
 	return &PostReplyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -80,7 +82,8 @@ type PostForwardRequest struct{ BaseRequest }
 //
 func (b *PostForwardRequestBuilder) Request() *PostForwardRequest {
 	return &PostForwardRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

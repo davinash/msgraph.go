@@ -10,7 +10,8 @@ type PresenceRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PresenceRequest
 func (b *PresenceRequestBuilder) Request() *PresenceRequest {
 	return &PresenceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

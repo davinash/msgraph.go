@@ -10,7 +10,8 @@ type Windows81SCEPCertificateProfileRequestBuilder struct{ BaseRequestBuilder }
 // Request returns Windows81SCEPCertificateProfileRequest
 func (b *Windows81SCEPCertificateProfileRequestBuilder) Request() *Windows81SCEPCertificateProfileRequest {
 	return &Windows81SCEPCertificateProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type Windows81TrustedRootCertificateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns Windows81TrustedRootCertificateRequest
 func (b *Windows81TrustedRootCertificateRequestBuilder) Request() *Windows81TrustedRootCertificateRequest {
 	return &Windows81TrustedRootCertificateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

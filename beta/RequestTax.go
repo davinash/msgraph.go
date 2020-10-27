@@ -10,7 +10,8 @@ type TaxAreaRequestBuilder struct{ BaseRequestBuilder }
 // Request returns TaxAreaRequest
 func (b *TaxAreaRequestBuilder) Request() *TaxAreaRequest {
 	return &TaxAreaRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type TaxGroupRequestBuilder struct{ BaseRequestBuilder }
 // Request returns TaxGroupRequest
 func (b *TaxGroupRequestBuilder) Request() *TaxGroupRequest {
 	return &TaxGroupRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

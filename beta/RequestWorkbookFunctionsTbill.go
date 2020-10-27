@@ -21,7 +21,8 @@ type WorkbookFunctionsTbillEqRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsTbillEqRequestBuilder) Request() *WorkbookFunctionsTbillEqRequest {
 	return &WorkbookFunctionsTbillEqRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsTbillPriceRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsTbillPriceRequestBuilder) Request() *WorkbookFunctionsTbillPriceRequest {
 	return &WorkbookFunctionsTbillPriceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -75,7 +77,8 @@ type WorkbookFunctionsTbillYieldRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsTbillYieldRequestBuilder) Request() *WorkbookFunctionsTbillYieldRequest {
 	return &WorkbookFunctionsTbillYieldRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

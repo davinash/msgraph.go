@@ -10,7 +10,8 @@ type SynchronizationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SynchronizationRequest
 func (b *SynchronizationRequestBuilder) Request() *SynchronizationRequest {
 	return &SynchronizationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type SynchronizationJobRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SynchronizationJobRequest
 func (b *SynchronizationJobRequestBuilder) Request() *SynchronizationJobRequest {
 	return &SynchronizationJobRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type SynchronizationSchemaRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SynchronizationSchemaRequest
 func (b *SynchronizationSchemaRequestBuilder) Request() *SynchronizationSchemaRequest {
 	return &SynchronizationSchemaRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -109,7 +112,8 @@ type SynchronizationTemplateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SynchronizationTemplateRequest
 func (b *SynchronizationTemplateRequestBuilder) Request() *SynchronizationTemplateRequest {
 	return &SynchronizationTemplateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -153,7 +157,8 @@ type SynchronizationJobCollectionValidateCredentialsRequest struct{ BaseRequest 
 //
 func (b *SynchronizationJobCollectionValidateCredentialsRequestBuilder) Request() *SynchronizationJobCollectionValidateCredentialsRequest {
 	return &SynchronizationJobCollectionValidateCredentialsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -179,7 +184,8 @@ type SynchronizationJobPauseRequest struct{ BaseRequest }
 //
 func (b *SynchronizationJobPauseRequestBuilder) Request() *SynchronizationJobPauseRequest {
 	return &SynchronizationJobPauseRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -205,7 +211,8 @@ type SynchronizationJobStartRequest struct{ BaseRequest }
 //
 func (b *SynchronizationJobStartRequestBuilder) Request() *SynchronizationJobStartRequest {
 	return &SynchronizationJobStartRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -231,7 +238,8 @@ type SynchronizationJobStopRequest struct{ BaseRequest }
 //
 func (b *SynchronizationJobStopRequestBuilder) Request() *SynchronizationJobStopRequest {
 	return &SynchronizationJobStopRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -257,7 +265,8 @@ type SynchronizationJobApplyRequest struct{ BaseRequest }
 //
 func (b *SynchronizationJobApplyRequestBuilder) Request() *SynchronizationJobApplyRequest {
 	return &SynchronizationJobApplyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -283,7 +292,8 @@ type SynchronizationJobRestartRequest struct{ BaseRequest }
 //
 func (b *SynchronizationJobRestartRequestBuilder) Request() *SynchronizationJobRestartRequest {
 	return &SynchronizationJobRestartRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -309,7 +319,8 @@ type SynchronizationJobValidateCredentialsRequest struct{ BaseRequest }
 //
 func (b *SynchronizationJobValidateCredentialsRequestBuilder) Request() *SynchronizationJobValidateCredentialsRequest {
 	return &SynchronizationJobValidateCredentialsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -335,7 +346,8 @@ type SynchronizationSchemaParseExpressionRequest struct{ BaseRequest }
 //
 func (b *SynchronizationSchemaParseExpressionRequestBuilder) Request() *SynchronizationSchemaParseExpressionRequest {
 	return &SynchronizationSchemaParseExpressionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

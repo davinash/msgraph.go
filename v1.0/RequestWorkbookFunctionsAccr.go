@@ -21,7 +21,8 @@ type WorkbookFunctionsAccrIntRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsAccrIntRequestBuilder) Request() *WorkbookFunctionsAccrIntRequest {
 	return &WorkbookFunctionsAccrIntRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsAccrIntMRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsAccrIntMRequestBuilder) Request() *WorkbookFunctionsAccrIntMRequest {
 	return &WorkbookFunctionsAccrIntMRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

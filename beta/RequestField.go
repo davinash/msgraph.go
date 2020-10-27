@@ -10,7 +10,8 @@ type FieldValueSetRequestBuilder struct{ BaseRequestBuilder }
 // Request returns FieldValueSetRequest
 func (b *FieldValueSetRequestBuilder) Request() *FieldValueSetRequest {
 	return &FieldValueSetRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

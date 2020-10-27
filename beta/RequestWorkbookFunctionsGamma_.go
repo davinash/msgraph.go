@@ -21,7 +21,8 @@ type WorkbookFunctionsGamma_DistRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsGamma_DistRequestBuilder) Request() *WorkbookFunctionsGamma_DistRequest {
 	return &WorkbookFunctionsGamma_DistRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsGamma_InvRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsGamma_InvRequestBuilder) Request() *WorkbookFunctionsGamma_InvRequest {
 	return &WorkbookFunctionsGamma_InvRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

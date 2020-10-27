@@ -17,7 +17,8 @@ type WindowsAutopilotDeploymentProfileRequestBuilder struct{ BaseRequestBuilder 
 // Request returns WindowsAutopilotDeploymentProfileRequest
 func (b *WindowsAutopilotDeploymentProfileRequestBuilder) Request() *WindowsAutopilotDeploymentProfileRequest {
 	return &WindowsAutopilotDeploymentProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -50,7 +51,8 @@ type WindowsAutopilotDeploymentProfileAssignmentRequestBuilder struct{ BaseReque
 // Request returns WindowsAutopilotDeploymentProfileAssignmentRequest
 func (b *WindowsAutopilotDeploymentProfileAssignmentRequestBuilder) Request() *WindowsAutopilotDeploymentProfileAssignmentRequest {
 	return &WindowsAutopilotDeploymentProfileAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -83,7 +85,8 @@ type WindowsAutopilotDeviceIdentityRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WindowsAutopilotDeviceIdentityRequest
 func (b *WindowsAutopilotDeviceIdentityRequestBuilder) Request() *WindowsAutopilotDeviceIdentityRequest {
 	return &WindowsAutopilotDeviceIdentityRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -116,7 +119,8 @@ type WindowsAutopilotSettingsRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WindowsAutopilotSettingsRequest
 func (b *WindowsAutopilotSettingsRequestBuilder) Request() *WindowsAutopilotSettingsRequest {
 	return &WindowsAutopilotSettingsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -149,7 +153,8 @@ type WindowsCertificateProfileBaseRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WindowsCertificateProfileBaseRequest
 func (b *WindowsCertificateProfileBaseRequestBuilder) Request() *WindowsCertificateProfileBaseRequest {
 	return &WindowsCertificateProfileBaseRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -182,7 +187,8 @@ type WindowsDefenderApplicationControlSupplementalPolicyRequestBuilder struct{ B
 // Request returns WindowsDefenderApplicationControlSupplementalPolicyRequest
 func (b *WindowsDefenderApplicationControlSupplementalPolicyRequestBuilder) Request() *WindowsDefenderApplicationControlSupplementalPolicyRequest {
 	return &WindowsDefenderApplicationControlSupplementalPolicyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -215,7 +221,8 @@ type WindowsDefenderApplicationControlSupplementalPolicyAssignmentRequestBuilder
 // Request returns WindowsDefenderApplicationControlSupplementalPolicyAssignmentRequest
 func (b *WindowsDefenderApplicationControlSupplementalPolicyAssignmentRequestBuilder) Request() *WindowsDefenderApplicationControlSupplementalPolicyAssignmentRequest {
 	return &WindowsDefenderApplicationControlSupplementalPolicyAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -248,7 +255,8 @@ type WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusRequestB
 // Request returns WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusRequest
 func (b *WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusRequestBuilder) Request() *WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusRequest {
 	return &WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -281,7 +289,8 @@ type WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummaryRequest
 // Request returns WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummaryRequest
 func (b *WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummaryRequestBuilder) Request() *WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummaryRequest {
 	return &WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummaryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -314,7 +323,8 @@ type WindowsDeviceMalwareStateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WindowsDeviceMalwareStateRequest
 func (b *WindowsDeviceMalwareStateRequestBuilder) Request() *WindowsDeviceMalwareStateRequest {
 	return &WindowsDeviceMalwareStateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -347,7 +357,8 @@ type WindowsDomainJoinConfigurationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WindowsDomainJoinConfigurationRequest
 func (b *WindowsDomainJoinConfigurationRequestBuilder) Request() *WindowsDomainJoinConfigurationRequest {
 	return &WindowsDomainJoinConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -380,7 +391,8 @@ type WindowsFeatureUpdateProfileRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WindowsFeatureUpdateProfileRequest
 func (b *WindowsFeatureUpdateProfileRequestBuilder) Request() *WindowsFeatureUpdateProfileRequest {
 	return &WindowsFeatureUpdateProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -413,7 +425,8 @@ type WindowsFeatureUpdateProfileAssignmentRequestBuilder struct{ BaseRequestBuil
 // Request returns WindowsFeatureUpdateProfileAssignmentRequest
 func (b *WindowsFeatureUpdateProfileAssignmentRequestBuilder) Request() *WindowsFeatureUpdateProfileAssignmentRequest {
 	return &WindowsFeatureUpdateProfileAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -446,7 +459,8 @@ type WindowsInformationProtectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WindowsInformationProtectionRequest
 func (b *WindowsInformationProtectionRequestBuilder) Request() *WindowsInformationProtectionRequest {
 	return &WindowsInformationProtectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -479,7 +493,8 @@ type WindowsInformationProtectionAppLearningSummaryRequestBuilder struct{ BaseRe
 // Request returns WindowsInformationProtectionAppLearningSummaryRequest
 func (b *WindowsInformationProtectionAppLearningSummaryRequestBuilder) Request() *WindowsInformationProtectionAppLearningSummaryRequest {
 	return &WindowsInformationProtectionAppLearningSummaryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -512,7 +527,8 @@ type WindowsInformationProtectionAppLockerFileRequestBuilder struct{ BaseRequest
 // Request returns WindowsInformationProtectionAppLockerFileRequest
 func (b *WindowsInformationProtectionAppLockerFileRequestBuilder) Request() *WindowsInformationProtectionAppLockerFileRequest {
 	return &WindowsInformationProtectionAppLockerFileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -545,7 +561,8 @@ type WindowsInformationProtectionDeviceRegistrationRequestBuilder struct{ BaseRe
 // Request returns WindowsInformationProtectionDeviceRegistrationRequest
 func (b *WindowsInformationProtectionDeviceRegistrationRequestBuilder) Request() *WindowsInformationProtectionDeviceRegistrationRequest {
 	return &WindowsInformationProtectionDeviceRegistrationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -578,7 +595,8 @@ type WindowsInformationProtectionNetworkLearningSummaryRequestBuilder struct{ Ba
 // Request returns WindowsInformationProtectionNetworkLearningSummaryRequest
 func (b *WindowsInformationProtectionNetworkLearningSummaryRequestBuilder) Request() *WindowsInformationProtectionNetworkLearningSummaryRequest {
 	return &WindowsInformationProtectionNetworkLearningSummaryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -611,7 +629,8 @@ type WindowsInformationProtectionPolicyRequestBuilder struct{ BaseRequestBuilder
 // Request returns WindowsInformationProtectionPolicyRequest
 func (b *WindowsInformationProtectionPolicyRequestBuilder) Request() *WindowsInformationProtectionPolicyRequest {
 	return &WindowsInformationProtectionPolicyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -644,7 +663,8 @@ type WindowsInformationProtectionWipeActionRequestBuilder struct{ BaseRequestBui
 // Request returns WindowsInformationProtectionWipeActionRequest
 func (b *WindowsInformationProtectionWipeActionRequestBuilder) Request() *WindowsInformationProtectionWipeActionRequest {
 	return &WindowsInformationProtectionWipeActionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -677,7 +697,8 @@ type WindowsMalwareInformationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WindowsMalwareInformationRequest
 func (b *WindowsMalwareInformationRequestBuilder) Request() *WindowsMalwareInformationRequest {
 	return &WindowsMalwareInformationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -710,7 +731,8 @@ type WindowsManagementAppRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WindowsManagementAppRequest
 func (b *WindowsManagementAppRequestBuilder) Request() *WindowsManagementAppRequest {
 	return &WindowsManagementAppRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -743,7 +765,8 @@ type WindowsManagementAppHealthStateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WindowsManagementAppHealthStateRequest
 func (b *WindowsManagementAppHealthStateRequestBuilder) Request() *WindowsManagementAppHealthStateRequest {
 	return &WindowsManagementAppHealthStateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -776,7 +799,8 @@ type WindowsPhone81CertificateProfileBaseRequestBuilder struct{ BaseRequestBuild
 // Request returns WindowsPhone81CertificateProfileBaseRequest
 func (b *WindowsPhone81CertificateProfileBaseRequestBuilder) Request() *WindowsPhone81CertificateProfileBaseRequest {
 	return &WindowsPhone81CertificateProfileBaseRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -809,7 +833,8 @@ type WindowsPhone81ImportedPFXCertificateProfileRequestBuilder struct{ BaseReque
 // Request returns WindowsPhone81ImportedPFXCertificateProfileRequest
 func (b *WindowsPhone81ImportedPFXCertificateProfileRequestBuilder) Request() *WindowsPhone81ImportedPFXCertificateProfileRequest {
 	return &WindowsPhone81ImportedPFXCertificateProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -842,7 +867,8 @@ type WindowsPhone81SCEPCertificateProfileRequestBuilder struct{ BaseRequestBuild
 // Request returns WindowsPhone81SCEPCertificateProfileRequest
 func (b *WindowsPhone81SCEPCertificateProfileRequestBuilder) Request() *WindowsPhone81SCEPCertificateProfileRequest {
 	return &WindowsPhone81SCEPCertificateProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -875,7 +901,8 @@ type WindowsPhone81TrustedRootCertificateRequestBuilder struct{ BaseRequestBuild
 // Request returns WindowsPhone81TrustedRootCertificateRequest
 func (b *WindowsPhone81TrustedRootCertificateRequestBuilder) Request() *WindowsPhone81TrustedRootCertificateRequest {
 	return &WindowsPhone81TrustedRootCertificateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -908,7 +935,8 @@ type WindowsPhone81VpnConfigurationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WindowsPhone81VpnConfigurationRequest
 func (b *WindowsPhone81VpnConfigurationRequestBuilder) Request() *WindowsPhone81VpnConfigurationRequest {
 	return &WindowsPhone81VpnConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -941,7 +969,8 @@ type WindowsPrivacyDataAccessControlItemRequestBuilder struct{ BaseRequestBuilde
 // Request returns WindowsPrivacyDataAccessControlItemRequest
 func (b *WindowsPrivacyDataAccessControlItemRequestBuilder) Request() *WindowsPrivacyDataAccessControlItemRequest {
 	return &WindowsPrivacyDataAccessControlItemRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -974,7 +1003,8 @@ type WindowsProtectionStateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WindowsProtectionStateRequest
 func (b *WindowsProtectionStateRequestBuilder) Request() *WindowsProtectionStateRequest {
 	return &WindowsProtectionStateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1007,7 +1037,8 @@ type WindowsUniversalAppXRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WindowsUniversalAppXRequest
 func (b *WindowsUniversalAppXRequestBuilder) Request() *WindowsUniversalAppXRequest {
 	return &WindowsUniversalAppXRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1040,7 +1071,8 @@ type WindowsUpdateForBusinessConfigurationRequestBuilder struct{ BaseRequestBuil
 // Request returns WindowsUpdateForBusinessConfigurationRequest
 func (b *WindowsUpdateForBusinessConfigurationRequestBuilder) Request() *WindowsUpdateForBusinessConfigurationRequest {
 	return &WindowsUpdateForBusinessConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1073,7 +1105,8 @@ type WindowsUpdateStateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns WindowsUpdateStateRequest
 func (b *WindowsUpdateStateRequestBuilder) Request() *WindowsUpdateStateRequest {
 	return &WindowsUpdateStateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1106,7 +1139,8 @@ type WindowsWiFiEnterpriseEAPConfigurationRequestBuilder struct{ BaseRequestBuil
 // Request returns WindowsWiFiEnterpriseEAPConfigurationRequest
 func (b *WindowsWiFiEnterpriseEAPConfigurationRequestBuilder) Request() *WindowsWiFiEnterpriseEAPConfigurationRequest {
 	return &WindowsWiFiEnterpriseEAPConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1150,7 +1184,8 @@ type WindowsAutopilotDeploymentProfileCollectionHasPayloadLinksRequest struct{ B
 //
 func (b *WindowsAutopilotDeploymentProfileCollectionHasPayloadLinksRequestBuilder) Request() *WindowsAutopilotDeploymentProfileCollectionHasPayloadLinksRequest {
 	return &WindowsAutopilotDeploymentProfileCollectionHasPayloadLinksRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1237,7 +1272,8 @@ type WindowsAutopilotDeploymentProfileAssignRequest struct{ BaseRequest }
 //
 func (b *WindowsAutopilotDeploymentProfileAssignRequestBuilder) Request() *WindowsAutopilotDeploymentProfileAssignRequest {
 	return &WindowsAutopilotDeploymentProfileAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1263,7 +1299,8 @@ type WindowsAutopilotDeviceIdentityAssignUserToDeviceRequest struct{ BaseRequest
 //
 func (b *WindowsAutopilotDeviceIdentityAssignUserToDeviceRequestBuilder) Request() *WindowsAutopilotDeviceIdentityAssignUserToDeviceRequest {
 	return &WindowsAutopilotDeviceIdentityAssignUserToDeviceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1289,7 +1326,8 @@ type WindowsAutopilotDeviceIdentityUnassignUserFromDeviceRequest struct{ BaseReq
 //
 func (b *WindowsAutopilotDeviceIdentityUnassignUserFromDeviceRequestBuilder) Request() *WindowsAutopilotDeviceIdentityUnassignUserFromDeviceRequest {
 	return &WindowsAutopilotDeviceIdentityUnassignUserFromDeviceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1315,7 +1353,8 @@ type WindowsAutopilotDeviceIdentityUpdateDevicePropertiesRequest struct{ BaseReq
 //
 func (b *WindowsAutopilotDeviceIdentityUpdateDevicePropertiesRequestBuilder) Request() *WindowsAutopilotDeviceIdentityUpdateDevicePropertiesRequest {
 	return &WindowsAutopilotDeviceIdentityUpdateDevicePropertiesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1341,7 +1380,8 @@ type WindowsAutopilotDeviceIdentityAssignResourceAccountToDeviceRequest struct{ 
 //
 func (b *WindowsAutopilotDeviceIdentityAssignResourceAccountToDeviceRequestBuilder) Request() *WindowsAutopilotDeviceIdentityAssignResourceAccountToDeviceRequest {
 	return &WindowsAutopilotDeviceIdentityAssignResourceAccountToDeviceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1367,7 +1407,8 @@ type WindowsAutopilotDeviceIdentityUnassignResourceAccountFromDeviceRequest stru
 //
 func (b *WindowsAutopilotDeviceIdentityUnassignResourceAccountFromDeviceRequestBuilder) Request() *WindowsAutopilotDeviceIdentityUnassignResourceAccountFromDeviceRequest {
 	return &WindowsAutopilotDeviceIdentityUnassignResourceAccountFromDeviceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1393,7 +1434,8 @@ type WindowsAutopilotSettingsSyncRequest struct{ BaseRequest }
 //
 func (b *WindowsAutopilotSettingsSyncRequestBuilder) Request() *WindowsAutopilotSettingsSyncRequest {
 	return &WindowsAutopilotSettingsSyncRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1419,7 +1461,8 @@ type WindowsDefenderApplicationControlSupplementalPolicyAssignRequest struct{ Ba
 //
 func (b *WindowsDefenderApplicationControlSupplementalPolicyAssignRequestBuilder) Request() *WindowsDefenderApplicationControlSupplementalPolicyAssignRequest {
 	return &WindowsDefenderApplicationControlSupplementalPolicyAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1445,7 +1488,8 @@ type WindowsFeatureUpdateProfileAssignRequest struct{ BaseRequest }
 //
 func (b *WindowsFeatureUpdateProfileAssignRequestBuilder) Request() *WindowsFeatureUpdateProfileAssignRequest {
 	return &WindowsFeatureUpdateProfileAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1471,7 +1515,8 @@ type WindowsInformationProtectionAssignRequest struct{ BaseRequest }
 //
 func (b *WindowsInformationProtectionAssignRequestBuilder) Request() *WindowsInformationProtectionAssignRequest {
 	return &WindowsInformationProtectionAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1497,7 +1542,8 @@ type WindowsInformationProtectionDeviceRegistrationWipeRequest struct{ BaseReque
 //
 func (b *WindowsInformationProtectionDeviceRegistrationWipeRequestBuilder) Request() *WindowsInformationProtectionDeviceRegistrationWipeRequest {
 	return &WindowsInformationProtectionDeviceRegistrationWipeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1523,7 +1569,8 @@ type WindowsUpdateForBusinessConfigurationExtendFeatureUpdatesPauseRequest struc
 //
 func (b *WindowsUpdateForBusinessConfigurationExtendFeatureUpdatesPauseRequestBuilder) Request() *WindowsUpdateForBusinessConfigurationExtendFeatureUpdatesPauseRequest {
 	return &WindowsUpdateForBusinessConfigurationExtendFeatureUpdatesPauseRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1549,7 +1596,8 @@ type WindowsUpdateForBusinessConfigurationExtendQualityUpdatesPauseRequest struc
 //
 func (b *WindowsUpdateForBusinessConfigurationExtendQualityUpdatesPauseRequestBuilder) Request() *WindowsUpdateForBusinessConfigurationExtendQualityUpdatesPauseRequest {
 	return &WindowsUpdateForBusinessConfigurationExtendQualityUpdatesPauseRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

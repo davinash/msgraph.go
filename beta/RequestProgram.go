@@ -10,7 +10,8 @@ type ProgramRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ProgramRequest
 func (b *ProgramRequestBuilder) Request() *ProgramRequest {
 	return &ProgramRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type ProgramControlRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ProgramControlRequest
 func (b *ProgramControlRequestBuilder) Request() *ProgramControlRequest {
 	return &ProgramControlRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type ProgramControlTypeRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ProgramControlTypeRequest
 func (b *ProgramControlTypeRequestBuilder) Request() *ProgramControlTypeRequest {
 	return &ProgramControlTypeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -17,7 +17,8 @@ type UserRequestBuilder struct{ BaseRequestBuilder }
 // Request returns UserRequest
 func (b *UserRequestBuilder) Request() *UserRequest {
 	return &UserRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -50,7 +51,8 @@ type UserAccountInformationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns UserAccountInformationRequest
 func (b *UserAccountInformationRequestBuilder) Request() *UserAccountInformationRequest {
 	return &UserAccountInformationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -83,7 +85,8 @@ type UserActivityRequestBuilder struct{ BaseRequestBuilder }
 // Request returns UserActivityRequest
 func (b *UserActivityRequestBuilder) Request() *UserActivityRequest {
 	return &UserActivityRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -116,7 +119,8 @@ type UserAnalyticsRequestBuilder struct{ BaseRequestBuilder }
 // Request returns UserAnalyticsRequest
 func (b *UserAnalyticsRequestBuilder) Request() *UserAnalyticsRequest {
 	return &UserAnalyticsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -149,7 +153,8 @@ type UserAppInstallStatusRequestBuilder struct{ BaseRequestBuilder }
 // Request returns UserAppInstallStatusRequest
 func (b *UserAppInstallStatusRequestBuilder) Request() *UserAppInstallStatusRequest {
 	return &UserAppInstallStatusRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -182,7 +187,8 @@ type UserConfigurationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns UserConfigurationRequest
 func (b *UserConfigurationRequestBuilder) Request() *UserConfigurationRequest {
 	return &UserConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -215,7 +221,8 @@ type UserCredentialUsageDetailsRequestBuilder struct{ BaseRequestBuilder }
 // Request returns UserCredentialUsageDetailsRequest
 func (b *UserCredentialUsageDetailsRequestBuilder) Request() *UserCredentialUsageDetailsRequest {
 	return &UserCredentialUsageDetailsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -248,7 +255,8 @@ type UserExperienceAnalyticsBaselineRequestBuilder struct{ BaseRequestBuilder }
 // Request returns UserExperienceAnalyticsBaselineRequest
 func (b *UserExperienceAnalyticsBaselineRequestBuilder) Request() *UserExperienceAnalyticsBaselineRequest {
 	return &UserExperienceAnalyticsBaselineRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -281,7 +289,8 @@ type UserExperienceAnalyticsCategoryRequestBuilder struct{ BaseRequestBuilder }
 // Request returns UserExperienceAnalyticsCategoryRequest
 func (b *UserExperienceAnalyticsCategoryRequestBuilder) Request() *UserExperienceAnalyticsCategoryRequest {
 	return &UserExperienceAnalyticsCategoryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -314,7 +323,8 @@ type UserExperienceAnalyticsDevicePerformanceRequestBuilder struct{ BaseRequestB
 // Request returns UserExperienceAnalyticsDevicePerformanceRequest
 func (b *UserExperienceAnalyticsDevicePerformanceRequestBuilder) Request() *UserExperienceAnalyticsDevicePerformanceRequest {
 	return &UserExperienceAnalyticsDevicePerformanceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -347,7 +357,8 @@ type UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder struct{ BaseReque
 // Request returns UserExperienceAnalyticsDeviceStartupHistoryRequest
 func (b *UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder) Request() *UserExperienceAnalyticsDeviceStartupHistoryRequest {
 	return &UserExperienceAnalyticsDeviceStartupHistoryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -380,7 +391,8 @@ type UserExperienceAnalyticsMetricRequestBuilder struct{ BaseRequestBuilder }
 // Request returns UserExperienceAnalyticsMetricRequest
 func (b *UserExperienceAnalyticsMetricRequestBuilder) Request() *UserExperienceAnalyticsMetricRequest {
 	return &UserExperienceAnalyticsMetricRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -413,7 +425,8 @@ type UserExperienceAnalyticsOverviewRequestBuilder struct{ BaseRequestBuilder }
 // Request returns UserExperienceAnalyticsOverviewRequest
 func (b *UserExperienceAnalyticsOverviewRequestBuilder) Request() *UserExperienceAnalyticsOverviewRequest {
 	return &UserExperienceAnalyticsOverviewRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -446,7 +459,8 @@ type UserExperienceAnalyticsRegressionSummaryRequestBuilder struct{ BaseRequestB
 // Request returns UserExperienceAnalyticsRegressionSummaryRequest
 func (b *UserExperienceAnalyticsRegressionSummaryRequestBuilder) Request() *UserExperienceAnalyticsRegressionSummaryRequest {
 	return &UserExperienceAnalyticsRegressionSummaryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -479,7 +493,8 @@ type UserInstallStateSummaryRequestBuilder struct{ BaseRequestBuilder }
 // Request returns UserInstallStateSummaryRequest
 func (b *UserInstallStateSummaryRequestBuilder) Request() *UserInstallStateSummaryRequest {
 	return &UserInstallStateSummaryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -512,7 +527,8 @@ type UserPFXCertificateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns UserPFXCertificateRequest
 func (b *UserPFXCertificateRequestBuilder) Request() *UserPFXCertificateRequest {
 	return &UserPFXCertificateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -545,7 +561,8 @@ type UserSecurityProfileRequestBuilder struct{ BaseRequestBuilder }
 // Request returns UserSecurityProfileRequest
 func (b *UserSecurityProfileRequestBuilder) Request() *UserSecurityProfileRequest {
 	return &UserSecurityProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -578,7 +595,8 @@ type UserSettingsRequestBuilder struct{ BaseRequestBuilder }
 // Request returns UserSettingsRequest
 func (b *UserSettingsRequestBuilder) Request() *UserSettingsRequest {
 	return &UserSettingsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -611,7 +629,8 @@ type UserTeamworkRequestBuilder struct{ BaseRequestBuilder }
 // Request returns UserTeamworkRequest
 func (b *UserTeamworkRequestBuilder) Request() *UserTeamworkRequest {
 	return &UserTeamworkRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -655,7 +674,8 @@ type UserAssignLicenseRequest struct{ BaseRequest }
 //
 func (b *UserAssignLicenseRequestBuilder) Request() *UserAssignLicenseRequest {
 	return &UserAssignLicenseRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -682,7 +702,8 @@ type UserChangePasswordRequest struct{ BaseRequest }
 //
 func (b *UserChangePasswordRequestBuilder) Request() *UserChangePasswordRequest {
 	return &UserChangePasswordRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -708,7 +729,8 @@ type UserInvalidateAllRefreshTokensRequest struct{ BaseRequest }
 //
 func (b *UserInvalidateAllRefreshTokensRequestBuilder) Request() *UserInvalidateAllRefreshTokensRequest {
 	return &UserInvalidateAllRefreshTokensRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -735,7 +757,8 @@ type UserRevokeSignInSessionsRequest struct{ BaseRequest }
 //
 func (b *UserRevokeSignInSessionsRequestBuilder) Request() *UserRevokeSignInSessionsRequest {
 	return &UserRevokeSignInSessionsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -762,7 +785,8 @@ type UserReprocessLicenseAssignmentRequest struct{ BaseRequest }
 //
 func (b *UserReprocessLicenseAssignmentRequestBuilder) Request() *UserReprocessLicenseAssignmentRequest {
 	return &UserReprocessLicenseAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -789,7 +813,8 @@ type UserFindMeetingTimesRequest struct{ BaseRequest }
 //
 func (b *UserFindMeetingTimesRequestBuilder) Request() *UserFindMeetingTimesRequest {
 	return &UserFindMeetingTimesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -816,7 +841,8 @@ type UserSendMailRequest struct{ BaseRequest }
 //
 func (b *UserSendMailRequestBuilder) Request() *UserSendMailRequest {
 	return &UserSendMailRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -842,7 +868,8 @@ type UserGetMailTipsRequest struct{ BaseRequest }
 //
 func (b *UserGetMailTipsRequestBuilder) Request() *UserGetMailTipsRequest {
 	return &UserGetMailTipsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -929,7 +956,8 @@ type UserTranslateExchangeIDsRequest struct{ BaseRequest }
 //
 func (b *UserTranslateExchangeIDsRequestBuilder) Request() *UserTranslateExchangeIDsRequest {
 	return &UserTranslateExchangeIDsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1016,7 +1044,8 @@ type UserRemoveAllDevicesFromManagementRequest struct{ BaseRequest }
 //
 func (b *UserRemoveAllDevicesFromManagementRequestBuilder) Request() *UserRemoveAllDevicesFromManagementRequest {
 	return &UserRemoveAllDevicesFromManagementRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1042,7 +1071,8 @@ type UserWipeManagedAppRegistrationByDeviceTagRequest struct{ BaseRequest }
 //
 func (b *UserWipeManagedAppRegistrationByDeviceTagRequestBuilder) Request() *UserWipeManagedAppRegistrationByDeviceTagRequest {
 	return &UserWipeManagedAppRegistrationByDeviceTagRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1068,7 +1098,8 @@ type UserWipeManagedAppRegistrationsByDeviceTagRequest struct{ BaseRequest }
 //
 func (b *UserWipeManagedAppRegistrationsByDeviceTagRequestBuilder) Request() *UserWipeManagedAppRegistrationsByDeviceTagRequest {
 	return &UserWipeManagedAppRegistrationsByDeviceTagRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -1094,7 +1125,8 @@ type UserExportPersonalDataRequest struct{ BaseRequest }
 //
 func (b *UserExportPersonalDataRequestBuilder) Request() *UserExportPersonalDataRequest {
 	return &UserExportPersonalDataRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

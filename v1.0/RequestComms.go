@@ -10,7 +10,8 @@ type CommsOperationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns CommsOperationRequest
 func (b *CommsOperationRequestBuilder) Request() *CommsOperationRequest {
 	return &CommsOperationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

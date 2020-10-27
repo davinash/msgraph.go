@@ -21,7 +21,8 @@ type WorkbookFunctionsSqrtRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsSqrtRequestBuilder) Request() *WorkbookFunctionsSqrtRequest {
 	return &WorkbookFunctionsSqrtRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsSqrtPiRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsSqrtPiRequestBuilder) Request() *WorkbookFunctionsSqrtPiRequest {
 	return &WorkbookFunctionsSqrtPiRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

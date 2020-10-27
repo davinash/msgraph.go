@@ -21,7 +21,8 @@ type WorkbookFunctionsSydRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsSydRequestBuilder) Request() *WorkbookFunctionsSydRequest {
 	return &WorkbookFunctionsSydRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

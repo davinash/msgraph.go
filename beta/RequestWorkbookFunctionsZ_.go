@@ -21,7 +21,8 @@ type WorkbookFunctionsZ_TestRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsZ_TestRequestBuilder) Request() *WorkbookFunctionsZ_TestRequest {
 	return &WorkbookFunctionsZ_TestRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

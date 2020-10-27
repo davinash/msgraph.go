@@ -10,7 +10,8 @@ type PictureRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PictureRequest
 func (b *PictureRequestBuilder) Request() *PictureRequest {
 	return &PictureRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -10,7 +10,8 @@ type ShipmentMethodRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ShipmentMethodRequest
 func (b *ShipmentMethodRequestBuilder) Request() *ShipmentMethodRequest {
 	return &ShipmentMethodRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -21,7 +21,8 @@ type WorkbookFunctionsRandRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsRandRequestBuilder) Request() *WorkbookFunctionsRandRequest {
 	return &WorkbookFunctionsRandRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsRandBetweenRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsRandBetweenRequestBuilder) Request() *WorkbookFunctionsRandBetweenRequest {
 	return &WorkbookFunctionsRandBetweenRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

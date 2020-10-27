@@ -10,7 +10,8 @@ type AppleEnrollmentProfileAssignmentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns AppleEnrollmentProfileAssignmentRequest
 func (b *AppleEnrollmentProfileAssignmentRequestBuilder) Request() *AppleEnrollmentProfileAssignmentRequest {
 	return &AppleEnrollmentProfileAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type ApplePushNotificationCertificateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ApplePushNotificationCertificateRequest
 func (b *ApplePushNotificationCertificateRequestBuilder) Request() *ApplePushNotificationCertificateRequest {
 	return &ApplePushNotificationCertificateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type AppleUserInitiatedEnrollmentProfileRequestBuilder struct{ BaseRequestBuilde
 // Request returns AppleUserInitiatedEnrollmentProfileRequest
 func (b *AppleUserInitiatedEnrollmentProfileRequestBuilder) Request() *AppleUserInitiatedEnrollmentProfileRequest {
 	return &AppleUserInitiatedEnrollmentProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -120,7 +123,8 @@ type AppleUserInitiatedEnrollmentProfileSetPriorityRequest struct{ BaseRequest }
 //
 func (b *AppleUserInitiatedEnrollmentProfileSetPriorityRequestBuilder) Request() *AppleUserInitiatedEnrollmentProfileSetPriorityRequest {
 	return &AppleUserInitiatedEnrollmentProfileSetPriorityRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

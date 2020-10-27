@@ -21,7 +21,8 @@ type WorkbookFunctionsImaginaryRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsImaginaryRequestBuilder) Request() *WorkbookFunctionsImaginaryRequest {
 	return &WorkbookFunctionsImaginaryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

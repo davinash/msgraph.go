@@ -21,7 +21,8 @@ type WorkbookFunctionsMatchRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsMatchRequestBuilder) Request() *WorkbookFunctionsMatchRequest {
 	return &WorkbookFunctionsMatchRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

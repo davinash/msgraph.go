@@ -10,7 +10,8 @@ type ChatRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ChatRequest
 func (b *ChatRequestBuilder) Request() *ChatRequest {
 	return &ChatRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type ChatMessageRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ChatMessageRequest
 func (b *ChatMessageRequestBuilder) Request() *ChatMessageRequest {
 	return &ChatMessageRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type ChatMessageHostedContentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ChatMessageHostedContentRequest
 func (b *ChatMessageHostedContentRequestBuilder) Request() *ChatMessageHostedContentRequest {
 	return &ChatMessageHostedContentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

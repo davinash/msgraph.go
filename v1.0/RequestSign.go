@@ -10,7 +10,8 @@ type SignInRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SignInRequest
 func (b *SignInRequestBuilder) Request() *SignInRequest {
 	return &SignInRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

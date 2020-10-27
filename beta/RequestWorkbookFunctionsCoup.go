@@ -21,7 +21,8 @@ type WorkbookFunctionsCoupDayBsRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsCoupDayBsRequestBuilder) Request() *WorkbookFunctionsCoupDayBsRequest {
 	return &WorkbookFunctionsCoupDayBsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsCoupDaysRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsCoupDaysRequestBuilder) Request() *WorkbookFunctionsCoupDaysRequest {
 	return &WorkbookFunctionsCoupDaysRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -75,7 +77,8 @@ type WorkbookFunctionsCoupDaysNcRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsCoupDaysNcRequestBuilder) Request() *WorkbookFunctionsCoupDaysNcRequest {
 	return &WorkbookFunctionsCoupDaysNcRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -102,7 +105,8 @@ type WorkbookFunctionsCoupNcdRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsCoupNcdRequestBuilder) Request() *WorkbookFunctionsCoupNcdRequest {
 	return &WorkbookFunctionsCoupNcdRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -129,7 +133,8 @@ type WorkbookFunctionsCoupNumRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsCoupNumRequestBuilder) Request() *WorkbookFunctionsCoupNumRequest {
 	return &WorkbookFunctionsCoupNumRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -156,7 +161,8 @@ type WorkbookFunctionsCoupPcdRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsCoupPcdRequestBuilder) Request() *WorkbookFunctionsCoupPcdRequest {
 	return &WorkbookFunctionsCoupPcdRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

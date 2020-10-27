@@ -10,7 +10,8 @@ type MobileAppRequestBuilder struct{ BaseRequestBuilder }
 // Request returns MobileAppRequest
 func (b *MobileAppRequestBuilder) Request() *MobileAppRequest {
 	return &MobileAppRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type MobileAppAssignmentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns MobileAppAssignmentRequest
 func (b *MobileAppAssignmentRequestBuilder) Request() *MobileAppAssignmentRequest {
 	return &MobileAppAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type MobileAppCategoryRequestBuilder struct{ BaseRequestBuilder }
 // Request returns MobileAppCategoryRequest
 func (b *MobileAppCategoryRequestBuilder) Request() *MobileAppCategoryRequest {
 	return &MobileAppCategoryRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -109,7 +112,8 @@ type MobileAppContentRequestBuilder struct{ BaseRequestBuilder }
 // Request returns MobileAppContentRequest
 func (b *MobileAppContentRequestBuilder) Request() *MobileAppContentRequest {
 	return &MobileAppContentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -142,7 +146,8 @@ type MobileAppContentFileRequestBuilder struct{ BaseRequestBuilder }
 // Request returns MobileAppContentFileRequest
 func (b *MobileAppContentFileRequestBuilder) Request() *MobileAppContentFileRequest {
 	return &MobileAppContentFileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -175,7 +180,8 @@ type MobileLobAppRequestBuilder struct{ BaseRequestBuilder }
 // Request returns MobileLobAppRequest
 func (b *MobileLobAppRequestBuilder) Request() *MobileLobAppRequest {
 	return &MobileLobAppRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -208,7 +214,8 @@ type MobileThreatDefenseConnectorRequestBuilder struct{ BaseRequestBuilder }
 // Request returns MobileThreatDefenseConnectorRequest
 func (b *MobileThreatDefenseConnectorRequestBuilder) Request() *MobileThreatDefenseConnectorRequest {
 	return &MobileThreatDefenseConnectorRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -252,7 +259,8 @@ type MobileAppAssignRequest struct{ BaseRequest }
 //
 func (b *MobileAppAssignRequestBuilder) Request() *MobileAppAssignRequest {
 	return &MobileAppAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -278,7 +286,8 @@ type MobileAppContentFileCommitRequest struct{ BaseRequest }
 //
 func (b *MobileAppContentFileCommitRequestBuilder) Request() *MobileAppContentFileCommitRequest {
 	return &MobileAppContentFileCommitRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -304,7 +313,8 @@ type MobileAppContentFileRenewUploadRequest struct{ BaseRequest }
 //
 func (b *MobileAppContentFileRenewUploadRequestBuilder) Request() *MobileAppContentFileRenewUploadRequest {
 	return &MobileAppContentFileRenewUploadRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

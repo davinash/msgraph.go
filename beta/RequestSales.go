@@ -10,7 +10,8 @@ type SalesCreditMemoRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SalesCreditMemoRequest
 func (b *SalesCreditMemoRequestBuilder) Request() *SalesCreditMemoRequest {
 	return &SalesCreditMemoRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type SalesCreditMemoLineRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SalesCreditMemoLineRequest
 func (b *SalesCreditMemoLineRequestBuilder) Request() *SalesCreditMemoLineRequest {
 	return &SalesCreditMemoLineRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -76,7 +78,8 @@ type SalesInvoiceRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SalesInvoiceRequest
 func (b *SalesInvoiceRequestBuilder) Request() *SalesInvoiceRequest {
 	return &SalesInvoiceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -109,7 +112,8 @@ type SalesInvoiceLineRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SalesInvoiceLineRequest
 func (b *SalesInvoiceLineRequestBuilder) Request() *SalesInvoiceLineRequest {
 	return &SalesInvoiceLineRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -142,7 +146,8 @@ type SalesOrderRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SalesOrderRequest
 func (b *SalesOrderRequestBuilder) Request() *SalesOrderRequest {
 	return &SalesOrderRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -175,7 +180,8 @@ type SalesOrderLineRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SalesOrderLineRequest
 func (b *SalesOrderLineRequestBuilder) Request() *SalesOrderLineRequest {
 	return &SalesOrderLineRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -208,7 +214,8 @@ type SalesQuoteRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SalesQuoteRequest
 func (b *SalesQuoteRequestBuilder) Request() *SalesQuoteRequest {
 	return &SalesQuoteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -241,7 +248,8 @@ type SalesQuoteLineRequestBuilder struct{ BaseRequestBuilder }
 // Request returns SalesQuoteLineRequest
 func (b *SalesQuoteLineRequestBuilder) Request() *SalesQuoteLineRequest {
 	return &SalesQuoteLineRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -285,7 +293,8 @@ type SalesInvoiceCancelAndSendRequest struct{ BaseRequest }
 //
 func (b *SalesInvoiceCancelAndSendRequestBuilder) Request() *SalesInvoiceCancelAndSendRequest {
 	return &SalesInvoiceCancelAndSendRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -311,7 +320,8 @@ type SalesInvoiceCancelRequest struct{ BaseRequest }
 //
 func (b *SalesInvoiceCancelRequestBuilder) Request() *SalesInvoiceCancelRequest {
 	return &SalesInvoiceCancelRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -337,7 +347,8 @@ type SalesInvoicePostAndSendRequest struct{ BaseRequest }
 //
 func (b *SalesInvoicePostAndSendRequestBuilder) Request() *SalesInvoicePostAndSendRequest {
 	return &SalesInvoicePostAndSendRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -363,7 +374,8 @@ type SalesInvoicePostRequest struct{ BaseRequest }
 //
 func (b *SalesInvoicePostRequestBuilder) Request() *SalesInvoicePostRequest {
 	return &SalesInvoicePostRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -389,7 +401,8 @@ type SalesInvoiceSendRequest struct{ BaseRequest }
 //
 func (b *SalesInvoiceSendRequestBuilder) Request() *SalesInvoiceSendRequest {
 	return &SalesInvoiceSendRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -415,7 +428,8 @@ type SalesQuoteMakeInvoiceRequest struct{ BaseRequest }
 //
 func (b *SalesQuoteMakeInvoiceRequestBuilder) Request() *SalesQuoteMakeInvoiceRequest {
 	return &SalesQuoteMakeInvoiceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -441,7 +455,8 @@ type SalesQuoteSendRequest struct{ BaseRequest }
 //
 func (b *SalesQuoteSendRequestBuilder) Request() *SalesQuoteSendRequest {
 	return &SalesQuoteSendRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

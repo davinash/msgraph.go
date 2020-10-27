@@ -10,7 +10,8 @@ type EnrollmentConfigurationAssignmentRequestBuilder struct{ BaseRequestBuilder 
 // Request returns EnrollmentConfigurationAssignmentRequest
 func (b *EnrollmentConfigurationAssignmentRequestBuilder) Request() *EnrollmentConfigurationAssignmentRequest {
 	return &EnrollmentConfigurationAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

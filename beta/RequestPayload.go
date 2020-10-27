@@ -10,7 +10,8 @@ type PayloadResponseRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PayloadResponseRequest
 func (b *PayloadResponseRequestBuilder) Request() *PayloadResponseRequest {
 	return &PayloadResponseRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

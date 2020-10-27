@@ -10,7 +10,8 @@ type PaymentMethodRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PaymentMethodRequest
 func (b *PaymentMethodRequestBuilder) Request() *PaymentMethodRequest {
 	return &PaymentMethodRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type PaymentTermRequestBuilder struct{ BaseRequestBuilder }
 // Request returns PaymentTermRequest
 func (b *PaymentTermRequestBuilder) Request() *PaymentTermRequest {
 	return &PaymentTermRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

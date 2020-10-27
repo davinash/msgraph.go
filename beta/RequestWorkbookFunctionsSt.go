@@ -21,7 +21,8 @@ type WorkbookFunctionsStDevARequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsStDevARequestBuilder) Request() *WorkbookFunctionsStDevARequest {
 	return &WorkbookFunctionsStDevARequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -48,7 +49,8 @@ type WorkbookFunctionsStDevPARequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsStDevPARequestBuilder) Request() *WorkbookFunctionsStDevPARequest {
 	return &WorkbookFunctionsStDevPARequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -75,7 +77,8 @@ type WorkbookFunctionsStDev_PRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsStDev_PRequestBuilder) Request() *WorkbookFunctionsStDev_PRequest {
 	return &WorkbookFunctionsStDev_PRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -102,7 +105,8 @@ type WorkbookFunctionsStDev_SRequest struct{ BaseRequest }
 //
 func (b *WorkbookFunctionsStDev_SRequestBuilder) Request() *WorkbookFunctionsStDev_SRequest {
 	return &WorkbookFunctionsStDev_SRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

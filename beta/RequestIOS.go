@@ -17,7 +17,8 @@ type IOSCertificateProfileRequestBuilder struct{ BaseRequestBuilder }
 // Request returns IOSCertificateProfileRequest
 func (b *IOSCertificateProfileRequestBuilder) Request() *IOSCertificateProfileRequest {
 	return &IOSCertificateProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -50,7 +51,8 @@ type IOSCertificateProfileBaseRequestBuilder struct{ BaseRequestBuilder }
 // Request returns IOSCertificateProfileBaseRequest
 func (b *IOSCertificateProfileBaseRequestBuilder) Request() *IOSCertificateProfileBaseRequest {
 	return &IOSCertificateProfileBaseRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -83,7 +85,8 @@ type IOSDerivedCredentialAuthenticationConfigurationRequestBuilder struct{ BaseR
 // Request returns IOSDerivedCredentialAuthenticationConfigurationRequest
 func (b *IOSDerivedCredentialAuthenticationConfigurationRequestBuilder) Request() *IOSDerivedCredentialAuthenticationConfigurationRequest {
 	return &IOSDerivedCredentialAuthenticationConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -116,7 +119,8 @@ type IOSDeviceFeaturesConfigurationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns IOSDeviceFeaturesConfigurationRequest
 func (b *IOSDeviceFeaturesConfigurationRequestBuilder) Request() *IOSDeviceFeaturesConfigurationRequest {
 	return &IOSDeviceFeaturesConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -149,7 +153,8 @@ type IOSEasEmailProfileConfigurationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns IOSEasEmailProfileConfigurationRequest
 func (b *IOSEasEmailProfileConfigurationRequestBuilder) Request() *IOSEasEmailProfileConfigurationRequest {
 	return &IOSEasEmailProfileConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -182,7 +187,8 @@ type IOSEnterpriseWiFiConfigurationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns IOSEnterpriseWiFiConfigurationRequest
 func (b *IOSEnterpriseWiFiConfigurationRequestBuilder) Request() *IOSEnterpriseWiFiConfigurationRequest {
 	return &IOSEnterpriseWiFiConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -215,7 +221,8 @@ type IOSImportedPFXCertificateProfileRequestBuilder struct{ BaseRequestBuilder }
 // Request returns IOSImportedPFXCertificateProfileRequest
 func (b *IOSImportedPFXCertificateProfileRequestBuilder) Request() *IOSImportedPFXCertificateProfileRequest {
 	return &IOSImportedPFXCertificateProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -248,7 +255,8 @@ type IOSLobAppProvisioningConfigurationRequestBuilder struct{ BaseRequestBuilder
 // Request returns IOSLobAppProvisioningConfigurationRequest
 func (b *IOSLobAppProvisioningConfigurationRequestBuilder) Request() *IOSLobAppProvisioningConfigurationRequest {
 	return &IOSLobAppProvisioningConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -281,7 +289,8 @@ type IOSLobAppProvisioningConfigurationAssignmentRequestBuilder struct{ BaseRequ
 // Request returns IOSLobAppProvisioningConfigurationAssignmentRequest
 func (b *IOSLobAppProvisioningConfigurationAssignmentRequestBuilder) Request() *IOSLobAppProvisioningConfigurationAssignmentRequest {
 	return &IOSLobAppProvisioningConfigurationAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -314,7 +323,8 @@ type IOSManagedAppProtectionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns IOSManagedAppProtectionRequest
 func (b *IOSManagedAppProtectionRequestBuilder) Request() *IOSManagedAppProtectionRequest {
 	return &IOSManagedAppProtectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -347,7 +357,8 @@ type IOSPkcsCertificateProfileRequestBuilder struct{ BaseRequestBuilder }
 // Request returns IOSPkcsCertificateProfileRequest
 func (b *IOSPkcsCertificateProfileRequestBuilder) Request() *IOSPkcsCertificateProfileRequest {
 	return &IOSPkcsCertificateProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -380,7 +391,8 @@ type IOSScepCertificateProfileRequestBuilder struct{ BaseRequestBuilder }
 // Request returns IOSScepCertificateProfileRequest
 func (b *IOSScepCertificateProfileRequestBuilder) Request() *IOSScepCertificateProfileRequest {
 	return &IOSScepCertificateProfileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -413,7 +425,8 @@ type IOSTrustedRootCertificateRequestBuilder struct{ BaseRequestBuilder }
 // Request returns IOSTrustedRootCertificateRequest
 func (b *IOSTrustedRootCertificateRequestBuilder) Request() *IOSTrustedRootCertificateRequest {
 	return &IOSTrustedRootCertificateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -446,7 +459,8 @@ type IOSUpdateDeviceStatusRequestBuilder struct{ BaseRequestBuilder }
 // Request returns IOSUpdateDeviceStatusRequest
 func (b *IOSUpdateDeviceStatusRequestBuilder) Request() *IOSUpdateDeviceStatusRequest {
 	return &IOSUpdateDeviceStatusRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -479,7 +493,8 @@ type IOSVPNConfigurationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns IOSVPNConfigurationRequest
 func (b *IOSVPNConfigurationRequestBuilder) Request() *IOSVPNConfigurationRequest {
 	return &IOSVPNConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -512,7 +527,8 @@ type IOSVPPAppRequestBuilder struct{ BaseRequestBuilder }
 // Request returns IOSVPPAppRequest
 func (b *IOSVPPAppRequestBuilder) Request() *IOSVPPAppRequest {
 	return &IOSVPPAppRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -545,7 +561,8 @@ type IOSVPPAppAssignedLicenseRequestBuilder struct{ BaseRequestBuilder }
 // Request returns IOSVPPAppAssignedLicenseRequest
 func (b *IOSVPPAppAssignedLicenseRequestBuilder) Request() *IOSVPPAppAssignedLicenseRequest {
 	return &IOSVPPAppAssignedLicenseRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -589,7 +606,8 @@ type IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequest struct{ 
 //
 func (b *IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequestBuilder) Request() *IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequest {
 	return &IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -676,7 +694,8 @@ type IOSManagedAppProtectionCollectionHasPayloadLinksRequest struct{ BaseRequest
 //
 func (b *IOSManagedAppProtectionCollectionHasPayloadLinksRequestBuilder) Request() *IOSManagedAppProtectionCollectionHasPayloadLinksRequest {
 	return &IOSManagedAppProtectionCollectionHasPayloadLinksRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -763,7 +782,8 @@ type IOSLobAppProvisioningConfigurationAssignRequest struct{ BaseRequest }
 //
 func (b *IOSLobAppProvisioningConfigurationAssignRequestBuilder) Request() *IOSLobAppProvisioningConfigurationAssignRequest {
 	return &IOSLobAppProvisioningConfigurationAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -789,7 +809,8 @@ type IOSVPPAppRevokeAllLicensesRequest struct{ BaseRequest }
 //
 func (b *IOSVPPAppRevokeAllLicensesRequestBuilder) Request() *IOSVPPAppRevokeAllLicensesRequest {
 	return &IOSVPPAppRevokeAllLicensesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -815,7 +836,8 @@ type IOSVPPAppRevokeUserLicenseRequest struct{ BaseRequest }
 //
 func (b *IOSVPPAppRevokeUserLicenseRequestBuilder) Request() *IOSVPPAppRevokeUserLicenseRequest {
 	return &IOSVPPAppRevokeUserLicenseRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -841,7 +863,8 @@ type IOSVPPAppRevokeDeviceLicenseRequest struct{ BaseRequest }
 //
 func (b *IOSVPPAppRevokeDeviceLicenseRequestBuilder) Request() *IOSVPPAppRevokeDeviceLicenseRequest {
 	return &IOSVPPAppRevokeDeviceLicenseRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

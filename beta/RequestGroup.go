@@ -17,7 +17,8 @@ type GroupRequestBuilder struct{ BaseRequestBuilder }
 // Request returns GroupRequest
 func (b *GroupRequestBuilder) Request() *GroupRequest {
 	return &GroupRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -50,7 +51,8 @@ type GroupLifecyclePolicyRequestBuilder struct{ BaseRequestBuilder }
 // Request returns GroupLifecyclePolicyRequest
 func (b *GroupLifecyclePolicyRequestBuilder) Request() *GroupLifecyclePolicyRequest {
 	return &GroupLifecyclePolicyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -83,7 +85,8 @@ type GroupPolicyConfigurationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns GroupPolicyConfigurationRequest
 func (b *GroupPolicyConfigurationRequestBuilder) Request() *GroupPolicyConfigurationRequest {
 	return &GroupPolicyConfigurationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -116,7 +119,8 @@ type GroupPolicyConfigurationAssignmentRequestBuilder struct{ BaseRequestBuilder
 // Request returns GroupPolicyConfigurationAssignmentRequest
 func (b *GroupPolicyConfigurationAssignmentRequestBuilder) Request() *GroupPolicyConfigurationAssignmentRequest {
 	return &GroupPolicyConfigurationAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -149,7 +153,8 @@ type GroupPolicyDefinitionRequestBuilder struct{ BaseRequestBuilder }
 // Request returns GroupPolicyDefinitionRequest
 func (b *GroupPolicyDefinitionRequestBuilder) Request() *GroupPolicyDefinitionRequest {
 	return &GroupPolicyDefinitionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -182,7 +187,8 @@ type GroupPolicyDefinitionFileRequestBuilder struct{ BaseRequestBuilder }
 // Request returns GroupPolicyDefinitionFileRequest
 func (b *GroupPolicyDefinitionFileRequestBuilder) Request() *GroupPolicyDefinitionFileRequest {
 	return &GroupPolicyDefinitionFileRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -215,7 +221,8 @@ type GroupPolicyDefinitionValueRequestBuilder struct{ BaseRequestBuilder }
 // Request returns GroupPolicyDefinitionValueRequest
 func (b *GroupPolicyDefinitionValueRequestBuilder) Request() *GroupPolicyDefinitionValueRequest {
 	return &GroupPolicyDefinitionValueRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -248,7 +255,8 @@ type GroupPolicyMigrationReportRequestBuilder struct{ BaseRequestBuilder }
 // Request returns GroupPolicyMigrationReportRequest
 func (b *GroupPolicyMigrationReportRequestBuilder) Request() *GroupPolicyMigrationReportRequest {
 	return &GroupPolicyMigrationReportRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -281,7 +289,8 @@ type GroupPolicyPresentationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns GroupPolicyPresentationRequest
 func (b *GroupPolicyPresentationRequestBuilder) Request() *GroupPolicyPresentationRequest {
 	return &GroupPolicyPresentationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -314,7 +323,8 @@ type GroupPolicyPresentationValueRequestBuilder struct{ BaseRequestBuilder }
 // Request returns GroupPolicyPresentationValueRequest
 func (b *GroupPolicyPresentationValueRequestBuilder) Request() *GroupPolicyPresentationValueRequest {
 	return &GroupPolicyPresentationValueRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -347,7 +357,8 @@ type GroupPolicySettingMappingRequestBuilder struct{ BaseRequestBuilder }
 // Request returns GroupPolicySettingMappingRequest
 func (b *GroupPolicySettingMappingRequestBuilder) Request() *GroupPolicySettingMappingRequest {
 	return &GroupPolicySettingMappingRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -391,7 +402,8 @@ type GroupCollectionEvaluateDynamicMembershipRequest struct{ BaseRequest }
 //
 func (b *GroupCollectionEvaluateDynamicMembershipRequestBuilder) Request() *GroupCollectionEvaluateDynamicMembershipRequest {
 	return &GroupCollectionEvaluateDynamicMembershipRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -418,7 +430,8 @@ type GroupLifecyclePolicyCollectionRenewGroupRequest struct{ BaseRequest }
 //
 func (b *GroupLifecyclePolicyCollectionRenewGroupRequestBuilder) Request() *GroupLifecyclePolicyCollectionRenewGroupRequest {
 	return &GroupLifecyclePolicyCollectionRenewGroupRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -445,7 +458,8 @@ type GroupPolicyMigrationReportCollectionCreateMigrationReportRequest struct{ Ba
 //
 func (b *GroupPolicyMigrationReportCollectionCreateMigrationReportRequestBuilder) Request() *GroupPolicyMigrationReportCollectionCreateMigrationReportRequest {
 	return &GroupPolicyMigrationReportCollectionCreateMigrationReportRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -472,7 +486,8 @@ type GroupValidatePropertiesRequest struct{ BaseRequest }
 //
 func (b *GroupValidatePropertiesRequestBuilder) Request() *GroupValidatePropertiesRequest {
 	return &GroupValidatePropertiesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -498,7 +513,8 @@ type GroupCheckGrantedPermissionsForAppRequest struct{ BaseRequest }
 //
 func (b *GroupCheckGrantedPermissionsForAppRequestBuilder) Request() *GroupCheckGrantedPermissionsForAppRequest {
 	return &GroupCheckGrantedPermissionsForAppRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -585,7 +601,8 @@ type GroupAssignLicenseRequest struct{ BaseRequest }
 //
 func (b *GroupAssignLicenseRequestBuilder) Request() *GroupAssignLicenseRequest {
 	return &GroupAssignLicenseRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -612,7 +629,8 @@ type GroupSubscribeByMailRequest struct{ BaseRequest }
 //
 func (b *GroupSubscribeByMailRequestBuilder) Request() *GroupSubscribeByMailRequest {
 	return &GroupSubscribeByMailRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -638,7 +656,8 @@ type GroupUnsubscribeByMailRequest struct{ BaseRequest }
 //
 func (b *GroupUnsubscribeByMailRequestBuilder) Request() *GroupUnsubscribeByMailRequest {
 	return &GroupUnsubscribeByMailRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -664,7 +683,8 @@ type GroupAddFavoriteRequest struct{ BaseRequest }
 //
 func (b *GroupAddFavoriteRequestBuilder) Request() *GroupAddFavoriteRequest {
 	return &GroupAddFavoriteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -690,7 +710,8 @@ type GroupRemoveFavoriteRequest struct{ BaseRequest }
 //
 func (b *GroupRemoveFavoriteRequestBuilder) Request() *GroupRemoveFavoriteRequest {
 	return &GroupRemoveFavoriteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -716,7 +737,8 @@ type GroupResetUnseenCountRequest struct{ BaseRequest }
 //
 func (b *GroupResetUnseenCountRequestBuilder) Request() *GroupResetUnseenCountRequest {
 	return &GroupResetUnseenCountRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -742,7 +764,8 @@ type GroupRenewRequest struct{ BaseRequest }
 //
 func (b *GroupRenewRequestBuilder) Request() *GroupRenewRequest {
 	return &GroupRenewRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -768,7 +791,8 @@ type GroupEvaluateDynamicMembershipRequest struct{ BaseRequest }
 //
 func (b *GroupEvaluateDynamicMembershipRequestBuilder) Request() *GroupEvaluateDynamicMembershipRequest {
 	return &GroupEvaluateDynamicMembershipRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -795,7 +819,8 @@ type GroupLifecyclePolicyAddGroupRequest struct{ BaseRequest }
 //
 func (b *GroupLifecyclePolicyAddGroupRequestBuilder) Request() *GroupLifecyclePolicyAddGroupRequest {
 	return &GroupLifecyclePolicyAddGroupRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -822,7 +847,8 @@ type GroupLifecyclePolicyRemoveGroupRequest struct{ BaseRequest }
 //
 func (b *GroupLifecyclePolicyRemoveGroupRequestBuilder) Request() *GroupLifecyclePolicyRemoveGroupRequest {
 	return &GroupLifecyclePolicyRemoveGroupRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -849,7 +875,8 @@ type GroupPolicyConfigurationAssignRequest struct{ BaseRequest }
 //
 func (b *GroupPolicyConfigurationAssignRequestBuilder) Request() *GroupPolicyConfigurationAssignRequest {
 	return &GroupPolicyConfigurationAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -936,7 +963,8 @@ type GroupPolicyConfigurationUpdateDefinitionValuesRequest struct{ BaseRequest }
 //
 func (b *GroupPolicyConfigurationUpdateDefinitionValuesRequestBuilder) Request() *GroupPolicyConfigurationUpdateDefinitionValuesRequest {
 	return &GroupPolicyConfigurationUpdateDefinitionValuesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

@@ -10,7 +10,8 @@ type OpenShiftRequestBuilder struct{ BaseRequestBuilder }
 // Request returns OpenShiftRequest
 func (b *OpenShiftRequestBuilder) Request() *OpenShiftRequest {
 	return &OpenShiftRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type OpenShiftChangeRequestObjectRequestBuilder struct{ BaseRequestBuilder }
 // Request returns OpenShiftChangeRequestObjectRequest
 func (b *OpenShiftChangeRequestObjectRequestBuilder) Request() *OpenShiftChangeRequestObjectRequest {
 	return &OpenShiftChangeRequestObjectRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 

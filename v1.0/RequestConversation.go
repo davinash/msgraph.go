@@ -10,7 +10,8 @@ type ConversationRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ConversationRequest
 func (b *ConversationRequestBuilder) Request() *ConversationRequest {
 	return &ConversationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -43,7 +44,8 @@ type ConversationThreadRequestBuilder struct{ BaseRequestBuilder }
 // Request returns ConversationThreadRequest
 func (b *ConversationThreadRequestBuilder) Request() *ConversationThreadRequest {
 	return &ConversationThreadRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
@@ -87,7 +89,8 @@ type ConversationThreadReplyRequest struct{ BaseRequest }
 //
 func (b *ConversationThreadReplyRequestBuilder) Request() *ConversationThreadReplyRequest {
 	return &ConversationThreadReplyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject,
+			tenantID: b.tenantID, applicationID: b.applicationID, clientSecurityKey: b.clientSecurityKey},
 	}
 }
 
