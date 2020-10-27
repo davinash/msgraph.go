@@ -7,11 +7,11 @@ import (
 	"log"
 	"os"
 
+	msgraph "github.com/davinash/msgraph.go/beta"
+	"github.com/davinash/msgraph.go/jsonx"
+	"github.com/davinash/msgraph.go/msauth"
+	P "github.com/davinash/msgraph.go/ptr"
 	"github.com/google/uuid"
-	msgraph "github.com/yaegashi/msgraph.go/beta"
-	"github.com/yaegashi/msgraph.go/jsonx"
-	"github.com/yaegashi/msgraph.go/msauth"
-	P "github.com/yaegashi/msgraph.go/ptr"
 	"golang.org/x/oauth2"
 )
 

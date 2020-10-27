@@ -8,7 +8,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/yaegashi/msgraph.go/jsonx"
+	"github.com/davinash/msgraph.go/jsonx"
 )
 
 // CalendarRequestBuilder is request builder for Calendar

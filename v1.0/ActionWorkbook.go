@@ -9,7 +9,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/yaegashi/msgraph.go/jsonx"
+	"github.com/davinash/msgraph.go/jsonx"
 )
 
 // WorkbookChartCollectionAddRequestParameter undocumented
