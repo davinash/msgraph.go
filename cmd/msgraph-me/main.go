@@ -49,7 +49,7 @@ func main() {
 	m.SaveFile(tokenCachePath)
 
 	httpClient := oauth2.NewClient(ctx, ts)
-	graphClient := msgraph.NewClient(httpClient)
+	graphClient := msgraph.NewClient(httpClient, "", "", "")
 
 	{
 		log.Printf("Get current logged in user information")
